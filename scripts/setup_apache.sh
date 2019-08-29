@@ -5,7 +5,7 @@ set -u
 set -o pipefail
 
 INSTALL_ROOT=/srv/buyo
-. ${INSTALL_ROOT}/scripts/lib/link.shlib
+. ${INSTALL_ROOT}/scripts/libs/link.shlib
 
 # make sure we have the latest version of the buyo framework checked out
 cd ${INSTALL_ROOT}
