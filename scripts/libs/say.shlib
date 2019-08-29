@@ -5,5 +5,9 @@ set -u
 set -o pipefail
 
 function say {
-  echo -e "$@\n"
+  echo -e "$@"
+}
+
+function print {
+  echo -e -n "$@"
 }
