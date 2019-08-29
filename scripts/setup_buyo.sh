@@ -21,7 +21,7 @@ git pull
 # ensure our dependent packages are installed
 if [[ ${operatingsystem} == "opensuse" ]]; then
   zyp_install_pkgs
-elsif [[ ${operatingsystem} == "debian" ]]; then
+elif [[ ${operatingsystem} == "debian" ]]; then
   apt_install_pkgs ${INSTALL_ROOT}
 fi
 
