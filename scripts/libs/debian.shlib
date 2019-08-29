@@ -4,8 +4,17 @@ set -e
 set -u
 set -o pipefail
 
+function install_jq {
+  if [[ ! -x /usr/bin/jq ]]; then
+    apt install jq
+  fi
+}
+
 function apt_install_pkgs {
   local install_root=${1}
+
+  # ensure jq is installed
+  install_jq
 
   for PKG in $(jq -r . ${install_root}/scripts/data/debian.json); do
     echo "INSTALLING $PKG"
