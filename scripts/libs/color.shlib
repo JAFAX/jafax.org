@@ -1,0 +1,58 @@
+#!/bin/bash
+
+set -e
+set -u
+set -o pipefail
+
+# Formating
+NORMAL="\e[0m"
+BRIGHT="\e[1m"
+DIM="\e[2m"
+UNDERL="\e[4m"
+BLINK="\e[5m"
+INVERT="\e[7m"
+HIDDEN="\e[8m"
+RESET_BOLD="\e[21m"
+RESET_DIM="\e[22m"
+RESET_UNDERL="\e[24m"
+RESET_BLINK="\e[25m"
+RESET_INVERT="\e[27m"
+RESET_HIDDEN="\e[28m"
+
+# foreground colors
+FG_DEFAULT="\e[39m"
+FG_BLACK="\e[30m"
+FG_RED="\e[31m"
+FG_GREEN="\e[32m"
+FG_YELLOW="\e[33m"
+FG_BLUE="\e[34m"
+FG_MAGENTA="\e[35m"
+FG_CYAN="\e[36m"
+FG_L_GREY="\e[37m"
+FG_D_GREY="\e[90m"
+FG_L_RED="\e[91m"
+FG_L_GREEN="\e[92m"
+FG_L_YELLOW="\e[93m"
+FG_L_BLUE="\e[94m"
+FG_L_MAGENTA="\e[95m"
+FG_L_CYAN="\e[96m"
+FG_WHITE="\e[97m"
+
+# background colors
+BG_DEFAULT="\e[49m"
+BG_BLACK="\e[40m"
+BG_RED="\e[41m"
+BG_GREEN="\e[42m"
+BG_YELLOW="\e[43m"
+BG_BLUE="\e[44m"
+BG_MAGENTA="\e[45m"
+BG_CYAN="\e[46m"
+BG_L_GREY="\e[47m"
+BG_D_GREY="\e[100m"
+BG_L_RED="\e[101m"
+BG_L_GREEN="\e[102m"
+BG_L_YELLOW="\e[103m"
+BG_L_BLUE="\e[104m"
+BG_L_MAGENTA="\e[105m"
+BG_L_CYAN="\e[106m"
+BG_WHITE="\e[107m"

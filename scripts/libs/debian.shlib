@@ -4,6 +4,10 @@ set -e
 set -u
 set -o pipefail
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+. ${DIR}/say.shlib
+. ${DIR}/color.shlib
+
 function install_jq {
   if [[ ! -x /usr/bin/jq ]]; then
     apt install jq
@@ -17,7 +21,7 @@ function apt_install_pkgs {
   install_jq
 
   for PKG in $(jq -r '.debian.pkgs | .[]' ${install_root}/scripts/data/pkgs.json); do
-    echo "INSTALLING $PKG"
+    say "${FG_L_GREEN}INSTALLING $PKG${NORMAL}"
     apt install $PKG
   done
 }
