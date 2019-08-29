@@ -5,7 +5,7 @@ set -u
 set -o pipefail
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-. ${DIR}/libs/get_os.shlib
+. ${DIR}/libs/os.shlib
 . ${DIR}/libs/opensuse.shlib
 . ${DIR}/libs/debian.shlib
 . ${DIR}/libs/link.shlib

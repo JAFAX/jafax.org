@@ -8,7 +8,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 DATA="$DIR/../data"
 . ${DIR}/libs/color.shlib
 . ${DIR}/libs/say.shlib
-. ${DIR}/libs/get_os.shlib
+. ${DIR}/libs/os.shlib
 . ${DIR}/libs/debian.shlib
 . ${DIR}/libs/opensuse.shlib
 

@@ -4,9 +4,9 @@ set -e
 set -u
 set -o pipefail
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-. ${DIR}/say.shlib
-. ${DIR}/color.shlib
+MODULE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+. ${MODULE_DIR}/say.shlib
+. ${MODULE_DIR}/color.shlib
 
 function softlink {
   local object=${1}
