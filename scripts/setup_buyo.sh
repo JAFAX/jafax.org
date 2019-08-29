@@ -32,5 +32,5 @@ softlink ${INSTALL_ROOT}/systemd/buyo.service /etc/systemd/system/buyo.service
 # enable our service
 systemctl daemon-reload
 systemctl enable buyo.service
-systemctl load buyo.service
+systemctl start buyo.service
 
