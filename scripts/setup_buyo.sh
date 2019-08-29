@@ -4,12 +4,12 @@ set -e
 set -u
 set -o pipefail
 
+INSTALL_ROOT=/srv/buyo
+
 # load our functions
 . ${INSTALL_ROOT}/scripts/libs/get_os.shlib
 . ${INSTALL_ROOT}/scripts/libs/opensuse.shlib
 . ${INSTALL_ROOT}/scripts/libs/debian.shlib
-
-INSTALL_ROOT=/srv/buyo
 
 # which OS are we on?
 operatingsystem=$(get_os_name)
@@ -22,7 +22,7 @@ git pull
 if [[ ${operatingsystem} == "opensuse" ]]; then
   zyp_install_pkgs
 elsif [[ ${operatingsystem} == "debian" ]]; then
-  apt_install_pkgs
+  apt_install_pkgs ${INSTALL_ROOT}
 fi
 
 # link our systemd service unit into place
