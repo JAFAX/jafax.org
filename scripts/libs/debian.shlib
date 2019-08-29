@@ -16,7 +16,7 @@ function apt_install_pkgs {
   # ensure jq is installed
   install_jq
 
-  for PKG in $(jq -r .debian.pkgs ${install_root}/scripts/data/pkgs.json); do
+  for PKG in $(jq -r '.debian.pkgs | .[]' ${install_root}/scripts/data/pkgs.json); do
     echo "INSTALLING $PKG"
   done
 }
