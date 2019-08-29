@@ -4,8 +4,11 @@ set -e
 set -u
 set -o pipefail
 
-INSTALL_ROOT=/srv/buyo
-. ${INSTALL_ROOT}/scripts/libs/link.shlib
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+. ${DIR}/libs/link.shlib
+
+cd ${DIR}/..
+INSTALL_ROOT=$(pwd)
 
 # make sure we have the latest version of the buyo framework checked out
 cd ${INSTALL_ROOT}
@@ -22,4 +25,3 @@ done
 # enable apache and turn it on
 systemctl enable apache2.service
 systemctl start apache2.service
-

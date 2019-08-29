@@ -4,13 +4,14 @@ set -e
 set -u
 set -o pipefail
 
-INSTALL_ROOT=/srv/buyo
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+. ${DIR}/libs/get_os.shlib
+. ${DIR}/libs/opensuse.shlib
+. ${DIR}/libs/debian.shlib
+. ${DIR}/libs/link.shlib
 
-# load our functions
-. ${INSTALL_ROOT}/scripts/libs/get_os.shlib
-. ${INSTALL_ROOT}/scripts/libs/opensuse.shlib
-. ${INSTALL_ROOT}/scripts/libs/debian.shlib
-. ${INSTALL_ROOT}/scripts/libs/link.shlib
+cd ${DIR}/..
+INSTALL_ROOT=$(pwd)
 
 # which OS are we on?
 operatingsystem=$(get_os_name)
