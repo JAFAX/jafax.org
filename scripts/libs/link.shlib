@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+set -u
+set -o pipefail
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+. ${DIR}/say.shlib
+. ${DIR}/color.shlib
+
+function softlink {
+  local object=${1}
+  local target=${2}
+
+  print "${FG_L_CYAN}Checking if target exists:${NORMAL} "
+  if [[ -l ${target} ]]; then
+    say "${FG_L_GREEN}EXISTS${NORMAL}"
+    say "Not creating link"
+  else
+    say "${FG_L_RED}DOES NOT EXIST${NORMAL}"
+    say "Creating link from $object to $target"
+    ln -sv $object $target
+  fi
+}

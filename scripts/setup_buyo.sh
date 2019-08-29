@@ -10,6 +10,7 @@ INSTALL_ROOT=/srv/buyo
 . ${INSTALL_ROOT}/scripts/libs/get_os.shlib
 . ${INSTALL_ROOT}/scripts/libs/opensuse.shlib
 . ${INSTALL_ROOT}/scripts/libs/debian.shlib
+. ${INSTALL_ROOT}/scripts/libs/link.shlib
 
 # which OS are we on?
 operatingsystem=$(get_os_name)
@@ -26,7 +27,7 @@ elif [[ ${operatingsystem} == "debian" ]]; then
 fi
 
 # link our systemd service unit into place
-ln -s ${INSTALL_ROOT}/systemd/buyo.service /etc/systemd/system/buyo.service
+softlink ${INSTALL_ROOT}/systemd/buyo.service /etc/systemd/system/buyo.service
 
 # enable our service
 systemctl daemon-reload
