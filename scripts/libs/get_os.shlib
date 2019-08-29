@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+set -u
+set -o pipefail
+
+function get_os_name {
+  cat /etc/os-release | grep ID_LIKE | cut -d'=' -f2 | sed s/\"//g | awk '{ print tolower($1) }'
+}

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+set -u
+set -o pipefail
+
+function apt_install_pkgs {
+  local install_root=${1}
+
+  for PKG in $(jq -r . ${install_root}/scripts/data/debian.json); do
+    echo "INSTALLING $PKG"
+  done
+}
