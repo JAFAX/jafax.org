@@ -36,7 +36,8 @@
       "libcrypt-urandom-perl",
       "libcpanel-json-xs-perl",
       "libmath-random-isaac-xs-perl",
-      "libtype-tiny-xs-perl"
+      "libtype-tiny-xs-perl",
+      "libdancer2-perl"
     ]
   }
 }

@@ -18,5 +18,6 @@ function apt_install_pkgs {
 
   for PKG in $(jq -r '.debian.pkgs | .[]' ${install_root}/scripts/data/pkgs.json); do
     echo "INSTALLING $PKG"
+    apt install $PKG
   done
 }
