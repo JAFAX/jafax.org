@@ -37,7 +37,10 @@
       "libcpanel-json-xs-perl",
       "libmath-random-isaac-xs-perl",
       "libtype-tiny-xs-perl",
-      "libdancer2-perl"
+      "libdancer2-perl",
+      "libboolean-perl",
+      "libjson-perl",
+      "libjson-xs-perl"
     ]
   }
 }

@@ -35,7 +35,7 @@ my @posters;
 my $json_txt;
 {
     local $INPUT_RECORD_SEPARATOR;
-    open my $fh, '<', 'api.json' or
+    open my $fh, '<', "$appdir/api.json" or
       croak "Unable to open api.json";
     $json_txt = <$fh>;
     close $fh;
