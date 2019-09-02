@@ -55,8 +55,9 @@ template: "simple"
 #      is_http_only: 1
 
 # debugging
-startup_info: true
-traces: true
+show_errors: 1
+startup_info: 1
+traces: 1
 logger: Console
 
 engines:
