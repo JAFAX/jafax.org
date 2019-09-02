@@ -4,6 +4,9 @@
 
 # Your application's name
 appname: "buyo"
+port: 5000
+host: localhost
+behind_proxy: 1
 
 # The default layout to use for your application (located in
 # views/layouts/main.tt)
@@ -50,3 +53,14 @@ template: "simple"
 #      cookie_name: eshop.session
 #      is_secure: 1
 #      is_http_only: 1
+
+# debugging
+startup_info: true
+traces: true
+logger: Console
+
+engines:
+  logger:
+    Console:
+      log_level: core
+
