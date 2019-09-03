@@ -1,5 +1,5 @@
     <head>
-        <title>WhoTools - [% page_title %]</title>
+        <title>[% site_name %] - [% page_title %]</title>
         <link rev="made" href="mailto:greeneg%40tolharadys.net" />
         <base href="<% webroot %>" />
         <meta name="copyright" content="[% copyright %]" />
