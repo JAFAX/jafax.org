@@ -18,8 +18,6 @@ use Data::Dumper;
 use FindBin;
 use lib "$FindBin::Bin/../lib";
 
-use Dancer2::Swagger;
-
 use Buyo::Constants;
 use Buyo::Utils;
 
@@ -67,8 +65,6 @@ my %app_config = (
     'appdir' => config->{appdir},
     'debug'  => $DEBUG
 );
-
-my $swagger = Dancer2::Swagger->new($DEBUG);
 
 my @getters;
 my @posters;
