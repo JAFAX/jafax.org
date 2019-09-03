@@ -1,0 +1,41 @@
+    <head>
+        <title>WhoTools - [% page_title %]</title>
+        <link rev="made" href="mailto:greeneg%40tolharadys.net" />
+        <base href="<% webroot %>" />
+        <meta name="copyright" content="[% copyright %]" />
+        <meta name="license"   content="[% license %]" />
+        <link href="<% webroot %>/favicon.ico" rel="shortcut icon" />
+        <link rel="stylesheet" type="text/css" href="[% webroot %]/css/hrs.css" />
+        <link rel="stylesheet" type="text/css" href="[% webroot %]/js/tabpane/css/tab.webfx.css" />
+        <link rel="stylesheet" type="text/css" href="[% webroot %]/js/cropbox-master/javascript/style.css" />
+        <style>
+            .img_cropbox_container {
+                position: inherit;
+                margin: 0;
+                align: left;
+                height: 440px;
+                width: 410px;
+                top: 3%; left: 10%;
+            }
+            .action {
+                width: 400px;
+                height: 30px;
+                margin: 10px 0;
+            }
+            .cropped>img {
+                position: inherit;
+                float: right;
+                width: 200px;
+                height: 200px;
+                margin: 10px;
+            }
+            div.cropped {
+                float: right;
+                width: 210px;
+                margin: 10px;
+            }
+        </style>
+        <script type="text/javascript" src="[% webroot %]/js/tabpane/js/tabpane.js"></script>
+        <script type="text/javascript" src="[% webroot %]/js/who.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    </head>
