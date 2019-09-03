@@ -8,6 +8,9 @@ port: 5000
 host: localhost
 behind_proxy: 1
 
+logger: file
+log: core
+
 # The default layout to use for your application (located in
 # views/layouts/main.tt)
 layout: "main"
@@ -55,13 +58,7 @@ template: "simple"
 #      is_http_only: 1
 
 # debugging
+warnings: 1
 show_errors: 1
 startup_info: 1
 traces: 1
-logger: Console
-
-engines:
-  logger:
-    Console:
-      log_level: core
-
