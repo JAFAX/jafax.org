@@ -29,7 +29,7 @@ BEGIN {
 
 use Buyo;
 use Plack::Builder;
-use Buyo::Utils qw(:All);
+use Buyo::Utils qw(err_log);
 use Buyo::Constants;
 
 our $VERSION = $Buyo::Constants::version;
@@ -47,11 +47,9 @@ sub main {
     }
     err_log('== DEBUGGING ==: MOUNTING PLACK::BUILDER ENDPOINTS') if $DEBUG;
 
-    builder {
+    return builder {
         mount '/'         => Buyo->to_app;
     };
-
-    return true;
 }
 
 main();
