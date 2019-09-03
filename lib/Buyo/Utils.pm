@@ -28,31 +28,26 @@ use warnings;
 use English qw(-no_match_vars);
 use utf8;
 
+use feature qw(
+    say
+);
+
 use boolean qw(:all);
 use base qw(Exporter);
+use Carp;
+use Data::Dumper;
 
 BEGIN {
-    use Exporter ();
-
-    our ($VERSION, @EXPORT, @EXPORT_OK, %EXPORT_TAGS);
+    use Exporter;
+    our ($VERSION, @EXPORT, @EXPORT_OK);
 
     # set the version for version checking
     $VERSION     = '0.1';
-    @EXPORT      = qw();
-    %EXPORT_TAGS = (
-        All => [
-            qw(
-                err_log
-            )
-        ]
-    );     # eg: TAG => [ qw!name1 name2! ],
-
-    # your exported package globals go here,
-    # as well as any optionally exported functions
-    @EXPORT_OK   = qw(err_log);
+    @EXPORT      = qw(
+        err_log
+    );
+    @EXPORT_OK   = qw();
 }
-
-our @EXPORT_OK;
 
 sub err_log {
     return print {*STDERR} "@_\n";
