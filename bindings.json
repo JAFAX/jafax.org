@@ -58,7 +58,6 @@
             }
         },
         "/events/cosplay": {
-            "/events/cosplay": {
             "get": {
                 "summary": "Cosplay Events at JAFAX",
                 "template": "cosplay.tt",
