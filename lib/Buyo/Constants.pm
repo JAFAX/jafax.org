@@ -16,11 +16,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License. 
-#
-# $Rev: 84 $
-# $Author: greeneg $
-# $Date: 2016-08-17 17:56:52 -0400 (Wed, 17 Aug 2016) $
-
 
 package Buyo::Constants;
 
