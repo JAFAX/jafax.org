@@ -59,7 +59,7 @@ sub get_json {
 }
 
 sub register_get_routes {
-    my ($app_config, $config, @paths) = @_;
+    my ($config, $bindings, @paths) = @_;
 
     my $sub = (caller(0))[3];
     err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
@@ -76,7 +76,7 @@ sub register_get_routes {
 }
 
 sub register_post_routes {
-    my ($app_config, $config, @paths) = @_;
+    my ($config, $bindings, @paths) = @_;
 
     my $sub = (caller(0))[3];
     err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
