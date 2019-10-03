@@ -1,0 +1,355 @@
+{
+    "binding_version": "2.0",
+    "info": {
+        "title": "JAFAX",
+        "version": "unknown"
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "summary": "Home page - JAFAX",
+                "template": "index",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/register": {
+            "get": {
+                "summary": "Registration",
+                "template": "registration",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Submit Registration",
+                "responses": {
+                    "201": {
+                        "description": "201 response"
+                    }
+                }
+            }
+        },
+        "/events": {
+            "get": {
+                "summary": "Events at JAFAX",
+                "template": "events",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/events/artists": {
+            "get": {
+                "summary": "Artists at JAFAX",
+                "template": "artists",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/events/cosplay": {
+            "get": {
+                "summary": "Cosplay Events at JAFAX",
+                "template": "cosplay",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/events/culture": {
+            "get": {
+                "summary": "Japanese Cultural Events at JAFAX",
+                "template": "culture",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/events/gaming": {
+            "get": {
+                "summary": "Board, Tabletop, and Video Gaming at JAFAX",
+                "template": "gaming",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/events/maid_cafe": {
+            "get": {
+                "summary": "Maid Caf#%233; at JAFAX",
+                "template": "maid_cafe",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/events/media": {
+            "get": {
+                "summary": "Anime and Monga at JAFAX",
+                "template": "media",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/events/media/amv_contest": {
+            "get": {
+                "summary": "AMV Contest at JAFAX",
+                "template": "amv_contest",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/events/media/anime": {
+            "get": {
+                "summary": "Anime Screenings at JAFAX",
+                "template": "screenings",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/events/media/manga": {
+            "get": {
+                "summary": "Manga Library at JAFAX",
+                "template": "manga_library",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/events/music": {
+            "get": {
+                "summary": "Music Events at JAFAX",
+                "template": "music",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/events/panels": {
+            "get": {
+                "summary": "Panels at JAFAX",
+                "template": "panels",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/events/schedule": {
+            "get": {
+                "summary": "Event Schedule at JAFAX",
+                "template": "schedule",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/events/vendors": {
+            "get": {
+                "summary": "Vendors at JAFAX",
+                "template": "vendors",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/guests": {
+            "get": {
+                "summary": "VIPs and Guests at JAFAX",
+                "template": "guests",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/location": {
+            "get": {
+                "summary": "The Location of JAFAX",
+                "template": "location",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/location/hotel": {
+            "get": {
+                "summary": "The Hotel of JAFAX",
+                "template": "hotel",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/location/venue": {
+            "get": {
+                "summary": "The Venue of JAFAX",
+                "template": "venue",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/news": {
+            "get": {
+                "summary": "News and Announcements",
+                "template": "news",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/contact": {
+            "get": {
+                "summary": "Volunteer or Contact Us",
+                "template": "contact",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/volunteer": {
+            "get": {
+                "summary": "Volunteer at JAFAX",
+                "template": "volunteer",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/policies": {
+            "get": {
+                "summary": "Event Policies at JAFAX",
+                "template": "policies",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/policies/rules": {
+            "get": {
+                "summary": "Attendee Rules at JAFAX",
+                "template": "rules",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/policies/privacy": {
+            "get": {
+                "summary": "Privacy Policy at JAFAX",
+                "template": "privacy",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/policies/inclusion": {
+            "get": {
+                "summary": "Inclusion Policy at JAFAX",
+                "template": "inclusion",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/policies/nonprofit": {
+            "get": {
+                "summary": "Non-Profit Organization Bylaws of JAFAX",
+                "template": "bylaws",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/admin": {
+            "get": {
+                "summary": "Admin Panel",
+                "template": "admin_panel",
+                "responses": { 
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "get": {
+                "summary": "Login - JAFAX",
+                "template": "login",
+                "responses": {
+                    "200": {
+                        "description":"200 response"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Login Action",
+                "responses": {
+                    "200": {
+                        "description":"200 response"
+                    }
+                }
+            }
+        }
+    }
+}

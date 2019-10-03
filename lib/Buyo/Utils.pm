@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 #
 # Author: Gary Greene <greeneg@tolharadys.net>
-# Copyright: 2019 YggdrasilSoft, LLC. All Rights Reserved
+# Copyright: 2019 JAFAX, Inc. All Rights Reserved
 #
 ##########################################################################
 #
@@ -10,16 +10,12 @@
 # You may obtain a copy of the License at
 #
 #    http://www.apache.org/licenses/LICENSE-2.0
-#    
+#
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
-# limitations under the License. 
-#
-# $Rev: 84 $
-# $Author: greeneg $
-# $Date: 2016-08-17 17:56:52 -0400 (Wed, 17 Aug 2016) $
+# limitations under the License.
 
 package Buyo::Utils;
 

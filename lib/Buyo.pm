@@ -1,3 +1,21 @@
+#
+# Author: Gary Greene <greeneg@tolharadys.net>
+# Copyright: 2019 JAFAX, Inc. All Rights Reserved
+#
+##########################################################################
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 package Buyo;
 
 use strict;
@@ -10,7 +28,8 @@ use feature qw(
 );
 
 use boolean qw(:all);
-use Carp;
+use CGI::Carp qw(carp fatalsToBrowser);
+use Config::IniFiles;
 use Dancer2;
 use JSON qw();
 use Data::Dumper;
@@ -20,6 +39,24 @@ use lib "$FindBin::Bin/../lib";
 
 use Buyo::Constants;
 use Buyo::Utils;
+
+sub load_config {
+    my $sub = (caller(0))[3];
+    my $appdir = shift;
+
+    my $config = Config::IniFiles->new(-file => "$appdir/conf.d/config.ini",
+                                       -allowcontinue => 1) or
+                    carp("== ERROR ==: $sub: Could not read configuration: $OS_ERROR\n");
+
+    my %configuration = ();
+
+    $configuration{'webroot'}         = $config->val('Web', 'webpath');
+    $configuration{'session_support'} = $config->val('Web', 'session_support', 0);
+    $configuration{'etcd_user'}       = $config->val('etcd', 'user');
+    $configuration{'etcd_password'}   = $config->val('etcd', 'pass');
+
+    return %configuration;
+}
 
 sub get_json {
     my ($config, $json_file) = @_;
@@ -40,50 +77,85 @@ sub get_json {
 }
 
 sub register_get_routes {
-    my ($config, @paths) = @_;
+    my ($config, $bindings, @paths) = @_;
+
+    # un-reference to make easier to work with
+    my %bindings = %$bindings;
 
     my $sub = (caller(0))[3];
     err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
     foreach my $path (@paths) {
+        my $template = $bindings{$path}->{'get'}->{'template'};
         err_log("== DEBUGGING ==: Registering GET action for path $path") if $config->{'debug'};
+        err_log("== DEBUGGING ==: Using template $template for path $path") if $config->{'debug'};
         get "$path" => sub {
             err_log("== DEBUGGING ==: Triggering GET action for path $path") if $config->{'debug'};
-            template "index";
+            template $template;
         };
     }
 
     return true;
 }
 
-my $VERSION = $Buyo::Constants::version;
-my $DEBUG   = true;
+sub register_post_routes {
+    my ($config, $bindings, @paths) = @_;
 
-set traces  => 1;
+    my $sub = (caller(0))[3];
+    err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
-my %app_config = (
-    'appdir' => config->{appdir},
-    'debug'  => $DEBUG
-);
+    foreach my $path (@paths) {
+        err_log("== DEBUGGING ==: Registering POST action for path $path") if $config->{'debug'};
+        post "$path" => sub {
+            err_log("== DEBUGGING ==: Triggering POST action for path $path") if $config->{'debug'};
 
-my @getters;
-my @posters;
-
-my $json_txt = get_json(\%app_config, 'api.json');
-my $json = JSON->new();
-my $data = $json->decode($json_txt);
-my %paths = %{$data->{'paths'}};
-err_log('== DEBUGGING ==: Loading site endpoints from JSON:') if $DEBUG;
-foreach my $path (keys %paths) {
-    err_log("== DEBUGGING ==: FOUND KEY: $path") if $DEBUG;
-    if (exists $paths{$path}->{'get'}) {
-        push @getters, $path;
+        };
     }
-    if (exists $paths{$path}->{'post'}) {
-        push @posters, $path;
-    }
+
+    return true;
 }
 
-register_get_routes(\%app_config, @getters);
+sub main {
+    my $VERSION = $Buyo::Constants::version;
+    my $DEBUG   = true;
+
+    set traces  => 1;
+
+    my %configuration = load_config(config->{appdir});
+
+    my %app_config = (
+        'appdir'  => config->{appdir},
+        'debug'   => $DEBUG,
+        'configuration' => \%configuration
+    );
+
+    my $sub = (caller(0))[3];
+    err_log("== DEBUGGING ==: Sub $sub") if $app_config{'debug'};
+
+    my @getters;
+    my @posters;
+
+    my $json_txt = get_json(\%app_config, 'bindings.json');
+    my $json = JSON->new();
+    my $data = $json->decode($json_txt);
+    my %paths = %{$data->{'paths'}};
+    err_log('== DEBUGGING ==: Loading site endpoints from JSON:') if $DEBUG;
+    foreach my $path (keys %paths) {
+        err_log("== DEBUGGING ==: FOUND KEY: $path") if $DEBUG;
+        if (exists $paths{$path}->{'get'}) {
+            push @getters, $path;
+        }
+        if (exists $paths{$path}->{'post'}) {
+            push @posters, $path;
+        }
+    }
+
+    register_get_routes(\%app_config, \%paths, @getters);
+    register_post_routes(\%app_config, \%paths, @posters);
+
+    return true;
+}
+
+main();
 
 true;
