@@ -91,7 +91,9 @@ sub register_get_routes {
         err_log("== DEBUGGING ==: Using template $template for path $path") if $config->{'debug'};
         get "$path" => sub {
             err_log("== DEBUGGING ==: Triggering GET action for path $path") if $config->{'debug'};
-            template $template;
+            template $template, {
+                'webroot' => $config->{'webroot'}
+            };
         };
     }
 
