@@ -19,37 +19,12 @@
         <link rel="icon" type="image/png" href="[% webroot %]/images/favicon/favicon-16x16.png" sizes="16x16" />
         <link rel="icon" type="image/png" href="[% webroot %]/images/favicon/favicon-128.png" sizes="128x128" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<!--        <link rel="stylesheet" type="text/css" href="[% webroot %]/css/hrs.css" />
-        <link rel="stylesheet" type="text/css" href="[% webroot %]/js/tabpane/css/tab.webfx.css" />
-        <link rel="stylesheet" type="text/css" href="[% webroot %]/js/cropbox-master/javascript/style.css" />
-        <style>
-            .img_cropbox_container {
-                position: inherit;
-                margin: 0;
-                align: left;
-                height: 440px;
-                width: 410px;
-                top: 3%; left: 10%;
-            }
-            .action {
-                width: 400px;
-                height: 30px;
-                margin: 10px 0;
-            }
-            .cropped>img {
-                position: inherit;
-                float: right;
-                width: 200px;
-                height: 200px;
-                margin: 10px;
-            }
-            div.cropped {
-                float: right;
-                width: 210px;
-                margin: 10px;
-            }
-        </style>
-        <script type="text/javascript" src="[% webroot %]/js/tabpane/js/tabpane.js"></script>
-        <script type="text/javascript" src="[% webroot %]/js/who.js"></script> -->
+        <link rel="stylesheet" href="[% webroot %]/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="[% webroot %]/fonts/ionicons.min.css">
+        <link rel="stylesheet" href="[% webroot %]/css/Article-List.css">
+        <link rel="stylesheet" href="[% webroot %]/css/Footer-Dark.css">
+        <link rel="stylesheet" href="[% webroot %]/css/Navigation-Clean.css">
+        <link rel="stylesheet" href="[% webroot %]/css/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     </head>
