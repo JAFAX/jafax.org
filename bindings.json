@@ -92,7 +92,7 @@
         },
         "/events/maid_cafe": {
             "get": {
-                "summary": "Maid Caf#%233; at JAFAX",
+                "summary": "Maid Caf&eacute; at JAFAX",
                 "template": "maid_cafe",
                 "responses": {
                     "200": {
