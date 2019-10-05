@@ -16,7 +16,7 @@
                 }
             }
         },
-        "/register": {
+        "/registration": {
             "get": {
                 "summary": "Registration",
                 "template": "registration",
@@ -310,7 +310,7 @@
                 }
             }
         },
-        "/policies/nonprofit": {
+        "/policies/bylaws": {
             "get": {
                 "summary": "Non-Profit Organization Bylaws of JAFAX",
                 "template": "bylaws",

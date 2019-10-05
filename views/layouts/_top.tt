@@ -11,45 +11,48 @@
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item active" role="presentation">
-                            <a class="nav-link" href="/">Home</a>
+                            <a class="nav-link" href="[% webroot %]/">Home</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="#">News</a>
+                            <a class="nav-link" href="[% webroot %]/registration">Registration</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="#">Guests</a>
+                            <a class="nav-link" href="[% webroot %]/news">News</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="[% webroot %]/guests">Guests</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Events</a>
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="[% webroot %]/events">Events</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Artists</a></li>
-                                <li><a class="dropdown-item" href="#">Cosplay</a></li>
-                                <li><a class="dropdown-item" href="#">Culture</a></li>
-                                <li><a class="dropdown-item" href="#">Gaming</a></li>
-                                <li><a class="dropdown-item" href="#">Maid Caf&eacute;</a></li>
+                                <li><a class="dropdown-item" href="[% webroot %]/events/artists">Artists</a></li>
+                                <li><a class="dropdown-item" href="[% webroot %]/events/cosplay">Cosplay</a></li>
+                                <li><a class="dropdown-item" href="[% webroot %]/events/culture">Culture</a></li>
+                                <li><a class="dropdown-item" href="[% webroot %]/events/gaming">Gaming</a></li>
+                                <li><a class="dropdown-item" href="[% webroot %]/events/maid_cafe">Maid Caf&eacute;</a></li>
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="#">Anime and Manga</a>
+                                    <a class="dropdown-item dropdown-toggle" href="[% webroot %]/events/media">Anime and Manga</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">AMV Contest</a></li>
-                                        <li><a class="dropdown-item" href="#">Anime Screenings</a></li>
-                                        <li><a class="dropdown-item" href="#">Manga Library</a></li>
+                                        <li><a class="dropdown-item" href="[% webroot %]/events/media/amv_contest">AMV Contest</a></li>
+                                        <li><a class="dropdown-item" href="[% webroot %]/events/media/anime">Anime Screenings</a></li>
+                                        <li><a class="dropdown-item" href="[% webroot %]/events/media/manga">Manga Library</a></li>
                                     </ul>
                                 </li>
-                                <li><a class="dropdown-item" role="presentation" href="#">Musical Events</a></li>
-                                <li><a class="dropdown-item" role="presentation" href="#">Panels</a></li>
-                                <li><a class="dropdown-item" role="presentation" href="#">Schedule</a></li>
-                                <li><a class="dropdown-item" role="presentation" href="#">Vendors</a></li>
+                                <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/music">Musical Events</a></li>
+                                <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/panels">Panels</a></li>
+                                <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/schedule">Schedule</a></li>
+                                <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/vendors">Vendors</a></li>
                             </ul>
                         </li>
                         <li class="dropdown nav-item">
-                            <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Location</a>
+                            <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/location">Location</a>
                             <div class="dropdown-menu" role="menu">
-                                <a class="dropdown-item" role="presentation" href="#">Hotel</a>
-                                <a class="dropdown-item" role="presentation" href="#">Venue</a>
+                                <a class="dropdown-item" role="presentation" href="[% webroot %]/location/hotel">Hotel</a>
+                                <a class="dropdown-item" role="presentation" href="[% webroot %]/location/venue">Venue</a>
                             </div>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="#">Contact Us</li>
+                            <a class="nav-link" href="[% webroot %]/contact">Contact Us</a>
                         </li>
                     </ul>
                 </div>

@@ -6,11 +6,11 @@
                         <div class="col item">
                             <h3>Policies</h3>
                             <ul>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Inclusion Policy</a></li>
-                                <li><a href="#">Convention Rules</a></li>
-                                <li><a href="#">NPO Bylaws</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="[% webroot %]/policies/privacy">Privacy Policy</a></li>
+                                <li><a href="[% webroot %]/policies/inclusion">Inclusion Policy</a></li>
+                                <li><a href="[% webroot %]/policies/rules">Convention Rules</a></li>
+                                <li><a href="[% webroot %]/policies/bylaws">NPO Bylaws</a></li>
+                                <li><a href="[% webroot %]/contact">Contact Us</a></li>
                             </ul>
                         </div>
                         <div class="col-6 item text">
@@ -34,7 +34,8 @@
                         </div>
                     </div>
                 </div>
-                <p class="copyright">JAFAX, Inc. All Rights Reserved ©2019</p>
+                <p class="copyright">JAFAX, Inc., ©2019<br />
+                The software running this site is open source. Collaborate with us on <a href="https://github.com/greeneg/jafax.org">GitHub</a>!</p>
             </footer>
         </div>
         <script>
@@ -66,6 +67,9 @@
             }, false);
         </script>
         <!--scripts loaded here-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <script>
             $('.dropdown-submenu > a').on("click", function(e) {
                 var submenu = $(this);
@@ -79,8 +83,5 @@
                 $('.dropdown-menu.show').removeClass('show');
             });
         </script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     </body>
 </html>
