@@ -26,7 +26,30 @@
                 "Registration": {
                     "title": "Registration",
                     "link": "/registration",
-                    "children": null
+                    "children": {
+                        "order": [
+                            "Attendee",
+                            "Artists",
+                            "Vendors"
+                        ],
+                        "items": {
+                            "Attendee": {
+                                "title": "Attendee Registration",
+                                "link": "/registration/attendee",
+                                "children": null
+                            },
+                            "Artists": {
+                                "title": "Artist Registration",
+                                "link": "/registration/artists",
+                                "children": null
+                            },
+                            "Vendors": {
+                                "title": "Vendor Registration",
+                                "link": "/registration/vendors",
+                                "children": null
+                            }
+                        }
+                    }
                 },
                 "News": {
                     "title": "News",
@@ -178,12 +201,37 @@
                         "description": "200 response"
                     }
                 }
-            },
-            "post": {
-                "summary": "Submit Registration",
+            }
+        },
+        "/registration/attendee": {
+            "get": {
+                "summary": "Attendee Registration",
+                "template": "attendee_registration",
                 "responses": {
-                    "201": {
-                        "description": "201 response"
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/registration/artists": {
+            "get": {
+                "summary": "Attendee Registration",
+                "template": "artist_registration",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/registration/vendors": {
+            "get": {
+                "summary": "Attendee Registration",
+                "template": "vendor_registration",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
                     }
                 }
             }

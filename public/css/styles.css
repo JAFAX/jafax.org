@@ -1,3 +1,23 @@
 body {
   background-color: #282d32;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.subtext {
+  color: ghostwhite;
+  font-size: 12px;
+}
+.page_text {
+  color: ghostwhite;
+  line-height: 1.5;
+}
+.page_text a {
+  color: ghostwhite;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.page_text h2 {
+  color: ghostwhite;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  margin-top: 15px;
 }

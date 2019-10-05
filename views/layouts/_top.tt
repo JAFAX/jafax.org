@@ -13,8 +13,13 @@
                         <li class="nav-item active" role="presentation">
                             <a class="nav-link" href="[% webroot %]/">Home</a>
                         </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="[% webroot %]/registration">Registration</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/registration">Registration</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="[% webroot %]/registration/attendee">Attendee Registration</a></li>
+                                <li><a class="dropdown-item" href="[% webroot %]/registration/artists">Artist Registration</a></li>
+                                <li><a class="dropdown-item" href="[% webroot %]/registration/vendors">Vendor Registration</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" href="[% webroot %]/news">News</a>
@@ -23,7 +28,7 @@
                             <a class="nav-link" href="[% webroot %]/guests">Guests</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="[% webroot %]/events">Events</a>
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/events">Events</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="[% webroot %]/events/artists">Artists</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/events/cosplay">Cosplay</a></li>
@@ -40,8 +45,8 @@
                                 </li>
                                 <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/music">Musical Events</a></li>
                                 <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/panels">Panels</a></li>
-                                <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/schedule">Schedule</a></li>
-                                <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/vendors">Vendors</a></li>
+                                <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/schedule">Events Schedule</a></li>
+                                <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/vendors">Vendor Hall</a></li>
                             </ul>
                         </li>
                         <li class="dropdown nav-item">

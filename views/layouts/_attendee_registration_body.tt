@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="page_text">
+        <h2>Individual Registration</h2>
+        <p>
+            Tickets for JAFAX can be purchased below. Ticket sales are handled via
+            the <a href="https://www.eventbrite.com/">EventBright</a> service. See
+            their privacy policy 
+            <a href="https://www.eventbrite.com/support/articles/en_US/Troubleshooting/eventbrite-privacy-policy?lg=en_US">here</a>.</p>
+        <p>
+            If you have any Support questions, please contact
+            <a href="mailto:registration@jafax.org">our registration coordinator</a>.
+        </p>
+    </div>
+</div>
+<div class="container">
+    <section id="individual">
+        <div>
+            <div id="eventbee_iframe_121470082" frame-eventid="121470082" frame-domain="https://www.eventbee.com" style="min-height: 800px;" frame-width="100%" frame-border="0px solid gray">
+                <script type="text/javascript" language="JavaScript" src="https://www.eventbee.com/home/js/widget/frameHelper.js"></script>
+                <div class="middler">
+                    <a class="subtext" href="https://www.facebook.com/JAFAX/app/467671603304208">Click here if the ticket widget is unresponsive.</a>
+                </div>
+                <iframe id="_EbeeIFrame_ticketwidget_121470082" name="_EbeameIFrame_ticketwidget_121470082" src="https://www.eventbee.com/eregister?eid=121470082&amp;context=web&amp;parentDomain=http://www.jafax.org" height="0" width="100%" style="min-height:300px;border:0px solid gray"></iframe>
+            </div>
+        </div>
+    </section>
+</div>
