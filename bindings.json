@@ -2,7 +2,9 @@
     "binding_version": "2.0",
     "info": {
         "title": "JAFAX",
-        "version": "unknown"
+        "version": "unknown",
+        "copyright": "JAFAX Inc. &copy;2019",
+        "license": "Apache Public License, v2.0"
     },
     "paths": {
         "/": {

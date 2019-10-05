@@ -46,33 +46,24 @@ BEGIN {
             qw(
                 $version
                 $license
-                $login_title
-                $title
-                $copyright
             )
         ]
     );     # eg: TAG => [ qw!name1 name2! ],
 
     # your exported package globals go here,
     # as well as any optionally exported functions
-    @EXPORT_OK   = qw($version $license $login_title $title $copyright);
+    @EXPORT_OK   = qw($version $license);
 }
 
 our @EXPORT_OK;
 
 # exported package globals go here
 our $version;
-our $copyright;
 our $license;
-our $login_title;
-our $title;
 
 # initialize package globals, first exported ones
 $version     = '0.1';
-$copyright   = 'Copyright 2019 JAFAX, Inc.';
 $license     = 'Licensed under the Apache Public License version 2.0';
-$title       = 'Buyo';
-$login_title = "$title - login";
 
 END { }       # module clean-up code here (global destructor)
 

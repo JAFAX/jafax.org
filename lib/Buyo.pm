@@ -50,6 +50,7 @@ sub load_config {
 
     my %configuration = ();
 
+    $configuration{'debug'}           = $config->val('General', 'debugging');
     $configuration{'webroot'}         = $config->val('Web', 'webpath');
     $configuration{'session_support'} = $config->val('Web', 'session_support', 0);
     $configuration{'etcd_user'}       = $config->val('etcd', 'user');
@@ -77,7 +78,7 @@ sub get_json {
 }
 
 sub register_get_routes {
-    my ($config, $bindings, $site_name, @paths) = @_;
+    my ($config, $bindings, @paths) = @_;
 
     # un-reference to make easier to work with
     my %bindings = %$bindings;
@@ -93,8 +94,10 @@ sub register_get_routes {
             err_log("== DEBUGGING ==: Triggering GET action for path $path") if $config->{'debug'};
             template $template, {
                 'webroot'    => $config->{'webroot'},
-                'site_name'  => $site_name,
-                'page_title' => $bindings->{$path}->{'get'}->{'summary'}
+                'site_name'  => $config->{'site_title'},
+                'page_title' => $bindings->{$path}->{'get'}->{'summary'},
+                'copyright'  => $config->{'copyright'},
+                'license'    => $config->{'license'}
             };
         };
     }
@@ -103,7 +106,7 @@ sub register_get_routes {
 }
 
 sub register_post_routes {
-    my ($config, $bindings, $site_title, @paths) = @_;
+    my ($config, $bindings, @paths) = @_;
 
     my $sub = (caller(0))[3];
     err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
@@ -121,32 +124,33 @@ sub register_post_routes {
 
 sub main {
     my $VERSION = $Buyo::Constants::version;
-    my $DEBUG   = true;
 
     set traces  => 1;
 
     my %configuration = load_config(config->{appdir});
 
-    my %app_config = (
-        'appdir'  => config->{appdir},
-        'debug'   => $DEBUG,
-        'configuration' => \%configuration
-    );
-
     my $sub = (caller(0))[3];
-    err_log("== DEBUGGING ==: Sub $sub") if $app_config{'debug'};
 
     my @getters;
     my @posters;
 
-    my $json_txt = get_json(\%app_config, 'bindings.json');
+    my $json_txt = get_json(config, 'bindings.json');
     my $json = JSON->new();
     my $data = $json->decode($json_txt);
-    my $site_title = $data->{'info'}->{'title'};
+    my %app_config = (
+        'appdir'        => config->{appdir},
+        'debug'         => $configuration{'debug'},
+        'configuration' => \%configuration,
+        'site_title'    => $data->{'info'}->{'title'},
+        'copyright'     => $data->{'info'}->{'copyright'},
+        'license'       => $data->{'info'}->{'license'}
+    );
     my %paths = %{$data->{'paths'}};
-    err_log('== DEBUGGING ==: Loading site endpoints from JSON:') if $DEBUG;
+
+    err_log("== DEBUGGING ==: Sub $sub") if $app_config{'debug'};
+    err_log('== DEBUGGING ==: Loading site endpoints from JSON:') if $app_config{'debug'};
     foreach my $path (keys %paths) {
-        err_log("== DEBUGGING ==: FOUND KEY: $path") if $DEBUG;
+        err_log("== DEBUGGING ==: FOUND KEY: $path") if $app_config{'debug'};
         if (exists $paths{$path}->{'get'}) {
             push @getters, $path;
         }
@@ -155,8 +159,8 @@ sub main {
         }
     }
 
-    register_get_routes(\%app_config, \%paths, $site_title, @getters);
-    register_post_routes(\%app_config, \%paths, $site_title, @posters);
+    register_get_routes(\%app_config, \%paths, @getters);
+    register_post_routes(\%app_config, \%paths, @posters);
 
     return true;
 }
