@@ -38,7 +38,7 @@ use FindBin;
 use lib "$FindBin::Bin/../lib";
 
 use Buyo::Constants;
-use Buyo::Utils;
+use Buyo::Utils qw(err_log);
 
 sub load_config {
     my $sub = (caller(0))[3];
@@ -77,7 +77,7 @@ sub get_json {
 }
 
 sub register_get_routes {
-    my ($config, $bindings, @paths) = @_;
+    my ($config, $bindings, $site_name, @paths) = @_;
 
     # un-reference to make easier to work with
     my %bindings = %$bindings;
@@ -92,7 +92,9 @@ sub register_get_routes {
         get "$path" => sub {
             err_log("== DEBUGGING ==: Triggering GET action for path $path") if $config->{'debug'};
             template $template, {
-                'webroot' => $config->{'webroot'}
+                'webroot'    => $config->{'webroot'},
+                'site_name'  => $site_name,
+                'page_title' => $bindings->{$path}->{'get'}->{'summary'}
             };
         };
     }
@@ -101,7 +103,7 @@ sub register_get_routes {
 }
 
 sub register_post_routes {
-    my ($config, $bindings, @paths) = @_;
+    my ($config, $bindings, $site_title, @paths) = @_;
 
     my $sub = (caller(0))[3];
     err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
@@ -140,6 +142,7 @@ sub main {
     my $json_txt = get_json(\%app_config, 'bindings.json');
     my $json = JSON->new();
     my $data = $json->decode($json_txt);
+    my $site_title = $data->{'info'}->{'title'};
     my %paths = %{$data->{'paths'}};
     err_log('== DEBUGGING ==: Loading site endpoints from JSON:') if $DEBUG;
     foreach my $path (keys %paths) {
@@ -152,8 +155,8 @@ sub main {
         }
     }
 
-    register_get_routes(\%app_config, \%paths, @getters);
-    register_post_routes(\%app_config, \%paths, @posters);
+    register_get_routes(\%app_config, \%paths, $site_title, @getters);
+    register_post_routes(\%app_config, \%paths, $site_title, @posters);
 
     return true;
 }
