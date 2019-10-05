@@ -7,7 +7,7 @@
     "paths": {
         "/": {
             "get": {
-                "summary": "Home page - JAFAX",
+                "summary": "2020",
                 "template": "index",
                 "responses": {
                     "200": {
