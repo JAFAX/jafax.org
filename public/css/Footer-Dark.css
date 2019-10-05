@@ -8,7 +8,15 @@
   margin-top: 0;
   margin-bottom: 12px;
   font-weight: bold;
+  color: #f0f9ff;
   font-size: 16px;
+  text-align: left;
+}
+
+.footer-dark p {
+  color: #f0f9ff;
+  font-size: 14px;
+  text-align: left;
 }
 
 .footer-dark ul {
@@ -17,6 +25,7 @@
   line-height: 1.6;
   font-size: 14px;
   margin-bottom: 0;
+  text-align: left;
 }
 
 .footer-dark ul a {
@@ -74,6 +83,11 @@
   margin: 0 8px;
   color: #fff;
   opacity: 0.75;
+  border: none;
+}
+
+.footer-dark .item.social > i {
+  border: none;
 }
 
 .footer-dark .item.social > a:hover {

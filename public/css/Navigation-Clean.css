@@ -27,6 +27,7 @@
 
 .navigation-clean .navbar-toggler {
   border-color: #ddd;
+  align-self: right;
 }
 
 .navigation-clean .navbar-toggler:hover, .navigation-clean .navbar-toggler:focus {
