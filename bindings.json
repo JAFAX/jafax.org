@@ -2,9 +2,160 @@
     "binding_version": "2.0",
     "info": {
         "title": "JAFAX",
-        "version": "unknown",
+        "version": "2019.0.99",
         "copyright": "JAFAX Inc. &copy;2019",
         "license": "Apache Public License, v2.0"
+    },
+    "menus": {
+        "top": {
+            "order": [
+                "Home",
+                "Registration",
+                "News",
+                "Guests",
+                "Events",
+                "Location",
+                "ContactUs"
+            ],
+            "items": {
+                "Home": {
+                    "title": "Home",
+                    "link": "/",
+                    "children": null
+                },
+                "Registration": {
+                    "title": "Registration",
+                    "link": "/registration",
+                    "children": null
+                },
+                "News": {
+                    "title": "News",
+                    "link": "/news",
+                    "children": null
+                },
+                "Guests": {
+                    "title": "Guests",
+                    "link": "/guests",
+                    "children": null
+                },
+                "Events": {
+                    "title": "Events",
+                    "link": "/events",
+                    "children": {
+                        "order": [
+                            "Artists",
+                            "Cosplay",
+                            "Culture",
+                            "Gaming",
+                            "MaidCafe",
+                            "Media",
+                            "Music",
+                            "Panels",
+                            "Schedule",
+                            "Vendors"
+                        ],
+                        "items": {
+                            "Artists": {
+                                "title": "Artists",
+                                "link": "/events/artists",
+                                "children": null
+                            },
+                            "Cosplay": {
+                                "title": "Cosplay",
+                                "link": "/events/cosplay",
+                                "children": null
+                            },
+                            "Culture": {
+                                "title": "Culture",
+                                "link": "/events/culture",
+                                "children": null
+                            },
+                            "Gaming": {
+                                "title": "Gaming",
+                                "link": "/events/gaming",
+                                "children": null
+                            },
+                            "MaidCafe": {
+                                "title": "Maid Caf&acute;",
+                                "link": "/events/maid_cafe",
+                                "children": null
+                            },
+                            "Media": {
+                                "title": "Anime and Manga",
+                                "link": "/events/media",
+                                "children": {
+                                    "order": [
+                                        "AMVContest",
+                                        "Anime",
+                                        "Manga"
+                                    ],
+                                    "items": {
+                                        "AMVContest": {
+                                            "title": "AMV Contest",
+                                            "link": "/events/media/amv_contest",
+                                            "children": null
+                                        },
+                                        "Anime": {
+                                            "title": "Anime Screenings",
+                                            "link": "/events/media/anime",
+                                            "children": null
+                                        },
+                                        "Manga": {
+                                            "title": "Manga Library",
+                                            "link": "/events/media/manga",
+                                            "children": null
+                                        }
+                                    }
+                                },
+                                "Music": {
+                                    "title": "Musical Events",
+                                    "link": "/events/media/music",
+                                    "children": null
+                                },
+                                "Panels": {
+                                    "title": "Panels",
+                                    "link": "/events/panels",
+                                    "children": null
+                                },
+                                "Schedule": {
+                                    "title": "Events Schedule",
+                                    "link": "/events/schedule",
+                                    "children": null
+                                },
+                                "Vendors": {
+                                    "title": "Vendor Hall",
+                                    "link": "/events/vendors"
+                                }
+                            }
+                        }
+                    }
+                },
+                "Location": {
+                    "title": "Location",
+                    "link": "/location",
+                    "children": {
+                        "order": ["Hotel", "Venue"],
+                        "items": {
+                            "Hotel": {
+                                "title": "Hotel",
+                                "link": "/location/hotel",
+                                "children": null
+                            },
+                            "Venue": {
+                                "title": "Venue",
+                                "link": "/location/venue",
+                                "children": null
+                            }
+                        }
+                    }
+                },
+                "ContactUs": {
+                    "title": "Contact Us",
+                    "link": "/contact",
+                    "children": null
+                }
+            }
+        }
     },
     "paths": {
         "/": {
