@@ -14,6 +14,12 @@
                             <li class="nav-item active" role="presentation">
                                 <a class="nav-link" href="/">Home</a>
                             </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" href="#">News</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" href="#">Guests</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Events</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -33,22 +39,18 @@
                                     <li><a class="dropdown-item" role="presentation" href="#">Musical Events</a></li>
                                     <li><a class="dropdown-item" role="presentation" href="#">Panels</a></li>
                                     <li><a class="dropdown-item" role="presentation" href="#">Schedule</a></li>
-                                    <li><a class="dropdown-item" role="presentation" href="#">vendors</a></li>
+                                    <li><a class="dropdown-item" role="presentation" href="#">Vendors</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" href="#">Second Item</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" href="#">Third Item</a>
-                            </li>
                             <li class="dropdown nav-item">
-                                <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Dropdown</a>
+                                <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Location</a>
                                 <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item" role="presentation" href="#">First Item</a>
-                                    <a class="dropdown-item" role="presentation" href="#">Second Item</a>
-                                    <a class="dropdown-item" role="presentation" href="#">Third Item</a>
+                                    <a class="dropdown-item" role="presentation" href="#">Hotel</a>
+                                    <a class="dropdown-item" role="presentation" href="#">Venue</a>
                                 </div>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" href="#">Contact Us</li>
                             </li>
                         </ul>
                     </div>
