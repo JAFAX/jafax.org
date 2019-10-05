@@ -1,30 +1,15 @@
     <head>
         <title>[% site_name %] - [% page_title %]</title>
-        <link rev="made" href="mailto:greeneg%40tolharadys.net" />
         <base href="[% webroot %]" />
         <meta name="copyright" content="[% copyright %]" />
         <meta name="license"   content="[% license %]" />
-        <!--Favicons for all device types-->
-        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="[% webroot %]/images/favicons/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="[% webroot %]/images/favicons/apple-touch-icon-114x114.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="[% webroot %]/images/favicons/apple-touch-icon-72x72.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="[% webroot %]/images/favicons/apple-touch-icon-144x144.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="60x60" href="[% webroot %]/images/favicons/apple-touch-icon-60x60.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="[% webroot %]/images/favicons/apple-touch-icon-120x120.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="[% webroot %]/images/favicons/apple-touch-icon-76x76.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="[% webroot %]/images/favicons/apple-touch-icon-152x152.png" />
-        <link rel="icon" type="image/png" href="[% webroot %]/images/favicon/favicon-196x196.png" sizes="196x196" />
-        <link rel="icon" type="image/png" href="[% webroot %]/images/favicon/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/png" href="[% webroot %]/images/favicon/favicon-32x32.png" sizes="32x32" />
-        <link rel="icon" type="image/png" href="[% webroot %]/images/favicon/favicon-16x16.png" sizes="16x16" />
-        <link rel="icon" type="image/png" href="[% webroot %]/images/favicon/favicon-128.png" sizes="128x128" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <link rel="stylesheet" href="[% webroot %]/css/bootstrap.min.css">
         <link rel="stylesheet" href="[% webroot %]/fonts/font-awesome.min.css">
         <link rel="stylesheet" href="[% webroot %]/fonts/ionicons.min.css">
         <link rel="stylesheet" href="[% webroot %]/css/Article-List.css">
         <link rel="stylesheet" href="[% webroot %]/css/Footer-Dark.css">
         <link rel="stylesheet" href="[% webroot %]/css/Navigation-Clean.css">
         <link rel="stylesheet" href="[% webroot %]/css/styles.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     </head>
