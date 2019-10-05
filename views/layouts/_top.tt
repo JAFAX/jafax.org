@@ -18,7 +18,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="[% webroot %]/registration/attendee">Attendee Registration</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/registration/artists">Artist Registration</a></li>
-                                <li><a class="dropdown-item" href="[% webroot %]/registration/maid_cafe">Maid Caf&acute; Volunteer Registration</a></li>
+                                <li><a class="dropdown-item" href="[% webroot %]/registration/maid_cafe">Maid Caf&eacute; Volunteer Registration</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/registration/vendors">Vendor Registration</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/registration/volunteers">Volunteer Registration</a></li>
                             </ul>

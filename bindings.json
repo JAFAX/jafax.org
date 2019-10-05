@@ -99,7 +99,7 @@
                                 "children": null
                             },
                             "MaidCafe": {
-                                "title": "Maid Caf&acute;",
+                                "title": "Maid Caf&eacute;",
                                 "link": "/events/maid_cafe",
                                 "children": null
                             },
@@ -216,8 +216,19 @@
         },
         "/registration/artists": {
             "get": {
-                "summary": "Attendee Registration",
+                "summary": "Artist Alley Registration",
                 "template": "artist_registration",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/registration/maid_cafe": {
+            "get": {
+                "summary": "Maid Caf&eacute; Volunteer Registration",
+                "template": "maid_cafe_volunteer_registration",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -227,8 +238,19 @@
         },
         "/registration/vendors": {
             "get": {
-                "summary": "Attendee Registration",
+                "summary": "Vendor Registration",
                 "template": "vendor_registration",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/registration/volunteers": {
+            "get": {
+                "summary": "Volunteer Registration",
+                "template": "volunteer_registration",
                 "responses": {
                     "200": {
                         "description": "200 response"
