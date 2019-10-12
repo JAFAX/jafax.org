@@ -1,6 +1,7 @@
 .navigation-clean {
   background: #6ed9c1;
   background-color: #2c777a;
+  background-image: linear-gradient(to bottom right, #2c777a, #282d32);
   padding-bottom: .75rem;
   color: #333;
   border-radius: 0;
