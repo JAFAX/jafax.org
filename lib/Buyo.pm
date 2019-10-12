@@ -159,12 +159,12 @@ sub main {
     foreach my $path (keys %paths) {
         err_log("== DEBUGGING ==: FOUND KEY: $path") if $app_config{'debug'};
         if (exists $paths{$path}->{'get'}) {
-            if ($paths{$path}->{'get'}->{'active'} == 'true') {
+            if ($paths{$path}->{'get'}->{'active'} eq 'true') {
                 push @getters, $path;
             }
         }
         if (exists $paths{$path}->{'post'}) {
-            if ($paths{$path}->{'post'}->{'active'} == 'true') {
+            if ($paths{$path}->{'post'}->{'active'} eq 'true') {
                 push @posters, $path;
             }
         }

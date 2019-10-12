@@ -577,6 +577,18 @@
                 }
             }
         },
+        "/policies/volunteer_guidelines": {
+            "get": {
+                "active": "true",
+                "summary": "Volunteer Guidelines",
+                "template": "volunteer_guidelines",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
         "/admin": {
             "get": {
                 "active": "false",
