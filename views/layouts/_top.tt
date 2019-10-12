@@ -17,7 +17,7 @@
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/registration">Registration</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="[% webroot %]/registration/attendee">Attendee Registration</a></li>
-                                <li><a class="dropdown-item" href="[% webroot %]/registration/artists">Artist Registration</a></li>
+                                <li><a class="dropdown-item" href="[% webroot %]/registration/artists">Artist Alley Registration</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/registration/maid_cafe">Maid Caf&eacute; Volunteer Registration</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/registration/vendors">Vendor Registration</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/registration/volunteers">Volunteer Registration</a></li>
@@ -32,7 +32,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/events">Events</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="[% webroot %]/events/artists">Artists</a></li>
+                                <li><a class="dropdown-item" href="[% webroot %]/events/artists">Artist Alley</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/events/cosplay">Cosplay</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/events/culture">Culture</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/events/gaming">Gaming</a></li>

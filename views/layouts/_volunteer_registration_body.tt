@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="page_text">
+        <h2>Volunteer Registration</h2>
+        <p>
+            Welcome, all Volunteers! Without people like you that help run various
+            tasks at JAFAX, we would be unable to run the event.
+        </p>
+        <p>
+            Beside the wonderful perk of helping keep our attendees happy and giving
+            back to the larger Anime community, all volunteers benefit from these
+            extra perks:<br />
+            <ul>
+                <li>Badge refunds, where 8 hours of work awards a full refund</li>
+                <li>Free Volunteer T-Shirt designed by JAFAX art staff</li>
+                <li>Entry into prize raffles and the Most Valuable Volunteer award</li>
+            </ul>
+        </p>
+        <p>
+            Volunteer scheduling is flexible, including overnight shifts.
+        </p>
+        <p>
+            To volunteer, you must adhere to the <a href="[% webroot %]/policies/volunteer_rules">
+            volunteer guidelines</a>.
+        </p>
+        <p>
+            To sign up to volunteer, please stop back to the page later when our volunteer
+            registration form will be available.
+        </p>
+        <p>
+            Thank you for your interest in volunteering at JAFAX 2020! We hope to see you
+            at the event. If you have any questions, please send them to our 
+            <a href="mailto:volunteer@jafax.org">Volunteer Coordinator</a>.
+        </p>
+    </div>
+</div>

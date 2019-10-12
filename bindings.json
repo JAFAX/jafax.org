@@ -183,6 +183,7 @@
     "paths": {
         "/": {
             "get": {
+                "active": "true",
                 "summary": "2020",
                 "template": "index",
                 "responses": {
@@ -194,6 +195,7 @@
         },
         "/registration": {
             "get": {
+                "active": "true",
                 "summary": "Registration",
                 "template": "registration",
                 "responses": {
@@ -205,6 +207,7 @@
         },
         "/registration/attendee": {
             "get": {
+                "active": "true",
                 "summary": "Attendee Registration",
                 "template": "attendee_registration",
                 "responses": {
@@ -216,6 +219,7 @@
         },
         "/registration/artists": {
             "get": {
+                "active": "true",
                 "summary": "Artist Alley Registration",
                 "template": "artist_registration",
                 "responses": {
@@ -227,6 +231,7 @@
         },
         "/registration/maid_cafe": {
             "get": {
+                "active": "true",
                 "summary": "Maid Caf&eacute; Volunteer Registration",
                 "template": "maid_cafe_volunteer_registration",
                 "responses": {
@@ -238,6 +243,7 @@
         },
         "/registration/vendors": {
             "get": {
+                "active": "true",
                 "summary": "Vendor Registration",
                 "template": "vendor_registration",
                 "responses": {
@@ -249,6 +255,7 @@
         },
         "/registration/volunteers": {
             "get": {
+                "active": "true",
                 "summary": "Volunteer Registration",
                 "template": "volunteer_registration",
                 "responses": {
@@ -260,6 +267,7 @@
         },
         "/events": {
             "get": {
+                "active": "true",
                 "summary": "Events at JAFAX",
                 "template": "events",
                 "responses": {
@@ -271,6 +279,7 @@
         },
         "/events/artists": {
             "get": {
+                "active": "true",
                 "summary": "Artists at JAFAX",
                 "template": "artists",
                 "responses": {
@@ -282,6 +291,7 @@
         },
         "/events/cosplay": {
             "get": {
+                "active": "true",
                 "summary": "Cosplay Events at JAFAX",
                 "template": "cosplay",
                 "responses": {
@@ -293,6 +303,7 @@
         },
         "/events/culture": {
             "get": {
+                "active": "true",
                 "summary": "Japanese Cultural Events at JAFAX",
                 "template": "culture",
                 "responses": {
@@ -304,6 +315,7 @@
         },
         "/events/gaming": {
             "get": {
+                "active": "true",
                 "summary": "Board, Tabletop, and Video Gaming at JAFAX",
                 "template": "gaming",
                 "responses": {
@@ -315,6 +327,7 @@
         },
         "/events/maid_cafe": {
             "get": {
+                "active": "true",
                 "summary": "Maid Caf&eacute; at JAFAX",
                 "template": "maid_cafe",
                 "responses": {
@@ -326,6 +339,7 @@
         },
         "/events/media": {
             "get": {
+                "active": "true",
                 "summary": "Anime and Monga at JAFAX",
                 "template": "media",
                 "responses": {
@@ -337,6 +351,7 @@
         },
         "/events/media/amv_contest": {
             "get": {
+                "active": "true",
                 "summary": "AMV Contest at JAFAX",
                 "template": "amv_contest",
                 "responses": {
@@ -348,6 +363,7 @@
         },
         "/events/media/anime": {
             "get": {
+                "active": "true",
                 "summary": "Anime Screenings at JAFAX",
                 "template": "screenings",
                 "responses": {
@@ -359,6 +375,7 @@
         },
         "/events/media/manga": {
             "get": {
+                "active": "true",
                 "summary": "Manga Library at JAFAX",
                 "template": "manga_library",
                 "responses": {
@@ -370,6 +387,7 @@
         },
         "/events/music": {
             "get": {
+                "active": "true",
                 "summary": "Music Events at JAFAX",
                 "template": "music",
                 "responses": {
@@ -381,6 +399,7 @@
         },
         "/events/panels": {
             "get": {
+                "active": "true",
                 "summary": "Panels at JAFAX",
                 "template": "panels",
                 "responses": {
@@ -392,6 +411,7 @@
         },
         "/events/schedule": {
             "get": {
+                "active": "true",
                 "summary": "Event Schedule at JAFAX",
                 "template": "schedule",
                 "responses": {
@@ -403,6 +423,7 @@
         },
         "/events/vendors": {
             "get": {
+                "active": "true",
                 "summary": "Vendors at JAFAX",
                 "template": "vendors",
                 "responses": {
@@ -414,6 +435,7 @@
         },
         "/guests": {
             "get": {
+                "active": "true",
                 "summary": "VIPs and Guests at JAFAX",
                 "template": "guests",
                 "responses": {
@@ -425,6 +447,7 @@
         },
         "/location": {
             "get": {
+                "active": "true",
                 "summary": "The Location of JAFAX",
                 "template": "location",
                 "responses": {
@@ -436,6 +459,7 @@
         },
         "/location/hotel": {
             "get": {
+                "active": "true",
                 "summary": "The Hotel of JAFAX",
                 "template": "hotel",
                 "responses": {
@@ -447,6 +471,7 @@
         },
         "/location/venue": {
             "get": {
+                "active": "true",
                 "summary": "The Venue of JAFAX",
                 "template": "venue",
                 "responses": {
@@ -458,6 +483,7 @@
         },
         "/news": {
             "get": {
+                "active": "true",
                 "summary": "News and Announcements",
                 "template": "news",
                 "responses": {
@@ -469,6 +495,7 @@
         },
         "/contact": {
             "get": {
+                "active": "true",
                 "summary": "Volunteer or Contact Us",
                 "template": "contact",
                 "responses": {
@@ -480,6 +507,7 @@
         },
         "/volunteer": {
             "get": {
+                "active": "true",
                 "summary": "Volunteer at JAFAX",
                 "template": "volunteer",
                 "responses": {
@@ -491,6 +519,7 @@
         },
         "/policies": {
             "get": {
+                "active": "true",
                 "summary": "Event Policies at JAFAX",
                 "template": "policies",
                 "responses": {
@@ -502,6 +531,7 @@
         },
         "/policies/rules": {
             "get": {
+                "active": "true",
                 "summary": "Attendee Rules at JAFAX",
                 "template": "rules",
                 "responses": {
@@ -513,6 +543,7 @@
         },
         "/policies/privacy": {
             "get": {
+                "active": "true",
                 "summary": "Privacy Policy at JAFAX",
                 "template": "privacy",
                 "responses": {
@@ -524,6 +555,7 @@
         },
         "/policies/inclusion": {
             "get": {
+                "active": "true",
                 "summary": "Inclusion Policy at JAFAX",
                 "template": "inclusion",
                 "responses": {
@@ -535,6 +567,7 @@
         },
         "/policies/bylaws": {
             "get": {
+                "active": "true",
                 "summary": "Non-Profit Organization Bylaws of JAFAX",
                 "template": "bylaws",
                 "responses": {
@@ -546,6 +579,7 @@
         },
         "/admin": {
             "get": {
+                "active": "false",
                 "summary": "Admin Panel",
                 "template": "admin_panel",
                 "responses": { 
@@ -557,6 +591,7 @@
         },
         "/login": {
             "get": {
+                "active": "false",
                 "summary": "Login - JAFAX",
                 "template": "login",
                 "responses": {
@@ -566,6 +601,7 @@
                 }
             },
             "post": {
+                "active": "false",
                 "summary": "Login Action",
                 "responses": {
                     "200": {

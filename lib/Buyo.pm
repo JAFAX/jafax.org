@@ -92,6 +92,13 @@ sub register_get_routes {
         err_log("== DEBUGGING ==: Using template $template for path $path") if $config->{'debug'};
         get "$path" => sub {
             err_log("== DEBUGGING ==: Triggering GET action for path $path") if $config->{'debug'};
+            if (defined($bindings{$path}->{'get'}->{'subroutine'})) {
+                my $cleaned_path = $path;
+                $cleaned_path =~ tr/\//_/; # get rid of slashes in path
+                my $call_name = "get$cleaned_path";
+                my $code = $bindings{$path}->{'get'}->{'subroutine'};
+                my $sub = eval "sub $call_name { $code }";
+            }
             template $template, {
                 'webroot'    => $config->{'webroot'},
                 'site_name'  => $config->{'site_title'},
@@ -152,10 +159,14 @@ sub main {
     foreach my $path (keys %paths) {
         err_log("== DEBUGGING ==: FOUND KEY: $path") if $app_config{'debug'};
         if (exists $paths{$path}->{'get'}) {
-            push @getters, $path;
+            if ($paths{$path}->{'get'}->{'active'} == 'true') {
+                push @getters, $path;
+            }
         }
         if (exists $paths{$path}->{'post'}) {
-            push @posters, $path;
+            if ($paths{$path}->{'post'}->{'active'} == 'true') {
+                push @posters, $path;
+            }
         }
     }
 
