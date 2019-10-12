@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="page_text">
+        <br />
+        <h1>Welcome!</h1>
+        <p>
+            Welcome to the home page of West Michigan's longest running
+            Japanese animation and culture celebrations, JAFAX!
+        </p>
+        <p>
+            We're looking forward to seeing you join in the fun in June
+            of 2020 with our amazing guests, artists, and vendors who are
+            all excited to bring anime, cosplay, and traditional Japanese
+            culture to the Grand Rapids area!
+        </p>
+    </div>
+    <br />
+    <div class="news_carousel">
+        <div class="news_carousel_title">
+            <h3 class="page_text">Latest News</h3>
+        </div>
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col item news_entry">
+                    <a href="[% webroot %]/news/3" class="news">
+                        <div class="container news_title">
+                            <div class="row">
+                                <div class="col-sm-1 item news_title_icon">
+                                    <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px">
+                                </div>
+                                <div class="col item news_title_text">
+                                    News
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news_blurb">
+                            <p>
+                                JAFAX 2020 Event Theme Announced!
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col item news_entry">
+                    <a href="[% webroot %]/news/2" class="news">
+                        <div class="container news_title">
+                            <div class="row">
+                                <div class="col-sm-1 item news_title_icon">
+                                    <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px">
+                                </div>
+                                <div class="col item news_title_text">
+                                    News
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news_blurb">
+                            <p>
+                                JAFAX 2020 Dates Announced!
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col item news_entry">
+                    <a href="[% webroot %]/news/1" class="news">
+                        <div class="container news_title">
+                            <div class="row">
+                                <div class="col-sm-1 item news_title_icon">
+                                    <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px">
+                                </div>
+                                <div class="col item news_title_text">
+                                    News
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news_blurb">
+                            <p>
+                                JAFAX's website gets a new design!
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
