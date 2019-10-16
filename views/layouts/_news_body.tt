@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="page_text">
+        <br />
+        <center><h3>News and Announcements</h3></center>
+        <br />
+        <!-- news items are shown newest to oldest, top-down -->
+        <div class="container-fluid">
+            <div class="padded-row">
+                <div class="col">
+                    <a href="[%%]/news/3">
+                        <div class="container news_long_title">
+                            <div class="row">
+                                <div class="col-sm-1 news_title_icon">
+                                    <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px">
+                                </div>
+                                <div class="col-md news_title_text">
+                                    JAFAX 2020 Event Theme Announced!
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="padded-row">
+                <div class="col">
+                    <a href="[%%]/news/2" class="wide-link">
+                        <div class="container news_long_title">
+                            <div class="row">
+                                <div class="col-sm-1 news_title_icon">
+                                    <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px">
+                                </div>
+                                <div class="col-md news_title_text">
+                                    JAFAX 2020 Dates Announced!
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="padded-row">
+                <div class="col">
+                    <a href="[%%]/news/1" class="wide-link">
+                        <div class="container news_long_title">
+                            <div class="row">
+                                <div class="col-sm-1 news_title_icon">
+                                    <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px">
+                                </div>
+                                <div class="col-md news_title_text">
+                                    JAFAX's website gets a new design!
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
