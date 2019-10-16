@@ -80,3 +80,7 @@ body {
 .news_blurb:hover {
   color: ghostwhite;
 }
+.li-section-and-item-count {
+  list-style-type: none;
+  line-height: 1.5;
+}
