@@ -7,6 +7,7 @@ Wants=network-online.target
 Type=simple
 User=dancer2
 PermissionsStartOnly=true
+EnvironmentFile=/etc/sysconfig/buyo
 ExecStart=/usr/bin/starman -l localhost:5000 /srv/buyo/bin/buyo.psgi
 Restart=on-abnormal
 #RestartSec=10s
