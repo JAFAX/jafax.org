@@ -325,6 +325,18 @@
                 }
             }
         },
+        "/events/gaming/schedule": {
+            "get": {
+                "active": "true",
+                "summary": "Gaming schedule at JAFAX",
+                "template": "gaming_schedule",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
         "/events/maid_cafe": {
             "get": {
                 "active": "true",
