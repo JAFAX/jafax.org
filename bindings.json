@@ -96,7 +96,14 @@
                             "Gaming": {
                                 "title": "Gaming",
                                 "link": "/events/gaming",
-                                "children": null
+                                "children": {
+                                    "order": [
+
+                                    ],
+                                    "items": {
+
+                                    }
+                                }
                             },
                             "MaidCafe": {
                                 "title": "Maid Caf&eacute;",
@@ -186,6 +193,7 @@
                 "active": "true",
                 "summary": "2020",
                 "template": "index",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -198,6 +206,7 @@
                 "active": "true",
                 "summary": "Registration",
                 "template": "registration",
+                "type": null,
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -210,6 +219,7 @@
                 "active": "true",
                 "summary": "Attendee Registration",
                 "template": "attendee_registration",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -222,6 +232,7 @@
                 "active": "true",
                 "summary": "Artist Alley Registration",
                 "template": "artist_registration",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -234,6 +245,7 @@
                 "active": "true",
                 "summary": "Maid Caf&eacute; Volunteer Registration",
                 "template": "maid_cafe_volunteer_registration",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -246,6 +258,7 @@
                 "active": "true",
                 "summary": "Vendor Registration",
                 "template": "vendor_registration",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -258,6 +271,7 @@
                 "active": "true",
                 "summary": "Volunteer Registration",
                 "template": "volunteer_registration",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -270,6 +284,7 @@
                 "active": "true",
                 "summary": "Events at JAFAX",
                 "template": "events",
+                "type": null,
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -282,6 +297,7 @@
                 "active": "true",
                 "summary": "Artists at JAFAX",
                 "template": "artists",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -294,6 +310,7 @@
                 "active": "true",
                 "summary": "Cosplay Events at JAFAX",
                 "template": "cosplay",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -306,6 +323,7 @@
                 "active": "true",
                 "summary": "Japanese Cultural Events at JAFAX",
                 "template": "culture",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -318,6 +336,7 @@
                 "active": "true",
                 "summary": "Board, Tabletop, and Video Gaming at JAFAX",
                 "template": "gaming",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -330,6 +349,7 @@
                 "active": "true",
                 "summary": "Gaming schedule at JAFAX",
                 "template": "gaming_schedule",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -342,6 +362,7 @@
                 "active": "true",
                 "summary": "Maid Caf&eacute; at JAFAX",
                 "template": "maid_cafe",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -354,6 +375,7 @@
                 "active": "true",
                 "summary": "Anime and Monga at JAFAX",
                 "template": "media",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -366,6 +388,7 @@
                 "active": "true",
                 "summary": "AMV Contest at JAFAX",
                 "template": "amv_contest",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -378,6 +401,7 @@
                 "active": "true",
                 "summary": "Anime Screenings at JAFAX",
                 "template": "screenings",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -390,6 +414,7 @@
                 "active": "true",
                 "summary": "Manga Library at JAFAX",
                 "template": "manga_library",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -402,6 +427,7 @@
                 "active": "true",
                 "summary": "Music Events at JAFAX",
                 "template": "music",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -414,6 +440,7 @@
                 "active": "true",
                 "summary": "Panels at JAFAX",
                 "template": "panels",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -426,6 +453,7 @@
                 "active": "true",
                 "summary": "Event Schedule at JAFAX",
                 "template": "schedule",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -438,6 +466,7 @@
                 "active": "true",
                 "summary": "Vendors at JAFAX",
                 "template": "vendors",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -450,6 +479,7 @@
                 "active": "true",
                 "summary": "VIPs and Guests at JAFAX",
                 "template": "guests",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -462,6 +492,7 @@
                 "active": "true",
                 "summary": "The Location of JAFAX",
                 "template": "location",
+                "type": null,
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -474,6 +505,7 @@
                 "active": "true",
                 "summary": "The Hotel of JAFAX",
                 "template": "hotel",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -486,6 +518,7 @@
                 "active": "true",
                 "summary": "The Venue of JAFAX",
                 "template": "venue",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -498,6 +531,20 @@
                 "active": "true",
                 "summary": "News &amp; Announcements",
                 "template": "news",
+                "type": "static",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/news/:article": {
+            "get": {
+                "active": "true",
+                "summary": "News Articles",
+                "template": "article",
+                "type": "dynamic",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -510,6 +557,7 @@
                 "active": "true",
                 "summary": "Volunteer or Contact Us",
                 "template": "contact",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -522,6 +570,7 @@
                 "active": "true",
                 "summary": "Volunteer at JAFAX",
                 "template": "volunteer",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -534,6 +583,7 @@
                 "active": "true",
                 "summary": "Event Policies at JAFAX",
                 "template": "policies",
+                "type": null,
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -546,6 +596,7 @@
                 "active": "true",
                 "summary": "Attendee Rules at JAFAX",
                 "template": "rules",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -558,6 +609,7 @@
                 "active": "true",
                 "summary": "Privacy Policy at JAFAX",
                 "template": "privacy",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -570,6 +622,7 @@
                 "active": "true",
                 "summary": "Inclusion Policy at JAFAX",
                 "template": "inclusion",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -582,6 +635,7 @@
                 "active": "true",
                 "summary": "Non-Profit Organization Bylaws of JAFAX",
                 "template": "bylaws",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -594,6 +648,7 @@
                 "active": "true",
                 "summary": "Volunteer Guidelines",
                 "template": "volunteer_guidelines",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -606,6 +661,7 @@
                 "active": "false",
                 "summary": "Admin Panel",
                 "template": "admin_panel",
+                "type": "dynamic",
                 "responses": { 
                     "200": {
                         "description": "200 response"
@@ -618,6 +674,7 @@
                 "active": "false",
                 "summary": "Login - JAFAX",
                 "template": "login",
+                "type": "static",
                 "responses": {
                     "200": {
                         "description":"200 response"
@@ -627,6 +684,8 @@
             "post": {
                 "active": "false",
                 "summary": "Login Action",
+                "template": null,
+                "type": null,
                 "responses": {
                     "200": {
                         "description":"200 response"
