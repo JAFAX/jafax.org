@@ -1,7 +1,7 @@
 <div class="container">
     <div class="page_text">
         <br />
-        <center><h3>News and Announcements</h3></center>
+        <center><h1>News &amp; Announcements</h1></center>
         <br />
         <!-- news items are shown newest to oldest, top-down -->
         <div class="container-fluid">
