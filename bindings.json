@@ -484,7 +484,7 @@
         "/news": {
             "get": {
                 "active": "true",
-                "summary": "News and Announcements",
+                "summary": "News &amp; Announcements",
                 "template": "news",
                 "responses": {
                     "200": {
