@@ -35,9 +35,9 @@
                                 <li><a class="dropdown-item" href="[% webroot %]/events/artists">Artist Alley</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/events/cosplay">Cosplay</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/events/culture">Culture</a></li>
-                                <li class="dropdown-menu">
+                                <li class="dropdown-submenu">
                                     <a class="dropdown-item dropdown-toggle" href="[% webroot %]/events/gaming">Gaming</a>
-                                    <ul>
+                                    <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="[% webroot %]/gaming/schedule">Schedule</a></li>
                                     </ul>
                                 </li>
