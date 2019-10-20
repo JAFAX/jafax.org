@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="page_text">
+        <br />
+        <center><h1>[% title %]</h1></center>
+        [% page_content %]
+        <em><small>Posted on [% date %], by [% author %]
+    </div>
+</div>
