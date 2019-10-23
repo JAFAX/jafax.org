@@ -15,6 +15,7 @@
 </div>
 <div class="container">
     <div class="page_text">
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         <center><h3>Interior Map</h3></center>
         <img id="schedule" src="[% webroot %]/images/JAFAX22Map.png" />
     </div>
