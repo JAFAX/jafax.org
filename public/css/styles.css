@@ -38,13 +38,14 @@ body {
   font-weight: bold;
 }
 .news_carousel {
-  height: 300px;
+  min-height: 300px;
 }
 .news_carousel_title {
   text-align: center;
 }
 .news_item div {
   height: 250px;
+  min-width: 250px;
   background-color: #a8d3ca;
 }
 .news_title {
@@ -54,14 +55,22 @@ body {
   text-decoration: none;
   font-size: 26pt;
   font-weight: bold;
+  min-width: 250px;
+  max-height: 72px;
 }
 .news_title_icon {
+  float: left;
   text-align: left;
+  width: 72px;
+  height: 72px;
 }
 .news_title_text {
+  float: right;
   text-align: center;
   padding: 7px 0;
   text-shadow: 10px, 10px, #282d32;
+  min-width: 50%;
+  max-width: 80%;
 }
 .news_title:hover {
   color: silver;
@@ -118,4 +127,8 @@ body {
   width: 45%;
   margin-top: 30px;
   padding: 20px;
+}
+
+.bttm-pad {
+  padding-bottom: 12px;
 }

@@ -20,8 +20,8 @@
         </div>
         <br />
         <div class="container">
-            <div class="row">
-                <div class="col item news_entry">
+            <div class="padded-row">
+                <div class="col item bttm-pad">
                     <a href="[% webroot %]/news/3" class="news">
                         <div class="container news_title">
                             <div class="row">
@@ -40,7 +40,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col item news_entry">
+                <div class="col item bttm-pad">
                     <a href="[% webroot %]/news/2" class="news">
                         <div class="container news_title">
                             <div class="row">
@@ -59,7 +59,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col item news_entry">
+                <div class="col item bttm-pad">
                     <a href="[% webroot %]/news/1" class="news">
                         <div class="container news_title">
                             <div class="row">
