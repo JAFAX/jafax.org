@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="page_text">
+        <br />
+        <center><h1>The Amway Grand Plaza Hotel</h1></center>
+        <center><h3>The official hotel of JAFAX 2020</h3></center>
+        <p>
+            We are excited to have the historic Amway Grand Plaza Hotel as our
+            official hotel for JAFAX 2019! Located right downtown on the Grand
+            River, the Amway Hotel is connected directly to Devos Place
+            Convention Center.
+        </p>
+        <p>
+            As soon as we have rates for rooms for the weekend of JAFAX 2020,
+            we will post them here!
+        </p>
+    </div>
+    <div class="row">
+        <div class="col item">
+            <img class="left" src="[% webroot %]/images/amway.jpg" />
+            <img class="right" src="[% webroot %]/images/amway1.jpg" />
+            <img class="right" src="[% webroot %]/images/amway2.jpg" />
+        </div>
+    </div>
+</div>
