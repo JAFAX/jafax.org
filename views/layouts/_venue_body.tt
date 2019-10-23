@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="page_text">
+        <br />
+        <center><h1>The DeVos Place Convention Center</h1></center>
+        <p>
+            JAFAX 2020 is once again coming to the DeVos Place Convention
+            Center in the heart of Downtown Grand Rapids, Michigan! The hall is
+            just off the Grand River, and is connected via enclosed walkways to
+            JAFAX's official hotel, the Amway Grand Plaza Hotel.
+        </p>
+        <div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2919.4145499592764!2d-85.6753481838868!3d42.969540404384325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8819adcfc670bfed%3A0xb8b33a8dfa80a429!2sDeVos%20Place!5e0!3m2!1sen!2sus!4v1571799597720!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        </div>
+        <br />
+        <center><h3>Interior Map</h3></center>
+        <img id="schedule" src="[% webroot %]/images/JAFAX22Map.png" />
+        <center><img class="grey-back" src="[%%]/images/DeVosPlaceCCLogo.png" />
+    </div>
+</div>

@@ -132,3 +132,12 @@ body {
 .bttm-pad {
   padding-bottom: 12px;
 }
+
+#schedule {
+  width: 90%;
+  margin: 12px;
+}
+
+.grey-back {
+  background-color: slategrey;
+}
