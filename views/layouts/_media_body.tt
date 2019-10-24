@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="page_text">
+        <br />
+        <center><h1>Anime, Manga, and Music Videos</h1></center>
+        <div class="container-fluid">
+            <div class="padded-row">
+                <div class="col">
+                    <a href="[% webroot %]/media/amv_contest">
+                        <div class="container news_long_title">
+                            <div class="row">
+                                <div class="col-sm-1 news_title_icon">
+                                    <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px">
+                                </div>
+                                <div class="col-md news_title_text">
+                                    Annual JAFAX AMV Contest!
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="padded-row">
+                <div class="col">
+                    <a href="[% webroot %]/media/screenings" class="wide-link">
+                        <div class="container news_long_title">
+                            <div class="row">
+                                <div class="col-sm-1 news_title_icon">
+                                    <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px">
+                                </div>
+                                <div class="col-md news_title_text">
+                                    Anime Screenings!
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="padded-row">
+                <div class="col">
+                    <a href="[% webroot %]/media/manga_library" class="wide-link">
+                        <div class="container news_long_title">
+                            <div class="row">
+                                <div class="col-sm-1 news_title_icon">
+                                    <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px">
+                                </div>
+                                <div class="col-md news_title_text">
+                                    Manga Library!
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
