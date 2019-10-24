@@ -1,0 +1,3 @@
+[% INCLUDE 'layouts/_top.tt' %]
+[% INCLUDE 'layouts/_amv_contest_body.tt' %]
+[% INCLUDE 'layouts/_footer.tt' %]
