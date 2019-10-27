@@ -30,7 +30,7 @@
         <p>
             Thank you for your interest in volunteering at JAFAX 2020! We hope to see you
             at the event. If you have any questions, please send them to our 
-            <a href="mailto:volunteer@jafax.org">Volunteer Coordinator</a>.
+            <a href="[% webroot %]/contact?department=9">Volunteer Coordinator</a>.
         </p>
     </div>
 </div>

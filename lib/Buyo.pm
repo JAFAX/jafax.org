@@ -261,6 +261,7 @@ sub register_dynamic_route {
                             'page_title'    => $bindings->{$path}->{'get'}->{'summary'},
                             'copyright'     => $config->{'copyright'},
                             'license'       => $config->{'license'},
+                            'selected'      => $selected_dept,
                             'people'        => @people
                         };
                     };

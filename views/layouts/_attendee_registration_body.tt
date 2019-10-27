@@ -4,13 +4,13 @@
         <center><h1>Attendee Registration</h1></center>
         <p>
             Tickets for JAFAX can be purchased below. Ticket sales are handled via
-            the <a href="https://www.eventbrite.com/">EventBright</a> service. See
+            the <a href="https://www.eventbee.com/">EventBee</a> service. See
             their privacy policy 
-            <a href="https://www.eventbrite.com/support/articles/en_US/Troubleshooting/eventbrite-privacy-policy?lg=en_US">here</a>.
+            <a href="https://www.eventbee.com/privacystatement">here</a>.
         </p>
         <p>
             If you have any Support questions, please contact
-            <a href="mailto:registration@jafax.org">our registration coordinator</a>.
+            <a href="[% webroot %]/contact?department=7">our registration coordinator</a>.
         </p>
     </div>
 </div>

@@ -14,7 +14,7 @@
             passion for their topic. If you think you have a panel topic that
             the wider audience at JAFAX would enjoy, and would like to run one,
             contact our Panels and Events Coordinator by
-            <a href="mailto:panels@jafax.org">email</a>.
+            <a href="[% webroot %]/contact?department=6">email</a>.
         </p>
         <p>
             When we get closer to JAFAX 2020, we'll post the schedule for the

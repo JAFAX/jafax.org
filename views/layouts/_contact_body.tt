@@ -1,4 +1,3 @@
-[% DEBUG_UNDEF %]
 <script type="text/javascript">
     <!-- Hide script
     function doClear(myText) {
@@ -34,9 +33,13 @@
                 </div>
                 <div class="col">
                     <select name="to_list" form="form:email" class="form-control">
-                        <option selected="selected" value=""></option>
+                        <option value=""></option>
                         [% FOREACH person IN people %]
-                        <option value="[% person.id %]">[% person.name %]</option>
+                            [% IF selected.defined && selected == person.id %]
+                                <option value="[% person.id %]" selected="selected">[% person.name %]</option>
+                            [% ELSE %]
+                                <option value="[% person.id %]">[% person.name %]</option>
+                            [% END %]
                         [% END %]
                     </select>
                 </div>
