@@ -175,7 +175,7 @@ sub send_email {
 
     my $email_address = get_department_email_from_id($config, $config->{'appdir'}, $post_values->{'to_list'});
     my $email_subject = $post_values->{'email_subject'};
-    my $email_body    = "Message sent from: $post_values->{'email_address'}\nMessage:\n$post_values->{'email_body'}\n";
+    my $email_body    = "Message sent from: $post_values->{'email_address'}\n\nMessage:\n$post_values->{'email_body'}\n";
     # construct email
     my $msg = MIME::Lite->new(
         From     => 'noreply@jafax.org',
