@@ -677,6 +677,20 @@
                     }
                 }
             }
+        },
+        "/mail": {
+            "post": {
+                "active": "true",
+                "summary": "send email",
+                "template": "thankyou",
+                "type": "actor",
+                "class": "mailer",
+                "reponse": {
+                    "202": {
+                        "description": "202 response"
+                    }
+                }
+            }
         }
     }
 }

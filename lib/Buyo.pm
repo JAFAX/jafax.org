@@ -32,6 +32,7 @@ use Config::IniFiles;
 use Dancer2;
 use JSON qw();
 use Data::Dumper;
+use MIME::Lite;
 
 use FindBin;
 use lib "$FindBin::Bin/../lib";
@@ -96,7 +97,7 @@ sub register_static_route {
         when ('get') {
             get "$path" => sub {
                 err_log("== DEBUGGING ==: Triggering GET action for path $path") if $config->{'debug'};
-                template $template, {
+                return template $template, {
                     'webroot'    => $config->{'webroot'},
                     'site_name'  => $config->{'site_title'},
                     'page_title' => $bindings->{$path}->{'get'}->{'summary'},
@@ -109,8 +110,6 @@ sub register_static_route {
 
         }
     }
-
-    return true;
 }
 
 sub get_article_from_json {
@@ -132,6 +131,63 @@ sub get_article_from_json {
     return $author, $category, $date, $title, $content;
 }
 
+sub get_department_contacts {
+    my ($config, $appdir) = @_;
+
+    my $sub = (caller(0))[3];
+    err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+
+    my $json_txt    = get_json($config, "departments.json");
+    my $json        = JSON->new();
+    my $people      = $json->decode($json_txt);
+
+    return $people;
+}
+
+sub get_department_email_from_id {
+    my ($config, $appdir, $value) = @_;
+    
+    my $sub = (caller(0))[3];
+    err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+    err_log("== DEBUGGING ==: Input \$value: $value") if $config->{'debug'};
+
+    my $person;
+    my @people = @{get_department_contacts($config, $appdir)};
+
+    foreach $person (@people) {
+        err_log("== DEBUGGING ==: Id: $person->{'id'}") if $config->{'debug'};
+        if ($person->{'id'} == $value) {
+            err_log("== DEBUGGING ==: Id \$person->{'id'} equals '$value'. Retrieving email address") if $config->{'debug'};
+            return $person->{'emailAddress'};
+        } else {
+            err_log("== DEBUGGING ==: Id does not match value. Continuing...") if $config->{'debug'};
+        }
+    }
+
+    return undef;
+}
+
+sub send_email {
+    my ($config, $post_values) = @_;
+
+    my $sub = (caller(0))[3];
+    err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+
+    my $email_address = get_department_email_from_id($config, $config->{'appdir'}, $post_values->{'to_list'});
+    my $email_subject = $post_values->{'email_subject'};
+    my $email_body    = "Message sent from: $post_values->{'email_address'}\nMessage:\n$post_values->{'email_body'}\n";
+    # construct email
+    my $msg = MIME::Lite->new(
+        From     => 'noreply@jafax.org',
+        To       => $email_address,
+        Subject  => $email_subject,
+        Type     => 'TEXT',
+        Encoding => 'quoted-printable',
+        Data     => $email_body,
+    );
+    $msg->send('sendmail', '/usr/sbin/sendmail -t -oi -oem');
+}
+
 sub register_dynamic_route {
     my ($verb, $config, $bindings, $path) = @_;
 
@@ -141,54 +197,124 @@ sub register_dynamic_route {
     my $sub = (caller(0))[3];
     err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
-    my $article_author;
-    my $article_category;
-    my $article_content;
-    my $article_date;
-    my $article_title;
-
-    my $template     = lc($bindings{$path}->{'get'}->{'template'});
-    my $article_mech = uc($config->{'configuration'}->{'article_mech'});
-    err_log("== DEBUGGING ==: Using Article Content Mechanism '$article_mech'") if $config->{'debug'};
-    err_log("== DEBUGGING ==: Registering GET action for path '$path'") if $config->{'debug'};
+    my $class        = lc($bindings{$path}->{$verb}->{'class'});
+    my $template     = lc($bindings{$path}->{$verb}->{'template'});
+    err_log("== DEBUGGING ==: Registering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
     err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
+    err_log("== DEBUGGING ==: Path '$path' has class '$class' attribute") if $config->{'debug'};
     given ($verb) {
         when ('get') {
-            get "$path" => sub {
-                my $article  = route_parameters->get('article');
-                err_log("== DEBUGGING ==: Triggering GET action for path '$path'") if $config->{'debug'};
-                err_log("== DEBUGGING ==: Generating page for article '$article'") if $config->{'debug'};
-                # gather up article information
-                # get article title
-                given ($article_mech) {
-                    when ('JSON') {
-                        ($article_author, $article_category, $article_date,
-                            $article_title, $article_content) = get_article_from_json($config, $article);
-                        break;
-                    }
-                    default {
-                        err_log("== WARNING ==: Unknown Article Content Mechanism, '$article_mech'");
-                    }
-                }
-                template $template, {
-                    'webroot'       => $config->{'webroot'},
-                    'site_name'     => $config->{'site_title'},
-                    'page_title'    => $bindings->{$path}->{'get'}->{'summary'},
-                    'copyright'     => $config->{'copyright'},
-                    'license'       => $config->{'license'},
-                    'author'        => $article_author,
-                    'category'      => $article_category,
-                    'date'          => $article_date,
-                    'title'         => $article_title,
-                    'page_content'  => $article_content
-                };
-            };
-        }
-        when ('put') {
+            given ($class) {
+                when ('news::article') {
+                    my $article_author;
+                    my $article_category;
+                    my $article_content;
+                    my $article_date;
+                    my $article_title;
 
+                    get "$path" => sub {
+                        my $article  = route_parameters->get('article');
+                        err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
+                        err_log("== DEBUGGING ==: Generating page for article '$article'") if $config->{'debug'};
+                        # gather up article information
+                        # get article title
+                        my $article_mech = uc($config->{'configuration'}->{'article_mech'});
+                        err_log("== DEBUGGING ==: Using Article Content Mechanism '$article_mech'") if $config->{'debug'};
+                        given ($article_mech) {
+                            when ('JSON') {
+                                ($article_author, $article_category, $article_date,
+                                    $article_title, $article_content) = get_article_from_json($config, $article);
+                                break;
+                            }
+                            default {
+                                err_log("== WARNING ==: Unknown Article Content Mechanism, '$article_mech'");
+                            }
+                        }
+                        return template $template, {
+                            'webroot'       => $config->{'webroot'},
+                            'site_name'     => $config->{'site_title'},
+                            'page_title'    => $bindings->{$path}->{'get'}->{'summary'},
+                            'copyright'     => $config->{'copyright'},
+                            'license'       => $config->{'license'},
+                            'author'        => $article_author,
+                            'category'      => $article_category,
+                            'date'          => $article_date,
+                            'title'         => $article_title,
+                            'page_content'  => $article_content
+                        };
+                    };
+                }
+                when ('contact::form') {
+                    get "$path" => sub {
+                        my $selected_dept;
+                        my $department = query_parameters->get('department');
+                        my @people = get_department_contacts($config, $config->{'appdir'});
+                        if (defined($department)) {
+                            $selected_dept = $department;
+                            err_log("== DEBUGGING ==: Form passed query parameter value '$department'") if $config->{'debug'};
+                        }
+                        err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
+                        err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
+                        return template $template, {
+                            'webroot'       => $config->{'webroot'},
+                            'site_name'     => $config->{'site_title'},
+                            'page_title'    => $bindings->{$path}->{'get'}->{'summary'},
+                            'copyright'     => $config->{'copyright'},
+                            'license'       => $config->{'license'},
+                            'people'        => @people
+                        };
+                    };
+                }
+            }
+        }
+        when ('put') {}
+        when ('post') {}
+    }
+}
+
+sub register_actor_route {
+    my ($verb, $config, $bindings, $path) = @_;
+
+    # un-reference to make easier to work with
+    my %bindings = %$bindings;
+
+    my $sub = (caller(0))[3];
+    err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+
+    my $template;
+    my $class     = lc($bindings{$path}->{$verb}->{'class'});
+    if (defined($bindings{$path}->{$verb}->{'template'})) {
+        $template = lc($bindings{$path}->{$verb}->{'template'});
+    } else {
+        $template = 'NULL';
+    }
+    err_log("== DEBUGGING ==: Registering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
+    err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
+    err_log("== DEBUGGING ==: Path '$path' has class '$class' attribute") if $config->{'debug'};
+
+    given ($verb) {
+        when ('post') {
+            given ($class) {
+                when ('mailer') {
+                    post "$path" => sub {
+                        my $post_values = request->params;
+                        err_log("== DEBUGGING ==: Triggering '$verb' action for path '$path'") if $config->{'debug'};
+                        send_email($config, $post_values);
+                        if ($template ne 'NULL') {
+                            return template $template, {
+                                'webroot'    => $config->{'webroot'},
+                                'site_name'  => $config->{'site_title'},
+                                'page_title' => $bindings->{$path}->{'get'}->{'summary'},
+                                'copyright'  => $config->{'copyright'},
+                                'license'    => $config->{'license'},
+                            };
+                        }
+                    };
+                }
+            }
         }
     }
-    
+
     return true;
 }
 
@@ -227,12 +353,22 @@ sub register_post_routes {
     my $sub = (caller(0))[3];
     err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
-    foreach my $path (@paths) {
-        err_log("== DEBUGGING ==: Registering POST action for path '$path'") if $config->{'debug'};
-        post "$path" => sub {
-            err_log("== DEBUGGING ==: Triggering POST action for path '$path'") if $config->{'debug'};
+    my %bindings = %$bindings;
 
-        };
+    foreach my $path (@paths) {
+        my $type = $bindings{$path}->{'post'}->{'type'};
+        if (defined($type)) {
+            err_log("== DEBUGGING ==: Path '$path' has type: '$type'") if $config->{'debug'};
+        } else {
+            err_log("== DEBUGGING ==: Path '$path' has no defined type!") if $config->{'debug'};
+        }
+        given ($type) {
+            when ('dynamic') {}
+            when ('static')  {}
+            when ('actor')   {
+                register_actor_route('post', $config, $bindings, $path);
+            }
+        }
     }
 
     return true;

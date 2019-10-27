@@ -1,0 +1,76 @@
+[% DEBUG_UNDEF %]
+<script type="text/javascript">
+    <!-- Hide script
+    function doClear(myText) {
+        if (myText.value == myText.defaultValue) {
+            myText.value = ""
+            myText.color = "black"
+        }
+    }
+    function restoreText(myVal, myText) {
+        if (myText.value.length == 0) {
+            myText.value = myVal
+            myText.color = "grey"
+        }
+    }
+    // End script hiding -->
+</script>
+<div class="container">
+    <div class="page_text">
+        <br />
+        <center><h1>Contact Us</h1></center>
+        <p>
+            Do you have questions for the JAFAX Department Coordinators? We
+            welcome your input and would love to hear from you!
+        <</p>
+        <p>
+            Fill out the form below, and we'll get back to you as soon as is
+            possible.
+        </p>
+        <form method="post" action="/mail" id="form:email" name="form:email" enctype="application/x-www-form-urlencode">
+            <div class="padded-row">
+                <div class="col-sm-2">
+                    Department:
+                </div>
+                <div class="col">
+                    <select name="to_list" form="form:email" class="form-control">
+                        <option selected="selected" value=""></option>
+                        [% FOREACH person IN people %]
+                        <option value="[% person.id %]">[% person.name %]</option>
+                        [% END %]
+                    </select>
+                </div>
+            </div>
+            <div class="padded-row">
+                <div class="col-sm-2">
+                    E-Mail Address:
+                </div>
+                <div class="col">
+                    <input type="email" name="email_address" value="E-mail Address..." onfocus="doClear(this)" onblur="restoreText('E-mail Address...', this)" form="form:email" class="form-control" />
+                </div>
+            </div>
+            <div class="padded-row">
+                <div class="col-sm-2">
+                    Subject:
+                </div>
+                <div class="col">
+                    <input type="text" name="email_subject" value="Subject..." onfocus="doClear(this)" onblur="restoreText('Subject...',this)" form="form:email" class="form-control" />
+                </div>
+            </div>
+            <div class="padded-row">
+                <div class="col-sm-2">
+                    Message:
+                </div>
+                <div class="col">
+                    <textarea name="email_body" form="form:email" class="form-control" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="padded-row">
+                <div class="col-sm-2"></div>
+                <div class="col">
+                    <button type="submit" method="post" form="form:email" class="btn btn-primary">Send E-Mail</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
