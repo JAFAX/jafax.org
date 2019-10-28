@@ -266,7 +266,7 @@ sub register_dynamic_route {
                         };
                     };
                 }
-                when ('contact::form') {
+                when ('form::mailer') {
                     get "$path" => sub {
                         my $selected_dept;
                         my $department = query_parameters->get('department');
@@ -303,6 +303,7 @@ sub register_dynamic_route {
                         }
                     };
                 }
+                when ('news::highlights') {}
             }
         }
         when ('put') {}
@@ -363,7 +364,7 @@ sub register_actor_route {
     given ($verb) {
         when ('post') {
             given ($class) {
-                when ('mailer') {
+                when ('action::mailer') {
                     post "$path" => sub {
                         my $post_values = request->params;
                         err_log("== DEBUGGING ==: Triggering '$verb' action for path '$path'") if $config->{'debug'};
