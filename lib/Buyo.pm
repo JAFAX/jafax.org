@@ -81,37 +81,6 @@ sub get_json {
     return $json_txt;
 }
 
-sub register_static_route {
-    my ($verb, $config, $bindings, $path) = @_;
-
-    # un-reference to make easier to work with
-    my %bindings = %$bindings;
-
-    my $sub = (caller(0))[3];
-    err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
-
-    my $template = $bindings{$path}->{'get'}->{'template'};
-    err_log("== DEBUGGING ==: Registering GET action for path '$path'") if $config->{'debug'};
-    err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
-    given ($verb) {
-        when ('get') {
-            get "$path" => sub {
-                err_log("== DEBUGGING ==: Triggering GET action for path $path") if $config->{'debug'};
-                return template $template, {
-                    'webroot'    => $config->{'webroot'},
-                    'site_name'  => $config->{'site_title'},
-                    'page_title' => $bindings->{$path}->{'get'}->{'summary'},
-                    'copyright'  => $config->{'copyright'},
-                    'license'    => $config->{'license'}
-                };
-            };
-        }
-        when ('put') {
-
-        }
-    }
-}
-
 sub get_article_from_json {
     my ($config, $article) = @_;
 
@@ -322,7 +291,6 @@ sub register_dynamic_route {
                 when ('news::aggregator') {
                     get "$path" => sub {
                         my @articles = build_article_struct_list($config);
-                        say STDERR "STRUCT DUMP: " if $config->{'debug'};
                         err_log("== DEBUGGING ==: Triggerng '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
                         err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
                         return template $template, {
@@ -336,6 +304,36 @@ sub register_dynamic_route {
                     };
                 }
             }
+        }
+        when ('put') {}
+        when ('post') {}
+    }
+}
+
+sub register_static_route {
+    my ($verb, $config, $bindings, $path) = @_;
+
+    # un-reference to make easier to work with
+    my %bindings = %$bindings;
+
+    my $sub = (caller(0))[3];
+    err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+
+    my $template = $bindings{$path}->{'get'}->{'template'};
+    err_log("== DEBUGGING ==: Registering GET action for path '$path'") if $config->{'debug'};
+    err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
+    given ($verb) {
+        when ('get') {
+            get "$path" => sub {
+                err_log("== DEBUGGING ==: Triggering GET action for path $path") if $config->{'debug'};
+                return template $template, {
+                    'webroot'    => $config->{'webroot'},
+                    'site_name'  => $config->{'site_title'},
+                    'page_title' => $bindings->{$path}->{'get'}->{'summary'},
+                    'copyright'  => $config->{'copyright'},
+                    'license'    => $config->{'license'}
+                };
+            };
         }
         when ('put') {}
         when ('post') {}
@@ -383,6 +381,8 @@ sub register_actor_route {
                 }
             }
         }
+        when ('get') {}
+        when ('put') {}
     }
 
     return true;
@@ -411,6 +411,9 @@ sub register_get_routes {
             when ('static') {
                 register_static_route('get', $config, $bindings, $path);
             }
+            when ('actor') {
+                register_actor_route('get', $config, $bindings, $path);
+            }
         }
     }
 
@@ -433,8 +436,12 @@ sub register_post_routes {
             err_log("== DEBUGGING ==: Path '$path' has no defined type!") if $config->{'debug'};
         }
         given ($type) {
-            when ('dynamic') {}
-            when ('static')  {}
+            when ('dynamic') {
+                register_dynamic_route('post', $config, $bindings, $path);
+            }
+            when ('static')  {
+                register_static_route('post', $config, $bindings, $path);
+            }
             when ('actor')   {
                 register_actor_route('post', $config, $bindings, $path);
             }
