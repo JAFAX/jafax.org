@@ -557,7 +557,7 @@
                 "active": "true",
                 "summary": "News &amp; Announcements",
                 "template": "news",
-                "type": "static",
+                "type": "dynamic",
                 "class": "news::aggregator",
                 "responses": {
                     "200": {
