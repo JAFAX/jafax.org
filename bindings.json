@@ -586,7 +586,7 @@
                 "summary": "Volunteer or Contact Us",
                 "template": "contact",
                 "type": "dynamic",
-                "class": "contact::form",
+                "class": "form::mailer",
                 "responses": {
                     "200": {
                         "description": "200 response"
