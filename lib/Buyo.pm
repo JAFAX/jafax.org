@@ -126,7 +126,7 @@ sub build_article_struct_list {
     my $sub = (caller(0))[3];
     err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
-    my @files = get_file_list($config, 'content', 'json');
+    my @files = sort { $b cmp $a} get_file_list($config, 'content', 'json');
 
     my @articles;
     foreach my $file (@files) {
@@ -147,9 +147,7 @@ sub build_article_struct_list {
         );
     }
 
-    # reverse sort
-    my @descending = sort { $b <=> $a } @articles;
-    return \@descending;
+    return \@articles;
 }
 
 sub get_department_contacts {
