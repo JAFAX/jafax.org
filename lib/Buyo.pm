@@ -127,8 +127,60 @@ sub get_article_from_json {
     my $date     = $article_struct->{'info'}->{'date'};
     my $title    = $article_struct->{'title'};
     my $content  = $article_struct->{'content'};
+    my $id       = $article_struct->{'id'};
 
-    return $author, $category, $date, $title, $content;
+    return $author, $category, $date, $title, $content, $id;
+}
+
+sub get_file_list {
+    my ($config, $directory, $extension) = @_;
+
+    my $sub = (caller(0))[3];
+    err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+
+    my @files;
+    opendir(my $dh, "$config->{'appdir'}$directory");
+    while (my $file = readdir $dh) {
+        next if $file =~ /^\.\.?$/;
+        next if $file !~ /^\d+\.json$/;
+        err_log("== DEBUGGING ==: File '$file' found. Will add to array.") if $config->{'debug'};
+        push(@files, "$config->{'appdir'}$directory/$file");
+    }
+    closedir $dh;
+
+    return @files;
+}
+
+sub build_article_struct_list {
+    my $config = shift;
+
+    my $sub = (caller(0))[3];
+    err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+
+    my @files = get_file_list($config, 'content', 'json');
+
+    my @articles;
+    foreach my $file (@files) {
+        err_log("== DEBUGGING ==: Processing file '$file'") if $config->{'debug'};
+        my (undef, $filename) = split(/.*\/content\//, $file);
+        err_log("== DEBUGGING ==: filename '$filename'") if $config->{'debug'};
+        my ($article, $ext) = split(/\./, $filename);
+        my ($author, $category, $date, $title, $content, $id) = get_article_from_json($config, $article);
+        push(@articles,
+            {
+                'author'    => $author,
+                'category'  => $category,
+                'date'      => $date,
+                'title'     => $title,
+                'content'   => $content,
+                'id'        => $id
+            }
+        );
+    }
+
+    # reverse sort
+    my @descending = sort { $b <=> $a } @articles;
+    return \@descending;
 }
 
 sub get_department_contacts {
@@ -211,6 +263,7 @@ sub register_dynamic_route {
                     my $article_content;
                     my $article_date;
                     my $article_title;
+                    my $article_id;
 
                     get "$path" => sub {
                         my $article  = route_parameters->get('article');
@@ -223,7 +276,7 @@ sub register_dynamic_route {
                         given ($article_mech) {
                             when ('JSON') {
                                 ($article_author, $article_category, $article_date,
-                                    $article_title, $article_content) = get_article_from_json($config, $article);
+                                    $article_title, $article_content, $article_id) = get_article_from_json($config, $article);
                                 break;
                             }
                             default {
@@ -264,6 +317,22 @@ sub register_dynamic_route {
                             'selected'      => $selected_dept,
                             'people'        => @people
                         };
+                    };
+                }
+                when ('news::aggregator') {
+                    get "$path" => sub {
+                        my @articles = build_article_struct_list($config);
+                        say STDERR "STRUCT DUMP: " if $config->{'debug'};
+                        err_log("== DEBUGGING ==: Triggerng '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
+                        err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
+                        return template $template, {
+                            'webroot'       => $config->{'webroot'},
+                            'site_name'     => $config->{'site_title'},
+                            'page_title'    => $bindings->{$path}->{'get'}->{'summary'},
+                            'copyright'     => $config->{'copyright'},
+                            'license'       => $config->{'license'},
+                            'articles'      => @articles
+                        }
                     };
                 }
             }
