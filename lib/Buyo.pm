@@ -23,16 +23,16 @@ use warnings FATAL => 'all';
 use English qw(-no_match_vars);
 use utf8;
 
-use feature qw(:5.26);
-no warnings "experimental::smartmatch";
-
 use boolean qw(:all);
-use CGI::Carp qw(carp fatalsToBrowser);
+use CGI::Carp qw(carp croak fatalsToBrowser);
 use Config::IniFiles;
 use Dancer2;
 use JSON qw();
 use Data::Dumper;
 use MIME::Lite;
+
+use feature qw(:5.26);
+use experimental 'switch';
 
 use FindBin;
 use lib "$FindBin::Bin/../lib";
@@ -98,7 +98,7 @@ sub get_article_from_json {
     my $content  = $article_struct->{'content'};
     my $id       = $article_struct->{'id'};
 
-    return $author, $category, $date, $title, $content, $id;
+    return $author, ucfirst($category), $date, $title, $content, $id;
 }
 
 sub get_file_list {
@@ -207,6 +207,24 @@ sub send_email {
     $msg->send('sendmail', '/usr/sbin/sendmail -t -oi -oem');
 }
 
+sub get_last_three_article_structs {
+    my ($config, $articles) = @_;
+
+    my $sub = (caller(0))[3];
+    err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+
+    # first, cast $articles into an array
+    my @articles = @{$articles};
+
+    my $top_three = [
+        $articles[0],
+        $articles[1],
+        $articles[2]
+    ];
+
+    return $top_three;
+}
+
 sub register_dynamic_route {
     my ($verb, $config, $bindings, $path) = @_;
 
@@ -268,7 +286,7 @@ sub register_dynamic_route {
                     get "$path" => sub {
                         my $selected_dept;
                         my $department = query_parameters->get('department');
-                        my @people = get_department_contacts($config, $config->{'appdir'});
+                        my $people = get_department_contacts($config, $config->{'appdir'});
                         if (defined($department)) {
                             $selected_dept = $department;
                             err_log("== DEBUGGING ==: Form passed query parameter value '$department'") if $config->{'debug'};
@@ -282,13 +300,13 @@ sub register_dynamic_route {
                             'copyright'     => $config->{'copyright'},
                             'license'       => $config->{'license'},
                             'selected'      => $selected_dept,
-                            'people'        => @people
+                            'people'        => $people
                         };
                     };
                 }
                 when ('news::aggregator') {
                     get "$path" => sub {
-                        my @articles = build_article_struct_list($config);
+                        my $articles = build_article_struct_list($config);
                         err_log("== DEBUGGING ==: Triggerng '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
                         err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
                         return template $template, {
@@ -297,11 +315,27 @@ sub register_dynamic_route {
                             'page_title'    => $bindings->{$path}->{'get'}->{'summary'},
                             'copyright'     => $config->{'copyright'},
                             'license'       => $config->{'license'},
-                            'articles'      => @articles
+                            'articles'      => $articles
                         }
                     };
                 }
-                when ('news::highlights') {}
+                when ('news::highlights') {
+                    get "$path" => sub {
+                        my $articles = build_article_struct_list($config);
+                        my $top_three = get_last_three_article_structs($config, $articles);
+                        say STDERR Dumper $top_three;
+                        err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
+                        err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
+                        return template $template, {
+                            'webroot'       => $config->{'webroot'},
+                            'site_name'     => $config->{'site_title'},
+                            'page_title'    => $bindings->{$path}->{'get'}->{'summary'},
+                            'copyright'     => $config->{'copyright'},
+                            'license'       => $config->{'license'},
+                            'articles'      => $top_three
+                        }
+                    };
+                }
             }
         }
         when ('put') {}

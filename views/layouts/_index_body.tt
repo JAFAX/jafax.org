@@ -21,12 +21,13 @@
         <br />
         <div class="container">
             <div class="padded-row">
+                [% FOREACH article IN articles %]
                 <div class="col item bttm-pad">
-                    <a href="[% webroot %]/news/3" class="news">
+                    <a href="[% webroot %]/news/[% article.id %]" class="news">
                         <div class="container news_title">
                             <div class="row">
                                 <div class="col-sm-1 item news_title_icon">
-                                    <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px">
+                                    <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px" />
                                 </div>
                                 <div class="col item news_title_text">
                                     News
@@ -35,48 +36,22 @@
                         </div>
                         <div class="news_blurb">
                             <p>
-                                JAFAX 2020 Event Theme Announced!
+                                [% article.title %]
                             </p>
                         </div>
                     </a>
                 </div>
-                <div class="col item bttm-pad">
-                    <a href="[% webroot %]/news/2" class="news">
-                        <div class="container news_title">
-                            <div class="row">
-                                <div class="col-sm-1 item news_title_icon">
-                                    <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px">
-                                </div>
-                                <div class="col item news_title_text">
-                                    News
-                                </div>
-                            </div>
-                        </div>
-                        <div class="news_blurb">
-                            <p>
-                                JAFAX 2020 Dates Announced!
-                            </p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col item bttm-pad">
-                    <a href="[% webroot %]/news/1" class="news">
-                        <div class="container news_title">
-                            <div class="row">
-                                <div class="col-sm-1 item news_title_icon">
-                                    <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px">
-                                </div>
-                                <div class="col item news_title_text">
-                                    News
-                                </div>
-                            </div>
-                        </div>
-                        <div class="news_blurb">
-                            <p>
-                                JAFAX's website gets a new design!
-                            </p>
-                        </div>
-                    </a>
+                [% END %]
+            </div>
+            <div class="row">
+                <div class="col page_text">
+                <p align="right">
+                    <small>
+                        <a href="[% webroot %]/news">
+                            See all news...
+                        </a>
+                    </small>
+                </p>
                 </div>
             </div>
         </div>
