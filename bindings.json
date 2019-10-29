@@ -193,8 +193,8 @@
                 "active": "true",
                 "summary": "2020",
                 "template": "index",
-                "type": "static",
-                "class": "frontpage",
+                "type": "dynamic",
+                "class": "news::highlights",
                 "responses": {
                     "200": {
                         "description": "200 response"
