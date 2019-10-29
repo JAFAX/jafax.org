@@ -38,7 +38,7 @@ BEGIN {
     our ($VERSION, @EXPORT, @EXPORT_OK);
 
     # set the version for version checking
-    $VERSION     = '0.1';
+    $VERSION     = '1.0';
     @EXPORT      = qw(
         err_log
     );
