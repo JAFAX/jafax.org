@@ -9,11 +9,17 @@
             our guests discuss topics related to voice acting and how they got
             into the industry? Then stop in on one of the panels at JAFAX!
         </p>
-        <p>
+<!--        <p>
             Many of the panels run at JAFAX are run by volunteers whom have a
             passion for their topic. If you think you have a panel topic that
             the wider audience at JAFAX would enjoy, and would like to run one,
             contact our Panels and Events Coordinator by
+            <a href="[% webroot %]/contact?department=6">email</a>.
+        </p> -->
+        <p>
+            Panel submissions have not opened yet. If you have questions about
+            previous years panels, or information about what would be involved
+            in running one, reach out to our Panels Coordinator by
             <a href="[% webroot %]/contact?department=6">email</a>.
         </p>
         <p>
