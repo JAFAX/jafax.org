@@ -8,6 +8,40 @@
             their privacy policy 
             <a href="https://www.eventbee.com/privacystatement">here</a>.
         </p>
+        <h3>Pre-Registration Pricing</h3>
+        <p>
+            The prices for pre-registration tickets are as follows:<br />
+            <ul>
+                <li><strong>November 1, 2019 through January 31, 2020:</strong> $40 for a 3-Day Badge</li>
+                <li><strong>February 1, 2020 through May 15, 2020:</strong> $45 for a 3-Day Badge</li>
+                <li><strong>May 15, 2020 through June 19, 2020:</strong> $50 for a 3-Day Badge (Same price as at the door prices).</li>
+            </ul>
+        </p>
+        <h3>VIP Badges</h3>
+        <p>
+            VIP Badges can be purchased at any time starting November 1, 2019.
+            They are $90 and are limited to 120 total badges sold. If badges
+            are left by June 26, 2020, they will be sold at the door.
+        </p>
+        <p>
+            <b>Please note, for the last two years, they have sold out weeks
+            before opening day!</b>
+        </p>
+        <h3>At Door Prices for Badges</h3>
+        <p>
+            <ul>
+                <li><strong>Friday Badge:</strong> $25</li>
+                <li><strong>Saturday Badge:</strong> $35</li>
+                <li><strong>Sunday Badge:</strong> $25</li>
+                <li><strong>3-Day Badge:</strong> $50</li>
+                <li><strong>Child Badge:</strong> $20</li>
+            </ul>
+        </p>
+        <p>
+            For more details about the badges, please click the plus signs
+            below on the EventBee badge template for additional badge
+            information.
+        </p>
         <p>
             If you have any Support questions, please contact
             <a href="[% webroot %]/contact?department=7">our registration coordinator</a>.
@@ -20,13 +54,6 @@
             <div id="eventbee_iframe" frame-eventId="105484552" frame-domain="https://www.eventbee.com" frame-width="800" frame-border="0px solid gray">
                 <script type='text/javascript' language='JavaScript' src='https://www.eventbee.com/home/js/widget/frameHelper.js'></script>
             </div>
-<!--            <div id="eventbee_iframe_121470082" frame-eventid="121470082" frame-domain="https://www.eventbee.com" style="min-height: 300px;" frame-width="100%" frame-border="0px solid gray">
-                <script type="text/javascript" language="JavaScript" src="https://www.eventbee.com/home/js/widget/frameHelper.js"></script>
-                <div class="middler">
-                    <a class="subtext" href="https://www.facebook.com/JAFAX/app/467671603304208">Click here if the ticket widget is unresponsive.</a>
-                </div>
-                <iframe id="_EbeeIFrame_ticketwidget_121470082" name="_EbeameIFrame_ticketwidget_121470082" src="https://www.eventbee.com/eregister?eid=121470082&amp;context=web&amp;parentDomain=http://www.jafax.org" height="0" width="100%" style="min-height:300px;border:0px solid gray"></iframe>
-            </div> -->
         </div>
     </section>
 </div>
