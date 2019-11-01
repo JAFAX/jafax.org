@@ -16,9 +16,15 @@
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" href="[% webroot %]/news">News</a>
                         </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="[% webroot %]/guests">Guests</a>
+                        <li class="dropdown nav-item">
+                            <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/guests">Guests</a>
+                            <div class="dropdown-menu" role="menu">
+                                <a class="dropdwon-item" role="presentation" href="[% webroot %]/guests/TiaBallard">Tia Ballard</a>
+                            </div>
                         </li>
+<!--                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="[% webroot %]/guests">Guests</a>
+                        </li> -->
                         <li class="dropdown nav-item">
                             <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/location">Location</a>
                             <div class="dropdown-menu" role="menu">

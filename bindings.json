@@ -510,6 +510,20 @@
                 }
             }
         },
+        "/guests/:person": {
+            "get": {
+                "active": "true",
+                "summary": "Guest Bio",
+                "template": "guest_bio",
+                "type": "dynamic",
+                "class": "guest::bio",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
         "/location": {
             "get": {
                 "active": "true",
