@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="padded-row">
                 <div class="col">
-                    <a href="[% webroot %]/media/amv_contest">
+                    <a href="[% webroot %]/events/media/amv_contest">
                         <div class="container news_long_title">
                             <div class="row">
                                 <div class="col-sm-1 news_title_icon">
@@ -21,7 +21,7 @@
             </div>
             <div class="padded-row">
                 <div class="col">
-                    <a href="[% webroot %]/media/screenings" class="wide-link">
+                    <a href="[% webroot %]/events/media/anime" class="wide-link">
                         <div class="container news_long_title">
                             <div class="row">
                                 <div class="col-sm-1 news_title_icon">
@@ -37,7 +37,7 @@
             </div>
             <div class="padded-row">
                 <div class="col">
-                    <a href="[% webroot %]/media/manga_library" class="wide-link">
+                    <a href="[% webroot %]/events/media/manga" class="wide-link">
                         <div class="container news_long_title">
                             <div class="row">
                                 <div class="col-sm-1 news_title_icon">
