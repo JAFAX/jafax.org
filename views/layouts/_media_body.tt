@@ -1,7 +1,7 @@
 <div class="container">
     <div class="page_text">
         <br />
-        <center><h1>Anime, Manga, and Music Videos</h1></center>
+        <center><h1>Anim&eacute;, Manga, and Music Videos</h1></center>
         <div class="container-fluid">
             <div class="padded-row">
                 <div class="col">
@@ -28,7 +28,7 @@
                                     <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px">
                                 </div>
                                 <div class="col-md news_title_text">
-                                    Anime Screenings!
+                                    Anim&eacute; Screenings!
                                 </div>
                             </div>
                         </div>
