@@ -82,23 +82,37 @@ sub get_json {
 }
 
 sub get_article_from_json {
-    my ($config, $article) = @_;
+    my ($config, $article, $type) = @_;
 
     my $sub = (caller(0))[3];
     err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
-    my $json_txt       = get_json($config, "content/${article}.json");
+    my $json_txt;
+    if ($type eq 'news') {
+        $json_txt      = get_json($config, "content/${article}.json");
+    } elsif ($type eq 'bio') {
+        $json_txt      = get_json($config, "content/guests/${article}.json");
+    }
     my $json           = JSON->new();
     my $article_struct = $json->decode($json_txt);
 
-    my $author   = $article_struct->{'info'}->{'author'};
-    my $category = $article_struct->{'info'}->{'category'};
-    my $date     = $article_struct->{'info'}->{'date'};
-    my $title    = $article_struct->{'title'};
-    my $content  = $article_struct->{'content'};
-    my $id       = $article_struct->{'id'};
+    if ($type eq 'news') {
+        my $author   = $article_struct->{'info'}->{'author'};
+        my $category = $article_struct->{'info'}->{'category'};
+        my $date     = $article_struct->{'info'}->{'date'};
+        my $title    = $article_struct->{'title'};
+        my $content  = $article_struct->{'content'};
+        my $id       = $article_struct->{'id'};
 
-    return $author, ucfirst($category), $date, $title, $content, $id;
+        return $author, ucfirst($category), $date, $title, $content, $id;
+    } elsif ($type eq 'bio') {
+        my $name     = $article_struct->{'name'};
+        my $photo_fn = $article_struct->{'photoFileName'};
+        my $position = $article_struct->{'photoPosition'};
+        my $content  = $article_struct->{'content'};
+
+        return $name, $photo_fn, $position, $content;
+    }
 }
 
 sub get_file_list {
@@ -134,7 +148,7 @@ sub build_article_struct_list {
         my (undef, $filename) = split(/.*\/content\//, $file);
         err_log("== DEBUGGING ==: filename '$filename'") if $config->{'debug'};
         my ($article, $ext) = split(/\./, $filename);
-        my ($author, $category, $date, $title, $content, $id) = get_article_from_json($config, $article);
+        my ($author, $category, $date, $title, $content, $id) = get_article_from_json($config, $article, 'news');
         push(@articles,
             {
                 'author'    => $author,
@@ -261,7 +275,7 @@ sub register_dynamic_route {
                         given ($article_mech) {
                             when ('JSON') {
                                 ($article_author, $article_category, $article_date,
-                                    $article_title, $article_content, $article_id) = get_article_from_json($config, $article);
+                                    $article_title, $article_content, $article_id) = get_article_from_json($config, $article, 'news');
                                 break;
                             }
                             default {
@@ -323,7 +337,6 @@ sub register_dynamic_route {
                     get "$path" => sub {
                         my $articles = build_article_struct_list($config);
                         my $top_three = get_last_three_article_structs($config, $articles);
-                        say STDERR Dumper $top_three;
                         err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
                         err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
                         return template $template, {
@@ -334,6 +347,41 @@ sub register_dynamic_route {
                             'license'       => $config->{'license'},
                             'articles'      => $top_three
                         }
+                    };
+                }
+                when ("guest::bio") {
+                    get "$path" => sub {
+                        my $bio_name;
+                        my $bio_photo;
+                        my $bio_photo_position,
+                        my $bio_content;
+
+                        my $person = route_parameters->get('person');
+                        err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
+                        err_log("== DEBUGGING ==: Generating page for article '$person'") if $config->{'debug'};
+                        my $page_content_mech = uc($config->{'configuration'}->{'article_mech'});
+                        err_log("== DEBUGGING ==: Using Article Content Mechanism '$page_content_mech'") if $config->{'debug'};
+                        given ($page_content_mech) {
+                            when ('JSON') {
+                                ($bio_name, $bio_photo, $bio_photo_position,
+                                    $bio_content) = get_article_from_json($config, $person, 'bio');
+                                break;
+                            }
+                            default {
+                                err_log("== WARNING ==: Unknown Article Content Mechanism, '$page_content_mech'");
+                            }
+                        }
+                        return template $template, {
+                            'webroot'       => $config->{'webroot'},
+                            'site_name'     => $config->{'site_title'},
+                            'page_title'    => $bindings->{$path}->{'get'}->{'summary'},
+                            'copyright'     => $config->{'copyright'},
+                            'license'       => $config->{'license'},
+                            'name'          => $bio_name,
+                            'photo_uri'     => $bio_photo,
+                            'position'      => $bio_photo_position,
+                            'page_content'  => $bio_content
+                        };
                     };
                 }
             }

@@ -16,8 +16,12 @@
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" href="[% webroot %]/news">News</a>
                         </li>
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="[% webroot %]/guests">Guests</a>
+                        <li class="dropdown nav-item">
+                            <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/guests">Guests</a>
+                            <div class="dropdown-menu" role="menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/TiaBallard">Tia Ballard</a>
+                                <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/CharlesDunbar">Charles Dunbar</a>
+                            </div>
                         </li>
                         <li class="dropdown nav-item">
                             <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/location">Location</a>
@@ -41,10 +45,10 @@
                                 <li><a class="dropdown-item" href="[%%]/events/gaming">Gaming</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/events/maid_cafe">Maid Caf&eacute;</a></li>
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="[% webroot %]/events/media">Anime and Manga</a>
+                                    <a class="dropdown-item dropdown-toggle" href="[% webroot %]/events/media">Anim&eacute; and Manga</a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="[% webroot %]/events/media/amv_contest">AMV Contest</a></li>
-                                        <li><a class="dropdown-item" href="[% webroot %]/events/media/anime">Anime Screenings</a></li>
+                                        <li><a class="dropdown-item" href="[% webroot %]/events/media/anime">Anim&eacute; Screenings</a></li>
                                         <li><a class="dropdown-item" href="[% webroot %]/events/media/manga">Manga Library</a></li>
                                     </ul>
                                 </li>
