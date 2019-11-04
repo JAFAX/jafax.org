@@ -7,5 +7,5 @@
     "category": "announcement"
   },
   "title": "Artists Alley Registration Now Open!",
-  "content": "<p>Registration for booths in Artists Alley is now officially open!</p><p>Sign up today to confirm your spot to show off your artistic talents. Please hurry, as spots are limited. Please note that Artists Alley registration will close on December 2, 2019, or when space has been filled.</p>"
+  "content": "<p>Registration for booths in Artists Alley is now officially open!</p><p><a href=\"[% webroot %]/registration/artists\">Sign up today</a> to confirm your spot to show off your artistic talents. Please hurry, as spots are limited. Please note that Artists Alley registration will close on December 2, 2019, or when space has been filled.</p>"
 }
