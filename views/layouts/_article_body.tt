@@ -3,6 +3,6 @@
         <br />
         <center><h1>[% title %]</h1></center>
         [% page_content %]
-        <em><small>Posted on [% date %], by [% author %]
+        <em><small>Posted on [% date %], by [% author %]</small></em>
     </div>
 </div>

@@ -111,7 +111,7 @@
                                 "children": null
                             },
                             "Media": {
-                                "title": "Anime and Manga",
+                                "title": "Anim&eacute; and Manga",
                                 "link": "/events/media",
                                 "children": {
                                     "order": [
@@ -126,7 +126,7 @@
                                             "children": null
                                         },
                                         "Anime": {
-                                            "title": "Anime Screenings",
+                                            "title": "Anim&ecute; Screenings",
                                             "link": "/events/media/anime",
                                             "children": null
                                         },
@@ -387,7 +387,7 @@
         "/events/media": {
             "get": {
                 "active": "true",
-                "summary": "Anime and Monga at JAFAX",
+                "summary": "Anim&eacute; and Monga at JAFAX",
                 "template": "media",
                 "type": "static",
                 "class": "collection",
@@ -415,7 +415,7 @@
         "/events/media/anime": {
             "get": {
                 "active": "true",
-                "summary": "Anime Screenings at JAFAX",
+                "summary": "Anim&eacute; Screenings at JAFAX",
                 "template": "screenings",
                 "type": "static",
                 "class": "article",
@@ -503,6 +503,20 @@
                 "template": "guests",
                 "type": "static",
                 "class": "article",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/guests/:person": {
+            "get": {
+                "active": "true",
+                "summary": "Guest Bio",
+                "template": "guest_bio",
+                "type": "dynamic",
+                "class": "guest::bio",
                 "responses": {
                     "200": {
                         "description": "200 response"
