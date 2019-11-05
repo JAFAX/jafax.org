@@ -698,7 +698,7 @@
                 "summary": "send email",
                 "template": "thankyou",
                 "type": "actor",
-                "class": "mailer",
+                "class": "action::mailer",
                 "reponse": {
                     "202": {
                         "description": "202 response"
