@@ -19,8 +19,9 @@
                         <li class="dropdown nav-item">
                             <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/guests">Guests</a>
                             <div class="dropdown-menu" role="menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/TiaBallard">Tia Ballard</a>
                                 <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/CharlesDunbar">Charles Dunbar</a>
+                                <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/JerryJewell">Jerry Jewell</a>
+                                <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/TiaBallard">Tia Ballard</a>
                             </div>
                         </li>
                         <li class="dropdown nav-item">

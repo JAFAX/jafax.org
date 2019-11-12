@@ -3,13 +3,12 @@
         <br />
         <center><h1>[% name %]</h1></center>
         <p>
-            [% IF position == 'left' -%]
-                <img class="left" src="[% photo_uri %]" />
-                [% page_content %]
-            [% ELSIF position == 'right' -%]
-                [% page_content %]
-                <img class="right" src="[% photo_uri %]" />
-            [% END %]
-        </p>
+        [% IF position == 'left' -%]
+            <img class="left" src="[% photo_uri %]" />
+            [% page_content %]
+        [% ELSIF position == 'right' -%]
+            [% page_content %]
+            <img class="right" src="[% photo_uri %]" />
+        [% END -%]
     </div>
 </div>
