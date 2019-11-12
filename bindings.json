@@ -1,5 +1,5 @@
 {
-    "binding_version": "2.0",
+    "binding_version": "3.0",
     "info": {
         "title": "JAFAX",
         "version": "2019.0.99",
@@ -193,6 +193,8 @@
                 "active": "true",
                 "summary": "2020",
                 "template": "index",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "dynamic",
                 "class": "news::highlights",
                 "responses": {
@@ -207,6 +209,8 @@
                 "active": "true",
                 "summary": "Registration",
                 "template": "registration",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": null,
                 "class": null,
                 "responses": {
@@ -221,6 +225,8 @@
                 "active": "true",
                 "summary": "Attendee Registration",
                 "template": "attendee_registration",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "registration::container",
                 "responses": {
@@ -235,6 +241,8 @@
                 "active": "true",
                 "summary": "Artist Alley Registration",
                 "template": "artist_registration",
+                "launchDate": 1438401600,
+                "expireDate": 1575262800,
                 "type": "static",
                 "class": "registration::container",
                 "responses": {
@@ -249,6 +257,8 @@
                 "active": "true",
                 "summary": "Maid Caf&eacute; Volunteer Registration",
                 "template": "maid_cafe_volunteer_registration",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "registration::container",
                 "responses": {
@@ -263,6 +273,8 @@
                 "active": "true",
                 "summary": "Vendor Registration",
                 "template": "vendor_registration",
+                "launchDate": 1438401600,
+                "expireDate": 1575262800,
                 "type": "static",
                 "class": "registration::container",
                 "responses": {
@@ -277,6 +289,8 @@
                 "active": "true",
                 "summary": "Volunteer Registration",
                 "template": "volunteer_registration",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "registration::container",
                 "responses": {
@@ -291,6 +305,8 @@
                 "active": "true",
                 "summary": "Events at JAFAX",
                 "template": "events",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": null,
                 "class": null,
                 "responses": {
@@ -305,6 +321,8 @@
                 "active": "true",
                 "summary": "Artists at JAFAX",
                 "template": "artists",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -319,6 +337,8 @@
                 "active": "true",
                 "summary": "Cosplay Events at JAFAX",
                 "template": "cosplay",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -333,6 +353,8 @@
                 "active": "true",
                 "summary": "Japanese Cultural Events at JAFAX",
                 "template": "culture",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -347,6 +369,8 @@
                 "active": "true",
                 "summary": "Board, Tabletop, and Video Gaming at JAFAX",
                 "template": "gaming",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -361,6 +385,8 @@
                 "active": "true",
                 "summary": "Gaming schedule at JAFAX",
                 "template": "gaming_schedule",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "gaming::schedule",
                 "responses": {
@@ -375,6 +401,8 @@
                 "active": "true",
                 "summary": "Maid Caf&eacute; at JAFAX",
                 "template": "maid_cafe",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -389,6 +417,8 @@
                 "active": "true",
                 "summary": "Anim&eacute; and Monga at JAFAX",
                 "template": "media",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "collection",
                 "responses": {
@@ -403,6 +433,8 @@
                 "active": "true",
                 "summary": "AMV Contest at JAFAX",
                 "template": "amv_contest",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -417,6 +449,8 @@
                 "active": "true",
                 "summary": "Anim&eacute; Screenings at JAFAX",
                 "template": "screenings",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -431,6 +465,8 @@
                 "active": "true",
                 "summary": "Manga Library at JAFAX",
                 "template": "manga_library",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -445,6 +481,8 @@
                 "active": "true",
                 "summary": "Music Events at JAFAX",
                 "template": "music",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -459,6 +497,8 @@
                 "active": "true",
                 "summary": "Panels at JAFAX",
                 "template": "panels",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -473,6 +513,8 @@
                 "active": "true",
                 "summary": "Event Schedule at JAFAX",
                 "template": "schedule",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "events::schedule",
                 "responses": {
@@ -487,6 +529,8 @@
                 "active": "true",
                 "summary": "Vendors at JAFAX",
                 "template": "vendors",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -501,6 +545,8 @@
                 "active": "true",
                 "summary": "VIPs and Guests at JAFAX",
                 "template": "guests",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -515,6 +561,8 @@
                 "active": "true",
                 "summary": "Guest Bio",
                 "template": "guest_bio",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "dynamic",
                 "class": "guest::bio",
                 "responses": {
@@ -529,6 +577,8 @@
                 "active": "true",
                 "summary": "The Location of JAFAX",
                 "template": "location",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": null,
                 "class": null,
                 "responses": {
@@ -543,6 +593,8 @@
                 "active": "true",
                 "summary": "The Hotel of JAFAX",
                 "template": "hotel",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -557,6 +609,8 @@
                 "active": "true",
                 "summary": "The Venue of JAFAX",
                 "template": "venue",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -571,6 +625,8 @@
                 "active": "true",
                 "summary": "News &amp; Announcements",
                 "template": "news",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "dynamic",
                 "class": "news::aggregator",
                 "responses": {
@@ -585,6 +641,8 @@
                 "active": "true",
                 "summary": "News Articles",
                 "template": "article",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "dynamic",
                 "class": "news::article",
                 "responses": {
@@ -599,6 +657,8 @@
                 "active": "true",
                 "summary": "Volunteer or Contact Us",
                 "template": "contact",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "dynamic",
                 "class": "form::mailer",
                 "responses": {
@@ -613,6 +673,8 @@
                 "active": "true",
                 "summary": "Event Policies at JAFAX",
                 "template": "policies",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": null,
                 "class": null,
                 "responses": {
@@ -627,6 +689,8 @@
                 "active": "true",
                 "summary": "Attendee Rules at JAFAX",
                 "template": "rules",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -641,6 +705,8 @@
                 "active": "true",
                 "summary": "Privacy Policy at JAFAX",
                 "template": "privacy",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -655,6 +721,8 @@
                 "active": "true",
                 "summary": "Inclusion Policy at JAFAX",
                 "template": "inclusion",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -669,6 +737,8 @@
                 "active": "true",
                 "summary": "Non-Profit Organization Bylaws of JAFAX",
                 "template": "bylaws",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -683,6 +753,8 @@
                 "active": "true",
                 "summary": "Volunteer Guidelines",
                 "template": "volunteer_guidelines",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "static",
                 "class": "article",
                 "responses": {
@@ -697,6 +769,8 @@
                 "active": "true",
                 "summary": "send email",
                 "template": "thankyou",
+                "launchDate": 1438401600,
+                "expireDate": -1,
                 "type": "actor",
                 "class": "action::mailer",
                 "reponse": {
