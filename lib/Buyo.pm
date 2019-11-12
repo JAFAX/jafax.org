@@ -239,6 +239,30 @@ sub get_last_three_article_structs {
     return $top_three;
 }
 
+sub validate_page_launch_date {
+    my ($launch_date, $curr_date) = @_;
+
+    my $do_launch = false;
+    if ($curr_date >= $launch_date) {
+        $do_launch = true;
+    }
+
+    return $do_launch;
+}
+
+sub expire_page {
+    my ($expiry_date, $curr_date) = @_;
+
+    my $expire = false;
+    if ($expiry_date != -1) {
+        if ($curr_date > $expiry_date) {
+            $expire = true;
+        }
+    }
+
+    return $expire;
+}
+
 sub register_dynamic_route {
     my ($verb, $config, $bindings, $path) = @_;
 
@@ -265,6 +289,9 @@ sub register_dynamic_route {
                     my $article_id;
 
                     get "$path" => sub {
+                        my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
+                        my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
+
                         my $article  = route_parameters->get('article');
                         err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
                         err_log("== DEBUGGING ==: Generating page for article '$article'") if $config->{'debug'};
@@ -292,13 +319,19 @@ sub register_dynamic_route {
                             'category'      => $article_category,
                             'date'          => $article_date,
                             'title'         => $article_title,
-                            'page_content'  => $article_content
+                            'page_content'  => $article_content,
+                            'launch'        => $do_launch,
+                            'expirePage'    => $expire_page
                         };
                     };
                 }
                 when ('form::mailer') {
                     get "$path" => sub {
                         my $selected_dept;
+
+                        my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
+                        my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
+
                         my $department = query_parameters->get('department');
                         my $people = get_department_contacts($config, $config->{'appdir'});
                         if (defined($department)) {
@@ -314,12 +347,17 @@ sub register_dynamic_route {
                             'copyright'     => $config->{'copyright'},
                             'license'       => $config->{'license'},
                             'selected'      => $selected_dept,
-                            'people'        => $people
+                            'people'        => $people,
+                            'launch'        => $do_launch,
+                            'expirePage'    => $expire_page
                         };
                     };
                 }
                 when ('news::aggregator') {
                     get "$path" => sub {
+                        my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
+                        my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
+
                         my $articles = build_article_struct_list($config);
                         err_log("== DEBUGGING ==: Triggerng '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
                         err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
@@ -329,12 +367,17 @@ sub register_dynamic_route {
                             'page_title'    => $bindings->{$path}->{'get'}->{'summary'},
                             'copyright'     => $config->{'copyright'},
                             'license'       => $config->{'license'},
-                            'articles'      => $articles
+                            'articles'      => $articles,
+                            'launch'        => $do_launch,
+                            'expirePage'    => $expire_page
                         }
                     };
                 }
                 when ('news::highlights') {
                     get "$path" => sub {
+                        my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
+                        my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
+
                         my $articles = build_article_struct_list($config);
                         my $top_three = get_last_three_article_structs($config, $articles);
                         err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
@@ -345,7 +388,9 @@ sub register_dynamic_route {
                             'page_title'    => $bindings->{$path}->{'get'}->{'summary'},
                             'copyright'     => $config->{'copyright'},
                             'license'       => $config->{'license'},
-                            'articles'      => $top_three
+                            'articles'      => $top_three,
+                            'launch'        => $do_launch,
+                            'expirePage'    => $expire_page
                         }
                     };
                 }
@@ -355,6 +400,9 @@ sub register_dynamic_route {
                         my $bio_photo;
                         my $bio_photo_position,
                         my $bio_content;
+
+                        my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
+                        my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
 
                         my $person = route_parameters->get('person');
                         err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
@@ -380,7 +428,9 @@ sub register_dynamic_route {
                             'name'          => $bio_name,
                             'photo_uri'     => $bio_photo,
                             'position'      => $bio_photo_position,
-                            'page_content'  => $bio_content
+                            'page_content'  => $bio_content,
+                            'launch'        => $do_launch,
+                            'expirePage'    => $expire_page
                         };
                     };
                 }
@@ -406,13 +456,18 @@ sub register_static_route {
     given ($verb) {
         when ('get') {
             get "$path" => sub {
+                my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
+                my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
+
                 err_log("== DEBUGGING ==: Triggering GET action for path $path") if $config->{'debug'};
                 return template $template, {
                     'webroot'    => $config->{'webroot'},
                     'site_name'  => $config->{'site_title'},
                     'page_title' => $bindings->{$path}->{'get'}->{'summary'},
                     'copyright'  => $config->{'copyright'},
-                    'license'    => $config->{'license'}
+                    'license'    => $config->{'license'},
+                    'launch'     => $do_launch,
+                    'expirePage' => $expire_page
                 };
             };
         }
@@ -447,6 +502,10 @@ sub register_actor_route {
                 when ('action::mailer') {
                     post "$path" => sub {
                         my $post_values = request->params;
+
+                        my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
+                        my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
+
                         err_log("== DEBUGGING ==: Triggering '$verb' action for path '$path'") if $config->{'debug'};
                         send_email($config, $post_values);
                         if ($template ne 'NULL') {
@@ -456,6 +515,8 @@ sub register_actor_route {
                                 'page_title' => $bindings->{$path}->{'get'}->{'summary'},
                                 'copyright'  => $config->{'copyright'},
                                 'license'    => $config->{'license'},
+                                'launch'     => $do_launch,
+                                'expirePage' => $expire_page
                             };
                         }
                     };
