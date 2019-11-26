@@ -55,5 +55,17 @@
                 <script type='text/javascript' language='JavaScript' src='https://www.eventbee.com/home/js/widget/frameHelper.js'></script>
             </div>
         </div>
+        <br />
+        <span>
+            <a href="https://www.eventbee.com/good" target="new" style="text-decoration: none;">
+                <img alt="Nonprofit Ticketing By Eventbee" src="https://d10sjcptbl6vkd.cloudfront.net/images/home/en-us/nonprofit-ticketing-by-eventbee.png" border="0" />
+            </a>
+            <br />
+            <span style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10px;font-weight: lighter;color: #666666;">
+                <a href="https://www.eventbee.com/good" target="new"  style="text-decoration: none;">
+                    Online Ticketing Powered by Eventbee
+                </a>
+            </span>
+        </span>
     </section>
 </div>
