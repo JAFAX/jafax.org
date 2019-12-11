@@ -458,11 +458,8 @@ sub register_static_route {
             get "$path" => sub {
                 my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
                 my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
-                my $current_time = time;
 
                 err_log("== DEBUGGING ==: Triggering GET action for path $path") if $config->{'debug'};
-                err_log("== DEBUGGING ==: current time: $current_time") if $config->{'debug'};
-                err_log("== DEBUGGING ==: expiry time: $expire_page") if $config->{'debug'};
                 return template $template, {
                     'webroot'     => $config->{'webroot'},
                     'site_name'   => $config->{'site_title'},
@@ -470,8 +467,7 @@ sub register_static_route {
                     'copyright'   => $config->{'copyright'},
                     'license'     => $config->{'license'},
                     'launch'      => $do_launch,
-                    'expire_page' => $expire_page,
-                    'curr_time'   => $current_time
+                    'expire_page' => $expire_page
                 };
             };
         }

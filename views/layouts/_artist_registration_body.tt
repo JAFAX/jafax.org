@@ -2,7 +2,7 @@
     <div class="page_text">
         <br />
         <center><h1>Artist Alley Registration</h1></center>
-        [% IF curr_time > expire_page %]
+        [% IF expire_page == 1 %]
         <p>
             Hello Artists! JAFAX 2020 Artist Alley registration is now
             accepting applications!
