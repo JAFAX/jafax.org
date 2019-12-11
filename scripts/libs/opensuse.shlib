@@ -16,7 +16,7 @@ function zypp_inst {
     say "${FG_L_CYAN}Package is already installed${NORMAL}"
   else
     say "${FG_L_CYAN}Package is not installed... Installing${NORMAL}"
-    zypper -n -y in $pkg_name
+    zypper -n --non-interactive in $pkg_name
   fi
 }
 
