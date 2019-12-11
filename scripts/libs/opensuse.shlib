@@ -10,4 +10,24 @@ MODULE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 function zyp_inst {
   local pkg_name=${1}
+
+  # check if package is already installed
+  if rpm -q $pkg_name >/dev/null; then
+    say "${FG_L_CYAN}Package is already installed${NORMAL}"
+  else
+    say "${FG_L_CYAN}Package is not installed... Installing${NORMAL}"
+    zypper -n -y in $pkg_name
+  fi
+}
+
+function zyp_install_pkgs {
+  local install_root=${1}
+
+  # ensure jq is installed
+  zyp_inst jq
+
+  for PKG in $(jq -r '.opensuse.pkgs | .[]' ${install_root}/scripts/data/pkgs.json); do
+    say "${FG_L_GREEN}INSTALLING $PKG${NORMAL}"
+    zyp_inst $PKG
+  done
 }
