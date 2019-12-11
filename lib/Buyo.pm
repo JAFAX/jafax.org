@@ -467,7 +467,8 @@ sub register_static_route {
                     'copyright'  => $config->{'copyright'},
                     'license'    => $config->{'license'},
                     'launch'     => $do_launch,
-                    'expirePage' => $expire_page
+                    'expirePage' => $expire_page,
+                    'curr_time'  => time
                 };
             };
         }
