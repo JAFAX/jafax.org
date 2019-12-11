@@ -20,6 +20,8 @@ function zypp_inst {
   fi
 }
 
+alias zyp_inst=zypp_inst
+
 function zypp_install_pkgs {
   local install_root=${1}
 
@@ -28,6 +30,6 @@ function zypp_install_pkgs {
 
   for PKG in $(jq -r '.opensuse.pkgs | .[]' ${install_root}/scripts/data/pkgs.json); do
     say "${FG_L_GREEN}INSTALLING $PKG${NORMAL}"
-    zyp_inst $PKG
+    zypp_inst $PKG
   done
 }
