@@ -2,7 +2,7 @@
     <div class="page_text">
         <br />
         <center><h1>Vendor Registration</h1></center>
-        [% IF expire_page == 1 %]
+        [% IF expire_page == 0 %]
         <p>
             Welcome! JAFAX 2020 Vendor Registration is now accepting applications!
         </p>
