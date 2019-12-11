@@ -22,7 +22,6 @@ cd ${INSTALL_ROOT}
 say "${FG_L_CYAN}Configuring Buyo${NORMAL}"
 say "${FG_WHITE}CWD: $(pwd)${NORMAL}"
 git pull
-exit
 
 # ensure our dependent packages are installed
 if [[ ${operatingsystem} == "opensuse" ]]; then
@@ -30,6 +29,7 @@ if [[ ${operatingsystem} == "opensuse" ]]; then
 elif [[ ${operatingsystem} == "debian" ]]; then
   apt_install_pkgs ${INSTALL_ROOT}
 fi
+exit
 
 # link our systemd service unit into place
 softlink ${INSTALL_ROOT}/systemd/buyo.service /etc/systemd/system/buyo.service
