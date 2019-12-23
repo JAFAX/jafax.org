@@ -5,7 +5,7 @@
         <br />
         <!-- news items are shown newest to oldest, top-down -->
         <div class="container-fluid">
-            [% FOREACH article IN articles %]
+            [% FOREACH article IN articles.nsort('id').reverse %]
             <div class="padded-row">
                 <div class="col">
                     <a href="[% webroot %]/news/[% article.id %]">

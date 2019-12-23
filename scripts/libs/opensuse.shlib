@@ -8,7 +8,7 @@ MODULE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 . ${MODULE_DIR}/color.shlib
 . ${MODULE_DIR}/say.shlib
 
-function zyp_inst {
+function zypp_inst {
   local pkg_name=${1}
 
   # check if package is already installed
@@ -16,18 +16,20 @@ function zyp_inst {
     say "${FG_L_CYAN}Package is already installed${NORMAL}"
   else
     say "${FG_L_CYAN}Package is not installed... Installing${NORMAL}"
-    zypper -n -y in $pkg_name
+    zypper -n --non-interactive in $pkg_name
   fi
 }
 
-function zyp_install_pkgs {
+alias zyp_inst=zypp_inst
+
+function zypp_install_pkgs {
   local install_root=${1}
 
   # ensure jq is installed
-  zyp_inst jq
+  zypp_inst jq
 
   for PKG in $(jq -r '.opensuse.pkgs | .[]' ${install_root}/scripts/data/pkgs.json); do
     say "${FG_L_GREEN}INSTALLING $PKG${NORMAL}"
-    zyp_inst $PKG
+    zypp_inst $PKG
   done
 }

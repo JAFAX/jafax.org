@@ -16,7 +16,7 @@ Buyo uses two different configurations:
    - config.yml
    - environments/deployment.yml
    - environments/production.yml
-1. An INI file in conf.d to configure specific elements of the application code
+1. An INI file in conf.d to configure specific elements of the application code, such as backend authentication, which mechanism is in use for article content, and web URI:
    - conf.d/config.ini
 
 ### Dancer2 Configuration
@@ -67,3 +67,7 @@ debugging = 1
 webroot = localhost:5000/
 article_mech = JSON
 ```
+
+### Apache Configuration
+
+As can be seen from the configuration snippets above, Buyo is by default run on the localhost interface, and is proxied to the web. This protects against certain types of attacks, and allows for better scaling of the application by running it via Starman PSGI servlet environment under a third-party web server, such as LigHTTPd or Apache HTTPd's pre-fork workers. The configuration for Apache as used on our development server, is found in the apache2 subdirectory in the repo.

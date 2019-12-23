@@ -460,14 +460,16 @@ sub register_static_route {
                 my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
 
                 err_log("== DEBUGGING ==: Triggering GET action for path $path") if $config->{'debug'};
+                err_log("== DEBUGGING ==: do_launch: $do_launch") if $config->{'debug'};
+                err_log("== DEBUGGING ==: expire_page: $expire_page") if $config->{'debug'};
                 return template $template, {
-                    'webroot'    => $config->{'webroot'},
-                    'site_name'  => $config->{'site_title'},
-                    'page_title' => $bindings->{$path}->{'get'}->{'summary'},
-                    'copyright'  => $config->{'copyright'},
-                    'license'    => $config->{'license'},
-                    'launch'     => $do_launch,
-                    'expirePage' => $expire_page
+                    'webroot'     => $config->{'webroot'},
+                    'site_name'   => $config->{'site_title'},
+                    'page_title'  => $bindings->{$path}->{'get'}->{'summary'},
+                    'copyright'   => $config->{'copyright'},
+                    'license'     => $config->{'license'},
+                    'launch'      => $do_launch,
+                    'expire_page' => $expire_page
                 };
             };
         }
