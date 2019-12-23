@@ -18,10 +18,10 @@
         <div class="news_carousel_title">
             <h3 class="page_text">Latest News</h3>
         </div>
-        <br />
+        <r />
         <div class="container">
             <div class="padded-row">
-                [% FOREACH article IN articles %]
+                [% FOREACH article IN articles.sort %]
                 <div class="col item bttm-pad">
                     <a href="[% webroot %]/news/[% article.id %]" class="news">
                         <div class="container news_title">
