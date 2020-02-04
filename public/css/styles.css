@@ -157,3 +157,14 @@ body {
   border-style: hidden;
   overflow: hidden;
 }
+
+@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0)
+{ @media {
+  .img_carousel {
+    align-content: center;
+/*    height: px; */
+    width: 73%;
+    border-style: hidden;
+    overflow: hidden;
+  }
+}}
