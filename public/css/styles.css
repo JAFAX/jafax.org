@@ -153,7 +153,7 @@ body {
 .img_carousel {
   align-content: center;
   height: 330px;
-  width: 820px;
+  width: 73%;
   border-style: hidden;
   overflow: hidden;
 }
