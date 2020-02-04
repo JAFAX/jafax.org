@@ -204,6 +204,22 @@
                 }
             }
         },
+        "/carousel": {
+            "get": {
+                "active": "true",
+                "summary": "image carousel",
+                "template": "carousel",
+                "launchDate": 1438401600,
+                "expireDate": -1,
+                "type": "dynamic",
+                "class": "widget::carousel",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
         "/registration": {
             "get": {
                 "active": "true",

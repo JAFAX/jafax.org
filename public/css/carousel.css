@@ -1,0 +1,36 @@
+body {
+  background-color: #282d32;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h3 {
+  font-size: 20px;
+  font-family:Verdana;
+  color: #515151;
+}
+img {
+  height: 360px;
+}
+.carousel-inner {
+  background-color: #282d32;
+}
+.carousel-caption {
+  font-size: 2em;
+  text-align: right;
+  text-shadow: none;
+  color: cadetblue;
+}
+.carousel-indicators {
+  font-size: 2em;
+  bottom: -1%;
+  text-shadow: none;
+}
+.carousel-indicators li {
+  border-color: cadetblue;
+}
+.carousel-indicators .active {
+  background-color: cadetblue;
+}
+
+.carousel-control .icon-prev .icon-next {
+  color: black;
+}

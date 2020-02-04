@@ -149,3 +149,11 @@ body {
   max-width: 100%;
   min-height: 300px;
 }
+
+.img_carousel {
+  align-content: center;
+  height: 330px;
+  width: 820px;
+  border-style: hidden;
+  overflow: hidden;
+}
