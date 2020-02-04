@@ -149,22 +149,48 @@ body {
   max-width: 100%;
   min-height: 300px;
 }
-
-.img_carousel {
-  align-content: center;
-  height: 330px;
-  width: 73%;
-  border-style: hidden;
-  overflow: hidden;
-}
-
-@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0)
-{ @media {
+@media (max-width: 600px) {
   .img_carousel {
     align-content: center;
-/*    height: px; */
+    height: 160px;
+    width: 90%;
+    border-style: hidden;
+    overflow: hidden;
+  }
+}
+@media (min-width: 600px) {
+  .img_carousel {
+    align-content: center;
+    height: 140px;
+    width: 80%;
+    border-style: hidden;
+    overflow: hidden;
+  }
+}
+@media (min-width: 760px) {
+  .img_carousel {
+    align-content: center;
+    height: 220px;
+    width: 80%;
+    border-style: hidden;
+    overflow: hidden;
+  }
+}
+@media (min-width: 1020px) {
+  .img_carousel {
+    align-content: center;
+    height: 310px;
+    width: 80%;
+    border-style: hidden;
+    overflow: hidden;
+  }
+}
+@media (min-width: 1028px) {
+  .img_carousel {
+    align-content: center;
+    height: 310px;
     width: 73%;
     border-style: hidden;
     overflow: hidden;
   }
-}}
+}
