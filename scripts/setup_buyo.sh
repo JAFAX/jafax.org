@@ -29,7 +29,6 @@ if [[ ${operatingsystem} == "opensuse" ]]; then
 elif [[ ${operatingsystem} == "debian" ]]; then
   apt_install_pkgs ${INSTALL_ROOT}
 fi
-exit
 
 # link our systemd service unit into place
 softlink ${INSTALL_ROOT}/systemd/buyo.service /etc/systemd/system/buyo.service
@@ -37,6 +36,7 @@ softlink ${INSTALL_ROOT}/systemd/buyo.service /etc/systemd/system/buyo.service
 cd ${INSTALL_ROOT}/scripts
 ./setup_etcd.sh
 cd -
+exit
 
 # inject initial data
 etcdctl mkdir /com
