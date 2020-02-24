@@ -1,0 +1,81 @@
+<html>
+<head>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/carousel.css">
+</head>
+<body>
+    <div id="image-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#image-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#image-carousel" data-slide-to="1"></li>
+            <li data-target="#image-carousel" data-slide-to="2"></li>
+            <li data-target="#image-carousel" data-slide-to="3"></li>
+            <li data-target="#image-carousel" data-slide-to="4"></li>
+            <li data-target="#image-carousel" data-slide-to="5"></li>
+        </ol>
+  
+        <!-- Sliding images statring here --> 
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="row">
+                    <img src="[% webroot %]/images/carousel/1.jpg" alt="JAFAX Through the Years" class="carousel">
+<!--                <div class="carousel-caption">
+                    <p>JAFAX 2014</p>
+                </div> -->
+                </div>
+            </div>
+            <div class="item">
+                <div class="row">
+                    <img src="[% webroot %]/images/carousel/2.jpg" alt="JAFAX 2014" class="carousel">
+<!--                <div class="carousel-caption">
+                    <p>JAFAX 2016</p>
+                </div> -->
+                </div>
+            </div>
+            <div class="item">
+                <div class="row">
+                    <img src="[% webroot %]/images/carousel/3.jpg" alt="JAFAX 2016" class="carousel">
+<!--                <div class="carousel-caption">
+                    <p>JAFAX 2017</p>
+                </div> -->
+                </div>
+            </div>
+            <div class="item">
+                <div class="row">
+                    <img src="[% webroot %]/images/carousel/4.jpg" alt="JAFAX 2017" class="carousel">
+<!--                <div class="carousel-caption">
+                    <p>JAFAX 2018</p>
+                </div> -->
+                </div>
+            </div>
+            <div class="item">
+                <div class="row">
+                    <img src="[% webroot %]/images/carousel/5.jpg" alt="JAFAX 2018" class="carousel">
+<!--                <div class="carousel-caption">
+                    <p>JAFAX 2019</p>
+                </div> -->
+                </div>
+            </div>
+            <div class="item">
+                <div class="row">
+                    <img src="[% webroot %]/images/carousel/6.jpg" alt="JAFAX 2019" class="carousel">
+<!--                <div class="carousel-caption">
+                    <p>JAFAX 2019</p>
+                </div> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Next / Previous controls here -->
+        <a class="left carousel-control" href="#image-carousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#image-carousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </div>
+</body>
+</html>

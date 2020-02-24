@@ -434,6 +434,13 @@ sub register_dynamic_route {
                         };
                     };
                 }
+                when ("widget::carousel") {
+                    get "$path" => sub {
+                        err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for '$path'") if $config->{'debug'};
+                        err_log("== DEBUGGING ==: Generating page for IFRAME") if $config->{'debug'};
+                        return template $template, {}, { layout => "carousel" };
+                    };
+                }
             }
         }
         when ('put') {}
