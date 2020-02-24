@@ -21,7 +21,7 @@
                             <div class="dropdown-menu" role="menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/CharlesDunbar">Charles Dunbar</a>
                                 <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/ComfortAndAdam">Comfort &amp; Adam</a>
-                                <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/JadSexton">J&#257;d Sexton</a>
+                                <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/JadSaxton">J&#257;d Saxton</a>
                                 <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/JerryJewell">Jerry Jewell</a>
                                 <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/MicahSolusod">Micah Solusod</a>
                                 <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/DanAndJillian">Samurai Dan &amp; Jillian</a>
