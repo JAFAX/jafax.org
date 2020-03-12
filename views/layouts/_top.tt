@@ -41,12 +41,6 @@
                                 <li><a class="dropdown-item" href="[% webroot %]/events/artists">Artist Alley</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/events/cosplay">Cosplay</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/events/culture">Culture</a></li>
-<!--                            <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle" href="[% webroot %]/events/gaming">Gaming</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="[% webroot %]/gaming/schedule">Schedule</a></li>
-                                    </ul>
-                                </li> -->
                                 <li><a class="dropdown-item" href="[%%]/events/gaming">Gaming</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/events/maid_cafe">Maid Caf&eacute;</a></li>
                                 <li class="dropdown-submenu">
