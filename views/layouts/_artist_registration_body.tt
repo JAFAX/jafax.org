@@ -4,7 +4,7 @@
         <center><h1>Artist Alley Registration</h1></center>
         [% IF expire_page == 0 %]
         <p>
-            Hello Artists! JAFAX 2020 Artist Alley registration is now
+            Hello Artists! JAFAX 2021 Artist Alley registration is now
             accepting applications!
         </p>
         <p>
@@ -21,10 +21,14 @@
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc7yn9k1YwUlmDB1qwwcPrYbAV8IRB8lRPXTu44x-gfFkre1w/viewform?embedded=true" 
           width="100%" height="2110px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         [% ELSE %]
-        <p>
-            JAFAX 2020 Artist Alley Registration has closed. We are looking forward to
+<!--        <p>
+            JAFAX 2021 Artist Alley Registration has closed. We are looking forward to
             announcing the artists whom are coming, and will post more info as we get
             closer to the event!
+        </p> -->
+        <p>
+            Details for the Artists Alley registration for JAFAX 2021 will be
+            posted soon! Please come back later.
         </p>
         [% END %]
         <p>
