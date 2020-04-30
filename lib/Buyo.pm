@@ -387,6 +387,7 @@ sub register_dynamic_route {
 
                         my $articles = build_article_struct_list($config);
                         my $top_three = get_last_three_article_structs($config, $articles);
+                        err_log("== DEBUGGING ==: Top Three structure: " . Dumper $top_three") if $config->{'debug'};
                         err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
                         err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
                         return template $template, {
