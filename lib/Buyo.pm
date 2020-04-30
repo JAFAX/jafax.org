@@ -230,13 +230,20 @@ sub get_last_three_article_structs {
     # first, cast $articles into an array
     my @articles = @{$articles};
 
-    my $top_three = [
-        $articles[0],
-        $articles[1],
-        $articles[2]
-    ];
+    my $top_articles = undef;
+    if (scalar(@articles) ge 3) {
+        $top_articles = [
+            $articles[0],
+            $articles[1],
+            $articles[2]
+        ];
+    } elsif (scalar(@articles) eq 2) {
+        $top_articles = [ $articles[0], $articles[1] ];
+    } else {
+        $top_articles = [ $articles[0] ];
+    }
 
-    return $top_three;
+    return $top_articles;
 }
 
 sub validate_page_launch_date {
@@ -380,6 +387,7 @@ sub register_dynamic_route {
 
                         my $articles = build_article_struct_list($config);
                         my $top_three = get_last_three_article_structs($config, $articles);
+                        err_log("== DEBUGGING ==: Top Three structure: " . Dumper $top_three) if $config->{'debug'};
                         err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
                         err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
                         return template $template, {
