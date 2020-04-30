@@ -230,13 +230,17 @@ sub get_last_three_article_structs {
     # first, cast $articles into an array
     my @articles = @{$articles};
 
-    my $top_three = [
-        $articles[0],
-        $articles[1],
-        $articles[2]
-    ];
+    if (scalar(@articles) ge 3) {
+        my $top_articles = [
+            $articles[0],
+            $articles[1],
+            $articles[2]
+        ];
+    } else {
+        $top_articles = @articles;
+    }
 
-    return $top_three;
+    return $top_articles;
 }
 
 sub validate_page_launch_date {
