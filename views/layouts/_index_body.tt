@@ -25,7 +25,7 @@
         <br />
         <div class="container">
             <div class="padded-row">
-                [% FOREACH article IN articles.sort('id') %]
+                [% FOREACH article IN articles.sort('id').reverse %]
                 <div class="col item bttm-pad">
                     [% IF article.id > 10 %]
                     <a href="[% webroot %]/news/[% article.id %]" class="news">
@@ -53,13 +53,13 @@
             </div>
             <div class="row">
                 <div class="col page_text">
-                <p align="right">
-                    <small>
-                        <a href="[% webroot %]/news">
-                            See all news...
-                        </a>
-                    </small>
-                </p>
+                    <p align="right">
+                        <small>
+                            <a href="[% webroot %]/news">
+                                See all news...
+                            </a>
+                        </small>
+                    </p>
                 </div>
             </div>
         </div>
