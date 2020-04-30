@@ -25,9 +25,13 @@
         <br />
         <div class="container">
             <div class="padded-row">
-                [% FOREACH article IN articles.sort %]
+                [% FOREACH article IN articles.id.sort %]
                 <div class="col item bttm-pad">
+                    [% IF article.id > 10 %]
                     <a href="[% webroot %]/news/[% article.id %]" class="news">
+                    [% ELSE %]
+                    <a href="[% webroot %]/news/0[% article.id %]" class="news">
+                    [% END %]
                         <div class="container news_title">
                             <div class="row">
                                 <div class="col-sm-1 item news_title_icon">
