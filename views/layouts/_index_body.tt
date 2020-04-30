@@ -25,7 +25,7 @@
         <br />
         <div class="container">
             <div class="padded-row">
-                [% FOREACH article IN articles.id.sort %]
+                [% FOREACH article IN articles.sort('id') %]
                 <div class="col item bttm-pad">
                     [% IF article.id > 10 %]
                     <a href="[% webroot %]/news/[% article.id %]" class="news">
