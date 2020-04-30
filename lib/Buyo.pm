@@ -237,8 +237,10 @@ sub get_last_three_article_structs {
             $articles[1],
             $articles[2]
         ];
+    } elsif (scalar(@articles) eq 2) {
+        $top_articles = [ $articles[0], $articles[1] ];
     } else {
-        $top_articles = @articles;
+        $top_articles = [ $articles[0] ];
     }
 
     return $top_articles;
