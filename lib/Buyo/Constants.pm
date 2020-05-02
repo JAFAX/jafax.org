@@ -17,54 +17,49 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-package Buyo::Constants;
+package Buyo::Constants v1.2.19 {
+    use strict;
+    use warnings;
+    use English qw(-no_match_vars);
+    use utf8;
 
-use strict;
-use warnings;
-use English qw(-no_match_vars);
-use utf8;
+    use boolean qw(:all);
+    use base qw(Exporter);
 
-use boolean qw(:all);
-use base qw(Exporter);
+    BEGIN {
+        use Exporter   ();
 
-BEGIN {
-    use Exporter   ();
+        my (@EXPORT, @EXPORT_OK, %EXPORT_TAGS);
 
-    my ($VERSION, @EXPORT, @EXPORT_OK, %EXPORT_TAGS);
+        # set the version for version checking
+        @EXPORT      = qw(
+            $license
+            $login_title
+            $title
+            $copyright
+        );
+        %EXPORT_TAGS = (
+            All => [
+                qw(
+                    $license
+                )
+            ]
+        );     # eg: TAG => [ qw!name1 name2! ],
 
-    # set the version for version checking
-    $VERSION     = '1.0';
-    @EXPORT      = qw(
-        $version
-        $license
-        $login_title
-        $title
-        $copyright
-    );
-    %EXPORT_TAGS = (
-        All => [
-            qw(
-                $version
-                $license
-            )
-        ]
-    );     # eg: TAG => [ qw!name1 name2! ],
+        # your exported package globals go here,
+        # as well as any optionally exported functions
+        @EXPORT_OK   = qw($license);
+    }
 
-    # your exported package globals go here,
-    # as well as any optionally exported functions
-    @EXPORT_OK   = qw($version $license);
+    our @EXPORT_OK;
+
+    # exported package globals go here
+    our $license;
+
+    # initialize package globals, first exported ones
+    $license     = 'Licensed under the Apache Public License version 2.0';
+
+    END { }       # module clean-up code here (global destructor)
+
+    true;  # don't forget to return a true value from the file
 }
-
-our @EXPORT_OK;
-
-# exported package globals go here
-our $version;
-our $license;
-
-# initialize package globals, first exported ones
-$version     = '1.0';
-$license     = 'Licensed under the Apache Public License version 2.0';
-
-END { }       # module clean-up code here (global destructor)
-
-true;  # don't forget to return a true value from the file
