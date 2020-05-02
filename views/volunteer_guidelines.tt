@@ -1,0 +1,3 @@
+[% INCLUDE 'layouts/_top.tt' %]
+[% INCLUDE 'layouts/_volunteer_guidelines_body.tt' %]
+[% INCLUDE 'layouts/_footer.tt' %]
