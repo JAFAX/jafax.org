@@ -17,38 +17,38 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-package Buyo::Utils;
+package Buyo::Utils v1.2.19 {
+    use strict;
+    use warnings;
+    use English qw(-no_match_vars);
+    use utf8;
 
-use strict;
-use warnings;
-use English qw(-no_match_vars);
-use utf8;
+    use feature ":5.26";
+    use feature 'lexical_subs';
+    use feature 'signatures';
+    no warnings "experimental::signatures";
 
-use feature qw(
-    say
-);
+    use boolean qw(:all);
+    use base qw(Exporter);
+    use Carp;
+    use Data::Dumper;
 
-use boolean qw(:all);
-use base qw(Exporter);
-use Carp;
-use Data::Dumper;
+    BEGIN {
+        use Exporter;
+        our (@EXPORT, @EXPORT_OK);
 
-BEGIN {
-    use Exporter;
-    our ($VERSION, @EXPORT, @EXPORT_OK);
+        # set the version for version checking
+        @EXPORT      = qw(
+            err_log
+        );
+        @EXPORT_OK   = qw();
+    }
 
-    # set the version for version checking
-    $VERSION     = '1.0';
-    @EXPORT      = qw(
-        err_log
-    );
-    @EXPORT_OK   = qw();
+    our sub err_log (@msg) {
+        return print {*STDERR} "@msg\n";
+    }
+
+    END { }       # module clean-up code here (global destructor)
+
+    true;  # don't forget to return a true value from the file
 }
-
-sub err_log {
-    return print {*STDERR} "@_\n";
-}
-
-END { }       # module clean-up code here (global destructor)
-
-true;  # don't forget to return a true value from the file
