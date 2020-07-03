@@ -16,9 +16,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-package Buyo v1.2.19 {
-    use strict;
-    use warnings FATAL => 'all';
+package Buyo v1.2.21 {
+    use strictures;
     use English qw(-no_match_vars);
     use utf8;
 
@@ -475,7 +474,7 @@ package Buyo v1.2.19 {
                             my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
                             my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
 
-                            my $articles = build_article_struct_list($config);
+                            my $articles = build_article_struct_list();
                             err_log("== DEBUGGING ==: Triggerng '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
                             err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
                             return template $template, {
