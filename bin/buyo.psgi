@@ -17,9 +17,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-package main v1.2.19 {
-    use strict;
-    use warnings;
+package main v1.2.21 {
+    use strictures;
     use English qw(-no_match_vars);
     use utf8;
 
@@ -56,6 +55,8 @@ package main v1.2.19 {
     my $DEBUG = true;
 
     my sub main (@args) {
+        my $sub = (caller(0))[3];
+        err_log("== DEBUGGING ==: Sub: " . $sub) if $DEBUG;
         say {*STDERR} '>> Starting the Buyo application server version '. $Buyo::Constants::VERSION;
         say {*STDERR} '>> '. $Buyo::Constants::license;
         say {*STDERR} '-------------------------------------------------------------';
