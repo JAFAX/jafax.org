@@ -1,0 +1,78 @@
+#!/usr/bin/env perl
+#
+# Author: Gary Greene <greeneg@tolharadys.net>
+# Copyright: 2019 JAFAX, Inc. All Rights Reserved
+#
+##########################################################################
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+package main v0.0.1 {
+    use strict;
+    use warnings;
+    use utf8;
+    use English;
+
+    use feature ":5.26";
+    no warnings "experimental::lexical_subs";
+    no warnings "experimental::signatures";
+    no warnings "experimental::smartmatch";
+    use feature "lexical_subs";
+    use feature "signatures";
+    use feature "switch";
+
+    use boolean;
+    use Data::Dumper;
+    use FindBin;
+    use Getopt::Long qw(:config gnu_compat);
+    use JSON;
+    use Throw qw(throw confess caller_trace classify);
+    use Try::Tiny qw(try catch);
+
+    use FindBin;
+    use lib "$FindBin::Bin/../lib";
+
+    use Buyo::MkRole;
+    use File::IO;
+
+    my $description = undef;
+    my $id          = undef;
+    my $prefix      = undef;
+    my $role_name   = undef;
+
+    # global settings
+    $Throw::pretty = 1;
+    $Throw::trace  = 1;
+
+    my sub main (@args) {
+        my $mkrole = Buyo::MkRole->new();
+        GetOptions(
+            'h|help'          => sub { $mkrole->show_help(); exit 0 },
+            'v|version'       => sub { $mkrole->show_version(); exit 0 },
+            'd|description=s' => \$description,
+            'n|name=s'        => \$role_name,
+            'i|id=i'          => \$id
+        );
+        $mkrole->verify_options($role_name, $description);
+        $prefix = $mkrole->get_application_prefix();
+
+        if (! defined $id) {
+            $id = $mkrole->next_available_id();
+        }
+
+        # now add role to the list of roles
+        $mkrole->create_role($id, $role_name, $description);
+    }
+
+    main(@ARGV);
+}

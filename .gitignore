@@ -2,5 +2,6 @@ logs
 config.yml
 config.json
 conf.d/config.ini
+conf.d/roles.lst
 environments/*.yml
 departments.json
