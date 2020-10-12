@@ -1,5 +1,5 @@
 body {
-  background-color: #282d32;
+  background-color: ghostwhite;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .subtext {
@@ -7,16 +7,16 @@ body {
   font-size: 12px;
 }
 .page_text {
-  color: ghostwhite;
+  color: darkslategrey;
   line-height: 1.5;
 }
 .page_text a {
-  color: ghostwhite;
+  color: darkslategrey;
   font-weight: bold;
   text-decoration: underline;
 }
 .page_text h2 {
-  color: ghostwhite;
+  color: darkslategrey;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
   margin-top: 15px;
@@ -31,11 +31,11 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .news:hover .news_title {
-  color: silver;
+  color: darkslategrey;
 }
 .news:hover .news_blurb {
   color: ghostwhite;
-  font-weight: bold;
+/*  font-weight: bold; */
 }
 .news_carousel {
   min-height: 300px;
@@ -49,7 +49,7 @@ body {
   background-color: #a8d3ca;
 }
 .news_title {
-  background-image: linear-gradient(45deg, cadetblue, darkslategrey);
+  background-image: linear-gradient(45deg, cadetblue, ghostwhite);
   border-top-right-radius: 30px;
 /*  font-family: 'Arial Black', Arial, Helvetica, sans-serif; */
   text-decoration: none;
@@ -79,7 +79,7 @@ body {
   text-decoration: none;
 }
 .news_blurb {
-  background-image: linear-gradient(45deg, slategrey, #a8d3a8);
+  background-image: linear-gradient(45deg, slategrey, paleturquoise);
   color: black;
   height: 140px;
   text-align: center;
@@ -90,7 +90,7 @@ body {
   color: ghostwhite;
 }
 .news_long_title {
-  background-image: linear-gradient(45deg, cadetblue, darkslategrey);
+  background-image: linear-gradient(45deg, cadetblue, ghostwhite);
   border-top-right-radius: 30px;
 /*  font-family: 'Arial Black', Arial, Helvetica, sans-serif; */
   text-decoration: none;
