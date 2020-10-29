@@ -45,34 +45,40 @@ package main v0.0.1 {
     use Buyo::MkRole;
     use File::IO;
 
-    my $description = undef;
-    my $id          = undef;
-    my $prefix      = undef;
-    my $role_name   = undef;
-
     # global settings
     $Throw::pretty = 1;
     $Throw::trace  = 1;
 
-    my sub main (@args) {
-        my $mkrole = Buyo::MkRole->new();
+    my sub main ($flags, @args) {
         GetOptions(
-            'h|help'          => sub { $mkrole->show_help(); exit 0 },
-            'v|version'       => sub { $mkrole->show_version(); exit 0 },
-            'd|description=s' => \$description,
-            'n|name=s'        => \$role_name,
-            'i|id=i'          => \$id
+            'h|help'          => sub { Buyo::MkRole::show_help(); exit 0 },
+            'v|version'       => sub { Buyo::MkRole::show_version(); exit 0 },
+            'd|description=s' => sub { $flags->{'description'} = $ARG[1] },
+            'n|name=s'        => sub { $flags->{'role_name'}   = $ARG[1] },
+            'i|id=i'          => sub { $flags->{'id'}          = $ARG[1] },
+            'l|logger=s'      => sub { $flags->{'logger'}      = $ARG[1] },
+            'D|debug'         => sub { $flags->{'debug'}       = $ARG[1] },
+            'L|loglevel=i'    => sub { $flags->{'loglevel'}    = $ARG[1] }
         );
-        $mkrole->verify_options($role_name, $description);
-        $prefix = $mkrole->get_application_prefix();
 
-        if (! defined $id) {
-            $id = $mkrole->next_available_id();
+        my $mkrole = Buyo::MkRole->new($flags);
+
+        my $prefix = $mkrole->get_application_prefix();
+        $mkrole->verify_options($flags->{'role_name'}, $flags->{'description'});
+
+        if (not defined $flags->{'id'}) {
+            $flags->{'id'} = $mkrole->next_available_id();
         }
 
         # now add role to the list of roles
-        $mkrole->create_role($id, $role_name, $description);
+        $mkrole->create_role($flags);
     }
 
-    main(@ARGV);
+    my %flags = (
+        'debug'     => false,
+        'loglevel'  => 'none',
+        'logger'    => 'syslog'
+    );
+
+    main(\%flags, @ARGV);
 }
