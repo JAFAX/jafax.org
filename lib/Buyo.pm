@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-package Buyo v1.2.21 {
+package Buyo v1.2.22 {
     use strictures;
     use English qw(-no_match_vars);
     use utf8;
