@@ -1,5 +1,5 @@
 body {
-  background-color: #282d32;
+  background-color: ghostwhite;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 h3 {
@@ -11,7 +11,7 @@ h3 {
   height: 360px;
 } */
 .carousel-inner {
-  background-color: #282d32;
+  background-color: ghostwhite;
 }
 .carousel-caption {
   font-size: 2em;

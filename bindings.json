@@ -59,7 +59,18 @@
                 "Guests": {
                     "title": "Guests",
                     "link": "/guests",
-                    "children": null
+                    "children": {
+                        "order": [
+                            "Micah Solusod"
+                        ],
+                        "items": {
+                            "Micah Solusod": {
+                                "title": "Micah Solusod",
+                                "link": "/guests/MicahSolusod",
+                                "children": null
+                            }
+                        }
+                    }
                 },
                 "Events": {
                     "title": "Events",

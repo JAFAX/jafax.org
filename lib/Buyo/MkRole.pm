@@ -20,33 +20,19 @@ package Buyo::MkRole {
 
     use Sys::Error;
 
-    sub new ($class) {
+    my $debug  = undef;
+    my $logger = undef;
+    my $loglvl = undef;
+
+    sub new ($class, $flags) {
         my $self = {};
+
+        $debug  = $flags->{'debug'};
+        $logger = $flags->{'logger'};
+        $loglvl = $flags->{'loglevel'};
 
         bless($self, $class);
         return $self;
-    }
-
-    our sub show_help ($self) {
-        say "mkrole: A tool to create roles for the Buyo web application";
-        say "=" x 39;
-        say "\nOptions:";
-        say "-" x 8;
-        say "  -n|--name ROLE_NAME    A name for the role";
-        say "  -d|--description TEXT  A description for the role";
-        say "  -i|--id INTEGER        A numeric ID for the role";
-        say "  -v|--version           Display the version of this tool";
-        say "  -h|--help              Display this help text";
-    }
-
-    our sub show_version ($self) {
-        say "mkrole: A tool to create roles for the Buyo web application";
-        say "=" x 59;
-        say "Author:  Gary Greene <webmaster at jafax dot org>";
-        say "License: Apache Public License, version 2";
-        say "         See https://www.apache.org/licenses/LICENSE-2.0 for";
-        say "         the full text of the license";
-        say "Version: 0.0.1";
     }
 
     our sub verify_options ($self, $role_name, $description) {
@@ -94,8 +80,12 @@ package Buyo::MkRole {
         return $role_id;
     }
 
-    our sub create_role ($self, $id, $name, $description) {
+    our sub create_role ($self, $flags) {
         my $prefix = $self->get_application_prefix();
+
+        my $description = $flags->{'description'};
+        my $id          = $flags->{'id'};
+        my $name        = $flags->{'name'};
 
         my $fh = undef;
         my $status = undef;
@@ -103,6 +93,28 @@ package Buyo::MkRole {
         ($fh, $status) = $fio->open('a', "$prefix/conf.d/roles.lst");
         say $fh "$name:$id:\"$description\"";
         $status = $fio->close($fh);
+    }
+
+    our sub show_help {
+        say "mkrole: A tool to create roles for the Buyo web application";
+        say "=" x 39;
+        say "\nOptions:";
+        say "-" x 8;
+        say "  -n|--name ROLE_NAME    A name for the role";
+        say "  -d|--description TEXT  A description for the role";
+        say "  -i|--id INTEGER        A numeric ID for the role";
+        say "  -v|--version           Display the version of this tool";
+        say "  -h|--help              Display this help text";
+    }
+
+    our sub show_version {
+        say "mkrole: A tool to create roles for the Buyo web application";
+        say "=" x 59;
+        say "Author:  Gary Greene <webmaster at jafax dot org>";
+        say "License: Apache Public License, version 2";
+        say "         See https://www.apache.org/licenses/LICENSE-2.0 for";
+        say "         the full text of the license";
+        say "Version: 0.0.1";
     }
 
     true;
