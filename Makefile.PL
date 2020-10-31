@@ -8,10 +8,10 @@ my $eumm_version = $ExtUtils::MakeMaker::VERSION;
 $eumm_version =~ s/_//;
 
 WriteMakefile(
-    NAME                => 'buyo',
-    AUTHOR              => q{YOUR NAME <youremail@example.com>},
-    VERSION_FROM        => 'lib/buyo.pm',
-    ABSTRACT            => 'YOUR APPLICATION ABSTRACT',
+    NAME                => 'Buyo',
+    AUTHOR              => q{Gary Greene <webmaster at jafax dot org>},
+    VERSION_FROM        => 'lib/Buyo.pm',
+    ABSTRACT            => 'The Buyo Content Management Web Application',
     ($eumm_version >= 6.3001
       ? ('LICENSE'=> 'perl')
       : ()),
@@ -22,5 +22,5 @@ WriteMakefile(
         'Dancer2'     => 0.200002,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean               => { FILES => 'buyo-*' },
+    clean               => { FILES => 'Buyo-*' },
 );

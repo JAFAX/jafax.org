@@ -1,0 +1,84 @@
+#!/usr/bin/env perl
+#
+# Author: Gary Greene <greeneg@tolharadys.net>
+# Copyright: 2019 JAFAX, Inc. All Rights Reserved
+#
+##########################################################################
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+package main v0.0.1 {
+    use strict;
+    use warnings;
+    use utf8;
+    use English;
+
+    use feature ":5.26";
+    no warnings "experimental::lexical_subs";
+    no warnings "experimental::signatures";
+    no warnings "experimental::smartmatch";
+    use feature "lexical_subs";
+    use feature "signatures";
+    use feature "switch";
+
+    use boolean;
+    use Data::Dumper;
+    use FindBin;
+    use Getopt::Long qw(:config gnu_compat);
+    use JSON;
+    use Throw qw(throw confess caller_trace classify);
+    use Try::Tiny qw(try catch);
+
+    use FindBin;
+    use lib "$FindBin::Bin/../lib";
+
+    use Buyo::MkRole;
+    use File::IO;
+
+    # global settings
+    $Throw::pretty = 1;
+    $Throw::trace  = 1;
+
+    my sub main ($flags, @args) {
+        GetOptions(
+            'h|help'          => sub { Buyo::MkRole::show_help(); exit 0 },
+            'v|version'       => sub { Buyo::MkRole::show_version(); exit 0 },
+            'd|description=s' => sub { $flags->{'description'} = $ARG[1] },
+            'n|name=s'        => sub { $flags->{'role_name'}   = $ARG[1] },
+            'i|id=i'          => sub { $flags->{'id'}          = $ARG[1] },
+            'l|logger=s'      => sub { $flags->{'logger'}      = $ARG[1] },
+            'D|debug'         => sub { $flags->{'debug'}       = $ARG[1] },
+            'L|loglevel=i'    => sub { $flags->{'loglevel'}    = $ARG[1] }
+        );
+
+        my $mkrole = Buyo::MkRole->new($flags);
+
+        my $prefix = $mkrole->get_application_prefix();
+        $mkrole->verify_options($flags->{'role_name'}, $flags->{'description'});
+
+        if (not defined $flags->{'id'}) {
+            $flags->{'id'} = $mkrole->next_available_id();
+        }
+
+        # now add role to the list of roles
+        $mkrole->create_role($flags);
+    }
+
+    my %flags = (
+        'debug'     => false,
+        'loglevel'  => 'none',
+        'logger'    => 'syslog'
+    );
+
+    main(\%flags, @ARGV);
+}

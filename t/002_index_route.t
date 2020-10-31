@@ -1,13 +1,15 @@
 use strict;
 use warnings;
 
-use buyo;
+use Buyo;
 use Test::More tests => 2;
 use Plack::Test;
 use HTTP::Request::Common;
 
-my $app = buyo->to_app;
+my $app = Buyo->to_app;
 is( ref $app, 'CODE', 'Got app' );
+
+open *STDERR, ">/dev/null";
 
 my $test = Plack::Test->create($app);
 my $res  = $test->request( GET '/' );
