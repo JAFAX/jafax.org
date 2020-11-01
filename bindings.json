@@ -2,8 +2,8 @@
     "binding_version": "3.0",
     "info": {
         "title": "JAFAX",
-        "version": "2019.0.99",
-        "copyright": "JAFAX Inc. &copy;2019",
+        "version": "2020.11.1",
+        "copyright": "JAFAX Inc. &copy;2020",
         "license": "Apache Public License, v2.0"
     },
     "menus": {
@@ -202,7 +202,7 @@
         "/": {
             "get": {
                 "active": "true",
-                "summary": "2020",
+                "summary": "2021",
                 "template": "index",
                 "launchDate": 1438401600,
                 "expireDate": -1,
