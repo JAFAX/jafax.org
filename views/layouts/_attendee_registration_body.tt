@@ -2,10 +2,10 @@
     <div class="page_text">
         <br />
         <center><h1>Attendee Registration</h1></center>
-        <p>
-            Tickets for JAFAX 2021 will be available soon!
-        </p>
 <!--        <p>
+            Tickets for JAFAX 2021 will be available soon!
+        </p> -->
+        <p>
             Tickets for JAFAX can be purchased below. Ticket sales are handled via
             the <a href="https://www.eventbee.com/">EventBee</a> service. See
             their privacy policy 
@@ -15,16 +15,16 @@
         <p>
             The prices for pre-registration tickets are as follows:<br />
             <ul>
-                <li><strong>November 1, 2019 through January 31, 2020:</strong> $40 for a 3-Day Badge</li>
-                <li><strong>February 1, 2020 through May 15, 2020:</strong> $45 for a 3-Day Badge</li>
-                <li><strong>May 15, 2020 through June 19, 2020:</strong> $50 for a 3-Day Badge (Same price as at the door prices).</li>
+                <li><strong>December 13, 2020 through January 31, 2021:</strong> $40 for a 3-Day Badge</li>
+                <li><strong>February 1, 2021 through May 15, 2021:</strong> $45 for a 3-Day Badge</li>
+                <li><strong>May 15, 2021 through June 24, 2021:</strong> $50 for a 3-Day Badge (Same price as at the door prices).</li>
             </ul>
         </p>
         <h3>VIP Badges</h3>
         <p>
-            VIP Badges can be purchased at any time starting November 1, 2019.
+            VIP Badges can be purchased at any time starting December 13, 2020.
             They are $90 and are limited to 120 total badges sold. If badges
-            are left by June 26, 2020, they will be sold at the door.
+            are left by June 25, 2021, they will be sold at the door.
         </p>
         <p>
             <b>Please note, for the last two years, they have sold out weeks
@@ -44,14 +44,14 @@
             For more details about the badges, please click the plus signs
             below on the EventBee badge template for additional badge
             information.
-        </p> -->
+        </p>
         <p>
             If you have any Support questions, please contact
             <a href="[% webroot %]/contact?department=7">our registration coordinator</a>.
         </p>
     </div>
 </div>
-<!-- <div class="container">
+<div class="container">
     <section id="individual">
         <div>
             <div id="eventbee_iframe" frame-eventId="105484552" frame-domain="https://www.eventbee.com" frame-width="800" frame-border="0px solid gray">
@@ -71,4 +71,4 @@
             </span>
         </span>
     </section>
-</div> -->
+</div>
