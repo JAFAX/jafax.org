@@ -191,12 +191,28 @@
         "/": {
             "get": {
                 "active": "true",
-                "summary": "2020",
+                "summary": "2021",
                 "template": "index",
                 "launchDate": 1438401600,
                 "expireDate": -1,
                 "type": "dynamic",
                 "class": "news::highlights",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/about": {
+            "get": {
+                "active": "true",
+                "summary": "JAFAX History",
+                "template": "about",
+                "launchDate": 1438401600,
+                "expireDate": -1,
+                "type": "static",
+                "class": "article",
                 "responses": {
                     "200": {
                         "description": "200 response"
