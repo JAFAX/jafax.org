@@ -2,8 +2,8 @@
     "binding_version": "3.0",
     "info": {
         "title": "JAFAX",
-        "version": "2019.0.99",
-        "copyright": "JAFAX Inc. &copy;2019",
+        "version": "2020.11.1",
+        "copyright": "JAFAX Inc. &copy;2020",
         "license": "Apache Public License, v2.0"
     },
     "menus": {
@@ -59,7 +59,18 @@
                 "Guests": {
                     "title": "Guests",
                     "link": "/guests",
-                    "children": null
+                    "children": {
+                        "order": [
+                            "Micah Solusod"
+                        ],
+                        "items": {
+                            "Micah Solusod": {
+                                "title": "Micah Solusod",
+                                "link": "/guests/MicahSolusod",
+                                "children": null
+                            }
+                        }
+                    }
                 },
                 "Events": {
                     "title": "Events",

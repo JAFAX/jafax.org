@@ -1,7 +1,7 @@
 .navigation-clean {
   background: #6ed9c1;
   background-color: #2c777a;
-  background-image: linear-gradient(to bottom right, #2c777a, #282d32);
+  background-image: linear-gradient(180deg, #2c777a, ghostwhite);
   padding-bottom: .75rem;
   color: #333;
   border-radius: 0;
@@ -10,7 +10,16 @@
   margin-bottom: 0;
 }
 
+@media (max-width:600px) {
+  .navigation-clean.navbar-light .navbar-nav .nav-link {
+    color: darkslategrey;
+  }
+}
+
 @media (min-width:768px) {
+  .navigation-clean.navbar-light .navbar-nav .nav-link {
+    color: #e8edf1;
+  }
   .navigation-clean {
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -23,7 +32,7 @@
 }
 
 .navigation-clean .navbar-brand:hover {
-  color: #222;
+  color: darkslategrey;
 }
 
 .navigation-clean .navbar-toggler {
@@ -44,7 +53,7 @@
 }
 
 .navigation-clean.navbar-light .navbar-nav .nav-link.active, .navigation-clean.navbar-light .navbar-nav .nav-link.active:focus, .navigation-clean.navbar-light .navbar-nav .nav-link.active:hover {
-  color: #8f8f8f;
+  color: #darkslategrey;
   box-shadow: none;
   background: none;
   pointer-events: none;
@@ -55,29 +64,29 @@
   padding-right: 18px;
 }
 
-.navigation-clean.navbar-light .navbar-nav .nav-link {
+/* .navigation-clean.navbar-light .navbar-nav .nav-link {
   color: #e8edf1;
-}
+} */
 
 .navigation-clean.navbar-light .navbar-nav .nav-link:focus, .navigation-clean.navbar-light .navbar-nav .nav-link:hover {
-  color: #d4d4d4 !important;
+  color: darkslategrey !important;
   background-color: transparent;
 }
 
 .navigation-clean .navbar-nav > li > .dropdown-menu {
   margin-top: -5px;
   box-shadow: none;
-  background-color: #a8d3ca;
+  background-color: powderblue;
   border-radius: 2px;
 }
 
 .navigation-clean .dropdown-menu .dropdown-item:focus, .navigation-clean .dropdown-menu .dropdown-item {
   line-height: 2;
-  color: #37434d;
+  color: darkslategrey;
 }
 
 .navigation-clean .dropdown-menu .dropdown-item:focus, .navigation-clean .dropdown-menu .dropdown-item:hover {
-  background-color: #6ed9c1;
+  background-color: turquoise;
   color: inherit;
 }
 
@@ -104,7 +113,7 @@
 .dropdown-submenu .dropdown-menu {
   top: 0;
   left: 90%;
-  background-color: #a8d3ca;
+  background-color: powderblue;
   margin-top: -1px;
 }
 
