@@ -48,10 +48,16 @@ package Buyo v1.2.22 {
     our $config;
 
     my sub error_msg ($error_struct, $class) {
-        my $msg = "== ERROR ==: " . $error_struct->{'error'} . ": " . $class . "\n".
-                  "== ERROR ==: " . $error_struct->{'info'} . "\n".
-                  "== ERROR ==: " . $error_struct->{'log_message'} . "\n".
-                  "== ERROR ==: error type: " . $error_struct->{'type'} . ", " . $error_struct->{'error_string'} . "\n";
+        my $error   = $error_struct->{'error'};
+        my $info    = $error_struct->{'info'};
+        my $log_msg = $error_struct->{'log_message'};
+        my $type    = $error_struct->{'type'};
+        my $err_str = $error_struct->{'error_string'};
+
+        my $msg = "== ERROR ==: $error: $class\n" .
+                  "== ERROR ==: $info\n" .
+                  "== ERROR ==: $log_msg\n" .
+                  "== ERROR ==: error type: $type, $err_str\n";
         croak($msg);
     }
 
