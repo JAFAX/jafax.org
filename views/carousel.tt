@@ -21,14 +21,14 @@
         <!-- Sliding images starting here --> 
         <div class="carousel-inner">
             <div class="item active">
-                <div class="row">
+<!--                <div class="row">
                     <img src="[% webroot %]/images/carousel/1.jpg" alt="JAFAX Through the Years" class="carousel">
-<!--                <div class="carousel-caption">
+                <div class="carousel-caption">
                     <p>JAFAX 2014</p>
-                </div> -->
+                </div>
                 </div>
             </div>
-            <div class="item">
+            <div class="item"> -->
                 <div class="row">
                     <img src="[% webroot %]/images/carousel/2.jpg" alt="JAFAX 2014" class="carousel">
 <!--                <div class="carousel-caption">
