@@ -48,7 +48,10 @@ package Buyo v1.2.22 {
     our $config;
 
     my sub error_msg ($error_struct, $class) {
-        my $error   = $error_struct->{'error'};
+        say STDERR "Error struct dump: ". Dumper($error_struct);
+
+        my $error = "";
+#        my $error   = $error_struct->{'error'};
         my $info    = $error_struct->{'info'};
         my $log_msg = $error_struct->{'log_message'};
         my $type    = $error_struct->{'type'};
