@@ -215,6 +215,22 @@
                 }
             }
         },
+        "/about": {
+            "get": {
+                "active": "true",
+                "summary": "JAFAX History",
+                "template": "about",
+                "launchDate": 1438401600,
+                "expireDate": -1,
+                "type": "static",
+                "class": "article",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
         "/carousel": {
             "get": {
                 "active": "true",
