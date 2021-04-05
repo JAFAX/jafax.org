@@ -12,7 +12,7 @@
             extra perks:<br />
             <ul>
                 <li>Badge refunds, where 8 hours of work awards a full refund</li>
-                <li>Free JAFAX 2021 T-Shirt for working 8 hours</li>
+                <li>Free JAFAX 2022 T-Shirt for working 8 hours</li>
                 <li>Entry into prize raffles and the "Keith Lehmann Volunteer Award"</li>
             </ul>
         </p>
@@ -26,15 +26,15 @@
             volunteer guidelines</a>.
         </p>
 
-<!--        <p>
+        <p>
             Volunteer Registration will be available soon!
-        </p> -->
+        </p>
         
-        <iframe src="https://docs.google.com/forms/d/19SYMjyFJqeIn-6RnNPkO176yAMS1NLPvvuxcEQyY-aY/viewform?embedded=true"
-          width="100%" height="4810px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+<!--        <iframe src="https://docs.google.com/forms/d/19SYMjyFJqeIn-6RnNPkO176yAMS1NLPvvuxcEQyY-aY/viewform?embedded=true"
+          width="100%" height="4810px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe> -->
 
         <p>
-            Thank you for your interest in volunteering at JAFAX 2021! We hope to see you
+            Thank you for your interest in volunteering at JAFAX 2022! We hope to see you
             at the event. If you have any questions, please send them to our 
             <a href="[% webroot %]/contact?department=9">Volunteer Coordinator</a>.
         </p>
