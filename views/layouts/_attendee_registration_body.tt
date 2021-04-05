@@ -5,14 +5,21 @@
         <p>
             Tickets for JAFAX 2022 will be available soon!
         </p>
-<!--        <p>
+        <!-- <p>
             Tickets for JAFAX can be purchased below. Ticket sales are handled via
             the <a href="https://www.eventbee.com/">EventBee</a> service. See
             their privacy policy 
             <a href="https://www.eventbee.com/privacystatement">here</a>.
+        </p> -->
+        <p>
+            Ticket sales are handled via the <a href="https://www.eventbee.com/">EventBee</a>
+            service. See their privacy policy <a href="https://www.eventbee.com/privacystatement">here</a>.
         </p>
         <h3>Pre-Registration Pricing</h3>
         <p>
+            The prices for pre-registration tickets will be posted soon!
+        </p>
+        <!-- <p>
             The prices for pre-registration tickets are as follows:<br />
             <ul>
                 <li><strong>December 12, 2021 through May 14, 2022:</strong> $45 for a 3-Day Badge</li>
@@ -28,20 +35,21 @@
         <p>
             <b>Please note, for the last two years, they have sold out weeks
             before opening day!</b>
-        </p>
+        </p> -->
         <h3>At Door Prices for Badges</h3>
         <p>
-            <ul>
+            The prices for tickets purchased at the door will be posted soon!
+<!--            <ul>
                 <li><strong>Friday Badge:</strong> $25</li>
                 <li><strong>Saturday Badge:</strong> $35</li>
                 <li><strong>Sunday Badge:</strong> $25</li>
                 <li><strong>3-Day Badge:</strong> $50</li>
                 <li><strong>Child Badge:</strong> $20</li>
-            </ul>
+            </ul> -->
         </p>
         <p>
             For more details about the badges, please click the plus signs
-            below on the EventBee badge template for additional badge
+            below on the EventBee badge purchase section for additional badge
             information.
         </p>
         <p>
@@ -70,4 +78,4 @@
             </span>
         </span>
     </section>
-</div> -->
+</div>
