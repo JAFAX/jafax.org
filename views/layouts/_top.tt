@@ -71,6 +71,9 @@
                             </ul>
                         </li>
                         <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="[% webroot %]/about">About</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
                             <a class="nav-link" href="[% webroot %]/contact">Contact Us</a>
                         </li>
                     </ul>
