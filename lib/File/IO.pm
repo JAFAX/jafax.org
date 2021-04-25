@@ -99,14 +99,15 @@ package File::IO {
     our sub read ($self, $fh, $length) {
         my $content = undef;
         try {
-            read($fh, $content, $length) or throw(
-                "Cannot read from filehandle", {
+            read($fh, $content, $length);
+            if ($OS_ERROR != 0) {
+                throw "Cannot read from filehandle", {
                     'trace' => 3,
                     'type'  => $error->error_string($OS_ERROR)->{'symbol'},
                     'code'  => $OS_ERROR,
                     'msg'   => $error->error_string($OS_ERROR)->{'string'}
-                }
-            );
+                };
+            }
         } catch {
             classify(
                 $ARG, {
