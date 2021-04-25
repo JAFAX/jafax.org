@@ -98,6 +98,14 @@ package Buyo::MkRole {
         my @content = $self->get_rolelist("$prefix/conf.d/roles.lst");
         if (@content) {
             # now that we have the file contents, check for duplicate ids
+            # format for account.lst:
+            #
+            # colon delimited
+            #
+            # fields:
+            # 0: role name
+            # 1: UID (numeric user id)
+            # 2: description
             foreach my $record (@content) {
                 my (undef, $rid, undef) = split(':', $record);
                 say STDERR "== DEBUGGING ==: Requested ID: $id" if $debug eq true;
@@ -130,6 +138,14 @@ package Buyo::MkRole {
         
         if (@content) {
             # now that we have the file contents, get the last entry's role id number
+            # format for account.lst:
+            #
+            # colon delimited
+            #
+            # fields:
+            # 0: role name
+            # 1: UID (numeric user id)
+            # 2: description
             foreach my $record (@content) {
                 my ($role, undef, undef) = split(':', $record);
                 if ($role eq $role_name) {
@@ -176,7 +192,7 @@ package Buyo::MkRole {
 
         my $prefix = $utils->get_application_prefix();
         my @content = get_rolelist("$prefix/conf.d/roles.lst");
-        if (int @content gt 0) {
+        if (@content) {
             # now that we have the file contents, get the last entry's role id number
             my $last_record = $content[-1];
             my (undef, $last_id, undef) = split(':', $last_record);
@@ -187,6 +203,46 @@ package Buyo::MkRole {
         }
 
         return $role_id;
+    }
+
+    our sub get_role_id ($self, $role_name) {
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
+        my $role_id = undef;
+
+        my $prefix = $utils->get_application_prefix();
+        my @content = get_rolelist("$prefix/conf.d/roles.lst");
+        if (@content) {
+            # walk the list and if $role_name matches $record_role_name, return
+            # $record_role_id
+            foreach my $record (@content) {
+                my ($record_role_name, $record_role_id, undef) = split(/\:/, $record);
+                if ($role_name eq $record_role_name) {
+                    return $record_role_id;
+                } else {
+                    return undef;
+                }
+            }
+        }
+    }
+
+    our sub get_role_name ($self, $role_id) {
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
+        my $role_id = undef;
+
+        my $prefix = $utils->get_application_prefix();
+        my @content = get_rolelist("$prefix/conf.d/roles.lst");
+        if (@content) {
+            # walk the list and if $role_name matches $record_role_name, return
+            # $record_role_id
+            foreach my $record (@content) {
+                my ($record_role_name, $record_role_id, undef) = split(/\:/, $record);
+                if ($role_id eq $record_role_id) {
+                    return $record_role_name;
+                } else {
+                    return undef;
+                }
+            }
+        }
     }
 
     our sub create_role ($self, $flags) {
