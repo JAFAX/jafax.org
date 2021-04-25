@@ -43,6 +43,7 @@ package main v0.0.1 {
     use lib "$FindBin::Bin/../lib";
 
     use Buyo::MkRole;
+    use Buyo::Utils;
     use File::IO;
 
     # global settings
@@ -51,8 +52,9 @@ package main v0.0.1 {
 
     my sub main ($flags, @args) {
         my $mkrole = Buyo::MkRole->new($flags);
+        my $utils  = Buyo::Utils->new($flags->{'debug'});
 
-        my $prefix = $mkrole->get_application_prefix();
+        my $prefix = $utils->get_application_prefix();
         $mkrole->verify_options($flags->{'role_name'}, $flags->{'description'});
 
         if (not defined $flags->{'id'}) {
