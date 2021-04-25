@@ -11,6 +11,7 @@ package Buyo::MkRole {
     use feature "switch";
 
     use boolean;
+    use Data::Dumper;
     use Term::ANSIColor;
     use Throw qw(throw classify);
     use Try::Tiny qw(try catch);
@@ -30,12 +31,19 @@ package Buyo::MkRole {
         $debug  = $flags->{'debug'};
         $logger = $flags->{'logger'};
         $loglvl = $flags->{'loglevel'};
+        if ($debug eq true) {
+            say STDERR "== DEBUGGING ==: Debugging enabled";
+            say STDERR "== DEBUGGING ==: Standard flags:";
+            say STDERR "== DEBUGGING ==:    logger    : $logger";
+            say STDERR "== DEBUGGING ==:    log level : $loglvl";
+        }
 
         bless($self, $class);
         return $self;
     }
 
     our sub verify_options ($self, $role_name, $description) {
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
         if (! defined $role_name) {
             say "ERROR: Missing role name!";
             exit 1;
@@ -47,11 +55,13 @@ package Buyo::MkRole {
     }
 
     our sub get_application_prefix ($self) {
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
         my $prefix = "$FindBin::Bin/..";
         return $prefix;
     }
 
     our sub next_available_id ($self) {
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
         my $role_id = undef;
 
         my $prefix = $self->get_application_prefix();
@@ -81,11 +91,12 @@ package Buyo::MkRole {
     }
 
     our sub create_role ($self, $flags) {
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
         my $prefix = $self->get_application_prefix();
 
         my $description = $flags->{'description'};
         my $id          = $flags->{'id'};
-        my $name        = $flags->{'name'};
+        my $name        = $flags->{'role_name'};
 
         my $fh = undef;
         my $status = undef;
