@@ -97,7 +97,7 @@ package Buyo::MkRole {
 
     our sub show_help {
         say "mkrole: A tool to create roles for the Buyo web application";
-        say "=" x 39;
+        say "=" x 59;
         say "\nOptions:";
         say "-" x 8;
         say "  -n|--name ROLE_NAME    A name for the role";
