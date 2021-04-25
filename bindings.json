@@ -2,8 +2,8 @@
     "binding_version": "3.0",
     "info": {
         "title": "JAFAX",
-        "version": "2020.11.1",
-        "copyright": "JAFAX Inc. &copy;2020",
+        "version": "2021.04.2",
+        "copyright": "JAFAX Inc. &copy;2019-2021",
         "license": "Apache Public License, v2.0"
     },
     "menus": {
@@ -202,12 +202,28 @@
         "/": {
             "get": {
                 "active": "true",
-                "summary": "2021",
+                "summary": "2022",
                 "template": "index",
                 "launchDate": 1438401600,
                 "expireDate": -1,
                 "type": "dynamic",
                 "class": "news::highlights",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/about": {
+            "get": {
+                "active": "true",
+                "summary": "JAFAX History",
+                "template": "about",
+                "launchDate": 1438401600,
+                "expireDate": -1,
+                "type": "static",
+                "class": "article",
                 "responses": {
                     "200": {
                         "description": "200 response"
@@ -269,7 +285,7 @@
                 "summary": "Artist Alley Registration",
                 "template": "artist_registration",
                 "launchDate": 1438401600,
-                "expireDate": 1575262800,
+                "expireDate": 1617382000,
                 "type": "static",
                 "class": "registration::container",
                 "responses": {
@@ -301,7 +317,7 @@
                 "summary": "Vendor Registration",
                 "template": "vendor_registration",
                 "launchDate": 1438401600,
-                "expireDate": 1575262800,
+                "expireDate": 1617382000,
                 "type": "static",
                 "class": "registration::container",
                 "responses": {
@@ -803,6 +819,22 @@
                 "reponse": {
                     "202": {
                         "description": "202 response"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "get": {
+                "active": "true",
+                "summary": "Administrative Login",
+                "template": "login",
+                "launchDate": -1,
+                "expireDate": -1,
+                "type": "static",
+                "class": "form::authentication",
+                "responses": {
+                    "200": {
+                        "description":"200 response"
                     }
                 }
             }

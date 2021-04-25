@@ -13,4 +13,13 @@
         <link rel="stylesheet" href="[% webroot %]/css/Footer-Dark.css">
         <link rel="stylesheet" href="[% webroot %]/css/Navigation-Clean.css">
         <link rel="stylesheet" href="[% webroot %]/css/styles.css">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3S19Z7TDMV"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-3S19Z7TDMV');
+        </script>
     </head>
