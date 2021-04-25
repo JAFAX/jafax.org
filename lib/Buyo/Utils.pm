@@ -43,8 +43,23 @@ package Buyo::Utils v1.2.21 {
         @EXPORT_OK   = qw();
     }
 
+    my $debug = false;
+
     our sub err_log (@msg) {
         return print {*STDERR} "@msg\n";
+    }
+
+    sub new ($class, $debug = false) {
+        my $self = {};
+
+        bless($self, $class);
+        return $self;
+    }
+
+    our sub get_application_prefix ($self) {
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
+        my $prefix = "$FindBin::Bin/..";
+        return $prefix;
     }
 
     END { }       # module clean-up code here (global destructor)
