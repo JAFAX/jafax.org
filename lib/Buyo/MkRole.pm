@@ -207,7 +207,6 @@ package Buyo::MkRole {
 
     our sub get_role_id ($self, $role_name) {
         say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
-        my $role_id = undef;
 
         my $prefix = $utils->get_application_prefix();
         my @content = get_rolelist("$prefix/conf.d/roles.lst");
@@ -227,7 +226,6 @@ package Buyo::MkRole {
 
     our sub get_role_name ($self, $role_id) {
         say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
-        my $role_id = undef;
 
         my $prefix = $utils->get_application_prefix();
         my @content = get_rolelist("$prefix/conf.d/roles.lst");
