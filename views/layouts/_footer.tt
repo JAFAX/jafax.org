@@ -18,15 +18,6 @@
                             <ul>
                                 <li><a href="[% webroot %]/about">About Us</a></li>
                             </ul>
-                            <ul>
-                            <iframe id='_EbeeIFrame_fbcomments_105484552' name='_EbeeIFrame_fbcomments_105484552' src='https://www.eventbee.com/fbcomments?eid=105484552&viewType=iframe;resizeIFrame=true&context=web' frameborder='0' height='500' width='625px' scrolling='auto'></iframe>
-                            </ul>
-<!--                            <ul>
-                                <a href="https://www.eventbee.com/v/jafax-2022/event?eid=105484552"><img border="0" src="https://d10sjcptbl6vkd.cloudfront.net/images/home/en-us/buyticket.jpg" /></a>
-                            </ul>
-                            <ul>
-                                <li><a target="_blank" href="https://www.eventbee.com/v/jafax-2022/event?eid=105484552"><img border="0" src="https://d10sjcptbl6vkd.cloudfront.net/images/home/en-us/register.jpg" /></a><li>
-                            </ul> -->
                         </div>
                     </div>
                     <div class="row">
