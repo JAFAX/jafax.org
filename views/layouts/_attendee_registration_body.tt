@@ -73,11 +73,11 @@
                 Let your friends know you're going!
             </p>
             <iframe id='_EbeeIFrame_fbcomments_105484552' name='_EbeeIFrame_fbcomments_105484552' src='https://www.eventbee.com/fbcomments?eid=105484552&viewType=iframe;resizeIFrame=true&context=web' frameborder='0' height='500' width='625px' scrolling='auto'></iframe>
-            <span style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10px;font-weight: lighter;color: #666666;">
-                <a href="https://www.eventbee.com/good" target="new"  style="text-decoration: none;">
-                    Online Ticketing Powered by Eventbee
-                </a>
-            </span>
+        </span>
+        <span style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 10px;font-weight: lighter;color: #666666;">
+            <a href="https://www.eventbee.com/good" target="new"  style="text-decoration: none;">
+                Online Ticketing Powered by Eventbee
+            </a>
         </span>
     </section>
 </div>
