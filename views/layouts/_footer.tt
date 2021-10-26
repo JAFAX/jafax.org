@@ -19,9 +19,12 @@
                                 <li><a href="[% webroot %]/about">About Us</a></li>
                             </ul>
                             <ul>
-                                <a href="https://www.eventbee.com/v/jafax-2022/event?eid=105484552"><img border="0" src="https://d10sjcptbl6vkd.cloudfront.net/images/home/en-us/buyticket.jpg" /></a>
+                                <script type='text/javascript' language='JavaScript' src='https://www.eventbee.com/home/js/widget/eventregistration.js'></script><iframe id='_EbeeIFrame_Attendees_105484552' name='_EbeeIFrame_Attendees_105484552' src="https://www.eventbee.com/attendees?eid=105484552&viewType=iframe;resizeIFrame=true&context=web" width="275" height="0" scrolling="no"></iframe>
                             </ul>
 <!--                            <ul>
+                                <a href="https://www.eventbee.com/v/jafax-2022/event?eid=105484552"><img border="0" src="https://d10sjcptbl6vkd.cloudfront.net/images/home/en-us/buyticket.jpg" /></a>
+                            </ul>
+                            <ul>
                                 <li><a target="_blank" href="https://www.eventbee.com/v/jafax-2022/event?eid=105484552"><img border="0" src="https://d10sjcptbl6vkd.cloudfront.net/images/home/en-us/register.jpg" /></a><li>
                             </ul> -->
                         </div>
