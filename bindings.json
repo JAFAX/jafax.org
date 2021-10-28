@@ -822,6 +822,22 @@
                     }
                 }
             }
+        },
+        "/login": {
+            "get": {
+                "active": "true",
+                "summary": "Administrative Login",
+                "template": "login",
+                "launchDate": -1,
+                "expireDate": -1,
+                "type": "static",
+                "class": "form::authentication",
+                "responses": {
+                    "200": {
+                        "description":"200 response"
+                    }
+                }
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ package Sys::Error {
     use feature "switch";
 
     use boolean;
+    use Data::Dumper;
 
     sub new ($class) {
         my $self = {};
@@ -21,12 +22,41 @@ package Sys::Error {
     }
 
     our sub err_msg ($self, $err_struct, $class) {
-        say "$err_struct->{'error'}: $class";
-        say "    Info:       $err_struct->{'info'}";
-        say "    Trace:      $err_struct->{'trace'}";
-        say "    Error code: $err_struct->{'type'}: $err_struct->{'error_string'}";
+        say "$err_struct->{'error'}: $class\n";
+        say "Info:           $err_struct->{'info'}";
+        say "Trace:      $err_struct->{'trace'}";
+        say "Error code:     $err_struct->{'type'}: $err_struct->{'error_string'}";
 
         exit $err_struct->{type};
+    }
+
+    our sub get_trace ($self, @caller) {
+        my %struct = (
+            'package'    => $caller[0],
+            'filename'   => $caller[1],
+            'line'       => $caller[2],
+            'subroutine' => $caller[3],
+            'hasargs'    => $caller[4],
+            'wantarray'  => $caller[5]
+        );
+        if (defined $caller[6]) {
+            $struct{'evaltext'} = $caller[6];
+        } else {
+            $struct{'evaltext'} = "";
+        }
+        if (defined $caller[7]) {
+            $struct{'is_require'} = $caller[7];
+        } else {
+            $struct{'is_require'} = 0;
+        }
+
+        my $trace = "\n" .
+                    "  - Line:       " . $struct{'line'} . "\n".
+                    "  - File:       " . $struct{'filename'} . "\n" .
+                    "  - Package:    " . $struct{'package'} . "\n" .
+                    "  - Subroutine: " . $struct{'subroutine'};
+
+        return $trace;
     }
 
     our sub error_string ($self, $error_code) {

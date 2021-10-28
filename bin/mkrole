@@ -43,6 +43,7 @@ package main v0.0.1 {
     use lib "$FindBin::Bin/../lib";
 
     use Buyo::MkRole;
+    use Buyo::Utils;
     use File::IO;
 
     # global settings
@@ -50,23 +51,14 @@ package main v0.0.1 {
     $Throw::trace  = 1;
 
     my sub main ($flags, @args) {
-        GetOptions(
-            'h|help'          => sub { Buyo::MkRole::show_help(); exit 0 },
-            'v|version'       => sub { Buyo::MkRole::show_version(); exit 0 },
-            'd|description=s' => sub { $flags->{'description'} = $ARG[1] },
-            'n|name=s'        => sub { $flags->{'role_name'}   = $ARG[1] },
-            'i|id=i'          => sub { $flags->{'id'}          = $ARG[1] },
-            'l|logger=s'      => sub { $flags->{'logger'}      = $ARG[1] },
-            'D|debug'         => sub { $flags->{'debug'}       = $ARG[1] },
-            'L|loglevel=i'    => sub { $flags->{'loglevel'}    = $ARG[1] }
-        );
-
         my $mkrole = Buyo::MkRole->new($flags);
+        my $utils  = Buyo::Utils->new($flags->{'debug'});
 
-        my $prefix = $mkrole->get_application_prefix();
+        my $prefix = $utils->get_application_prefix();
         $mkrole->verify_options($flags->{'role_name'}, $flags->{'description'});
 
         if (not defined $flags->{'id'}) {
+            say STDERR "== DEBUGGING ==: Using ID ". $flags->{'id'} if $flags->{'debug'} eq true;
             $flags->{'id'} = $mkrole->next_available_id();
         }
 
@@ -78,6 +70,16 @@ package main v0.0.1 {
         'debug'     => false,
         'loglevel'  => 'none',
         'logger'    => 'syslog'
+    );
+    GetOptions(
+        'h|help'          => sub { Buyo::MkRole::show_help(); exit 0 },
+        'v|version'       => sub { Buyo::MkRole::show_version(); exit 0 },
+        'd|description=s' => sub { $flags{'description'} = $ARG[1] },
+        'n|name=s'        => sub { $flags{'role_name'}   = $ARG[1] },
+        'i|id=i'          => sub { $flags{'id'}          = $ARG[1] },
+        'l|logger=s'      => sub { $flags{'logger'}      = $ARG[1] },
+        'D|debug'         => sub { $flags{'debug'}       = true    },
+        'L|loglevel=i'    => sub { $flags{'loglevel'}    = $ARG[1] }
     );
 
     main(\%flags, @ARGV);

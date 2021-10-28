@@ -2,59 +2,49 @@
     <div class="page_text">
         <br />
         <center><h1>Attendee Registration</h1></center>
-        <p>
-            Tickets for JAFAX 2022 will be available soon!
-        </p>
         <!-- <p>
-            Tickets for JAFAX can be purchased below. Ticket sales are handled via
-            the <a href="https://www.eventbee.com/">EventBee</a> service. See
-            their privacy policy 
-            <a href="https://www.eventbee.com/privacystatement">here</a>.
+            Tickets for JAFAX 2022 will be available soon!
         </p> -->
         <p>
-            Ticket sales are handled via the <a href="https://www.eventbee.com/">EventBee</a>
-            service. See their privacy policy <a href="https://www.eventbee.com/privacystatement">here</a>.
+            Tickets for JAFAX can be purchased below. We are happy to partner with the <a href="https://www.eventbee.com/">EventBee</a> service to make them available. See their privacy policy <a href="https://www.eventbee.com/privacystatement">here</a>.
         </p>
         <h3>Pre-Registration Pricing</h3>
         <p>
             The prices for pre-registration tickets will be posted soon!
         </p>
-        <!-- <p>
+        <p>
             The prices for pre-registration tickets are as follows:<br />
             <ul>
-                <li><strong>December 12, 2021 through May 14, 2022:</strong> $45 for a 3-Day Badge</li>
-                <li><strong>May 14, 2022 through June 23, 2022:</strong> $50 for a 3-Day Badge (Same price as at the door prices).</li>
+                <li><strong>Now through May 23, 2022:</strong> $45 for a 3-Day Badge</li>
+                <li><strong>May 24, 2022 through June 23, 2022:</strong> $50 for a 3-Day Badge (Same price as at the door prices).</li>
             </ul>
         </p>
         <h3>VIP Badges</h3>
         <p>
-            VIP Badges can be purchased at any time starting December 12, 2021.
-            They are $90 and are limited to 120 total badges sold. If badges
-            are left by June 24, 2022, they will be sold at the door.
+            VIP Badges can be purchased at any time from now until we sell out. They cost $90 and are limited to 120 total badges. If badges are left by June 24, 2022, they will be sold at the door.
         </p>
         <p>
-            <b>Please note, for the last two years, they have sold out weeks
-            before opening day!</b>
-        </p> -->
+            Register now to take advantage of pre-registration prices. Also, stop by our boot at Youmacon to recieve an additional discount code good until November 4!        
+        </p>
+        <p>
+            <b>Please note, VIP Badges have consistently sold out weeks before opening day!</b>
+        </p>
         <h3>At Door Prices for Badges</h3>
         <p>
             The prices for tickets purchased at the door will be posted soon!
-<!--            <ul>
+            <ul>
                 <li><strong>Friday Badge:</strong> $25</li>
                 <li><strong>Saturday Badge:</strong> $35</li>
                 <li><strong>Sunday Badge:</strong> $25</li>
                 <li><strong>3-Day Badge:</strong> $50</li>
                 <li><strong>Child Badge:</strong> $20</li>
-            </ul> -->
+            </ul>
         </p>
         <p>
-            For more details about the badges, please click the plus signs
-            below on the EventBee badge purchase section for additional badge
-            information.
+            For more details about the badges, please click the plus signs below on the EventBee badge purchase section for additional badge information.
         </p>
         <p>
-            If you have any Support questions, please contact
-            <a href="[% webroot %]/contact?department=7">our registration coordinator</a>.
+            If you have any Support questions, please contact <a href="[% webroot %]/contact?department=7">our registration coordinator</a>.
         </p>
     </div>
 </div>
@@ -65,6 +55,11 @@
                 <script type='text/javascript' language='JavaScript' src='https://www.eventbee.com/home/js/widget/frameHelper.js'></script>
             </div>
         </div>
+        <br />
+        <p>
+            Let your friends know you're going!
+        </p>
+        <iframe id='_EbeeIFrame_fbcomments_105484552' name='_EbeeIFrame_fbcomments_105484552' src='https://www.eventbee.com/fbcomments?eid=105484552&viewType=iframe;resizeIFrame=true&context=web' frameborder='0' height='500' width='625px' scrolling='auto'></iframe>
         <br />
         <span>
             <a href="https://www.eventbee.com/good" target="new" style="text-decoration: none;">
