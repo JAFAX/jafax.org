@@ -578,28 +578,55 @@ package Buyo v1.2.22 {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
-        my $template = $bindings{$path}->{'get'}->{'template'};
-        err_log("== DEBUGGING ==: Registering GET action for path '$path'") if $config->{'debug'};
+        my $class = lc($bindings{$path}->{$verb}->{'class'});
+        my $template = $bindings{$path}->{$verb}->{'template'};
+        err_log("== DEBUGGING ==: Registering " . uc($verb) . " action for path '$path'") if $config->{'debug'};
         err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
+
         given ($verb) {
             when ('get') {
-                get "$path" => sub {
-                    my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
-                    my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
+                given ($class) {
+                    when ('form::authentication') {
+                        get "$path" => sub {
+                            my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
+                            my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
 
-                    err_log("== DEBUGGING ==: Triggering GET action for path $path") if $config->{'debug'};
-                    err_log("== DEBUGGING ==: do_launch: $do_launch") if $config->{'debug'};
-                    err_log("== DEBUGGING ==: expire_page: $expire_page") if $config->{'debug'};
-                    return template $template, {
-                        'webroot'     => $config->{'webroot'},
-                        'site_name'   => $config->{'site_title'},
-                        'page_title'  => $bindings->{$path}->{'get'}->{'summary'},
-                        'copyright'   => $config->{'copyright'},
-                        'license'     => $config->{'license'},
-                        'launch'      => $do_launch,
-                        'expire_page' => $expire_page
-                    };
-                };
+                            err_log("== DEBUGGING ==: Triggering ". uc($verb) . " action for path '$path'") if $config->{'debug'};
+                            err_log("== DEBUGGING ==: do_launch: $do_launch") if $config->{'debug'};
+                            err_log("== DEBUGGING ==: expire_page: $expire_page") if $config->{'debug'};
+
+                            return template $template, {
+                                'webroot'     => $config->{'webroot'},
+                                'site_name'   => $config->{'site_title'},
+                                'page_title'  => $bindings->{$path}->{'get'}->{'summary'},
+                                'copyright'   => $config->{'copyright'},
+                                'license'     => $config->{'license'},
+                                'launch'      => $do_launch,
+                                'expire_page' => $expire_page
+                            }, { layout => 'login' };
+                        };
+                    }
+                    default {
+                        get "$path" => sub {
+                            my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
+                            my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
+
+                            err_log("== DEBUGGING ==: Triggering ". uc($verb) . " action for path '$path'") if $config->{'debug'};
+                            err_log("== DEBUGGING ==: do_launch: $do_launch") if $config->{'debug'};
+                            err_log("== DEBUGGING ==: expire_page: $expire_page") if $config->{'debug'};
+
+                            return template $template, {
+                                'webroot'     => $config->{'webroot'},
+                                'site_name'   => $config->{'site_title'},
+                                'page_title'  => $bindings->{$path}->{'get'}->{'summary'},
+                                'copyright'   => $config->{'copyright'},
+                                'license'     => $config->{'license'},
+                                'launch'      => $do_launch,
+                                'expire_page' => $expire_page
+                            };
+                        };
+                    }
+                }
             }
             when ('put') {}
             when ('post') {}

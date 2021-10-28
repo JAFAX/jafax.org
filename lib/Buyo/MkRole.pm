@@ -11,6 +11,7 @@ package Buyo::MkRole {
     use feature "switch";
 
     use boolean;
+    use Data::Dumper;
     use Term::ANSIColor;
     use Throw qw(throw classify);
     use Try::Tiny qw(try catch);
@@ -18,11 +19,17 @@ package Buyo::MkRole {
     use FindBin;
     use lib "$FindBin::Bin/../lib";
 
+    use File::IO;
     use Sys::Error;
+
+    use Buyo::Utils;
 
     my $debug  = undef;
     my $logger = undef;
     my $loglvl = undef;
+    my $fio    = undef;
+    my $err    = undef;
+    my $utils  = undef;
 
     sub new ($class, $flags) {
         my $self = {};
@@ -30,15 +37,148 @@ package Buyo::MkRole {
         $debug  = $flags->{'debug'};
         $logger = $flags->{'logger'};
         $loglvl = $flags->{'loglevel'};
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
+        if ($debug eq true) {
+            say STDERR "== DEBUGGING ==: Debugging enabled";
+            say STDERR "== DEBUGGING ==: Standard flags:";
+            say STDERR "== DEBUGGING ==:    logger    : $logger";
+            say STDERR "== DEBUGGING ==:    log level : $loglvl";
+        }
+
+        $err    = Sys::Error->new();
+        $fio    = File::IO->new();
+
+        $utils  = Buyo::Utils->new($debug);
 
         bless($self, $class);
         return $self;
     }
 
+    our sub get_rolelist ($self, $file) {
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
+        say STDERR "== DEBUGGING ==: File: $file" if $debug eq true;
+
+        my @content;
+        if (-f $file) {
+            say STDERR "== DEBUGGING ==: File '$file' exists" if $debug eq true;
+            # first, open role list
+            my $fh = undef;
+            my $fc = undef;
+            my $status = undef;
+            try {
+                # File::IO already throws on error, just need to catch it
+                say STDERR "== DEBUGGING ==: Attempting to open $file" if $debug eq true;
+                ($fh, $status) = $fio->open('r', $file);
+            } catch {
+                $err->err_msg($status, __PACKAGE__);
+            };
+            try {
+                say STDERR "== DEBUGGING ==: Attempting to read file handle" if $debug eq true;
+                ($fc, $status) = $fio->read($fh, -s $fh); 
+            } catch {
+                $err->err_msg($status, __PACKAGE__);
+            };
+            try {
+                say STDERR "== DEBUGGING ==: Attempting to close file handle" if $debug eq true;
+                $status = $fio->close($fh);
+            } catch {
+                $err->err_msg($status, __PACKAGE__);
+            };
+
+            @content = split(/\n/, $fc);
+        }
+
+        return @content;
+    }
+
+    our sub check_id_exists ($self, $id) {
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
+
+        my $prefix = $utils->get_application_prefix();
+        my @content = $self->get_rolelist("$prefix/conf.d/roles.lst");
+        if (@content) {
+            # now that we have the file contents, check for duplicate ids
+            # format for account.lst:
+            #
+            # colon delimited
+            #
+            # fields:
+            # 0: role name
+            # 1: UID (numeric user id)
+            # 2: description
+            foreach my $record (@content) {
+                my (undef, $rid, undef) = split(':', $record);
+                say STDERR "== DEBUGGING ==: Requested ID: $id" if $debug eq true;
+                say STDERR "== DEBUGGING ==: Record ID:    $rid" if $debug eq true;
+                if ($id eq $rid) {
+                    my $trace = $err->get_trace(caller(0));
+                    return false, {
+                        'error'         => "Role ID not unique",
+                        'type'          => 137,
+                        'error_string'  => "Role ID is not unique",
+                        'info'          => "Cannot create requested role with ID '$id'",
+                        'trace'         => $trace
+                    };
+                }
+            }
+        }
+
+        return true, {
+            'type' => 'OK',
+            'code' => 0,
+            'msg'  => 'Successful operation'
+        };
+    }
+
+    our sub check_role_exists ($self, $role_name) {
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
+
+        my $prefix = $utils->get_application_prefix();
+        my @content = $self->get_rolelist("$prefix/conf.d/roles.lst");
+        
+        if (@content) {
+            # now that we have the file contents, get the last entry's role id number
+            # format for account.lst:
+            #
+            # colon delimited
+            #
+            # fields:
+            # 0: role name
+            # 1: UID (numeric user id)
+            # 2: description
+            foreach my $record (@content) {
+                my ($role, undef, undef) = split(':', $record);
+                if ($role eq $role_name) {
+                    my $trace = $err->get_trace(caller(0));
+                    return false, {
+                        'error'         => "Role name not unique",
+                        'type'          => 142,
+                        'error_string'  => "Role name is not unique",
+                        'info'          => "Cannot create requested role '$role_name'",
+                        'trace'         => $trace
+                    };
+                }
+            }
+        }
+
+        return true, {
+            'type' => 'OK',
+            'code' => 0,
+            'msg'  => 'Successful operation'
+        };
+    }
+
     our sub verify_options ($self, $role_name, $description) {
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
         if (! defined $role_name) {
-            say "ERROR: Missing role name!";
+            say STDERR "ERROR: Missing role name!";
             exit 1;
+        } else {
+            # check that the role name does not already exist
+            my ($response, $status) = $self->check_role_exists($role_name);
+            if ($response ne true) {
+                $err->err_msg($status, __PACKAGE__);
+            }
         }
         if (! defined $description) {
             say "ERROR: Missing role description!";
@@ -46,31 +186,16 @@ package Buyo::MkRole {
         }
     }
 
-    our sub get_application_prefix ($self) {
-        my $prefix = "$FindBin::Bin/..";
-        return $prefix;
-    }
-
     our sub next_available_id ($self) {
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
         my $role_id = undef;
 
-        my $prefix = $self->get_application_prefix();
-        if (-f "$prefix/conf.d/roles.lst") {
-            # first, open role list
-            my $fh = undef;
-            my $fc = undef;
-            my $status = undef;
-
-            my $fio = File::IO->new();
-            ($fh, $status) = $fio->open('r', "$prefix/conf.d/roles.lst");
-            ($fc, $status) = $fio->read($fh, -s $fh);
-            $status = $fio->close($fh);
-
-            my @content = split(/\n/, $fc);
-
+        my $prefix = $utils->get_application_prefix();
+        my @content = get_rolelist("$prefix/conf.d/roles.lst");
+        if (@content) {
             # now that we have the file contents, get the last entry's role id number
             my $last_record = $content[-1];
-            my (undef, $last_id, undef, undef) = split(':', $last_record);
+            my (undef, $last_id, undef) = split(':', $last_record);
             $role_id = $last_id++;
         } else {
             # there is no roles.lst, so assume this is the first run of this tool, seed it
@@ -80,24 +205,79 @@ package Buyo::MkRole {
         return $role_id;
     }
 
+    our sub get_role_id ($self, $role_name) {
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
+
+        my $prefix = $utils->get_application_prefix();
+        my @content = get_rolelist("$prefix/conf.d/roles.lst");
+        if (@content) {
+            # walk the list and if $role_name matches $record_role_name, return
+            # $record_role_id
+            foreach my $record (@content) {
+                my ($record_role_name, $record_role_id, undef) = split(/\:/, $record);
+                if ($role_name eq $record_role_name) {
+                    return $record_role_id;
+                } else {
+                    return undef;
+                }
+            }
+        }
+    }
+
+    our sub get_role_name ($self, $role_id) {
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
+
+        my $prefix = $utils->get_application_prefix();
+        my @content = get_rolelist("$prefix/conf.d/roles.lst");
+        if (@content) {
+            # walk the list and if $role_name matches $record_role_name, return
+            # $record_role_id
+            foreach my $record (@content) {
+                my ($record_role_name, $record_role_id, undef) = split(/\:/, $record);
+                if ($role_id eq $record_role_id) {
+                    return $record_role_name;
+                } else {
+                    return undef;
+                }
+            }
+        }
+    }
+
     our sub create_role ($self, $flags) {
-        my $prefix = $self->get_application_prefix();
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
+        my $prefix = $utils->get_application_prefix();
 
         my $description = $flags->{'description'};
         my $id          = $flags->{'id'};
-        my $name        = $flags->{'name'};
+        my $name        = $flags->{'role_name'};
 
         my $fh = undef;
+        my $response = undef;
         my $status = undef;
-        my $fio = File::IO->new();
-        ($fh, $status) = $fio->open('a', "$prefix/conf.d/roles.lst");
+        try {
+            ($fh, $status) = $fio->open('a', "$prefix/conf.d/roles.lst");
+        } catch {
+            $err->err_msg($status, __PACKAGE__);
+        };
+        try {
+            ($response, $status) = $self->check_id_exists($id);
+            if ($response ne true) {
+                throw $status->{'error'}, $status;
+            }
+        } catch {
+            $err->err_msg($status, __PACKAGE__);
+        };
         say $fh "$name:$id:\"$description\"";
-        $status = $fio->close($fh);
+        try {
+            $status = $fio->close($fh);
+        } catch {
+            $err->err_msg($status, __PACKAGE__);
+        };
     }
 
     our sub show_help {
         say "mkrole: A tool to create roles for the Buyo web application";
-        say "=" x 39;
+        say "=" x 59;
         say "\nOptions:";
         say "-" x 8;
         say "  -n|--name ROLE_NAME    A name for the role";
@@ -110,11 +290,11 @@ package Buyo::MkRole {
     our sub show_version {
         say "mkrole: A tool to create roles for the Buyo web application";
         say "=" x 59;
+        say "\nVersion: 0.0.1";
         say "Author:  Gary Greene <webmaster at jafax dot org>";
         say "License: Apache Public License, version 2";
         say "         See https://www.apache.org/licenses/LICENSE-2.0 for";
         say "         the full text of the license";
-        say "Version: 0.0.1";
     }
 
     true;
