@@ -285,7 +285,7 @@
                 "summary": "Artist Alley Registration",
                 "template": "artist_registration",
                 "launchDate": 1438401600,
-                "expireDate": 1617382000,
+                "expireDate": -1,
                 "type": "static",
                 "class": "registration::container",
                 "responses": {
