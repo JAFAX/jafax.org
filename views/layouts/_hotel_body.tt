@@ -63,8 +63,14 @@
     <div class="row">
         <div class="col item">
             <img class="left" src="[% webroot %]/images/amway1_new.jpg" />
+        </div>
+        <div class="col item">
             <img class="right" src="[% webroot %]/images/amway2_new.jpg" />
-            <img class="right" src="[% webroot %]/images/amway3_new.jpg" />
+        </div>
+        <div class="col item">
+            <img class="left" src="[% webroot %]/images/amway3_new.jpg" />
+        </div>
+        <div class="col item">
             <img class="right" src="[% webroot %]/images/amway4_new.jpg" />
         </div>
     </div>
