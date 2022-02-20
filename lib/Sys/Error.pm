@@ -14,6 +14,8 @@ package Sys::Error {
     use boolean;
     use Data::Dumper;
 
+    my $VERSION = "0.0.2";
+
     sub new ($class) {
         my $self = {};
 
@@ -22,10 +24,10 @@ package Sys::Error {
     }
 
     our sub err_msg ($self, $err_struct, $class) {
-        say "$err_struct->{'error'}: $class\n";
-        say "Info:           $err_struct->{'info'}";
-        say "Trace:      $err_struct->{'trace'}";
-        say "Error code:     $err_struct->{'type'}: $err_struct->{'error_string'}";
+        say STDERR "$err_struct->{'error'}: $class\n";
+        say STDERR "Info:       $err_struct->{'info'}";
+        say STDERR "Trace:      $err_struct->{'trace'}";
+        say STDERR "Error code: $err_struct->{'type'}: $err_struct->{'error_string'}";
 
         exit $err_struct->{type};
     }
