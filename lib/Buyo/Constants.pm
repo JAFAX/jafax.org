@@ -17,13 +17,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-package Buyo::Constants v1.2.21 {
+package Buyo::Constants {
     use strictures;
     use English qw(-no_match_vars);
     use utf8;
 
     use boolean qw(:all);
     use base qw(Exporter);
+
+    our $VERSION = "1.2.43";
 
     BEGIN {
         use Exporter   ();
