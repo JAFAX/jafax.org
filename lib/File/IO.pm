@@ -18,9 +18,11 @@ package File::IO {
     use FindBin;
     use lib "$FindBin::Bin/../lib";
 
-    use Sys::Error;
+    use Sys::Error 0.0.2;
 
     my $error = undef;
+
+    my $VERSION = "0.0.2";
 
     $Throw::level = 1;
 
