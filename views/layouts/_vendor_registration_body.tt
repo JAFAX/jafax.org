@@ -7,28 +7,28 @@
             Welcome! JAFAX 2022 Vendor Registration is now accepting applications!
         </p>
         <p>
-            Please fully read our <a href="[% webroot %]/documents/2020_Vendor_Hall_Contract.pdf">terms for application</a>
+            Please fully read our <a href="[% webroot %]/documents/2022_Vendor_Hall_Contract.pdf">terms for application</a>
             before submitting the form.
         </p>
         <p>
             Once you have completed the application, we will send out an email
             confirming your acceptance no later than one week after registration
-            has closed. Vendor Registration will close December 2, 2021. If there
+            has closed. Vendor Registration will close March 4, 2022. If there
             are still open vendor booths available after the deadline, the form
             will be re-opened until the Vendor Hall is full.
         </p>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScI1DfQobcbK0-9JFjD2PDkKUaAOAoglsQzn9wCZL6r4UmNmw/viewform?embedded=true" 
-          width="100%" height="2610px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        <iframe src="https://docs.google.com/forms/d/1AKqx9cmQSsNrw1lOxMjzkfmhmFOArnxR037azUqGQro/viewform?embedded=true" 
+          width="100%" height="2640px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         [% ELSE %]
-        <p>
+<!--        <p>
             Details on Vendor Registration are not available yet. We look forward
             to your return for JAFAX 2022!
-        </p>
-<!--        <p>
+        </p> -->
+        <p>
             JAFAX 2022 Vendor Registration has closed. We're excited to share with
             you many of the vendors that will be coming, and will post more info as
             it gets closer to the event!
-        </p> -->
+        </p>
         [% END %]
         <p>
             If you wish to be added to our mailing list, or have a question for our

@@ -17,7 +17,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-package Buyo::Utils v1.2.21 {
+package Buyo::Utils {
     use strictures;
     use English qw(-no_match_vars);
     use utf8;
@@ -31,6 +31,10 @@ package Buyo::Utils v1.2.21 {
     use base qw(Exporter);
     use Carp;
     use Data::Dumper;
+
+    use Buyo::Constants;
+
+    my $VERSION = $Buyo::Constants::VERSION;
 
     BEGIN {
         use Exporter;
