@@ -121,7 +121,7 @@ package Buyo v1.2.22 {
         $configuration{'etcd_password'}   = $cfg->val('etcd', 'pass');
         $configuration{'site_key'}        = $cfg->val('reCAPTCHA', 'site_key');
 
-        err_log("== DEBUGGING ==: Config DUMP: ". Dumper(%configuration)) if $configuration->{'debug'};
+        err_log("== DEBUGGING ==: Config DUMP: ". Dumper(%configuration)) if $configuration{'debug'};
 
         return %configuration;
     }
