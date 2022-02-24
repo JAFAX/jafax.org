@@ -467,6 +467,7 @@ package Buyo v1.2.22 {
                             }
                             err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
                             err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
+                            err_log("== DEBUGGING ==: reCAPTCHA site key: ". $config->{'site_key'});
                             return template $template, {
                                 'webroot'       => $config->{'webroot'},
                                 'site_name'     => $config->{'site_title'},
@@ -771,6 +772,7 @@ package Buyo v1.2.22 {
             'appdir'        => config->{appdir},
             'article_mech'  => $configuration{'article_mech'},
             'debug'         => $configuration{'debug'},
+            'site_key'      => $configuration{'site_key'},
             'configuration' => \%configuration
         };
 
