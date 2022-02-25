@@ -119,6 +119,9 @@ package Buyo v1.2.22 {
         $configuration{'article_mech'}    = $cfg->val('Web', 'article_mech', "JSON");
         $configuration{'etcd_user'}       = $cfg->val('etcd', 'user');
         $configuration{'etcd_password'}   = $cfg->val('etcd', 'pass');
+        $configuration{'site_key'}        = $cfg->val('reCAPTCHA', 'site_key');
+
+        err_log("== DEBUGGING ==: Config DUMP: ". Dumper(%configuration));
 
         return %configuration;
     }
@@ -444,7 +447,8 @@ package Buyo v1.2.22 {
                                 'title'         => $article_title,
                                 'page_content'  => $article_content,
                                 'launch'        => $do_launch,
-                                'expirePage'    => $expire_page
+                                'expirePage'    => $expire_page,
+                                'path'          => $path
                             };
                         };
                     }
@@ -463,6 +467,7 @@ package Buyo v1.2.22 {
                             }
                             err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
                             err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
+                            err_log("== DEBUGGING ==: reCAPTCHA site key: ". $config->{'site_key'});
                             return template $template, {
                                 'webroot'       => $config->{'webroot'},
                                 'site_name'     => $config->{'site_title'},
@@ -472,7 +477,9 @@ package Buyo v1.2.22 {
                                 'selected'      => $selected_dept,
                                 'people'        => $people,
                                 'launch'        => $do_launch,
-                                'expirePage'    => $expire_page
+                                'expirePage'    => $expire_page,
+                                'path'          => $path,
+                                'site_key'      => $config->{'site_key'}
                             };
                         };
                     }
@@ -492,7 +499,8 @@ package Buyo v1.2.22 {
                                 'license'       => $config->{'license'},
                                 'articles'      => $articles,
                                 'launch'        => $do_launch,
-                                'expirePage'    => $expire_page
+                                'expirePage'    => $expire_page,
+                                'path'          => $path
                             }
                         };
                     }
@@ -514,7 +522,8 @@ package Buyo v1.2.22 {
                                 'license'       => $config->{'license'},
                                 'articles'      => $top_three,
                                 'launch'        => $do_launch,
-                                'expirePage'    => $expire_page
+                                'expirePage'    => $expire_page,
+                                'path'          => $path
                             }
                         };
                     }
@@ -553,7 +562,8 @@ package Buyo v1.2.22 {
                                 'position'      => $bio_photo_position,
                                 'page_content'  => $bio_content,
                                 'launch'        => $do_launch,
-                                'expirePage'    => $expire_page
+                                'expirePage'    => $expire_page,
+                                'path'          => $path
                             };
                         };
                     }
@@ -602,7 +612,8 @@ package Buyo v1.2.22 {
                                 'copyright'   => $config->{'copyright'},
                                 'license'     => $config->{'license'},
                                 'launch'      => $do_launch,
-                                'expire_page' => $expire_page
+                                'expire_page' => $expire_page,
+                                'path'        => $path
                             }, { layout => 'login' };
                         };
                     }
@@ -622,7 +633,8 @@ package Buyo v1.2.22 {
                                 'copyright'   => $config->{'copyright'},
                                 'license'     => $config->{'license'},
                                 'launch'      => $do_launch,
-                                'expire_page' => $expire_page
+                                'expire_page' => $expire_page,
+                                'path'        => $path
                             };
                         };
                     }
@@ -671,7 +683,8 @@ package Buyo v1.2.22 {
                                     'copyright'  => $config->{'copyright'},
                                     'license'    => $config->{'license'},
                                     'launch'     => $do_launch,
-                                    'expirePage' => $expire_page
+                                    'expirePage' => $expire_page,
+                                    'path'       => $path
                                 };
                             }
                         };
@@ -759,6 +772,7 @@ package Buyo v1.2.22 {
             'appdir'        => config->{appdir},
             'article_mech'  => $configuration{'article_mech'},
             'debug'         => $configuration{'debug'},
+            'site_key'      => $configuration{'site_key'},
             'configuration' => \%configuration
         };
 

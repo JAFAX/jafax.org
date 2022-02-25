@@ -14,6 +14,14 @@
         <link rel="stylesheet" href="[% webroot %]/css/Navigation-Clean.css">
         <link rel="stylesheet" href="[% webroot %]/css/styles.css">
         <!-- Global site tag (gtag.js) - Google Analytics -->
+        [% IF path == '/contact' %]
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script>
+            function enableBtn(){
+                document.getElementById("submitBtn").disabled = false;
+            }
+        </script>
+        [% END %]
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-3S19Z7TDMV"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
