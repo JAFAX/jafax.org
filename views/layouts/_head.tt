@@ -21,7 +21,6 @@
 
             function enableBtn(){
                 document.getElementById("submitBtn").disabled = false;
-                gresponse = grecaptcha.getResponse()
             }
         </script>
         [% END %]
