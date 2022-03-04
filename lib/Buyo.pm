@@ -361,6 +361,7 @@ package Buyo {
         my $result  = $ua->request($req);
         err_log("== DEBUGGING ==: response: ". Dumper($result)) if $config->{'debug'};
         my $js_res  = decode_json($result->content);
+        err_log("== DEBUGGING ==: decoded response: ". Dumper($js_res)) if $config->{'debug'};
 
         if ($js_res->success eq 'true') {
             return true;
