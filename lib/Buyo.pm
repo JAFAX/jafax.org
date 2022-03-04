@@ -363,7 +363,7 @@ package Buyo {
         my $js_res  = decode_json($result->content);
         err_log("== DEBUGGING ==: decoded response: ". Dumper($js_res)) if $config->{'debug'};
 
-        if ($js_res->success eq 'true') {
+        if ($js_res->{'success'} eq 'true') {
             return true;
         } else {
             return false;
