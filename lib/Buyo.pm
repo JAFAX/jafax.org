@@ -353,7 +353,7 @@ package Buyo {
         my $encoded_response    = $uri_enc->encode($response_data);
         err_log("== DEBUGGING ==: response: $response_data") if $config->{'debug'};
         err_log("== DEBUGGING ==: encoded response: $encoded_response") if $config->{'debug'};
-        my $query   = '?secret=' . $service_key . '&response=' . $response;
+        my $query   = '?secret=' . $secret_key . '&response=' . $response;
         err_log("== DEBUGGING ==: query string: $query") if $config->{'debug'};
         my $req     = HTTP::Request->new(POST => "${url}${query}");
         my $result  = $ua->request($req);
