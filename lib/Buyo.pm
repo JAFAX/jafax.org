@@ -340,7 +340,7 @@ package Buyo {
 
         # build an LWP::UserAgent object
         my $ua = LWP::UserAgent->new();
-        $ua->agent("Buyo Content Manager/$VERSION");
+        $ua->agent("BuyoContentManager/reCAPTCHA/$VERSION");
 
         my $secret_key = $config->{'service_key'};
         # create our post request to Google
@@ -356,6 +356,8 @@ package Buyo {
         my $query   = '?secret=' . $secret_key . '&response=' . $response_data;
         err_log("== DEBUGGING ==: query string: $query") if $config->{'debug'};
         my $req     = HTTP::Request->new(POST => "${url}${query}");
+        $req->content_type('application/x-www-form-urlencoded');
+        $req->header('Content-Length' => 0);
         my $result  = $ua->request($req);
         err_log("== DEBUGGING ==: response: ". Dumper($result)) if $config->{'debug'};
         my $js_res  = decode_json($result->content);
