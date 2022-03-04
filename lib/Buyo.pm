@@ -345,6 +345,7 @@ package Buyo {
         # create our post request to Google
         my $url     = 'https://www.google.com/recaptcha/api/siteverify';
         my $uri_enc = URI::Encode->new(encode_reserved => 0);
+        err_log("== DEBUGGING ==: secret key: $secret_key") if $config->{'debug'};
         my $encoded_service_key = $uri_enc->encode($secret_key);
         my $encoded_response    = $uri_enc->encode($response_data);
         my $query   = '?secret=' . $encoded_service_key . '&response=' . $encoded_response;
