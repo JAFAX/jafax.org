@@ -333,6 +333,7 @@ package Buyo v1.2.22 {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
+        err_log("== DEBUGGING ==: DUMP POST VALUES: ". Dumper($post_values)) if $config->{'debug'};
         my $email_address = get_department_email_from_id($config->{'appdir'}, $post_values->{'to_list'});
         my $email_subject = $post_values->{'email_subject'};
         my $email_body    = "Message sent from: $post_values->{'email_address'}\n\nMessage:\n$post_values->{'email_body'}\n";

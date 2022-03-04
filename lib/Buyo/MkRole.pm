@@ -19,9 +19,10 @@ package Buyo::MkRole {
     use FindBin;
     use lib "$FindBin::Bin/../lib";
 
-    use File::IO;
-    use Sys::Error;
+    use File::IO 0.0.1;
+    use Sys::Error 0.0.1;
 
+    use Buyo::Constants;
     use Buyo::Utils;
 
     my $debug  = undef;
@@ -30,6 +31,8 @@ package Buyo::MkRole {
     my $fio    = undef;
     my $err    = undef;
     my $utils  = undef;
+
+    my $VERSION = $Buyo::Constants::VERSION;
 
     sub new ($class, $flags) {
         my $self = {};
