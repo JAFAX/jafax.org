@@ -124,6 +124,7 @@ package Buyo {
         $configuration{'etcd_user'}       = $cfg->val('etcd', 'user');
         $configuration{'etcd_password'}   = $cfg->val('etcd', 'pass');
         $configuration{'site_key'}        = $cfg->val('reCAPTCHA', 'site_key');
+        $configuration{'service_key'}     = $cfg->val('reCAPTCHA', 'service_key');
 
         err_log("== DEBUGGING ==: Config DUMP: ". Dumper(%configuration));
 
