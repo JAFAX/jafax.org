@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-package Buyo v1.2.22 {
+package Buyo {
     use strictures;
     use English qw(-no_match_vars);
     use utf8;
@@ -27,7 +27,9 @@ package Buyo v1.2.22 {
     use Dancer2;
     use JSON qw();
     use Data::Dumper;
+    use LWP::UserAgent;
     use MIME::Lite;
+    use URI::Encode;
     use Try::Tiny qw(try catch);
     use Throw qw(throw classify);
 
@@ -43,6 +45,8 @@ package Buyo v1.2.22 {
 
     use Buyo::Constants;
     use Buyo::Utils qw(err_log);
+
+    my $VERSION = $Buyo::Constants::VERSION;
 
     # this global is to avoid copying it everywhere
     our $config;
@@ -120,6 +124,7 @@ package Buyo v1.2.22 {
         $configuration{'etcd_user'}       = $cfg->val('etcd', 'user');
         $configuration{'etcd_password'}   = $cfg->val('etcd', 'pass');
         $configuration{'site_key'}        = $cfg->val('reCAPTCHA', 'site_key');
+        $configuration{'service_key'}     = $cfg->val('reCAPTCHA', 'service_key');
 
         err_log("== DEBUGGING ==: Config DUMP: ". Dumper(%configuration));
 
@@ -329,23 +334,68 @@ package Buyo v1.2.22 {
         return undef;
     }
 
+    my sub validate_recaptcha ($response_data) {
+        my $sub = (caller(0))[3];
+        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+
+        # build an LWP::UserAgent object
+        my $ua = LWP::UserAgent->new();
+        $ua->agent("BuyoContentManager/reCAPTCHA/$VERSION");
+
+        my $secret_key = $config->{'service_key'};
+        # create our post request to Google
+        my $url     = 'https://www.google.com/recaptcha/api/siteverify';
+        my $uri_enc = URI::Encode->new(encode_reserved => 0);
+        err_log("== DEBUGGING ==: config dump: ". Dumper($config)) if $config->{'debug'};
+        err_log("== DEBUGGING ==: secret key: $secret_key") if $config->{'debug'};
+        my $encoded_service_key = $uri_enc->encode($secret_key);
+        err_log("== DEBUGGING ==: encoded service key: $encoded_service_key") if $config->{'debug'};
+        my $encoded_response    = $uri_enc->encode($response_data);
+        err_log("== DEBUGGING ==: response: $response_data") if $config->{'debug'};
+        err_log("== DEBUGGING ==: encoded response: $encoded_response") if $config->{'debug'};
+        my $query   = '?secret=' . $secret_key . '&response=' . $response_data;
+        err_log("== DEBUGGING ==: query string: $query") if $config->{'debug'};
+        my $req     = HTTP::Request->new(POST => "${url}${query}");
+        $req->content_type('application/x-www-form-urlencoded');
+        $req->header('Content-Length' => 0);
+        my $result  = $ua->request($req);
+        err_log("== DEBUGGING ==: response: ". Dumper($result)) if $config->{'debug'};
+        my $js_res  = decode_json($result->content);
+        err_log("== DEBUGGING ==: decoded response: ". Dumper($js_res)) if $config->{'debug'};
+
+        if ($js_res->{'success'} eq 'true') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     my sub send_email ($post_values) {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
+        err_log("== DEBUGGING ==: DUMP POST VALUES: ". Dumper($post_values)) if $config->{'debug'};
         my $email_address = get_department_email_from_id($config->{'appdir'}, $post_values->{'to_list'});
         my $email_subject = $post_values->{'email_subject'};
         my $email_body    = "Message sent from: $post_values->{'email_address'}\n\nMessage:\n$post_values->{'email_body'}\n";
-        # construct email
-        my $msg = MIME::Lite->new(
-            From     => 'noreply@jafax.org',
-            To       => $email_address,
-            Subject  => $email_subject,
-            Type     => 'TEXT',
-            Encoding => 'quoted-printable',
-            Data     => $email_body,
-        );
-        $msg->send('sendmail', '/usr/sbin/sendmail -t -oi -oem');
+
+        # validate that the user was real using the reCAPTCHA post data
+        my $response      = validate_recaptcha($post_values->{'g-recaptcha-response'});
+
+        if ($response eq true) {
+            # construct email
+            my $msg = MIME::Lite->new(
+                From     => 'noreply@jafax.org',
+                To       => $email_address,
+                Subject  => $email_subject,
+                Type     => 'TEXT',
+                Encoding => 'quoted-printable',
+                Data     => $email_body,
+            );
+            $msg->send('sendmail', '/usr/sbin/sendmail -t -oi -oem');
+        } else {
+            err_log("== WARNING ==: Got a bot posting stuff: email address ". $post_values->{'email_address'});
+        }
     }
 
     my sub get_last_three_article_structs ($articles) {
@@ -773,6 +823,7 @@ package Buyo v1.2.22 {
             'article_mech'  => $configuration{'article_mech'},
             'debug'         => $configuration{'debug'},
             'site_key'      => $configuration{'site_key'},
+            'service_key'   => $configuration{'service_key'},
             'configuration' => \%configuration
         };
 
