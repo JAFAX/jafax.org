@@ -17,6 +17,8 @@
         [% IF path == '/contact' %]
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <script>
+            var gresponse;
+
             function enableBtn(){
                 document.getElementById("submitBtn").disabled = false;
             }
