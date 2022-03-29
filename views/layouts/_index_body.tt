@@ -25,9 +25,9 @@
         <br />
         <div class="container">
             <div class="padded-row">
-                [% FOREACH article IN articles.sort('id').reverse %]
+                [% FOREACH article IN articles.sort('id') %]
                 <div class="col item bttm-pad">
-                    [% IF article.id > 10 %]
+                    [% IF article.id > 9 %]
                     <a href="[% webroot %]/news/[% article.id %]" class="news">
                     [% ELSE %]
                     <a href="[% webroot %]/news/0[% article.id %]" class="news">

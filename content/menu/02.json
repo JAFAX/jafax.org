@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "id": 1,
+  "name": "News",
+  "href": "/news",
+  "children": false,
+  "childRoot": null,
+  "parent": null
+}
