@@ -406,15 +406,20 @@ package Buyo {
         my @articles = @{$articles};
 
         my $top_articles = undef;
-        if (scalar(@articles) ge 3) {
+        my $article_count = scalar(@articles);
+        err_log("== DEBUGGING ==: Number of articles: $article_count") if $config->{'debug'};
+        if ($article_count > 3) {
+            err_log("== DEBUGGING ==: More than 3 articles") if $config->{'debug'};
             $top_articles = [
                 $articles[0],
                 $articles[1],
                 $articles[2]
             ];
-        } elsif (scalar(@articles) eq 2) {
+        } elsif (scalar(@articles) == 2) {
+            err_log("== DEBUGGING ==: Only 2 articles") if $config->{'debug'};
             $top_articles = [ $articles[0], $articles[1] ];
         } else {
+            err_log("== DEBUGGING ==: Only 1 article") if $config->{'debug'};
             $top_articles = [ $articles[0] ];
         }
 
