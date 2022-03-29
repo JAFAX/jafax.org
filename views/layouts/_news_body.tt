@@ -8,7 +8,7 @@
             [% FOREACH article IN articles.nsort('id').reverse %]
             <div class="padded-row">
                 <div class="col">
-                    [% IF article.id > 10 %]
+                    [% IF article.id > 9 %]
                     <a href="[% webroot %]/news/[% article.id %]">
                     [% ELSE %]
                     <a href="[% webroot %]/news/0[% article.id %]">
