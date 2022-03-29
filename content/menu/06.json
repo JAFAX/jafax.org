@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "id": 5,
+  "name": "Registration",
+  "href": "/registration",
+  "children": true,
+  "childRoot": "c/5",
+  "parent": null
+}

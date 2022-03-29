@@ -1,0 +1,9 @@
+{
+    "version": 1,
+    "id": 0,
+    "name": "Venue",
+    "href": "/location/venue",
+    "children": false,
+    "childRoot": null,
+    "parent": 3
+  }

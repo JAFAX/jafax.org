@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "id": 9,
+  "name": "Vendor Hall",
+  "href": "/events/vendors",
+  "children": false,
+  "childRoot": null,
+  "parent": 4
+}

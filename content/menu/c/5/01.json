@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "id": 0,
+  "name": "Attendee Registration",
+  "href": "/registration/attendee",
+  "children": false,
+  "childRoot": null,
+  "parent": 5
+}

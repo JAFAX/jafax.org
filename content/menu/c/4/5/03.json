@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "id": 2,
+  "name": "Manga Library",
+  "href": "/events/media/manga",
+  "children": false,
+  "childRoot": null,
+  "parent": 5
+}

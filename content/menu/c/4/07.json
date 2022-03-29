@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "id": 6,
+  "name": "Nusical Events",
+  "href": "/events/music",
+  "children": false,
+  "childRoot": null,
+  "parent": 4
+}

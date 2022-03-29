@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "id": 3,
+  "name": "Vendor Registration",
+  "href": "/registration/vendors",
+  "children": false,
+  "childRoot": null,
+  "parent": 5
+}
