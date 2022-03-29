@@ -67,11 +67,10 @@ package Buyo {
         croak($msg);
     }
 
-    my sub load_config {
+    my sub load_config ($appdir) {
         my $sub = (caller(0))[3];
-        my $appdir = shift;
 
-        my $ini_file = "$appdir/conf.d/config.ini";
+        my $ini_file = "${appdir}/conf.d/config.ini";
 
         my $cfg = undef;
         try {
@@ -259,6 +258,17 @@ package Buyo {
         return @files;
     }
 
+    my sub build_menus_struct () {
+        my $sub = (caller(0))[3];
+        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+
+        my $struct = undef;
+        my $appdir = $config->{'appdir'};
+        my @files  = sort(get_file_list("$appdir/content/menu", "json"));
+
+        return $struct;
+    }
+
     my sub build_article_struct_list () {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
@@ -291,7 +301,7 @@ package Buyo {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
-        my $json_txt = get_json("departments.json");
+        my $json_txt = get_json("$appdir/conf.d/departments.json");
         my $json     = JSON->new();
         my $people   = undef;
         try {
@@ -832,7 +842,7 @@ package Buyo {
             'configuration' => \%configuration
         };
 
-        my $json_txt = get_json('bindings.json');
+        my $json_txt = get_json("conf.d/bindings.json");
         my $json     = JSON->new();
 
         my $data     = undef;
