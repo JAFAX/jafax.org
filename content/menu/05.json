@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "id": 4,
+  "name": "Events",
+  "href": "/events",
+  "children": true,
+  "childRoot": "c/4",
+  "parent": null
+}

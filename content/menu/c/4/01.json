@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "id": 0,
+  "name": "Artist Alley",
+  "href": "/events/artists",
+  "children": false,
+  "childRoot": null,
+  "parent": 4
+}

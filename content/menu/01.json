@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "id": 0,
+  "name": "Home",
+  "href": "/",
+  "children": false,
+  "childRoot": null,
+  "parent": null
+}

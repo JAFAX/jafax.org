@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "id": 0,
+  "name": "Hotel",
+  "href": "/location/hotel",
+  "children": false,
+  "childRoot": null,
+  "parent": 3
+}
