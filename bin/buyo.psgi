@@ -30,6 +30,8 @@ package main v1.2.21 {
     no warnings "experimental::signatures";
 
     use boolean qw(:all);
+    use Return::Type;
+    use Types::Standard -all;
     use FindBin;
     use lib "$FindBin::Bin/../lib";
 
@@ -54,7 +56,7 @@ package main v1.2.21 {
 
     my $DEBUG = true;
 
-    my sub main (@args) {
+    my sub main :ReturnType(Void) (@args) {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: " . $sub) if $DEBUG;
         say {*STDERR} '>> Starting the Buyo application server version '. $Buyo::Constants::VERSION;
