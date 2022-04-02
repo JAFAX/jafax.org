@@ -58,7 +58,7 @@ package Buyo {
     my $err = undef;
     my $fio = undef;
 
-    my sub error_msg ($error_struct, $class) {
+    my sub error_msg :ReturnType(Void) ($error_struct, $class) {
         say STDERR "Error struct dump: ". Dumper($error_struct);
 
         my $error   = $error_struct->{'error'};
@@ -74,7 +74,7 @@ package Buyo {
         croak($msg);
     }
 
-    my sub load_config ($appdir) {
+    my sub load_config :ReturnType(Hash) ($appdir) {
         my $sub = (caller(0))[3];
 
         my $ini_file = "${appdir}/conf.d/config.ini";
@@ -137,7 +137,7 @@ package Buyo {
         return %configuration;
     }
 
-    my sub get_json ($json_file) {
+    my sub get_json :ReturnType(Str) ($json_file) {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
@@ -167,7 +167,7 @@ package Buyo {
         return $json_txt;
     }
 
-    my sub get_article_from_json ($article, $type) {
+    my sub get_article_from_json :ReturnType(list => Str) ($article, $type) {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
@@ -214,7 +214,7 @@ package Buyo {
         }
     }
 
-    my sub get_file_list ($directory, $extension) {
+    my sub get_file_list :ReturnType(list => Str) ($directory, $extension) {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
@@ -231,7 +231,7 @@ package Buyo {
         return @files;
     }
 
-    my sub build_menus_struct ($json_path) {
+    my sub build_menus_struct :ReturnType(Void) ($json_path) {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
@@ -259,7 +259,7 @@ package Buyo {
         return $struct;
     }
 
-    my sub build_article_struct_list () {
+    my sub build_article_struct_list :ReturnType(ArrayRef[Hash]) () {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
@@ -288,7 +288,7 @@ package Buyo {
         return \@articles;
     }
 
-    my sub get_department_contacts ($appdir) {
+    my sub get_department_contacts :ReturnType(Hash) ($appdir) {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
@@ -314,7 +314,7 @@ package Buyo {
         return $people;
     }
 
-    my sub get_department_email_from_id ($appdir, $value) {
+    my sub get_department_email_from_id :ReturnType(Str) ($appdir, $value) {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
         err_log("== DEBUGGING ==: Input \$value: $value") if $config->{'debug'};
@@ -335,7 +335,7 @@ package Buyo {
         return undef;
     }
 
-    my sub validate_recaptcha ($response_data) {
+    my sub validate_recaptcha :ReturnType(Bool) ($response_data) {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
@@ -371,7 +371,7 @@ package Buyo {
         }
     }
 
-    my sub send_email ($post_values) {
+    my sub send_email :ReturnType(Void) ($post_values) {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
@@ -399,7 +399,7 @@ package Buyo {
         }
     }
 
-    my sub get_last_three_article_structs ($articles) {
+    my sub get_last_three_article_structs :ReturnType(ArrayRef[Hash]) ($articles) {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
@@ -427,7 +427,7 @@ package Buyo {
         return $top_articles;
     }
 
-    my sub validate_page_launch_date ($launch_date, $curr_date) {
+    my sub validate_page_launch_date :ReturnType(Bool) ($launch_date, $curr_date) {
         my $do_launch = false;
         if ($curr_date >= $launch_date) {
             $do_launch = true;
@@ -436,7 +436,7 @@ package Buyo {
         return $do_launch;
     }
 
-    my sub expire_page ($expiry_date, $curr_date) {
+    my sub expire_page :ReturnType(Bool) ($expiry_date, $curr_date) {
         my $expire = false;
         if ($expiry_date != -1) {
             if ($curr_date > $expiry_date) {
@@ -447,7 +447,7 @@ package Buyo {
         return $expire;
     }
 
-    my sub register_dynamic_route ($verb, $bindings, $path) {
+    my sub register_dynamic_route :ReturnType(Str) ($verb, $bindings, $path) {
         # un-reference to make easier to work with
         my %bindings = %$bindings;
 
@@ -637,7 +637,7 @@ package Buyo {
         }
     }
 
-    my sub register_static_route ($verb, $bindings, $path) {
+    my sub register_static_route :ReturnType(Str) ($verb, $bindings, $path) {
         # un-reference to make easier to work with
         my %bindings = %$bindings;
 
@@ -701,7 +701,7 @@ package Buyo {
         }
     }
 
-    my sub register_actor_route ($verb, $bindings, $path) {
+    my sub register_actor_route :ReturnType(Str) ($verb, $bindings, $path) {
         # un-reference to make easier to work with
         my %bindings = %$bindings;
 
@@ -754,7 +754,7 @@ package Buyo {
         return true;
     }
 
-    my sub register_get_routes ($bindings, @paths) {
+    my sub register_get_routes :ReturnType(Bool) ($bindings, @paths) {
         # un-reference to make easier to work with
         my %bindings = %$bindings;
 
@@ -784,7 +784,7 @@ package Buyo {
         return true;
     }
 
-    my sub register_post_routes ($bindings, @paths) {
+    my sub register_post_routes :ReturnType(Bool) ($bindings, @paths) {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
@@ -813,7 +813,7 @@ package Buyo {
         return true;
     }
 
-    our sub main (@args) {
+    our sub main :ReturnType(Void) (@args) {
         my $sub = (caller(0))[3];
 
         set traces  => 1;
@@ -884,8 +884,6 @@ package Buyo {
 
         register_get_routes(\%paths, @getters);
         register_post_routes(\%paths, @posters);
-
-        return true;
     }
 
     main(@ARGV);
