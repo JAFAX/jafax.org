@@ -31,6 +31,8 @@ package Buyo::Utils {
     use base qw(Exporter);
     use Carp;
     use Data::Dumper;
+    use Return::Type;
+    use Types::Standard -all;
 
     use Buyo::Constants;
 
@@ -49,18 +51,18 @@ package Buyo::Utils {
 
     my $debug = false;
 
-    our sub err_log (@msg) {
+    our sub err_log :ReturnType(Void) (@msg) {
         return print {*STDERR} "@msg\n";
     }
 
-    sub new ($class, $debug = false) {
+    sub new :ReturnType(Object) ($class, $debug = false) {
         my $self = {};
 
         bless($self, $class);
         return $self;
     }
 
-    our sub get_application_prefix ($self) {
+    our sub get_application_prefix :ReturnType(Str) ($self) {
         say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
         my $prefix = "$FindBin::Bin/..";
         return $prefix;
