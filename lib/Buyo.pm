@@ -29,9 +29,11 @@ package Buyo {
     use Data::Dumper;
     use LWP::UserAgent;
     use MIME::Lite;
-    use URI::Encode;
+    use Return::Type;
+    use Types::Standard -all;
     use Try::Tiny qw(try catch);
     use Throw qw(throw classify);
+    use URI::Encode;
 
     use feature ":5.26";
     use feature 'lexical_subs';
@@ -46,10 +48,15 @@ package Buyo {
     use Buyo::Constants;
     use Buyo::Utils qw(err_log);
 
+    use File::IO;
+
     my $VERSION = $Buyo::Constants::VERSION;
 
     # this global is to avoid copying it everywhere
     our $config;
+
+    my $err = undef;
+    my $fio = undef;
 
     my sub error_msg ($error_struct, $class) {
         say STDERR "Error struct dump: ". Dumper($error_struct);
@@ -138,57 +145,23 @@ package Buyo {
         err_log("== DEBUGGING ==: JSON FILE: $json_file") if $config->{'debug'};
 
         my $fh = undef;
+        my $status = undef;
         my $json_txt = undef;
         my $file_full_path = "$config->{'appdir'}/$json_file";
         try {
-            open $fh, '<', $file_full_path or
-              throw "File IO error", {
-                'type'         => int($OS_ERROR),
-                'error_string' => $OS_ERROR,
-                'log_msg'      => "Could not read bindings configuration: $OS_ERROR",
-                'info'         => "Attempted to open '$file_full_path' for read"
-            };
+            ($fh, $status) = $fio->open('r', $file_full_path);
         } catch {
-            classify $ARG, {
-                2       => sub {
-                    error_msg($ARG, "File not found");
-                },
-                13      => sub {
-                    error_msg($ARG, "Access denied");
-                },
-                default => sub {
-                    error_msg($ARG, "Default error");
-                }
-            };
+            $err->err_msg($status, __PACKAGE__);
         };
         try {
-            read $fh, $json_txt, -s $fh or
-              throw "File IO error", {
-                'type'         => int($OS_ERROR),
-                'error_string' => $OS_ERROR,
-                'log_msg'      => "Could not read bindings configuration: $OS_ERROR",
-                'info'         => "Attempted to read from filehandle"
-            };
+            ($json_txt, $status) = $fio->read($fh, -s $fh);
         } catch {
-            classify $ARG, {
-                default => sub {
-                    error_msg($ARG, "Default error");
-                }
-            };
+            $err->err_msg($status, __PACKAGE__);
         };
         try {
-            close $fh or throw "FileHandle error", {
-                'type'         => int($OS_ERROR),
-                'error_string' => $OS_ERROR,
-                'log_msg'      => "Could not close filehandle: $OS_ERROR",
-                'info'         => "Attempted to close filehandle for '$file_full_path'"
-            };
+            $status = $fio->close($fh);
         } catch {
-            classify $ARG, {
-                default => sub {
-                    error_msg($ARG, "Default error");
-                }
-            };
+            $err->err_msg($status, __PACKAGE__);
         };
 
         return $json_txt;
@@ -246,25 +219,42 @@ package Buyo {
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         my @files;
-        opendir(my $dh, "$config->{'appdir'}$directory");
+        opendir(my $dh, "$directory");
         while (my $file = readdir $dh) {
             next if $file =~ /^\.\.?$/;
             next if $file !~ /^\d+\.json$/;
             err_log("== DEBUGGING ==: File '$file' found. Will add to array.") if $config->{'debug'};
-            push(@files, "$config->{'appdir'}$directory/$file");
+            push(@files, "$directory/$file");
         }
         closedir $dh;
 
         return @files;
     }
 
-    my sub build_menus_struct () {
+    my sub build_menus_struct ($json_path) {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         my $struct = undef;
         my $appdir = $config->{'appdir'};
-        my @files  = sort(get_file_list("$appdir/content/menu", "json"));
+        err_log("== DEBUGGING ==: Menu definition directory: ${appdir}${json_path}");
+        my @files  = sort(get_file_list("${appdir}${json_path}", "json"));
+
+        foreach my $file (@files) {
+            err_log("== DEBUGGING ==: file: $file") if $config->{'debug'};
+            my $fh = undef;
+            my $status = undef;
+            try {
+                ($fh, $status) = $fio->open('r', $file);
+            } catch {
+                $err->err_msg($status, __PACKAGE__);
+            };
+            try {
+                $status = $fio->close($fh);
+            } catch {
+                $err->err_msg($status, __PACKAGE__);
+            };
+        }
 
         return $struct;
     }
@@ -273,7 +263,8 @@ package Buyo {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
-        my @files = sort { $b cmp $a} get_file_list('content', 'json');
+        my $appdir = $config->{'appdir'};
+        my @files = sort { $b cmp $a} get_file_list("${appdir}content", 'json');
 
         my @articles;
         foreach my $file (@files) {
@@ -301,7 +292,7 @@ package Buyo {
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
-        my $json_txt = get_json("$appdir/conf.d/departments.json");
+        my $json_txt = get_json("conf.d/departments.json");
         my $json     = JSON->new();
         my $people   = undef;
         try {
@@ -823,11 +814,11 @@ package Buyo {
     }
 
     our sub main (@args) {
+        my $sub = (caller(0))[3];
+
         set traces  => 1;
 
         my %configuration = load_config(config->{appdir});
-
-        my $sub = (caller(0))[3];
 
         my @getters;
         my @posters;
@@ -842,12 +833,20 @@ package Buyo {
             'configuration' => \%configuration
         };
 
-        my $json_txt = get_json("conf.d/bindings.json");
-        my $json     = JSON->new();
+        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        err_log("== DEBUGGING ==: Loading Sys::Error") if $config->{'debug'};
+        $err = Sys::Error->new();
+        err_log("== DEBUGGING ==: Loading File::IO") if $config->{'debug'};
+        $fio = File::IO->new();
 
-        my $data     = undef;
+        my $json_txt     = get_json("conf.d/bindings.json");
+        my $json         = JSON->new();
+
+        my $menus_struct = build_menus_struct("content/menu");
+
+        my $data         = undef;
         try {
-            $data    = $json->decode($json_txt) or
+            $data        = $json->decode($json_txt) or
                 throw "JSON parsing error", {
                     'type'         => 1002,
                     'error_string' => "Cannot decode JSON file",
@@ -868,7 +867,6 @@ package Buyo {
 
         my %paths = %{$data->{'paths'}};
 
-        err_log("== DEBUGGING ==: Sub $sub") if $config->{'debug'};
         err_log('== DEBUGGING ==: Loading site endpoints from JSON:') if $config->{'debug'};
         foreach my $path (keys %paths) {
             err_log("== DEBUGGING ==: FOUND KEY: $path") if $config->{'debug'};

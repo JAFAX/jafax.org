@@ -13,26 +13,31 @@ package Sys::Error {
 
     use boolean;
     use Data::Dumper;
+    use Return::Type;
+    use Term::ANSIColor;
+    use Types::Standard -all;
 
-    my $VERSION = "0.0.2";
+    our $VERSION = "0.0.2";
 
-    sub new ($class) {
+    sub new :ReturnType(Object) ($class) {
         my $self = {};
 
         bless($self, $class);
         return $self;
     }
 
-    our sub err_msg ($self, $err_struct, $class) {
-        say STDERR "$err_struct->{'error'}: $class\n";
+    our sub err_msg :ReturnType(Int) ($self, $err_struct, $class) {
+        say STDERR color('bold red'). "$err_struct->{'error'}: $err_struct->{'msg'}";
+        say STDERR "----------------------------------------------------------------";
         say STDERR "Info:       $err_struct->{'info'}";
-        say STDERR "Trace:      $err_struct->{'trace'}";
-        say STDERR "Error code: $err_struct->{'type'}: $err_struct->{'error_string'}";
+        say STDERR "Error code: $err_struct->{'code'}: $err_struct->{'type'}". color('reset'). "\n";
+        say STDERR color('bold white'). "Trace:";
+        say STDERR color('bold cyan'). "$err_struct->{'trace'}". color('reset');
 
-        exit $err_struct->{type};
+        exit $err_struct->{code};
     }
 
-    our sub get_trace ($self, @caller) {
+    our sub get_trace :ReturnType(Str) ($self, @caller) {
         my %struct = (
             'package'    => $caller[0],
             'filename'   => $caller[1],
@@ -61,7 +66,7 @@ package Sys::Error {
         return $trace;
     }
 
-    our sub error_string ($self, $error_code) {
+    our sub error_string :ReturnType(Hash) ($self, $error_code) {
         my $symbol     = undef;
         my $err_string = undef;
         given ($error_code) {
