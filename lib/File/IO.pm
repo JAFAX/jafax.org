@@ -11,6 +11,8 @@ package File::IO {
     use feature "switch";
 
     use boolean;
+    use Return::Type;
+    use Types::Standard -all;
     use Term::ANSIColor;
     use Throw qw(throw classify);
     use Try::Tiny qw(try catch);
@@ -26,7 +28,7 @@ package File::IO {
 
     $Throw::level = 1;
 
-    sub new ($class) {
+    sub new :ReturnType(Object) ($class, $flags = undef) {
         my $self = {};
 
         $error = Sys::Error->new();
@@ -35,7 +37,7 @@ package File::IO {
         return $self;
     }
 
-    my sub mode_translate ($self, $mode_string) {
+    my sub mode_translate :ReturnType(Str) ($self, $mode_string) {
         my $mode = undef;
         given ($mode_string) {
             when ('r') {
@@ -60,16 +62,17 @@ package File::IO {
         return $mode;
     }
 
-    our sub open ($self, $mode_string, $path) {
+    our sub open :ReturnType(filehandle, Hash) ($self, $mode_string, $path) {
         my $fh = undef;
         my $mode = mode_translate($self, $mode_string);
         try {
             open($fh, $mode, $path) or throw(
                 "Cannot open file", {
                     'trace' => 3,
-                    'type'  => $error->error_string($OS_ERROR)->{'symbol'},
-                    'code'  => $OS_ERROR,
-                    'msg'   => $error->error_string($OS_ERROR)->{'string'}
+                    'type'  => $error->error_string(int $OS_ERROR)->{'symbol'},
+                    'info'  => "Attempted to open $path",
+                    'code'  => int $OS_ERROR,
+                    'msg'   => $error->error_string(int $OS_ERROR)->{'string'}
                 }
             );
         } catch {
@@ -98,7 +101,7 @@ package File::IO {
         );
     }
 
-    our sub read ($self, $fh, $length) {
+    our sub read :ReturnType(Str, Hash) ($self, $fh, $length) {
         my $content = undef;
         try {
             read($fh, $content, $length);
@@ -136,7 +139,7 @@ package File::IO {
         );
     }
 
-    our sub close ($self, $fh) {
+    our sub close :ReturnType(Hash) ($self, $fh) {
         try {
             close $fh or throw(
                 "Cannot close filehandle", {
