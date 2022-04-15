@@ -35,6 +35,7 @@ package Buyo::Utils {
     use Types::Standard -all;
 
     use Buyo::Constants;
+    use Sys::Error;
 
     my $VERSION = $Buyo::Constants::VERSION;
 
@@ -45,6 +46,7 @@ package Buyo::Utils {
         # set the version for version checking
         @EXPORT      = qw(
             err_log
+            type_check
         );
         @EXPORT_OK   = qw();
     }
@@ -53,6 +55,25 @@ package Buyo::Utils {
 
     our sub err_log :ReturnType(Void) (@msg) {
         return print {*STDERR} "@msg\n";
+    }
+
+    our sub type_check :ReturnType(Bool) ($caller, $value, $type) {
+        my $e = Sys::Error->new();
+        eval {
+            if (! is_${type}($value)) {
+                my $err_struct = {
+                    'error' => 'Invalid type',
+                    'code'  => 22,
+                    'type'  => $e->err_string(22),
+                    'info'  => "\$value did not match type constraint $type",
+                    'trace' => get_trace(undef, @{$caller})
+                };
+                $e->err_msg($err_struct, @{$caller}[0]);
+                exit 22;
+            } else {
+                return true;
+            }
+        }
     }
 
     sub new :ReturnType(Object) ($class, $debug = false) {
