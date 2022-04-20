@@ -19,7 +19,7 @@ package Sys::Error {
 
     our $VERSION = "0.0.2";
 
-    sub new :ReturnType(Object) ($class) {
+    our sub new :ReturnType(Object) ($class) {
         my $self = {};
 
         bless($self, $class);
@@ -37,22 +37,24 @@ package Sys::Error {
         exit $err_struct->{code};
     }
 
-    our sub get_trace :ReturnType(Str) ($self, @caller) {
+    our sub get_trace :ReturnType(Str) ($self) {
         my %struct = (
-            'package'    => $caller[0],
-            'filename'   => $caller[1],
-            'line'       => $caller[2],
-            'subroutine' => $caller[3],
-            'hasargs'    => $caller[4],
-            'wantarray'  => $caller[5]
+            'package'    => (caller(2))[0],
+            'filename'   => (caller(2))[1],
+            'line'       => (caller(2))[2],
+            'subroutine' => (caller(2))[3],
+            'hasargs'    => (caller(2))[4],
+            'wantarray'  => (caller(2))[5]
         );
-        if (defined $caller[6]) {
-            $struct{'evaltext'} = $caller[6];
+        my $eval_text = (caller(2))[6];
+        if (defined $eval_text) {
+            $struct{'evaltext'} = (caller(2))[6];
         } else {
             $struct{'evaltext'} = "";
         }
-        if (defined $caller[7]) {
-            $struct{'is_require'} = $caller[7];
+        my $is_require = (caller(2))[7];
+        if (defined $is_require) {
+            $struct{'is_require'} = (caller(2))[7];
         } else {
             $struct{'is_require'} = 0;
         }
@@ -66,7 +68,7 @@ package Sys::Error {
         return $trace;
     }
 
-    our sub error_string :ReturnType(Hash) ($self, $error_code) {
+    our sub error_string :ReturnType(HashRef) ($self, $error_code) {
         my $symbol     = undef;
         my $err_string = undef;
         given ($error_code) {

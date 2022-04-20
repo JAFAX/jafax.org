@@ -34,7 +34,7 @@ package Buyo::MkRole {
 
     my $VERSION = $Buyo::Constants::VERSION;
 
-    sub new ($class, $flags) {
+    our sub new ($class, $flags) {
         my $self = {};
 
         $debug  = $flags->{'debug'};
