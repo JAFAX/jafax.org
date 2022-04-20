@@ -17,7 +17,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-package Buyo::Utils {
+package Args::TypeCheck {
     use strictures;
     use English qw(-no_match_vars);
     use utf8;
@@ -31,14 +31,11 @@ package Buyo::Utils {
     use base qw(Exporter);
     use Carp;
     use Data::Dumper;
-    use Return::Type;
     use Type::Library -base;
     use Type::Utils;
+    use Return::Type;
 
-    use Buyo::Constants;
-    use Sys::Error;
-
-    my $VERSION = $Buyo::Constants::VERSION;
+    our $VERSION = '0.0.1';
 
     BEGIN {
         use Exporter;
@@ -46,31 +43,34 @@ package Buyo::Utils {
 
         # set the version for version checking
         @EXPORT      = qw(
-            err_log
+            type_check
         );
         @EXPORT_OK   = qw();
     }
 
-    my $debug = false;
+    our sub type_check :ReturnType(Bool) ($value, $type) {
+        my $e = Sys::Error->new();
 
-    our sub err_log :ReturnType(Void) (@msg) {
-        return print {*STDERR} "@msg\n";
+        my $result = undef;
+        eval {
+            $result = $type->check($value);
+        };
+
+        if (! $result) {
+            my $err_struct = {
+                'error' => 'Invalid type',
+                'code'  => 22,
+                'type'  => $e->error_string(22)->{'string'},
+                'info'  => "\$value did not match type constraint $type",
+                'trace' => $e->get_trace(),
+                'msg'   => "Unable to match required data type!"
+            };
+            $e->err_msg($err_struct, __PACKAGE__);
+            return false;
+        } else {
+            return true;
+        }
     }
 
-    our sub new :ReturnType(Object) ($class, $debug = false) {
-        my $self = {};
-
-        bless($self, $class);
-        return $self;
-    }
-
-    our sub get_application_prefix :ReturnType(Str) ($self) {
-        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
-        my $prefix = "$FindBin::Bin/..";
-        return $prefix;
-    }
-
-    END { }       # module clean-up code here (global destructor)
-
-    true;  # don't forget to return a true value from the file
+    true;
 }

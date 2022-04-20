@@ -28,7 +28,7 @@ package File::IO {
 
     $Throw::level = 1;
 
-    sub new :ReturnType(Object) ($class, $flags = undef) {
+    our sub new :ReturnType(Object) ($class, $flags = undef) {
         my $self = {};
 
         $error = Sys::Error->new();
