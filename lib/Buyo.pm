@@ -48,7 +48,7 @@ package Buyo {
     use Buyo::Constants;
     use Buyo::Utils qw(err_log);
 
-    use Args::TypeCheck qw(type_check);
+    use Value::TypeCheck qw(type_check);
     use File::IO;
 
     my $VERSION = $Buyo::Constants::VERSION;
