@@ -46,8 +46,9 @@ package Buyo {
     use lib "$FindBin::Bin/../lib";
 
     use Buyo::Constants;
-    use Buyo::Utils qw(err_log type_check);
+    use Buyo::Utils qw(err_log);
 
+    use Value::TypeCheck qw(type_check);
     use File::IO;
 
     my $VERSION = $Buyo::Constants::VERSION;
@@ -59,9 +60,8 @@ package Buyo {
     my $fio = undef;
 
     my sub error_msg :ReturnType(Void) ($error_struct, $class) {
-        my $caller = caller;
-        type_check($caller, $error_struct, 'Hash');
-        type_check($caller, $class, 'Str');
+        type_check($error_struct, HashRef);
+        type_check($class, Str);
 
         say STDERR "Error struct dump: ". Dumper($error_struct);
 
@@ -79,8 +79,7 @@ package Buyo {
     }
 
     my sub load_config :ReturnType(Hash) ($appdir) {
-        my $caller = caller;
-        type_check($caller, $appdir, 'Str');
+        type_check($appdir, Str);
 
         my $sub = (caller(0))[3];
 
@@ -139,14 +138,11 @@ package Buyo {
         $configuration{'site_key'}        = $cfg->val('reCAPTCHA', 'site_key');
         $configuration{'service_key'}     = $cfg->val('reCAPTCHA', 'service_key');
 
-        err_log("== DEBUGGING ==: Config DUMP: ". Dumper(%configuration));
-
         return %configuration;
     }
 
     my sub get_json :ReturnType(Str) ($json_file) {
-        my $caller = caller;
-        type_check($caller, $json_file, 'Str');
+        type_check($json_file, Str);
 
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
@@ -178,9 +174,8 @@ package Buyo {
     }
 
     my sub get_article_from_json :ReturnType(list => Str) ($article, $type) {
-        my $caller = caller;
-        type_check($caller, $article, 'Str');
-        type_check($caller, $type, 'Str');
+        type_check($article, Str);
+        type_check($type, Str);
 
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
@@ -229,9 +224,8 @@ package Buyo {
     }
 
     my sub get_file_list :ReturnType(list => Str) ($directory, $extension) {
-        my $caller = caller;
-        type_check($caller, $directory, 'Str');
-        type_check($caller, $extension, 'Str');
+        type_check($directory, Str);
+        type_check($extension, Str);
 
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
@@ -250,8 +244,7 @@ package Buyo {
     }
 
     my sub build_menus_struct :ReturnType(Void) ($json_path) {
-        my $caller = caller;
-        type_check($caller, $json_path, 'Str');
+        type_check($json_path, Str);
 
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
@@ -280,10 +273,7 @@ package Buyo {
         return $struct;
     }
 
-    my sub build_article_struct_list :ReturnType(ArrayRef[Hash]) () {
-        my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
-
+    my sub build_article_struct_list :ReturnType(ArrayRef) () {
         my $appdir = $config->{'appdir'};
         my @files = sort { $b cmp $a } get_file_list("${appdir}content", 'json');
 
@@ -310,8 +300,7 @@ package Buyo {
     }
 
     my sub get_department_contacts :ReturnType(Hash) ($appdir) {
-        my $caller = caller;
-        type_check($caller, $appdir, 'Str');
+        type_check($appdir, Str);
 
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
@@ -339,9 +328,8 @@ package Buyo {
     }
 
     my sub get_department_email_from_id :ReturnType(Str) ($appdir, $value) {
-        my $caller = caller;
-        type_check($caller, $appdir, 'Str');
-        type_check($caller, $value, 'Str');
+        type_check($appdir, Str);
+        type_check($value, Str);
 
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
@@ -364,8 +352,7 @@ package Buyo {
     }
 
     my sub validate_recaptcha :ReturnType(Bool) ($response_data) {
-        my $caller = caller;
-        type_check($caller, $response_data, 'Str');
+        type_check($response_data, Str);
 
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
@@ -403,8 +390,7 @@ package Buyo {
     }
 
     my sub send_email :ReturnType(Void) ($post_values) {
-        my $caller = caller;
-        type_check($caller, $post_values, 'HashRef');
+        type_check($post_values, HashRef);
 
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
@@ -434,8 +420,7 @@ package Buyo {
     }
 
     my sub get_last_three_article_structs :ReturnType(ArrayRef[Hash]) ($articles) {
-        my $caller = caller;
-        type_check($caller, $articles, 'ArrayRef');
+        type_check($articles, ArrayRef);
 
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
@@ -465,9 +450,8 @@ package Buyo {
     }
 
     my sub validate_page_launch_date :ReturnType(Bool) ($launch_date, $curr_date) {
-        my $caller = caller;
-        type_check($caller, $launch_date, 'Int');
-        type_check($caller, $curr_date, 'Int');
+        type_check($launch_date, Int);
+        type_check($curr_date, Int);
 
         my $do_launch = false;
         if ($curr_date >= $launch_date) {
@@ -478,9 +462,8 @@ package Buyo {
     }
 
     my sub expire_page :ReturnType(Bool) ($expiry_date, $curr_date) {
-        my $caller = caller;
-        type_check($caller, $expiry_date, 'Int');
-        type_check($caller, $curr_date, 'Int');
+        type_check($expiry_date, Int);
+        type_check($curr_date, Int);
 
         my $expire = false;
         if ($expiry_date != -1) {
@@ -493,10 +476,9 @@ package Buyo {
     }
 
     my sub register_dynamic_route :ReturnType(Str) ($verb, $bindings, $path) {
-        my $caller = caller;
-        type_check($caller, $verb, 'Str');
-        type_check($caller, $bindings, 'HashRef');
-        type_check($caller, $path, 'Str');
+        type_check($verb, Str);
+        type_check($bindings, HashRef);
+        type_check($path, Str);
 
         # un-reference to make easier to work with
         my %bindings = %{$bindings};
@@ -688,10 +670,9 @@ package Buyo {
     }
 
     my sub register_static_route :ReturnType(Str) ($verb, $bindings, $path) {
-        my $caller = caller;
-        type_check($caller, $verb, 'Str');
-        type_check($caller, $bindings, 'HashRef');
-        type_check($caller, $path, 'Str');
+        type_check($verb, Str);
+        type_check($bindings, HashRef);
+        type_check($path, Str);
 
         # un-reference to make easier to work with
         my %bindings = %$bindings;
@@ -757,10 +738,9 @@ package Buyo {
     }
 
     my sub register_actor_route :ReturnType(Str) ($verb, $bindings, $path) {
-        my $caller = caller;
-        type_check($caller, $verb, 'Str');
-        type_check($caller, $bindings, 'HashRef');
-        type_check($caller, $path, 'Str');
+        type_check($verb, Str);
+        type_check($bindings, HashRef);
+        type_check($path, Str);
 
         # un-reference to make easier to work with
         my %bindings = %$bindings;
@@ -815,9 +795,8 @@ package Buyo {
     }
 
     my sub register_get_routes :ReturnType(Bool) ($bindings, @paths) {
-        my $caller = caller;
-        type_check($caller, $bindings, 'HashRef');
-        type_check($caller, \@paths, 'ArrayRef');
+        type_check($bindings, HashRef);
+        type_check(\@paths, ArrayRef[Str]);
 
         # un-reference to make easier to work with
         my %bindings = %$bindings;
@@ -849,9 +828,8 @@ package Buyo {
     }
 
     my sub register_post_routes :ReturnType(Bool) ($bindings, @paths) {
-        my $caller = caller;
-        type_check($caller, $bindings, 'HashRef');
-        type_check($caller, \@paths, 'ArrayRef');
+        type_check($bindings, HashRef);
+        type_check(\@paths, ArrayRef[Str]);
 
         my $sub = (caller(0))[3];
         err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
@@ -882,8 +860,7 @@ package Buyo {
     }
 
     our sub main :ReturnType(Void) (@args) {
-        my $caller = caller;
-        type_check($caller, \@args, 'ArrayRef');
+        type_check(\@args, ArrayRef[Str]);
 
         my $sub = (caller(0))[3];
 
