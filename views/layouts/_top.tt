@@ -16,21 +16,22 @@
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" href="[% webroot %]/news">News</a>
                         </li>
-<!--                        <li class="dropdown nav-item">
+                        [% IF guests == "enabled" %]
+                        <li class="dropdown nav-item">
                             <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/guests">Guests</a>
                             <div class="dropdown-menu" role="menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/CharlesDunbar">Charles Dunbar</a>
-                                <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/ComfortAndAdam">Comfort &amp; Adam</a>
-                                <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/JadSaxton">J&#257;d Saxton</a>
-                                <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/JerryJewell">Jerry Jewell</a>
-                                <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/MicahSolusod">Micah Solusod</a>
-                                <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/DanAndJillian">Samurai Dan &amp; Jillian</a>
-                                <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/TiaBallard">Tia Ballard</a>
+                            [% FOREACH guest IN guest_list %]
+                                [% IF guest.enabled == 1 %]
+                                <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/[% guest.pathName %]">[% guest.displayName %]</a>
+                                [% END %]
+                            [% END %]
                             </div>
-                        </li> -->
+                        </li>
+                        [% ELSE %]
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" href="[% webroot %]/guests">Guests</a>
                         </li>
+                        [% END %]
                         <li class="dropdown nav-item">
                             <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/location">Location</a>
                             <div class="dropdown-menu" role="menu">

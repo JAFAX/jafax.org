@@ -327,6 +327,34 @@ package Buyo {
         return $people;
     }
 
+    my sub get_guestlist :ReturnType(Hash) ($appdir) {
+        type_check($appdir, Str);
+
+        my $sub = (caller(0))[3];
+        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+
+        my $json_txt = get_json("conf.d/features.json");
+        my $json     = JSON->new();
+        my $guests   = undef;
+        try {
+            $guests  = $json->decode($json_txt)->{'guestList'} or
+                throw "JSON parsing error", {
+                    'type'         => 1002,
+                    'error_string' => "Cannot decode JSON file",
+                    'log_msg'      => "Could not decode JSON file, 'departments.json'",
+                    'info'         => "Attempted to decode JSON content from 'departments.json'"
+            };
+        } catch {
+            classify $ARG, {
+                default => sub {
+                    error_msg($ARG, "Default error");
+                }
+            };
+        };
+
+        return $guests;
+    }
+
     my sub get_department_email_from_id :ReturnType(Str) ($appdir, $value) {
         type_check($appdir, Str);
         type_check($value, Str);
@@ -488,6 +516,9 @@ package Buyo {
 
         my $class        = lc($bindings{$path}->{$verb}->{'class'});
         my $template     = lc($bindings{$path}->{$verb}->{'template'});
+
+        my $guest_list   = get_guestlist($config->{'appdir'});
+
         err_log("== DEBUGGING ==: Registering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
         err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
         err_log("== DEBUGGING ==: Path '$path' has class '$class' attribute") if $config->{'debug'};
@@ -536,7 +567,9 @@ package Buyo {
                                 'page_content'  => $article_content,
                                 'launch'        => $do_launch,
                                 'expirePage'    => $expire_page,
-                                'path'          => $path
+                                'path'          => $path,
+                                'guests'        => $config->{'guests'},
+                                'guest_list'    => $guest_list
                             };
                         };
                     }
@@ -567,7 +600,9 @@ package Buyo {
                                 'launch'        => $do_launch,
                                 'expirePage'    => $expire_page,
                                 'path'          => $path,
-                                'site_key'      => $config->{'site_key'}
+                                'site_key'      => $config->{'site_key'},
+                                'guests'        => $config->{'guests'},
+                                'guest_list'    => $guest_list
                             };
                         };
                     }
@@ -588,7 +623,9 @@ package Buyo {
                                 'articles'      => $articles,
                                 'launch'        => $do_launch,
                                 'expirePage'    => $expire_page,
-                                'path'          => $path
+                                'path'          => $path,
+                                'guests'        => $config->{'guests'},
+                                'guest_list'    => $guest_list
                             }
                         };
                     }
@@ -611,7 +648,9 @@ package Buyo {
                                 'articles'      => $top_three,
                                 'launch'        => $do_launch,
                                 'expirePage'    => $expire_page,
-                                'path'          => $path
+                                'path'          => $path,
+                                'guests'        => $config->{'guests'},
+                                'guest_list'    => $guest_list
                             }
                         };
                     }
@@ -651,7 +690,9 @@ package Buyo {
                                 'page_content'  => $bio_content,
                                 'launch'        => $do_launch,
                                 'expirePage'    => $expire_page,
-                                'path'          => $path
+                                'path'          => $path,
+                                'guests'        => $config->{'guests'},
+                                'guest_list'    => $guest_list
                             };
                         };
                     }
@@ -682,6 +723,9 @@ package Buyo {
 
         my $class = lc($bindings{$path}->{$verb}->{'class'});
         my $template = $bindings{$path}->{$verb}->{'template'};
+
+        my $guest_list   = get_guestlist($config->{'appdir'});
+
         err_log("== DEBUGGING ==: Registering " . uc($verb) . " action for path '$path'") if $config->{'debug'};
         err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
 
@@ -705,7 +749,9 @@ package Buyo {
                                 'license'     => $config->{'license'},
                                 'launch'      => $do_launch,
                                 'expire_page' => $expire_page,
-                                'path'        => $path
+                                'path'        => $path,
+                                'guests'      => $config->{'guests'},
+                                'guest_list'  => $guest_list
                             }, { layout => 'login' };
                         };
                     }
@@ -726,7 +772,9 @@ package Buyo {
                                 'license'     => $config->{'license'},
                                 'launch'      => $do_launch,
                                 'expire_page' => $expire_page,
-                                'path'        => $path
+                                'path'        => $path,
+                                'guests'      => $config->{'guests'},
+                                'guest_list'  => $guest_list
                             };
                         };
                     }
@@ -755,6 +803,9 @@ package Buyo {
         } else {
             $template = 'NULL';
         }
+
+        my $guest_list   = get_guestlist($config->{'appdir'});
+
         err_log("== DEBUGGING ==: Registering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
         err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
         err_log("== DEBUGGING ==: Path '$path' has class '$class' attribute") if $config->{'debug'};
@@ -780,7 +831,9 @@ package Buyo {
                                     'license'    => $config->{'license'},
                                     'launch'     => $do_launch,
                                     'expirePage' => $expire_page,
-                                    'path'       => $path
+                                    'path'       => $path,
+                                    'guests'     => $config->{'guests'},
+                                    'guest_list' => $guest_list
                                 };
                             }
                         };
@@ -888,6 +941,7 @@ package Buyo {
         $fio = File::IO->new();
 
         my $json_txt     = get_json("conf.d/bindings.json");
+        my $features_jsn = get_json("conf.d/features.json");
         my $json         = JSON->new();
 
         my $menus_struct = build_menus_struct("content/menu");
@@ -908,10 +962,28 @@ package Buyo {
                 }
             };
         };
+        my $features = undef;
+        try {
+            $features = $json->decode($features_jsn) or
+                throw "JSON parsing error", {
+                    'type'         => 1002,
+                    'error_string' => "Cannot decode JSON file",
+                    'log_msg'      => "Could not decode JSON file, 'features.json'",
+                    'info'         => "Attempted to decode JSON content from 'features.json'"
+            };
+        } catch {
+            classify $ARG, {
+                default => sub {
+                    err_msg($ARG, "Default error");
+                }
+            };
+        };
 
         $config->{'site_title'} = $data->{'info'}->{'title'};
         $config->{'copyright'}  = $data->{'info'}->{'copyright'};
         $config->{'license'}    = $data->{'info'}->{'license'};
+        $config->{'guests'}     = $features->{'guests'};
+        $config->{'guest_list'} = $features->{'guestList'};
 
         my %paths = %{$data->{'paths'}};
 
