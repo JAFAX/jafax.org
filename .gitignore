@@ -5,6 +5,7 @@ conf.d/config.ini
 conf.d/roles.lst
 environments/*.yml
 departments.json
+features.json
 blib/
 pm_to_blib
 MYMETA.json
