@@ -51,6 +51,9 @@ package Buyo {
     use Value::TypeCheck qw(type_check);
     use File::IO;
 
+    # constants
+    use constant MTIME_ATTR => 9;
+
     my $VERSION = $Buyo::Constants::VERSION;
 
     # this global is to avoid copying it everywhere
@@ -173,6 +176,37 @@ package Buyo {
         return $json_txt;
     }
 
+    my sub get_mtime :ReturnType(Int) ($file_name) {
+        type_check($file_name, Str);
+
+        my $site_parent_path = "";
+        given ($file_name) {
+            when (/images/) {
+                $site_parent_path = 'public';
+            }
+            default {
+                $site_parent_path = '';
+            }
+        }
+
+        my $sub = (caller(0))[3];
+        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+
+        my $f_mtime = undef;
+        err_log("== DEBUGGING ==: file: " . $file_name) if $config->{'debug'};
+        err_log("== TRACE ==: DUMP of \$config object: ". Dumper($config)) if $config->{'debug'};
+        my $fq_path = "" . $config->{'appdir'} . $site_parent_path . ${file_name};
+        # strip excess '/' characters
+        $fq_path =~ s/\/\//\//g;
+        err_log("== DEBUGGING ==: Fully-qualified path: ". $fq_path) if $config->{'debug'};
+
+        # get the file's mtime
+        $f_mtime = (stat($fq_path))[MTIME_ATTR];
+        err_log("== DEBUGGING ==: mtime: ". $f_mtime) if $config->{'debug'};
+
+        return $f_mtime;
+    }
+
     my sub get_article_from_json :ReturnType(list => Str) ($article, $type) {
         type_check($article, Str);
         type_check($type, Str);
@@ -205,6 +239,7 @@ package Buyo {
         };
 
         if ($type eq 'news') {
+            err_log("== DEBUGGING ==: Is News Article") if $config->{'debug'};
             my $author   = $article_struct->{'info'}->{'author'};
             my $category = $article_struct->{'info'}->{'category'};
             my $date     = $article_struct->{'info'}->{'date'};
@@ -214,10 +249,19 @@ package Buyo {
 
             return $author, ucfirst($category), $date, $title, $content, $id;
         } elsif ($type eq 'bio') {
+            err_log("== DEBUGGING ==: Is Guest Bio") if $config->{'debug'};
             my $name     = $article_struct->{'name'};
             my $photo_fn = $article_struct->{'photoFileName'};
             my $position = $article_struct->{'photoPosition'};
             my $content  = $article_struct->{'content'};
+
+            # get the mtime of the photo in UNIX time
+            my $f_mtime  = get_mtime($photo_fn);
+            # to work around caching issues with Chrome, append a query string to the
+            # file URL with the mtime
+            err_log("== DEBUGGING ==: photo MTIME: ". $f_mtime) if $config->{'debug'};
+
+            $photo_fn = "${photo_fn}?${f_mtime}";
 
             return $name, $photo_fn, $position, $content;
         }
