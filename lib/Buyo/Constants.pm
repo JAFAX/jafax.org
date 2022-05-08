@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 #
 # Author: Gary Greene <greeneg@tolharadys.net>
-# Copyright: 2019 JAFAX, Inc. All Rights Reserved
+# Copyright: 2019-2022 JAFAX, Inc. All Rights Reserved
 #
 ##########################################################################
 #
@@ -25,7 +25,7 @@ package Buyo::Constants {
     use boolean qw(:all);
     use base qw(Exporter);
 
-    our $VERSION = "1.2.52";
+    our $VERSION = "1.2.54";
 
     BEGIN {
         use Exporter   ();
