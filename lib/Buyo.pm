@@ -1,6 +1,6 @@
 #
 # Author: Gary Greene <greeneg@tolharadys.net>
-# Copyright: 2019 JAFAX, Inc. All Rights Reserved
+# Copyright: 2019-2022 JAFAX, Inc. All Rights Reserved
 #
 ##########################################################################
 #

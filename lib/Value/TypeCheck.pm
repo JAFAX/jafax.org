@@ -1,7 +1,6 @@
 #!/usr/bin/env perl
 #
 # Author: Gary Greene <greeneg@tolharadys.net>
-# Copyright: 2019 JAFAX, Inc. All Rights Reserved
 #
 ##########################################################################
 #
