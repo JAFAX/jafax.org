@@ -17,7 +17,7 @@
                             <a class="nav-link" href="[% webroot %]/news">News</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="[% webroot %]/covid">COVID Policy</a>
+                            <a class="nav-link" href="[% webroot %]/covid">COVID-19</a>
                         </li>
                         [% IF guests == "enabled" %]
                         <li class="dropdown nav-item">
