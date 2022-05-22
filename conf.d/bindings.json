@@ -55,6 +55,22 @@
                 }
             }
         },
+        "/covid": {
+            "get": {
+                "active": "true",
+                "summary": "COVID-19 policy",
+                "template": "covid",
+                "launchDate": 1653190017,
+                "expireDate": -1,
+                "type": "static",
+                "class": "article",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
         "/registration": {
             "get": {
                 "active": "true",
