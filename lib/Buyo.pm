@@ -385,8 +385,8 @@ package Buyo {
                 throw "JSON parsing error", {
                     'type'         => 1002,
                     'error_string' => "Cannot decode JSON file",
-                    'log_msg'      => "Could not decode JSON file, 'departments.json'",
-                    'info'         => "Attempted to decode JSON content from 'departments.json'"
+                    'log_msg'      => "Could not decode JSON file, 'features.json'",
+                    'info'         => "Attempted to decode JSON content from 'features.json'"
             };
         } catch {
             classify $ARG, {
@@ -562,6 +562,7 @@ package Buyo {
         my $template     = lc($bindings{$path}->{$verb}->{'template'});
 
         my $guest_list   = get_guestlist($config->{'appdir'});
+        my $sguest_list  = $config->{'guestJudgeList'};
 
         err_log("== DEBUGGING ==: Registering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
         err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
@@ -599,21 +600,22 @@ package Buyo {
                                 }
                             }
                             return template $template, {
-                                'webroot'       => $config->{'webroot'},
-                                'site_name'     => $config->{'site_title'},
-                                'page_title'    => $bindings->{$path}->{'get'}->{'summary'},
-                                'copyright'     => $config->{'copyright'},
-                                'license'       => $config->{'license'},
-                                'author'        => $article_author,
-                                'category'      => $article_category,
-                                'date'          => $article_date,
-                                'title'         => $article_title,
-                                'page_content'  => $article_content,
-                                'launch'        => $do_launch,
-                                'expirePage'    => $expire_page,
-                                'path'          => $path,
-                                'guests'        => $config->{'guests'},
-                                'guest_list'    => $guest_list
+                                'webroot'         => $config->{'webroot'},
+                                'site_name'       => $config->{'site_title'},
+                                'page_title'      => $bindings->{$path}->{'get'}->{'summary'},
+                                'copyright'       => $config->{'copyright'},
+                                'license'         => $config->{'license'},
+                                'author'          => $article_author,
+                                'category'        => $article_category,
+                                'date'            => $article_date,
+                                'title'           => $article_title,
+                                'page_content'    => $article_content,
+                                'launch'          => $do_launch,
+                                'expirePage'      => $expire_page,
+                                'path'            => $path,
+                                'guests'          => $config->{'guests'},
+                                'guestList'       => $guest_list,
+                                'guestJudgeList'  => $sguest_list
                             };
                         };
                     }
@@ -634,19 +636,20 @@ package Buyo {
                             err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
                             err_log("== DEBUGGING ==: reCAPTCHA site key: ". $config->{'site_key'});
                             return template $template, {
-                                'webroot'       => $config->{'webroot'},
-                                'site_name'     => $config->{'site_title'},
-                                'page_title'    => $bindings->{$path}->{'get'}->{'summary'},
-                                'copyright'     => $config->{'copyright'},
-                                'license'       => $config->{'license'},
-                                'selected'      => $selected_dept,
-                                'people'        => $people,
-                                'launch'        => $do_launch,
-                                'expirePage'    => $expire_page,
-                                'path'          => $path,
-                                'site_key'      => $config->{'site_key'},
-                                'guests'        => $config->{'guests'},
-                                'guest_list'    => $guest_list
+                                'webroot'         => $config->{'webroot'},
+                                'site_name'       => $config->{'site_title'},
+                                'page_title'      => $bindings->{$path}->{'get'}->{'summary'},
+                                'copyright'       => $config->{'copyright'},
+                                'license'         => $config->{'license'},
+                                'selected'        => $selected_dept,
+                                'people'          => $people,
+                                'launch'          => $do_launch,
+                                'expirePage'      => $expire_page,
+                                'path'            => $path,
+                                'site_key'        => $config->{'site_key'},
+                                'guests'          => $config->{'guests'},
+                                'guestList'       => $guest_list,
+                                'guestJudgeList'  => $sguest_list
                             };
                         };
                     }
@@ -659,17 +662,18 @@ package Buyo {
                             err_log("== DEBUGGING ==: Triggerng '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
                             err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
                             return template $template, {
-                                'webroot'       => $config->{'webroot'},
-                                'site_name'     => $config->{'site_title'},
-                                'page_title'    => $bindings->{$path}->{'get'}->{'summary'},
-                                'copyright'     => $config->{'copyright'},
-                                'license'       => $config->{'license'},
-                                'articles'      => $articles,
-                                'launch'        => $do_launch,
-                                'expirePage'    => $expire_page,
-                                'path'          => $path,
-                                'guests'        => $config->{'guests'},
-                                'guest_list'    => $guest_list
+                                'webroot'         => $config->{'webroot'},
+                                'site_name'       => $config->{'site_title'},
+                                'page_title'      => $bindings->{$path}->{'get'}->{'summary'},
+                                'copyright'       => $config->{'copyright'},
+                                'license'         => $config->{'license'},
+                                'articles'        => $articles,
+                                'launch'          => $do_launch,
+                                'expirePage'      => $expire_page,
+                                'path'            => $path,
+                                'guests'          => $config->{'guests'},
+                                'guestList'       => $guest_list,
+                                'guestJudgeList'  => $sguest_list
                             }
                         };
                     }
@@ -684,17 +688,18 @@ package Buyo {
                             err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
                             err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
                             return template $template, {
-                                'webroot'       => $config->{'webroot'},
-                                'site_name'     => $config->{'site_title'},
-                                'page_title'    => $bindings->{$path}->{'get'}->{'summary'},
-                                'copyright'     => $config->{'copyright'},
-                                'license'       => $config->{'license'},
-                                'articles'      => $top_three,
-                                'launch'        => $do_launch,
-                                'expirePage'    => $expire_page,
-                                'path'          => $path,
-                                'guests'        => $config->{'guests'},
-                                'guest_list'    => $guest_list
+                                'webroot'         => $config->{'webroot'},
+                                'site_name'       => $config->{'site_title'},
+                                'page_title'      => $bindings->{$path}->{'get'}->{'summary'},
+                                'copyright'       => $config->{'copyright'},
+                                'license'         => $config->{'license'},
+                                'articles'        => $top_three,
+                                'launch'          => $do_launch,
+                                'expirePage'      => $expire_page,
+                                'path'            => $path,
+                                'guests'          => $config->{'guests'},
+                                'guestList'       => $guest_list,
+                                'guestJudgeList'  => $sguest_list
                             }
                         };
                     }
@@ -723,20 +728,21 @@ package Buyo {
                                 }
                             }
                             return template $template, {
-                                'webroot'       => $config->{'webroot'},
-                                'site_name'     => $config->{'site_title'},
-                                'page_title'    => $bindings->{$path}->{'get'}->{'summary'},
-                                'copyright'     => $config->{'copyright'},
-                                'license'       => $config->{'license'},
-                                'name'          => $bio_name,
-                                'photo_uri'     => $bio_photo,
-                                'position'      => $bio_photo_position,
-                                'page_content'  => $bio_content,
-                                'launch'        => $do_launch,
-                                'expirePage'    => $expire_page,
-                                'path'          => $path,
-                                'guests'        => $config->{'guests'},
-                                'guest_list'    => $guest_list
+                                'webroot'         => $config->{'webroot'},
+                                'site_name'       => $config->{'site_title'},
+                                'page_title'      => $bindings->{$path}->{'get'}->{'summary'},
+                                'copyright'       => $config->{'copyright'},
+                                'license'         => $config->{'license'},
+                                'name'            => $bio_name,
+                                'photo_uri'       => $bio_photo,
+                                'position'        => $bio_photo_position,
+                                'page_content'    => $bio_content,
+                                'launch'          => $do_launch,
+                                'expirePage'      => $expire_page,
+                                'path'            => $path,
+                                'guests'          => $config->{'guests'},
+                                'guestList'       => $guest_list,
+                                'guestJudgeList'  => $sguest_list
                             };
                         };
                     }
@@ -769,6 +775,7 @@ package Buyo {
         my $template = $bindings{$path}->{$verb}->{'template'};
 
         my $guest_list   = get_guestlist($config->{'appdir'});
+        my $sguest_list  = $config->{'guestJudgeList'};
 
         err_log("== DEBUGGING ==: Registering " . uc($verb) . " action for path '$path'") if $config->{'debug'};
         err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
@@ -786,16 +793,17 @@ package Buyo {
                             err_log("== DEBUGGING ==: expire_page: $expire_page") if $config->{'debug'};
 
                             return template $template, {
-                                'webroot'     => $config->{'webroot'},
-                                'site_name'   => $config->{'site_title'},
-                                'page_title'  => $bindings->{$path}->{'get'}->{'summary'},
-                                'copyright'   => $config->{'copyright'},
-                                'license'     => $config->{'license'},
-                                'launch'      => $do_launch,
-                                'expire_page' => $expire_page,
-                                'path'        => $path,
-                                'guests'      => $config->{'guests'},
-                                'guest_list'  => $guest_list
+                                'webroot'         => $config->{'webroot'},
+                                'site_name'       => $config->{'site_title'},
+                                'page_title'      => $bindings->{$path}->{'get'}->{'summary'},
+                                'copyright'       => $config->{'copyright'},
+                                'license'         => $config->{'license'},
+                                'launch'          => $do_launch,
+                                'expire_page'     => $expire_page,
+                                'path'            => $path,
+                                'guests'          => $config->{'guests'},
+                                'guestList'       => $guest_list,
+                                'guestJudgeList'  => $sguest_list
                             }, { layout => 'login' };
                         };
                     }
@@ -809,16 +817,17 @@ package Buyo {
                             err_log("== DEBUGGING ==: expire_page: $expire_page") if $config->{'debug'};
 
                             return template $template, {
-                                'webroot'     => $config->{'webroot'},
-                                'site_name'   => $config->{'site_title'},
-                                'page_title'  => $bindings->{$path}->{'get'}->{'summary'},
-                                'copyright'   => $config->{'copyright'},
-                                'license'     => $config->{'license'},
-                                'launch'      => $do_launch,
-                                'expire_page' => $expire_page,
-                                'path'        => $path,
-                                'guests'      => $config->{'guests'},
-                                'guest_list'  => $guest_list
+                                'webroot'         => $config->{'webroot'},
+                                'site_name'       => $config->{'site_title'},
+                                'page_title'      => $bindings->{$path}->{'get'}->{'summary'},
+                                'copyright'       => $config->{'copyright'},
+                                'license'         => $config->{'license'},
+                                'launch'          => $do_launch,
+                                'expire_page'     => $expire_page,
+                                'path'            => $path,
+                                'guests'          => $config->{'guests'},
+                                'guestList'       => $guest_list,
+                                'guestJudgeList'  => $sguest_list
                             };
                         };
                     }
@@ -849,6 +858,7 @@ package Buyo {
         }
 
         my $guest_list   = get_guestlist($config->{'appdir'});
+        my $sguest_list  = $config->{'guestJudgeList'};
 
         err_log("== DEBUGGING ==: Registering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
         err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
@@ -868,16 +878,17 @@ package Buyo {
                             send_email($post_values);
                             if ($template ne 'NULL') {
                                 return template $template, {
-                                    'webroot'    => $config->{'webroot'},
-                                    'site_name'  => $config->{'site_title'},
-                                    'page_title' => $bindings->{$path}->{'get'}->{'summary'},
-                                    'copyright'  => $config->{'copyright'},
-                                    'license'    => $config->{'license'},
-                                    'launch'     => $do_launch,
-                                    'expirePage' => $expire_page,
-                                    'path'       => $path,
-                                    'guests'     => $config->{'guests'},
-                                    'guest_list' => $guest_list
+                                    'webroot'         => $config->{'webroot'},
+                                    'site_name'       => $config->{'site_title'},
+                                    'page_title'      => $bindings->{$path}->{'get'}->{'summary'},
+                                    'copyright'       => $config->{'copyright'},
+                                    'license'         => $config->{'license'},
+                                    'launch'          => $do_launch,
+                                    'expirePage'      => $expire_page,
+                                    'path'            => $path,
+                                    'guests'          => $config->{'guests'},
+                                    'guestList'       => $guest_list,
+                                    'guestJudgeList'  => $sguest_list
                                 };
                             }
                         };
@@ -1023,11 +1034,13 @@ package Buyo {
             };
         };
 
-        $config->{'site_title'} = $data->{'info'}->{'title'};
-        $config->{'copyright'}  = $data->{'info'}->{'copyright'};
-        $config->{'license'}    = $data->{'info'}->{'license'};
-        $config->{'guests'}     = $features->{'guests'};
-        $config->{'guest_list'} = $features->{'guestList'};
+        $config->{'site_title'}     = $data->{'info'}->{'title'};
+        $config->{'copyright'}      = $data->{'info'}->{'copyright'};
+        $config->{'license'}        = $data->{'info'}->{'license'};
+        $config->{'guests'}         = $features->{'guests'};
+        $config->{'guestList'}      = $features->{'guestList'};
+        $config->{'guestJudgeList'} = $features->{'specialGuestJudgeList'};
+
 
         my %paths = %{$data->{'paths'}};
 
