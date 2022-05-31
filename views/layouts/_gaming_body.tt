@@ -8,26 +8,146 @@
             to kick back and play some games. Whatever your motivation might
             be our gaming rooms have what you are searching for.
         </p>
-<!--        <p>
-            This year we have an entire ballroom full of console and VR
-            gaming, arcade machines, new this year pachinko machines and more!
-        </p>
+        <div class="container-sm">
+            <div class="row">
+                <div class="col">
+                    <h2>DeadState</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <img height=100% width=100% src="/images/deadstatedesigns.jpg?1" />
+                </div>
+                <div class="col">
+                    <p>
+                        Dead State was once a grassroots volunteer group who
+                        grew into a Design/Equipment/Event Consultant company
+                        in 2009. With experience forged out of necessity and
+                        time, they tailor video gaming content to regional
+                        communities and conventions. Aiming for multiplayer
+                        experiences that engage friends and fans.
+                    </p>
+                    <p>
+                        Today, Dead State specializes in community standard
+                        tournament organization and providing a quality
+                        streamlined experience for all.
+                    </p>
+                    <p>
+                        We are happy to have Dead State back with us this year.
+                        Dead State is a wonderful company that supplies more
+                        than half of the games used for open play and video
+                        game tournaments.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container-sm">
+            <div class="row">
+                <div class="col">
+                    <h2>KDogs Arcade</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <p>
+                        KDOGS ARCADE has been providing console and Japanese
+                        style arcade games for conventions since 2002.
+                    </p>
+                    <p>
+                        Headquartered in Ohio, they've supplied video games for
+                        various game rooms to many different conventions. The
+                        owner has always loved music and rhythm games and
+                        strives to provide an experience that cannot be
+                        recreated at home.
+                    </p>
+                    <p>
+                        They also provide top notch support and love to teach
+                        people how to play the games they provide. Need help or
+                        have a question about a game? Find a KDOGS ARCADE staff
+                        member and ask!
+                    </p>
+                </div>
+                <div class="col">
+                    <img width=100% src="/images/kdogs.jpg?1" />
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container-sm">
+            <div class="row">
+                <div class="col">
+                    <h2>Tabletop Gaming Library</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <img width=100% src="/images/ttgl.jpg" />
+                </div>
+                <div class="col-md">
+                    <p>
+                        Since 2003, the Tabletop Gaming Library have been
+                        working diligently to provide convention attendees the
+                        finest tabletop game room available. Currently, their
+                        library contains over 636 tabletop titles.
+                    </p>
+                    <p>
+                        From family favorites to Kickstarter® Exclusives, from
+                        Origin Award® Winners to games that have been featured
+                        on Wil Wheaton’s Tabletop® show, audiences are
+                        guaranteed to find something that should interest them.
+                    </p>
+                    <p>
+                        Their knowledgeable staff comes with decades of
+                        combined tabletop gaming experience that are happy to
+                        introduce games to new players.
+                    </p>
+                    <p>
+                        Their Mission Statement is simple. Play Games, Have Fun.
+                    </p>
+                    <p>
+                        Be sure to visit them at <a href="http://www.tabletopgaminglibrary.com">www.tabletopgaminglibrary.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container-sm">
+            <div class="row">
+                <div class="col">
+                    <h2>The Griffin's Rest</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <p>
+                        The Griffin’s Rest is a retail store located near
+                        Downtown Muskegon that offers a variety of RPG, TCG,
+                        board game and tabletop roleplaying game options. They
+                        also have community areas where you can try games with
+                        your friends and family before you buy them.
+                    </p>
+                    <p>
+                        The Griffin's Rest will be offering play space for
+                        participants to enjoy a variety of TCG events and 
+                        activities. Want to learn how to play Magic: The
+                        Gathering? Pokémon? Final Fantasy? They'll be happy
+                        to teach you these games as well as offering a variety
+                        of TCGs and accessories for sale.
+                    </p>
+                    <p>
+                        Check them out at <a href="https://thegriffinsrest.com/">thegriffinsrest.com</a>
+                    </p>
+                </div>
+                <div class="col">
+                    <img width=100% src="/images/griffinsrest.jpg" />
+                </div>
+            </div>
+        </div>
+        <hr />
         <p>
-            If tabletop gaming is more your thing be sure to check out our new
-            tabletop rooms with more events and more board games than you knew
-            existed.
+            With so much to do and see this year at JAFAX be sure to check out
+            what our gaming rooms have to offer!
         </p>
-        <p>
-            The cosplay battle arena once again opens its doors to new
-            challengers and old.
-        </p> -->
-        <p>
-            As we get closer to JAFAX 2022, the room schedules will be posted
-            on this site.
-        </p>
-<!--        <p>
-            With so much to do and see this year at JAFAX
-            be sure to check out what our gaming rooms have to offer!
-        </p> -->
     </div>
 </div>
