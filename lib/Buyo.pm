@@ -368,6 +368,7 @@ package Buyo {
             };
         };
 
+        err_log("== DEBUGGING ==: DUMP: ". Dumper($people)) if $config->{'debug'};
         return $people;
     }
 
@@ -414,6 +415,7 @@ package Buyo {
             err_log("== DEBUGGING ==: Id: $person->{'id'}") if $config->{'debug'};
             if ($person->{'id'} == $value) {
                 err_log("== DEBUGGING ==: Id \$person->{'id'} equals '$value'. Retrieving email address") if $config->{'debug'};
+                err_log("== DEBUGGING ==: Id: $value, Email: $person->{'emailAddress'}") if $config->{'debug'};
                 return $person->{'emailAddress'};
             } else {
                 err_log("== DEBUGGING ==: Id does not match value. Continuing...") if $config->{'debug'};
