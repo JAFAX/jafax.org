@@ -478,6 +478,7 @@ package Buyo {
         my $response      = validate_recaptcha($post_values->{'g-recaptcha-response'});
 
         if ($response eq true) {
+            err_log("== DEBUGGING ==: The response was valid! Let's send an email") if $config->{'debug'};
             # construct email
             my $msg = MIME::Lite->new(
                 From     => 'noreply@jafax.org',
