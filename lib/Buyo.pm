@@ -368,6 +368,7 @@ package Buyo {
             };
         };
 
+        err_log("== DEBUGGING ==: DUMP: ". Dumper($people)) if $config->{'debug'};
         return $people;
     }
 
@@ -414,6 +415,7 @@ package Buyo {
             err_log("== DEBUGGING ==: Id: $person->{'id'}") if $config->{'debug'};
             if ($person->{'id'} == $value) {
                 err_log("== DEBUGGING ==: Id \$person->{'id'} equals '$value'. Retrieving email address") if $config->{'debug'};
+                err_log("== DEBUGGING ==: Id: $value, Email: $person->{'emailAddress'}") if $config->{'debug'};
                 return $person->{'emailAddress'};
             } else {
                 err_log("== DEBUGGING ==: Id does not match value. Continuing...") if $config->{'debug'};
@@ -476,6 +478,7 @@ package Buyo {
         my $response      = validate_recaptcha($post_values->{'g-recaptcha-response'});
 
         if ($response eq true) {
+            err_log("== DEBUGGING ==: The response was valid! Let's send an email") if $config->{'debug'};
             # construct email
             my $msg = MIME::Lite->new(
                 From     => 'noreply@jafax.org',
