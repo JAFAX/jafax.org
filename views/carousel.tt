@@ -1,3 +1,4 @@
+[% enableCaptions = 'false' %]
 <html>
 <head>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -23,49 +24,61 @@
             <div class="item active">
                 <div class="row">
                     <img src="[% webroot %]/images/carousel/1.jpg" alt="JAFAX Through the Years" class="carousel">
-<!--                <div class="carousel-caption">
-                    <p>JAFAX 2014</p>
-                </div> -->
+                    [% IF enableCaptions == 'true' %]
+                    <div class="carousel-caption">
+                        <p>JAFAX 2014</p>
+                    </div>
+                    [% END %]
                 </div>
             </div>
             <div class="item">
                 <div class="row">
                     <img src="[% webroot %]/images/carousel/2.jpg" alt="JAFAX 2014" class="carousel">
-<!--                <div class="carousel-caption">
-                    <p>JAFAX 2016</p>
-                </div> -->
+                    [% IF enableCaptions == 'true' %]
+                    <div class="carousel-caption">
+                        <p>JAFAX 2016</p>
+                    </div>
+                    [% END %]
                 </div>
             </div>
             <div class="item">
                 <div class="row">
                     <img src="[% webroot %]/images/carousel/3.jpg" alt="JAFAX 2016" class="carousel">
-<!--                <div class="carousel-caption">
-                    <p>JAFAX 2017</p>
-                </div> -->
+                    [% IF enableCaptions == 'true' %]
+                    <div class="carousel-caption">
+                        <p>JAFAX 2017</p>
+                    </div>
+                    [% END %]
                 </div>
             </div>
             <div class="item">
                 <div class="row">
                     <img src="[% webroot %]/images/carousel/4.jpg" alt="JAFAX 2017" class="carousel">
-<!--                <div class="carousel-caption">
-                    <p>JAFAX 2018</p>
-                </div> -->
+                    [% IF enableCaptions == 'true' %]
+                    <div class="carousel-caption">
+                        <p>JAFAX 2018</p>
+                    </div>
+                    [% END %]
                 </div>
             </div>
             <div class="item">
                 <div class="row">
                     <img src="[% webroot %]/images/carousel/5.jpg" alt="JAFAX 2018" class="carousel">
-<!--                <div class="carousel-caption">
-                    <p>JAFAX 2019</p>
-                </div> -->
+                    [% IF enableCaptions == 'true' %]
+                    <div class="carousel-caption">
+                        <p>JAFAX 2019</p>
+                    </div>
+                    [% END %]
                 </div>
             </div>
             <div class="item">
                 <div class="row">
                     <img src="[% webroot %]/images/carousel/6.jpg" alt="JAFAX 2019" class="carousel">
-<!--                <div class="carousel-caption">
-                    <p>JAFAX 2019</p>
-                </div> -->
+                    [% IF enableCaptions == 'true' %]
+                    <div class="carousel-caption">
+                        <p>JAFAX 2019</p>
+                    </div>
+                    [% END %]
                 </div>
             </div>
         </div>

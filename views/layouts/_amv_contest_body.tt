@@ -1,7 +1,9 @@
 <div class="container">
     <div class="page_text">
+        [% amvContestRules = 'disabled' %]
         <br />
         <center><h1>Anim&eacute; Music Video Contest</h1></center>
+        [% IF amvContestRules == 'disabled' %]
         <p>
             Almost as far back as the start of JAFAX, we've held a yearly AMV
             contest at JAFAX. Videos submitted by fans will be judged on a
@@ -13,7 +15,14 @@
             Details for the JAFAX 2022 AMV contest will be posted as we get
             closer to the dates for the event! Stay tuned!
         </p>
-<!--        <p>
+        [% ELSE %]
+        <p>
+            Almost as far back as the start of JAFAX, we've held a yearly AMV
+            contest at JAFAX. Videos submitted by fans will be judged on a
+            number of factors and will be awarded by our judges and audience
+            during the screenings.
+        </p>
+        <p>
             If you're up for the challenge, and believe your video and music
             editing fu is able to wow our judges and entertain or impress the
             audience, follow the rules below to submit your AMV for
@@ -215,6 +224,7 @@
         <p>
             The Contest Coordinator reserves the right to reject any AMV for any reason.
         </p>
-        <em>Last Revised: 2019-10-13</em> -->
+        <em>Last Revised: 2019-10-13</em>
+        [% END %]
     </div>
 </div>

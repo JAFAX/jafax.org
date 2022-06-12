@@ -1,3 +1,4 @@
+[% showMap = 'false' %]
 <div class="container">
     <div class="row">
         <div class="col page_text">
@@ -13,15 +14,19 @@
                 enclosed walkways to JAFAX's official hotel, the Amway Grand
                 Plaza Hotel.
             </p>
+            [% IF showMap == 'false' %]
             <p>
                 The DeVos Place interior map will be posted soon!
             </p>
+            [% END %]
         </div>
     </div>
 </div>
-<!-- <div class="container">
+[% IF showMap == 'true' %]
+<div class="container">
     <div class="page_text">
         <center><h3>Interior Map</h3></center>
-        <img id="schedule" src="[% webroot %]/images/JAFAX22Map.png" />
+        <img id="hallmap" src="[% webroot %]/images/JAFAX22Map.png" />
     </div>
-</div> -->
+</div>
+[% END %]

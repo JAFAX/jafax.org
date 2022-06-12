@@ -1,13 +1,16 @@
 <div class="container">
     <div class="page_text">
+        [% maidRegistration = 'disabled' %]
         <br />
         <center><h1>Maid Caf&eacute; Registration</h1></center>
-<!--        <p>
+        [% IF maidRegistration == 'enabled' %]
+        <p>
             Have you ever longed to serve in our Maid Caf&eacute;? If so, you 
             can either volunteer by visiting Con Ops in Grand Gallery Overlook A,
             or fill out and submit the form below, and our Maid Caf&eacute; Coordinator
             will contact you to confirm your registration!
-        </p> -->
+        </p>
+        [% ELSE %]
         <p>
             As we ramp up for JAFAX 2022, we'll open registration for the Maid Caf&eacute;.
             Please be patient while we plan and prepare for an amazing event that will
@@ -16,8 +19,10 @@
         <p>
             Thank you for your interest, and we hope to see you at JAFAX 2022!
         </p>
-
-<!--        <iframe src="https://docs.google.com/forms/d/16VeeMkxB-6tnEanny4prmwHGcBVnJ3eN9xwisx0dH6Q/viewform?embedded=true"
-            width="100%" height="4670px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe> -->
+        [% END %]
+        [% IF maidRegistration == 'enabled' %]
+        <iframe src="https://docs.google.com/forms/d/16VeeMkxB-6tnEanny4prmwHGcBVnJ3eN9xwisx0dH6Q/viewform?embedded=true"
+            width="100%" height="4670px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        [% END %]
     </div>
 </div>
