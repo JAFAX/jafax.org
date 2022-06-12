@@ -3,13 +3,60 @@
         <br />
         <center><h1>Music Events at JAFAX 2022</h1></center>
         <p>
-            This year at enjoy music acts at JAFAX with both live performances
-            and dance the night away with our electronic dance party!
+            This year at enjoy music acts at JAFAX with two very different live
+            music events! Also, dance the night away with our electronic dance
+            party!!
         </p>
         <p>
-            We're working on lining up the artists for the live performances
-            and the DJs that will drive the beat for the dance party. Stay
-            tuned for updates!
+            Our musical guests this year are <em>Playing With Power</em> and
+            <em>ALL YOUR BASS</em>!
         </p>
+        <p>
+            Information about the dance party will be posted soon!
+        </p>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Playing With Power</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img height=100% width=100% src="/images/pwp.png?1" />
+                </div>
+                <div class="col">
+                    <p>
+                        Bringing non-stop, nostalgia-powered video game rock,
+                        <em>Playing with Power!</em> will play a set that makes
+                        you yearn for a couch full of friends, a delivery
+                        pizza, and hours of console gaming.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>ALL YOUR BASS</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="col">
+                        <img height=100% width=100% src="/images/allyourbass.jpg?1" />
+                    </div>
+                </div>
+                <div class="col">
+                    <p>
+                        The most literal sense of the term "heavy metal", this
+                        low brass group brings a set full of your favorite
+                        anime and video game tunes. If you've ever wondered
+                        what a bunch of tubas and trombones playing Mario would
+                        sound like, (who hasn't?!), then look no further!
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
