@@ -1,5 +1,6 @@
 <div class="container">
     <div class="page_text">
+        [% cosplayContest = 'enabled' %]
         <br />
         <center><h1>Cosplay Events at JAFAX 2022</h1></center>
         <p>
@@ -9,12 +10,12 @@
             to dress up as your favorite character from anim&eacute;, games, or
             manga, we'd love to see your fandom brought to life!
         </p>
-<!--
+        [% IF cosplayContest == 'disabled' %]
         <p>
             Details regarding Cosplay events at JAFAX 2022 will be posted as
             soon as we have details! Stop back soon!
         </p>
--->
+        [% ELSE %]
         <h3>JAFAX Cosplay Weapons Policy</h3>
         <p>
             To keep the event safe and fun for all whom attend, please
@@ -157,12 +158,17 @@
         <p>
             Good luck and happy creating!
         </p>
+        [% END %]
         <p>
             If you have any questions, concerns, or comments, please reach out to
             our <a href="http://www.jafax.org/contact?department=2">Cosplay Coordinator</a>
         </p>
+        [% IF cosplayContest == 'enabled' %]
         <br />
-        <p>If you wish to enter, fill out and submit this form:</p>
+        <p>
+            If you wish to enter, fill out and submit this form:
+        </p>
         <iframe src="https://docs.google.com/forms/d/1sKiKKzfgP8GfLK0YciuEXcOmj2uRYFuT1ZrKCt-tJfM/viewform?embedded=true" width="100%" height="2330" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        [% END %]
     </div>
 </div>

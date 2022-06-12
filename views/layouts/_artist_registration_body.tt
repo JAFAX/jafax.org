@@ -1,8 +1,12 @@
 <div class="container">
     <div class="page_text">
+        [% artistRegistration = 'disabled' %]
+        [% preRegistration = 'disabled' %]
         <br />
         <center><h1>Artist Alley Registration</h1></center>
-<!--        <p>
+        [% IF preRegistration == 'disabled' %]
+        [% IF artistRegistration == 'enabled' %]
+        <p>
             Hello Artists! JAFAX 2022 Artist Alley registration is now
             accepting applications!
         </p>
@@ -10,12 +14,12 @@
             The terms for application will be sent to you by our Artist Alley
             Coordinator if your application is approved for this year's event and
             will be posted online in the coming week.
-        </p> -->
-<!--    <p>
+        </p>
+        <p>
             Please read our <a href="[% webroot %]/documents/2022_Artist_Alley_Contract.pdf">
             terms for applications</a> before submitting the form below.
-        </p> -->
-<!--        <p>
+        </p>
+        <p>
             Once you have completed the application, we will send out an email
             confirming your acceptance no later than one week after registration
             has closed. Artist Alley Registration will close January 22, 2022.
@@ -23,16 +27,20 @@
             form will be re-opened until all booths are filled.
         </p>
         <iframe src="https://docs.google.com/forms/d/1-np5pPsyTmLFHMzOxd1c0jRvWXHuT1LzIUGFrWigoes/viewform?embedded=true"
-          width="100%" height="2110px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe> -->
+          width="100%" height="2110px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        [% ELSE %]
         <p>
             JAFAX 2022 Artist Alley Registration has closed. We are looking forward to
             announcing the artists whom are coming, and will post more info as we get
             closer to the event!
         </p>
-<!--        <p>
-            Details for the Artists Alley registration for JAFAX 2022 will be
+        [% END %]
+        [% ELSE %]
+        <p>
+            Details for the Artists Alley registration for JAFAX 2023 will be
             posted soon! Please come back later.
-        </p> -->
+        </p>
+        [% END %]
         <p>
             If you wish to be added to our mailing list, or have a question for our
             Artist Alley Coordinator, please <a href="[% webroot %]/contact?department=1">

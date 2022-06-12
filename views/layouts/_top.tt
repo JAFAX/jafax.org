@@ -61,7 +61,9 @@
                                 <li class="dropdown-submenu">
                                     <a class="dropdown-item dropdown-toggle" href="[% webroot %]/events/media">Anim&eacute; and Manga</a>
                                     <ul class="dropdown-menu">
+                                        [% IF amvcontest == "enabled" %]
                                         <li><a class="dropdown-item" href="[% webroot %]/events/media/amv_contest">AMV Contest</a></li>
+                                        [% END %]
                                         <li><a class="dropdown-item" href="[% webroot %]/events/media/anime">Anim&eacute; Screenings</a></li>
                                         <li><a class="dropdown-item" href="[% webroot %]/events/media/manga">Manga Library</a></li>
                                     </ul>

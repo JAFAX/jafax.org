@@ -1,5 +1,6 @@
 <div class="container">
     <div class="page_text">
+        [% maidCafeSchedAndMenu = 'enabled' %]
         <br />
         <center><h1>The Maid Caf&eacute; at JAFAX</h1></center>
         <p>
@@ -11,8 +12,36 @@
             years. Stop in, have something to sip on or a bite to eat and be
             served by our maids and butlers!
         </p>
+        [% IF maidCafeSchedAndMenu == "enabled" %]
+        <h2>Hours</h2>
+        <p>Saturday, June 26<sup>th</sup> from Noon until 3:00PM</p>
+        <h2>Menu</h2>
+        <p>
+            Lunch and a dessert (prices to be posted later)
+            <h3>Lunch Choices</h3>
+            <ul>
+                <li>Salmon Finger Sandwiches with Ginger Salad</li>
+                <li>Miso Ramen with Spring Rolls</li>
+                <li>Chicken Katsu with Rice and Tonkatsu Sauce</li>
+            </ul>
+            <h3>Dessert Choices</h3>
+            <p>All dessert options come with a choice of vanilla or matcha ice cream.</p>
+            <ul>
+                <li>Japanese Cheese Cake</li>
+                <li>Hello Kitty Cupcake</li>
+                <li>Diafuku Mochi with Sailor Moon Chocolate</li>
+            </ul>
+            <h3>Drink Choices</h3>
+            <ul>
+                <li>White Grape Juice with Strawberries</li>
+                <li>Lemonade</li>
+                <li>Coffee</li>
+            </ul>
+        </p>
+        [% ELSE %]
         <p>
             The schedule and menu will be posted as we get closer to JAFAX 2022!
         </p>
+        [% END %]
     </div>
 </div>
