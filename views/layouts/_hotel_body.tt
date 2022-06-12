@@ -1,5 +1,6 @@
 <div class="container">
     <div class="page_text">
+        [% ratesNegotiated = 'true' %]
         <br />
         <center><h1>The Amway Grand Plaza Hotel</h1></center>
         <center><h3>The official hotel of JAFAX 2022</h3></center>
@@ -9,11 +10,13 @@
             River, the Amway Hotel is connected directly to Devos Place
             Convention Center.
         </p>
-<!--        <p>
+        [% IF ratesNegotiated == 'false' %]
+        <p>
             Room rates and other details for the JAFAX Room Block will be posted
             when we have more information available as we get closer to JAFAX
             2022.
-        </p> -->
+        </p>
+        [% ELSE %]
         <p>
             Room rates within the JAFAX Room Block are $169 per night (plus
             tax.) The price breakdown for a room can change depending on how many
@@ -60,6 +63,7 @@
             along with complimentary access to the pool and fitness area.
         </p>
     </div>
+    [% END %]
     <div class="row">
         <div class="col item">
             <img class="left" src="[% webroot %]/images/amway1_new.jpg" />

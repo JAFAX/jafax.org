@@ -1,13 +1,17 @@
 <div class="container">
     <div class="page_text">
+        [% attendeeRegistration = 'enabled' %]
         <br />
         <center><h1>Attendee Registration</h1></center>
-        <!-- <p>
+        [% IF attendeeRegistration != 'enabled' %]
+        <p>
             Tickets for JAFAX 2022 will be available soon!
-        </p> -->
+        </p>
+        [% ELSE %]
         <p>
             Tickets for JAFAX can be purchased below. We are happy to partner with the <a href="https://www.eventbee.com/">EventBee</a> service to make them available. See their privacy policy <a href="https://www.eventbee.com/privacystatement">here</a>.
         </p>
+        [% END %]
         <h3>Pre-Registration Pricing</h3>
         <p>
             The prices for pre-registration tickets will be posted soon!
@@ -48,6 +52,7 @@
         </p>
     </div>
 </div>
+[% IF attendeeRegistration == 'enabled' %]
 <div class="container">
     <section id="individual">
         <div>
@@ -74,3 +79,4 @@
         </span>
     </section>
 </div>
+[% END %]
