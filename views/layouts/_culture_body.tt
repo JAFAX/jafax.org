@@ -15,15 +15,16 @@
             Dunbar.
         </p>
         <p>
-            This year, we'd like to welcome the Swordmanship Museum and Academy!
+            This year, we'd like to welcome the Swordmanship Museum &amp; Academy and 
+            Western Michigan University's Soga Japan Center!
         </p>
         <div clas="container-sm">
             <div class="row">
                 <div class="col-2">
                     <img src="/images/SwordLogoStrokeNoBackground.png" width=100% />
                 </div>
-                <div class="col-10">
-                <p>
+                <div class="col-6">
+                    <p>
                         The Swordsmanship Museum and Academy is an educational
                         facility located in Grand Rapids, Michigan, that is
                         dedicated to sharing the histories and cultures of the
@@ -42,10 +43,36 @@
                         kusarigama, armor pieces, and more!
                     </p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
+                <div class="col-4">
                     <img src="/images/swordsmanshipMuseumAndAcademyDisplay.jpg" width=100% />
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container-sm">
+            <div class="row">
+                <div class="col-2">
+                    <img src="/images/sogajpcenter.png" width=100% />
+                </div>
+                <div class="col-6">
+                    <p>
+                        Western Michigan University's Soga Japan Center is an
+                        interdisciplinary unit designed to promote knowledge of
+                        Japan to the WMU community, the city of Kalamazoo and
+                        all of southwestern Michigan. The Soga Japan Center
+                        regularly brings scholars, artists and writers to campus
+                        to give Japan-related lectures, demonstrations and
+                        readings to students, faculty and the surrounding
+                        community. The Soga Japan Center also hosts film series,
+                        displays, musical performances and other fun events
+                        related to Japanese culture.
+                    </p>
+                    <p>
+                        <a href="https://wmich.edu/japancenter">https://wmich.edu/japancenter</a>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <img src="/images/wmu-jp-culture.jpg" width=100% />
                 </div>
             </div>
         </div>
