@@ -75,6 +75,7 @@
                                         <li><a class="dropdown-item" href="[% webroot %]/events/media/manga">Manga Library</a></li>
                                     </ul>
                                 </li>
+                                <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/movie">Movie Screening</a></li>
                                 <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/music">Musical Events</a></li>
                                 <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/panels">Panels</a></li>
                                 <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/schedule">Events Schedule</a></li>

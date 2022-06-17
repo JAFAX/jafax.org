@@ -343,6 +343,22 @@
                 }
             }
         },
+        "/events/movie": {
+            "get": {
+                "active": "true",
+                "summary": "Movie Event at JAFAX",
+                "template": "movie",
+                "launchDate": 1655497458,
+                "expireDate": -1,
+                "type": "static",
+                "class": "article",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
         "/events/music": {
             "get": {
                 "active": "true",
