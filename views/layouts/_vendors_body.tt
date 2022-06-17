@@ -1,5 +1,6 @@
 <div class="container">
     <div class="page_text">
+        [% vendorsListEnable = "enabled" %]
         <br />
         <center><h1>Vendor Hall</h1></center>
         <p>
@@ -8,10 +9,39 @@
             stop in at JAFAX's Vendor Hall and visit our diverse selection of
             vendors selling a wide assortment of wares!
         </p>
+        [% IF vendorsListEnable != "enabled" %]
         <p>
             We're working to get a full listing of the vendors together soon
             and a map of their location. Once this is available, it will be
             posted here. Stay tuned!
         </p>
+        [% ELSE %]
+        <p>
+            We've got a great line up of vendors that have committed to coming
+            to JAFAX 2022! Take a look at the list below!
+        </p>
+        <div class="container-sm">
+            <div class="row">
+                <div class="col-2">
+                    <b>Table</b>
+                </div>
+                <div class="col-10">
+                    <b>Vendor</b>
+                </div>
+            </div>
+            [% FOREACH vendor IN vendors %]
+                [% IF vendor.enabled == 1 %]
+                <div class="row">
+                    <div class="col-2">
+                        [% vendor.table %]
+                    </div>
+                    <div class="col-10">
+                        [% vendor.companyName %]
+                    </div>
+                </div>
+                [% END %]
+            [% END %]
+        </div>
+        [% END %]
     </div>
 </div>
