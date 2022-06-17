@@ -400,6 +400,62 @@ package Buyo {
         return $guests;
     }
 
+    my sub get_artist_list :ReturnType(Hash) ($appdir) {
+        type_check($appdir, Str);
+
+        my $sub = (caller(0))[3];
+        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+
+        my $json_txt = get_json("content/artists/artists.json");
+        my $json     = JSON->new();
+        my $artists  = undef;
+        try {
+            $artists = $json->decode($json_txt)->{'artists'} or 
+                throw "JSON parsing error", {
+                    'type'         => 1002,
+                    'error_string' => "Cannot decode JSON file",
+                    'log_msg'      => "Could not decode JSON file. 'artists.json'",
+                    'info'         => "Attempted to decode JSON content from 'artists.json'"
+                }
+        } catch {
+            classify $ARG, {
+                default => sub {
+                    error_msg($ARG, "Default error");
+                }
+            }
+        };
+
+        return $artists;
+    }
+
+    my sub get_vendor_list :ReturnType(Hash) ($appdir) {
+        type_check($appdir, Str);
+
+        my $sub = (caller(0))[3];
+        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+
+        my $json_txt = get_json("content/vendors/vendors.json");
+        my $json     = JSON->new();
+        my $vendors  = undef;
+        try {
+            $vendors = $json->decode($json_txt)->{'vendors'} or 
+                throw "JSON parsing error", {
+                    'type'         => 1002,
+                    'error_string' => "Cannot decode JSON file",
+                    'log_msg'      => "Could not decode JSON file. 'vendors.json'",
+                    'info'         => "Attempted to decode JSON content from 'vendors.json'"
+                }
+        } catch {
+            classify $ARG, {
+                default => sub {
+                    error_msg($ARG, "Default error");
+                }
+            }
+        };
+
+        return $vendors;
+    }
+
     my sub get_department_email_from_id :ReturnType(Str) ($appdir, $value) {
         type_check($appdir, Str);
         type_check($value, Str);
@@ -786,6 +842,8 @@ package Buyo {
         my $guest_list   = get_guestlist($config->{'appdir'});
         my $cguest_list  = $config->{'culturalGuestList'};
         my $sguest_list  = $config->{'guestJudgeList'};
+        my $artists      = $config->{'artistsList'};
+        my $vendors      = $config->{'vendorList'};
 
         err_log("== DEBUGGING ==: Registering " . uc($verb) . " action for path '$path'") if $config->{'debug'};
         err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
@@ -839,7 +897,9 @@ package Buyo {
                                 'guests'             => $config->{'guests'},
                                 'guestList'          => $guest_list,
                                 'guestJudgeList'     => $sguest_list,
-                                'culturalGuestList'  => $cguest_list
+                                'culturalGuestList'  => $cguest_list,
+                                'artists'            => $artists,
+                                'vendors'            => $vendors
                             };
                         };
                     }
@@ -1055,6 +1115,8 @@ package Buyo {
         $config->{'guestList'}          = $features->{'guestList'};
         $config->{'culturalGuestList'}  = $features->{'culturalGuestList'};
         $config->{'guestJudgeList'}     = $features->{'specialGuestJudgeList'};
+        $config->{'artistsList'}        = get_artist_list($config->{'appdir'});
+        $config->{'vendorList'}         = get_vendor_list($config->{'appdir'});
 
         err_log("== DEBUGGING ==: DUMP: ". Dumper($config)) if $config->{'debug'};
 
