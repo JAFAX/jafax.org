@@ -8,7 +8,7 @@
             party!!
         </p>
         <p>
-            Our musical guests this year are <em>Playing With Power</em> and
+            Our musical guests this year are <em>Playing With Power</em>, <em>Super Guitar Bros</em>, and
             <em>ALL YOUR BASS</em>!
         </p>
         <p>
@@ -38,14 +38,39 @@
         <div class="container">
             <div class="row">
                 <div class="col">
+                    <h2>Super Guitar Bros</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img width=100% src="/images/sgbros.jpg" />
+                </div>
+                <div class="col">
+                    <p>
+                        The Super Guitar Bros aren't actually brothers -
+                        They're bros!
+                    </p>
+                    <p>
+                        Sam and Steve combine their love of video game music
+                        with their passion for acoustic/classical guitar to
+                        bring you a one of a kind musical experience.
+                    </p>
+                    <p>
+                        Sometimes chill. Sometimes intense. Always super!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <div class="row">
+                <div class="col">
                     <h2>ALL YOUR BASS</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <div class="col">
-                        <img height=100% width=100% src="/images/allyourbass.jpg?1" />
-                    </div>
+                    <img height=100% width=100% src="/images/allyourbass.jpg?1" />
                 </div>
                 <div class="col">
                     <p>
