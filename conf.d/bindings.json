@@ -391,6 +391,38 @@
                 }
             }
         },
+        "/events/panels/registration": {
+            "get": {
+                "active": "true",
+                "summary": "Panel Registration at JAFAX",
+                "template": "panel_registration",
+                "launchDate": 1438401600,
+                "expireDate": -1,
+                "type": "static",
+                "class": "article",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
+        "/events/panels/details": {
+            "get": {
+                "active": "true",
+                "summary": "Panel Details at JAFAX",
+                "template": "panel_details",
+                "launchDate": 1438401600,
+                "expireDate": -1,
+                "type": "static",
+                "class": "article",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
         "/events/schedule": {
             "get": {
                 "active": "true",

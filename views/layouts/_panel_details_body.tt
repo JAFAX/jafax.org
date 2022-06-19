@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="page_text">
+        [% panelDetails = "enabled" %]
+        <br />
+        <center><h1>Panel Descriptions</h1></center>
+        <br />
+        [% IF panelDetails != "enabled" %]
+        <p>
+            We're sifting through the submissions for panels for JAFAX! Once we
+            have gotten through them all, we'll post the approved panel list
+            and descriptions here!
+        </p>
+        [% ELSE %]
+        <p>
+            Here are the details about all the panels that will be at JAFAX
+            2022!
+        </p>
+        <hr />
+        [% days = [ "Friday" "Saturday" "Sunday" ] %]
+        [% FOREACH day IN days %]
+        <p>
+            <b>[% day %]</b>
+        </p>
+        [% FOREACH panel IN panels.$day %]
+        <p>
+            <strong>[% panel.title %]</strong><br />
+            Panel Room: [% panel.room %]<br />
+            Time: [% panel.time %]<br />
+            <p>
+                Details: [% panel.description %]
+            </p>
+        </p>
+        <hr />
+        [% END %]
+        [% END %]
+        [% END %]
+    </div>
+</div>
