@@ -77,7 +77,13 @@
                                 </li>
                                 <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/movie">Movie Screening</a></li>
                                 <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/music">Musical Events</a></li>
-                                <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/panels">Panels</a></li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="[% webroot %]/events/panels">Panels</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/panels/registration">Panel Registration</a></li>
+                                        <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/panels/details">Panel Details</a></li>
+                                    </ul>
+                                </li>
                                 <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/schedule">Events Schedule</a></li>
                                 <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/vendors">Vendor Hall</a></li>
                             </ul>

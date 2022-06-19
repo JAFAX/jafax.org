@@ -456,6 +456,34 @@ package Buyo {
         return $vendors;
     }
 
+    my sub get_panel_details :ReturnType(Hash) ($appdir) {
+        type_check($appdir, Str);
+
+        my $sub = (caller(0))[3];
+        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+
+        my $json_txt = get_json("content/panels/panels.json");
+        my $json     = JSON->new();
+        my $panels  = undef;
+        try {
+            $panels = $json->decode($json_txt)->{'panels'} or 
+                throw "JSON parsing error", {
+                    'type'         => 1002,
+                    'error_string' => "Cannot decode JSON file",
+                    'log_msg'      => "Could not decode JSON file. 'vendors.json'",
+                    'info'         => "Attempted to decode JSON content from 'vendors.json'"
+                }
+        } catch {
+            classify $ARG, {
+                default => sub {
+                    error_msg($ARG, "Default error");
+                }
+            }
+        };
+
+        return $panels;
+    }
+
     my sub get_department_email_from_id :ReturnType(Str) ($appdir, $value) {
         type_check($appdir, Str);
         type_check($value, Str);
@@ -844,6 +872,7 @@ package Buyo {
         my $sguest_list  = $config->{'guestJudgeList'};
         my $artists      = $config->{'artistsList'};
         my $vendors      = $config->{'vendorList'};
+        my $panels       = $config->{'panelDescriptions'};
 
         err_log("== DEBUGGING ==: Registering " . uc($verb) . " action for path '$path'") if $config->{'debug'};
         err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
@@ -885,6 +914,8 @@ package Buyo {
                             err_log("== DEBUGGING ==: do_launch: $do_launch") if $config->{'debug'};
                             err_log("== DEBUGGING ==: expire_page: $expire_page") if $config->{'debug'};
 
+                            err_log("== DEBUGGING ==: PANELS DUMP: ". Dumper($panels)) if $config->{'debug'};
+
                             return template $template, {
                                 'webroot'            => $config->{'webroot'},
                                 'site_name'          => $config->{'site_title'},
@@ -899,7 +930,8 @@ package Buyo {
                                 'guestJudgeList'     => $sguest_list,
                                 'culturalGuestList'  => $cguest_list,
                                 'artists'            => $artists,
-                                'vendors'            => $vendors
+                                'vendors'            => $vendors,
+                                'panels'             => $panels
                             };
                         };
                     }
@@ -1117,6 +1149,7 @@ package Buyo {
         $config->{'guestJudgeList'}     = $features->{'specialGuestJudgeList'};
         $config->{'artistsList'}        = get_artist_list($config->{'appdir'});
         $config->{'vendorList'}         = get_vendor_list($config->{'appdir'});
+        $config->{'panelDescriptions'}  = get_panel_details($config->{'appdir'});
 
         err_log("== DEBUGGING ==: DUMP: ". Dumper($config)) if $config->{'debug'};
 
