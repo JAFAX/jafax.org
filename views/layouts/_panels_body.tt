@@ -1,78 +1,40 @@
 <div class="container">
     <div class="page_text">
         <br />
-        <center><h1>Panels at JAFAX 2022</h1></center>
-        <p>
-            Do you want to learn more about how the history of Japan influences
-            the anim&eacute; and manga you enjoy? How about how women have shaped many
-            of the events that shaped the Land of the Rising Sun? Or, hear how
-            our guests discuss topics related to voice acting and how they got
-            into the industry? Then stop in on one of the panels at JAFAX!
-        </p>
-        <p>
-            Are you educated and enthusiastic about a specific topic of anim&eacute; or
-            Japanese culture? Do you enjoy entertaining and interacting with other fans
-            of that topic? Come share your knowledge and creativity with your fellow
-            attendees by hosting a panel!
-        </p>
-        <p>
-            Details on how to register a panel will be posted soon!
-        </p>
-        <p>
-            To register to host a panel, fill out the form below. Panel submissions end
-            on May 17th at 11:59pm. You will find out about the status of your panel by
-            May 25th.
-        </p>
-        <h3>Guidelines</h3>
-        <ul>
-            <li>Please check into Con Ops before your first panel</li>
-            <li>Please show up for your panel 10-15 minutes ahead of
-                time to set-up</li>
-            <li>Please end your panel 10 minutes before the end of the time slot
-                to allow for teardown/set up</li>
-            <li>Due to JAFAX’s focus on Japan, all accepted panels must have
-                something to do with Japanese culture, anime, manga, video games,
-                etc. We also accept content relating to <b>Avatar The Last
-                Airbender</b>/<b>Legend of Korra</b> and <b>RWBY</b>. If you are
-                unsure if your panel relates to these topics, feel free to
-                <a href="[% webroot %]/contact?department=6">contact us</a></li>
-            <li>Unless you are licensed by the Michigan Lottery Commission to run
-                lotteries or raffles, please do not use the terms "raffle" or
-                "lottery" in your panel's title, description, or advertising</li>
-            <li>Do not attach anything to the venue's walls. This includes, but
-                is not limited to using tacks, tape, staples, etc. Any backdrops
-                must be free standing</li>
-            <li>If after registration you cannot attend JAFAX for any reason, please
-                <a href="[% webroot %]/contact?department=6">contact us</a> as soon as
-                possible so that your panels can be removed from the schedule. If an
-                emergency comes up at event, please notify Con Ops. No-shows will not
-                be eligible for badge reimbursement or for running panels at JAFAX in
-                future years</li>
-            <li>Panelists agree to follow any and all safety and pandemic protocols
-                that are implemented by JAFAX or DeVos Place Convention Center.</li>
-        </ul>
-        <h3>Reimbursement Policy</h3>
-        <ul>
-            <li>You must show up to and complete all of your panels to be eligible</li>
-            <li>After all of your panels are completed, report to registration for your
-                badge reimbursement. If your last panel is scheduled after registration
-                closes on the last day you are attending, please
-                <a href="[% webroot %]/contact?department=6">reach out to us</a> and we can
-                make alternate arrangements
-            </li>
-            <li>You will be reimbursed one badge for completing 3 hours of accepted
-                panels. Your panelist group gets an additional co-panelist badge for
-                each additional 2 hours of panels, for up to 3 co-panelist badges.
-                So, to clarify:<br />
-                <ul>
-                    <li>3 hours=1 badge</li>
-                    <li>5 hours=2 badges</li>
-                    <li>7 hours=3 badges</li>
-                    <li>9+ hours=4 badges</li>
-                </ul>
-            </li>
-        </ul>
-        <iframe src="https://docs.google.com/forms/d/1EWkbqsFckO57za6aF0bK2qgpx4KaScUx6kFkgv2Xblk/viewform?embedded=true"
-          width="100%" height="3500px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        <center><h1>Panels</h1></center>
+        <div class="container-fluid">
+            <div class="padded-row">
+                <div class="col">
+                    <a href="[% webroot %]/events/panels/registration">
+                        <div class="container news_long_title">
+                            <div class="row">
+                                <div class="col-sm-1 news_title_icon">
+                                    <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px">
+                                </div>
+                                <div class="col-md news_title_text">
+                                    Panel Registration
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="padded-row">
+                <div class="col">
+                    <a href="[% webroot %]/events/panels/details" class="wide-link">
+                        <div class="container news_long_title">
+                            <div class="row">
+                                <div class="col-sm-1 news_title_icon">
+                                    <img src="[% webroot %]/images/round-logo-60x60.png" height="64px" width="64px">
+                                </div>
+                                <div class="col-md news_title_text">
+                                    Panel Details &amp; Descriptions
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,0 +1,202 @@
+{
+    "panel_schema_version": "1.0",
+    "days": [
+        "Friday",
+        "Saturday",
+        "Sunday"
+    ],
+    "panels": {
+        "Friday": [
+            {
+                "title": "D.Gray-Man: We Need to Talk",
+                "room": "Panel Room 3",
+                "time": "4:00-5:30 PM",
+                "description": "One of the most dark yet heartwarming shounen series of the previous decade, D.Gray-man has captured the hearts of fans worldwide. But let's be real here, what's happening with this series? Even without a hiatus we're still getting more questions than answers. So join us and other fans as we delve into Hoshino Katsura's intriguing storyline, characters, and popular fan theories."
+            },
+            {
+                "title": "Soul Eater: Meister and Weapon Madness",
+                "room": "Panel Room 4",
+                "time": "4:00-6:00 PM",
+                "description": "\"A sound soul dwells within a sound mind, and a sound body.\"<br />Come and join the meisters, weapons and teachers from Death Weapon Meister Academy in some fun trivia, Q&A/dare, and the dating game! :) Come and watch it, or I'll take your soul!"
+            },
+            {
+                "title": "My Hero Academia! Are You a Hero or a Villain?",
+                "room": "Panel Room 3",
+                "time": "6:00-7:30 PM",
+                "description": "In the world of my hero academia there are heroes and villains and few students just trying to become heroes. Like to know where you stand? Come join some of the my hero academia crew and find out, Q&As, info on my hero series along with games! Plus ultra!"
+            },
+            {
+                "title": "Beginning 3D Printing",
+                "room": "Panel Room 4",
+                "time": "6:30-7:30 PM",
+                "description": "3D printing can be used for countless applications in producing gaming and cosplay pieces, but it can be intimidating to learn at first. Recent advancements in consumer 3D printers have fortunately made producing high-quality prints possible for anyone with a bit of time and patience, and for far less cost than you might expect. Come learn how to begin producing your own plastic and resin prints at home!"
+            },
+            {
+                "title": "Jackbox with Hampter (18+)",
+                "room": "Panel Room 4",
+                "time": "7:30-9:30 PM",
+                "description": "Join tnrvevo and his pal Hampter as we play games from the Jackbox Party Pack Series!"
+            },
+            {
+                "title": "Otome Games: Press Start",
+                "room": "Panel Room 3",
+                "time": "8:00-9:00 PM",
+                "description": "Looking for a little romance in your life? Are you tired of 3D men disappointing you? Well we have just the thing for you! We invite you on a journey through otome games, the land of pure hearted romance, cheesy shoujo storylines, and hot 2D husbands."
+            },
+            {
+                "title": "Ita Bags 101",
+                "room": "Panel Room 3",
+                "time": "9:30-10:30 PM",
+                "description": "Ita bags are the perfect way to display your love for a character, ship, or fandom whether you're only showing your interest or carrying your entire shrine. We'll discuss how to make or buy your own ita bag and everything inside them (including rare merch), decorating tips, and safe spending habits. If you already own an ita bag, join the fun and show it off!"
+            },
+            {
+                "title": "Kiss, Marry, Kill, Kuff (18+)",
+                "room": "Panel Room 4",
+                "time": "10:00 PM-12:00 AM",
+                "description": "Kiss, marry, kill, or kuff? Who would you kiss Kiss, marry, kill, or kuff. There's always those characters we all know and love, some we hate, so what would you do? Wanna know what kuff is, come down and find out."
+            },
+            {
+                "title": "Otome Games: After Dark (18+)",
+                "room": "Panel Room 3",
+                "time": "11:00 PM-12:00 AM",
+                "description": "Is a simple endgame CG or a single kiss scene with your best boy not enough for you? Do you need a little… more? Well don’t worry, we have you covered. Join us as we delve into the spicier side of some heart throbbing and pulse pounding otome games. Warning: nosebleeds may occur. This is a mature panel so 18+ only!"
+            }
+        ],
+        "Saturday": [
+            {
+                "title": "How to Get Clout",
+                "room": "Panel Room 3",
+                "time": "9:00-10:30 AM",
+                "description": "A funny little panel with the DSMP Bois, learn how to get clout! (from Dream) We will include in character Q/A, Truth or Dare, And Trivia!"
+            },
+            {
+                "title": "Millions of ClaProduce Me!: A Guide Through the iDOLM@STER Circle of Idol Hell",
+                "room": "Panel Room 4",
+                "time": "9:00-10:00 AM",
+                "description": "\"Giant Robots, Death Metal, Singing and Dancing, Intense Martial Arts Action, Cute Dresses, Tomboys, Hot Guys, Kabedon, Aliens, Frog Costumes, Mushroom Obsessions, Yandere, Fried Chicken, memes, GL, Megaman, Chuunibyou, and Vampires? Are you sure this is all from the same series?\"<br />Yes. iDOLM@STER is insane. But there's something in it for everyone. You're part of everyone, so come on down and I'll attempt to explain why it's such an amazing franchise."
+            },
+            {
+                "title": "How to Become the Avatar",
+                "room": "Panel Room 4",
+                "time": "10:30-11:30 AM",
+                "description": "Love the Avatar: The Last Airbender/Legend of Korra series? Have a desire to help others? Wish you were the Avatar? Well YOU ARE! Come learn how you can become the Avatar in today's world!"
+            },
+            {
+                "title": "A Certain Anime Franchise",
+                "room": "Panel Room 3",
+                "time": "11:00 AM-12:30 PM",
+                "description": "Are you looking for another franchise to get into? Let me point out none other than the 'Toaru' or 'Certain' series! Spanning a lot of light novels, manga, anime, etc, it's a lore that can get quite complicated if you're new to it. Allow me to start you out with a franchise that's still going strong and includes one of the most popular anime characters, Mikoto Misaka!"
+            },
+            {
+                "title": "Crit Happens: The DnD Improv Experiment",
+                "room": "Panel Room 4",
+                "time": "12:00-1:00 PM",
+                "description": "Crit Happens is A DnD inspired Improv Comedy Show. Come watch as a Dungeon Master who has failed to prep a session of A Table Top RPG resorts to using you the audience to design an adventure and also come up with a few surprises to hinder their adventurers. Not a fan of just watching people play DnD? Fear not! The entire adventure will come alive through the help of improvisors acting out all of the shenanigans you throw at them. Who knows if they will succeed, but laughter will be had."
+            },
+            {
+                "title": "Nuclear Demons and Sore-Throat Healing Goddesses: A Half-Baked Discussion about Touhou Project",
+                "room": "Panel Room 3",
+                "time": "1:00-2:30 PM",
+                "description": "Are you vaguely aware of Touhou Project? Are you a huge fan of Touhou Project? Do you not even know what Touhou Project is? If you answered yes to any of these questions, this panel is for you! In this guided but open discussion, I'll respond to any questions or musings you may have, while also talking about the basics of Touhou Project, its importance and history, how I got into it and why I love it, and how you can get into it and why you'll love it. We'll also play Touhou 10 at the panels end"
+            },
+            {
+                "title": "Danganronpa: Trigger Happy Havoc Panel",
+                "room": "Panel Room 4",
+                "time": "2:00-4:00 PM",
+                "description": "\"It's Punishment Time!\"<br />Come and join the 78th class from Hopes Peak Academy in fun activities. The Super High School Level students will test your knowledge about them with some trivia questions and later Q&A/dare!"
+            },
+            {
+                "title": "Best & Worst Side Characters in Anime: Podcast Recording at JAFAX",
+                "room": "Panel Room 3",
+                "time": "3:00-4:30 PM",
+                "description": "It's time for Side Characters to shine!<br />Be a part of our team as we record an episode of Anime ShoShin from JAFAX! Help us answer the age-old question: \"Who are the Best, and Worst, Side Characters in Anime?\".<br />Share your thoughts and be included in the podcast! Or just come hang out for the discussion. Either way we are excited to have you join us for this very special Anime ShoShin episode from JAFAX 2022. The episodes will be released starting 7/1/22. Find us at AnimeShoShin.com."
+            },
+            {
+                "title": "Introduction to Modular Origami",
+                "room": "Panel Room 4",
+                "time": "4:30-5:30 PM",
+                "description": "Have you ever wanted to learn how to make kusudama or geometric origami models? Come learn how to make Sonobe modules and build a dodecahedron model! The versatile Sonobe module can be used to create numerous origami models, and allows for anyone to create elaborate structures even with minimal experience folding models. Materials are provided!"
+            },
+            {
+                "title": "My Bingo Academia!",
+                "room": "Panel Room 3",
+                "time": "5:30-7:00 PM",
+                "description": "Are you a My Hero Academia fan? An anime fan in general? Or do you just enjoy playing bingo? Come join us in a fun panel of bingo!"
+            },
+            {
+                "title": "Who's that Gundam?",
+                "room": "Panel Room 4",
+                "time": "7:00-8:00 PM",
+                "description": "Can you guess that gandam?! Let's see how versatile your gundam knowledge is. Are you gundam. Prizes will be given for 1<sup>st</sup> and 2<sup>nd</sup> place winners."
+            },
+            {
+                "title": "Best & Worst Side Characters in Anime: Podcast Recording at JAFAX (Round 2)",
+                "room": "Panel Room 3",
+                "time": "8:00-9:30 PM",
+                "description": "It's time for Side Characters to shine!<br />Be a part of our team as we record an episode of Anime ShoShin from JAFAX! Help us answer the age-old question: \"Who are the Best, and Worst, Side Characters in Anime?\".<br />Share your thoughts and be included in the podcast! Or just come hang out for the discussion. Either way we are excited to have you join us for this very special Anime ShoShin episode from JAFAX 2022. The episodes will be released starting 7/1/22. Find us at AnimeShoShin.com."
+            },
+            {
+                "title": "Party Table Presents: Are You A Great Senpai?!",
+                "room": "Main Events",
+                "time": "8:30-9:30 PM",
+                "description": "Party Table is here to party with you! How will we party? By hosting a game show of course! Contestants will be chosen from the audience to answer a series of questions. Get those questions right and win some cool prizes! Are you the GREATEST Senpai? Are you too kawaii to live? Are you too sugoi to die? Prove it on the field of love and battle!"
+            },
+            {
+                "title": "Yaoi After Dark (18+)",
+                "room": "Panel Room 4",
+                "time": "9:00-11:00 PM",
+                "description": "Need a little Yaoi in your life, but can't decide where or what to start with? Here is the panel for you! From cute/soft to hard to oh my god, wait that yaoi/hidden yaoi. Will be going over anime, manga, graphic novels games, while playing yaoi games"
+            }
+        ],
+        "Sunday": [
+            {
+                "title": "The JPOP Effect!",
+                "room": "Panel Room 4",
+                "time": "9:00-10:30 AM",
+                "description": "Are you a fan of JRPGS? JPOP? Then let me introduce you to a franchise where you can start living your ideal life or restart to ensure a wonderful future. For fans of isekai, you're sure to get your fill with the games and anime that are out so far. The series is called 'The Caligula Effect' and having had lots of fun with what it's all offered, I hope I can pay the fun forward!"
+            },
+            {
+                "title": "Presentation \"Japanese daily life with some Anime/Manga scenes.\"",
+                "room": "Panel Room 3",
+                "time": "10:30-11:30 AM",
+                "description": "Michiko will introduce real Japan using some Anime/Manga scenes. Anime shows a lot of Japanese culture/daily life, but can you tell which ones are true and which ones are not true!? Let's find out together!"
+            },
+            {
+                "title": "Influential Women in Japanese History",
+                "room": "Panel Room 4",
+                "time": "11:30 AM-1:00 PM",
+                "description": "History is full of stories of the men who shaped the world, but what about the women? Come hear about the women who helped shape Japanese history; included are fierce samurai warriors, the first Japanese woman in recorded history, and the first Japanese woman to receive a Western education."
+            },
+            {
+                "title": "Yukata workshop",
+                "room": "Panel Room 3",
+                "time": "12:00-1:00 PM",
+                "description": "Yukata is a type of Japanese summer Kimono. Do you want to learn how to wear it? You can observe the demonstration or you can try it on."
+            },
+            {
+                "title": "Japanese 101 (Japanese language lesson for beginners)",
+                "room": "Panel Room 3",
+                "time": "1:30-2:30 PM",
+                "description": "Would you like to learn easy Japanese? This session is for people who have had little or no previous knowledge of the language."
+            },
+            {
+                "title": "A1 Student's Truth or Dare/Q&A",
+                "room": "Panel Room 4",
+                "time": "2:00-3:30 PM",
+                "description": "This is a hero academia panel with 1-A students! We will be doing a Q&A and playing truth or dare!"
+            },
+            {
+                "title": "Japanese Conversation Table",
+                "room": "Panel Room 3",
+                "time": "3:30-4:30 PM",
+                "description": "Have you studied Japanese? Would you like to try your Japanese skills with real Japanese people!? The session will be led by Michiko for intermediate and advanced levels of Japanese. Let's talk about Anime, J-pop or anything you like in Japanese!"
+            },
+            {
+                "title": "Nerd Chapel at JAFAX",
+                "room": "Panel Room 4",
+                "time": "4:00-5:00 PM",
+                "description": "Join Nerd Chapel for a friendly Christian worship service with music and a message using the anime Bleach to look at our mission as followers of Jesus."
+            }
+        ]
+    }
+}
