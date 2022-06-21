@@ -1,5 +1,6 @@
 <div class="container">
     <div class="page_text">
+        [% enableArktosEvent = "disabled" %]
         <br />
         <center><h1>Gaming at JAFAX 2022</h1></center>
         <p>
@@ -8,6 +9,7 @@
             to kick back and play some games. Whatever your motivation might
             be our gaming rooms have what you are searching for.
         </p>
+        [% IF enableArktosEvent == "enabled" %]
         <div class="container-sm">
             <div class="row">
                 <div class="col">
@@ -41,6 +43,7 @@
             </div>
         </div>
         <hr />
+        [% END %]
         <div class="container-sm">
             <div class="row">
                 <div class="col">
