@@ -12,9 +12,34 @@
             <em>ALL YOUR BASS</em>!
         </p>
         <p>
-            For the electronic dance, we have you covered! MESMERIST will put
-            on a 75 minute set during the the dance at JAFAX 2022!
+            For the electronic dance, we have you covered! Ace and MESMERIST will put
+            on a pumping pair of sets during the the dance at JAFAX 2022!
         </p>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Ace Marasigan</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img width=100% src="/images/Ace.jpg" />
+                </div>
+                <div class="col">
+                    <p>
+                        Ace started his DJ work in the summer of 1999 at a
+                        party ship on Lake Michigan. He honed his skills by
+                        performing at almost 1,000 events, parties, and special
+                        occasions all throughout his career.
+                    </p>
+                    <p>
+                        Favorite genres: House, Electro, Trance Top 40, and
+                        Progressive Jazz
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr />
         <div class="container">
             <div class="row">
                 <div class="col">
