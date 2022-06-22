@@ -1,8 +1,33 @@
 <div class="container">
     <div class="page_text">
+        [% amvContest = "disabled" %]
+        [% screenings = "enabled" %]
+        [% mangaLibrary = "enabled" %]
+        [% amvString = "Music Videos" %]
+        [% screeningsString = "Anim&eacute;" %]
+        [% mangaLibraryString = "Manga" %]
+        [% titleHeadlineList = [] %]
         <br />
-        <center><h1>Anim&eacute;, Manga, and Music Videos</h1></center>
+        [% IF screenings == "enabled" %]
+            [% titleHeadlineList.push(screeningsString) %]
+        [% END %]
+        [% IF mangaLibrary == "enabled" %]
+            [% titleHeadlineList.push(mangaLibraryString) %]
+        [% END %]
+        [% IF amvContest == "enabled" %]
+            [% titleHeadlineList.push(amvString) %]
+        [% END %]
+        [% IF titleHeadlineList.size == 1 %]
+        <center><h1>[% titleHeadlineList.0 %]</h1></center>
+        [% END %]
+        [% IF titleHeadlineList.size == 2 %]
+        <center><h1>[% titleHeadlineList.0 %] and [% titleHeadlineList.1 %]</h1></center>
+        [% END %]
+        [% IF titleHeadlineList.size == 3 %]
+        <center><h1>[% titleHeadlineList.0 %], [% titleHeadlineList.1 %], and [% titleHeadlineList.1 %]</h1></center>
+        [% END %]
         <div class="container-fluid">
+            [% IF amvContest == "enabled" %]
             <div class="padded-row">
                 <div class="col">
                     <a href="[% webroot %]/events/media/amv_contest">
@@ -19,6 +44,8 @@
                     </a>
                 </div>
             </div>
+            [% END %]
+            [% IF screenings == "enabled" %]
             <div class="padded-row">
                 <div class="col">
                     <a href="[% webroot %]/events/media/anime" class="wide-link">
@@ -35,6 +62,8 @@
                     </a>
                 </div>
             </div>
+            [% END %]
+            [% IF mangaLibrary == "enabled" %]
             <div class="padded-row">
                 <div class="col">
                     <a href="[% webroot %]/events/media/manga" class="wide-link">
@@ -51,6 +80,7 @@
                     </a>
                 </div>
             </div>
+            [% END %]
         </div>
     </div>
 </div>
