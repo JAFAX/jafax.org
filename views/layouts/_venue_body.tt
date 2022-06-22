@@ -1,4 +1,4 @@
-[% showMap = 'false' %]
+[% showMap = 'true' %]
 <div class="container">
     <div class="row">
         <div class="col page_text">
@@ -26,7 +26,16 @@
 <div class="container">
     <div class="page_text">
         <center><h3>Interior Map</h3></center>
-        <img id="hallmap" src="[% webroot %]/images/JAFAX22Map.png" />
+    </div>
+    <div class="row">
+        <div class="col">
+            <img width=100% src="/images/Devos_Streetlevel_Map.png" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <img width=100% src="/images/Devos_2ndFloor_Map.png" />
+        </div>
     </div>
 </div>
 [% END %]
