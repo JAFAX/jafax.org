@@ -1,6 +1,7 @@
 <div class="container">
     <div class="page_text">
-        [% enableArktosEvent = "disabled" %]
+        [% enableArktosEvent = "enabled" %]
+        [% arktosDiscount = "disabled" %]
         <br />
         <center><h1>Gaming at JAFAX 2022</h1></center>
         <p>
@@ -35,9 +36,17 @@
                         seats.
                     </p>
                     <p>
+                        Additionally, Arktos is offering a 10% discount on
+                        beverages to JAFAX attendees that stop in Friday and
+                        Saturday. Convention badges will be required to recieve
+                        the discount, and proof of legal age to purchase and
+                        drink alcoholic beverages.
+                    </p>
+                    <p>
                         Cost: $20 per player<br />
-                        Estimated start time: 8:00 PM-12:00 AM (4 hours) Friday
-                        and Saturday
+                        Location: <a href="https://www.google.com/maps/place/Arktos+Meadery/@42.971433,-85.6874992,16.48z/data=!4m5!3m4!1s0x8819adf8d38beadd:0x613a160375b3f90e!8m2!3d42.9705134!4d-85.680692" target="_blank">Arktos Meadery, 442 Bridge St NW, Grand Rapids</a><br />
+                        Estimated start time: 8:00 PM-12:00 AM (4 hours) Friday &amp; Saturday<br />
+                        Registration: at Arktos Meadery and at JAFAX
                     </p>
                 </div>
             </div>
