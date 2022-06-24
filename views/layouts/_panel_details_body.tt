@@ -15,6 +15,56 @@
             Here are the details about all the panels that will be at JAFAX
             2022!
         </p>
+        <div class="container">
+            <div class="row table_header">
+                <div class="col">
+                    Name
+                </div>
+                <div class="col table_header_end">
+                    Location
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Main Events
+                </div>
+                <div class="col">
+                    First Floor, Grand Gallery A-B-C
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Panel Events 1
+                </div>
+                <div class="col">
+                    Third Floor, Riverfront A-B
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Panel Events 2
+                </div>
+                <div class="col">
+                    Third Floor, Riverfront C
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Panel Events 3
+                </div>
+                <div class="col">
+                    Third Floor, Riverfront D
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Panel Events 4
+                </div>
+                <div class="col">
+                    Third Floor, Riverfront E
+                </div>
+            </div>
+        </div>
         <hr />
         [% days = [ "Friday" "Saturday" "Sunday" ] %]
         [% FOREACH day IN days %]
