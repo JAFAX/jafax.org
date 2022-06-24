@@ -1,5 +1,5 @@
 {
-    "panel_schema_version": "1.0",
+    "panels_schema_version": "1.0",
     "days": [
         "Friday",
         "Saturday",
@@ -11,13 +11,37 @@
                 "title": "D.Gray-Man: We Need to Talk",
                 "room": "Panel Room 3",
                 "time": "4:00-5:30 PM",
-                "description": "One of the most dark yet heartwarming shounen series of the previous decade, D.Gray-man has captured the hearts of fans worldwide. But let's be real here, what's happening with this series? Even without a hiatus we're still getting more questions than answers. So join us and other fans as we delve into Hoshino Katsura's intriguing storyline, characters, and popular fan theories."
+                "description": "One of the most dark yet heartwarming shounen series of the previous decade, D.Gray-man has captured the hearts of fans worldwide. But let's be real here, what's happening with this series? Even without a hiatus we're still getting more questions than answers. So join us and other fans as we delve into Hoshino Katsura's intriguing storyline, characters, and popular fan theories"
             },
             {
                 "title": "Soul Eater: Meister and Weapon Madness",
                 "room": "Panel Room 4",
                 "time": "4:00-6:00 PM",
-                "description": "\"A sound soul dwells within a sound mind, and a sound body.\"<br />Come and join the meisters, weapons and teachers from Death Weapon Meister Academy in some fun trivia, Q&A/dare, and the dating game! :) Come and watch it, or I'll take your soul!"
+                "description": "\"A sound soul dwells within a sound mind, and a sound body\"<br />Come and join the meisters, weapons and teachers from Death Weapon Meister Academy in some fun trivia, Q&A/ dare and the dating game! :) Come and watch it, or I'll take your soul!"
+            },
+            {
+                "title": "Interpreting Japanese Swordsmanship",
+                "room": "Panel Room 1",
+                "time": "4:30-5:30 PM",
+                "description": "Kendo, Kenjutsu, Iaido... These are the schools people think of they picture Japanese Swordsmanship. But, using surviving historical swordsmanship manuals, from Japan's Warring States Period, we will introduce a new method of Historical Swordsmanship to the table"
+            },
+            {
+                "title": "Samurai Sword Class with Samurai Dan",
+                "room": "Main Events",
+                "time": "5:30-6:30 PM",
+                "description": "Not a boffer class! Real Samurai Sword moves and concepts taught by a professional swordsman to con-goers. Bokken provided, but you are also welcome to bring your own (wooden only)"
+            },
+            {
+                "title": "American Anime: The Ultimate Oxymoron",
+                "room": "Panel Room 2",
+                "time": "5:30-6:30 PM",
+                "description": "\"Western Anime\" has long been considered an oxymoron- anime is Japanese, so how can Western nations lay claim to it? But in the contemporary world, these lines blur more and more. This panel explores two different lines of thinking: inspirations that draw from anime style of Japanese visual culture, and the outright adaptation of style found in Western Series"
+            },
+            {
+                "title": "ADR Directing w/ Tyson Rinehart and Jerry Jewell",
+                "room": "Panel Room 1",
+                "time": "6:00-7:00 PM",
+                "description": "So what is ADR? What goes into directing your favorite English dubs? How do directors cast for their shows and just how much research is involved? All these and many more of your questions can be answered! Just show up and ask fellow directors Tyson Rinehart and Jerry Jewell to provide all the answers to your burning questions!"
             },
             {
                 "title": "My Hero Academia! Are You a Hero or a Villain?",
@@ -32,16 +56,40 @@
                 "description": "3D printing can be used for countless applications in producing gaming and cosplay pieces, but it can be intimidating to learn at first. Recent advancements in consumer 3D printers have fortunately made producing high-quality prints possible for anyone with a bit of time and patience, and for far less cost than you might expect. Come learn how to begin producing your own plastic and resin prints at home!"
             },
             {
+                "title": "Tia Ballard Q&A",
+                "room": "Main Events",
+                "time": "7:00-8:00 PM",
+                "description": "Come and join voice actress, ADR director, and cartoon connoisseur, Tia Ballard (Fairy Tail, Darling in the Franxx, The Devil is a Part-Timer, etc.) in a relaxed panel and have all of your most burning questions answered, from voice acting, to directing, to nerd-dom, to cartoons, and anything else you can think of!"
+            },
+            {
                 "title": "Jackbox with Hampter (18+)",
                 "room": "Panel Room 4",
                 "time": "7:30-9:30 PM",
                 "description": "Join tnrvevo and his pal Hampter as we play games from the Jackbox Party Pack Series!"
             },
             {
+                "title": "A Historical/Tactical Analysis of the Taiwan Issue",
+                "room": "Panel Room 2",
+                "time": "7:30-8:30 PM",
+                "description": "An overview of the historical events that led to the existence of Taiwan as we know it and an assessment of its military and social prominence from the modern perspective"
+            },
+            {
                 "title": "Otome Games: Press Start",
                 "room": "Panel Room 3",
                 "time": "8:00-9:00 PM",
-                "description": "Looking for a little romance in your life? Are you tired of 3D men disappointing you? Well we have just the thing for you! We invite you on a journey through otome games, the land of pure hearted romance, cheesy shoujo storylines, and hot 2D husbands."
+                "description": "Looking for a little romance in your life? Are you tired of 3D men disappointing you? Well we have just the thing for you! We invite you on a journey through otome games, the land of pure hearted romance, cheesy shoujo storylines, and hot 2D husbands"
+            },
+            {
+                "title": "Angry Gods of Medieval Japan",
+                "room": "Panel Room 1",
+                "time": "8:30-9:30 PM",
+                "description": "Aside from starting Japan down the road to the nation we \"know\" from anime and samurai movies, Medieval Japan also radically changed the idea of the sacred, turning deities into demons, and blurring the lines on what a demon even is. Enter the era of the Angry Gods, when rage was prevalent and veneration had an element of fear. This panel explores this transformation through some key divinities, and how their anger added to the tumult of the times"
+            },
+            {
+                "title": "Gotta Collect Them All: A Starter's Guide to Collecting Anime Blu-Ray/DVDs",
+                "room": "Panel Room 2",
+                "time": "9:30-10:30 PM",
+                "description": "Join us as we dive into why anyone would want to still collect physical anime media. The panel will also dive into tips and tricks for purchasing blu-ray/dvds and suggestions on how to begin one's collection. This panel will help you start your collecting obsession and hopes to provide additional insight into how to improve one's collection methods"
             },
             {
                 "title": "Ita Bags 101",
@@ -50,21 +98,33 @@
                 "description": "Ita bags are the perfect way to display your love for a character, ship, or fandom whether you're only showing your interest or carrying your entire shrine. We'll discuss how to make or buy your own ita bag and everything inside them (including rare merch), decorating tips, and safe spending habits. If you already own an ita bag, join the fun and show it off!"
             },
             {
+                "title": "Samurai Dan: I'm So Dumb! (18+)",
+                "room": "Main Events",
+                "time": "10:00-11:00 PM",
+                "description": "The world's tallest, most heavily-armed comedian takes the stage to tell jokes and attack his most vicious critic—himself.  Come hear Dan relive his most memorable learning experiences as an anime con performer"
+            },
+            {
                 "title": "Kiss, Marry, Kill, Kuff (18+)",
                 "room": "Panel Room 4",
                 "time": "10:00 PM-12:00 AM",
-                "description": "Kiss, marry, kill, or kuff? Who would you kiss Kiss, marry, kill, or kuff. There's always those characters we all know and love, some we hate, so what would you do? Wanna know what kuff is, come down and find out."
+                "description": "Kiss, marry, kill, or kuff? Who would you kiss Kiss, marry, kill, or kuff. There's always those characters we all know and love, some we hate, so what would you do? Wanna know what kuff is, come down and find out"
             },
             {
                 "title": "Otome Games: After Dark (18+)",
                 "room": "Panel Room 3",
                 "time": "11:00 PM-12:00 AM",
-                "description": "Is a simple endgame CG or a single kiss scene with your best boy not enough for you? Do you need a little… more? Well don’t worry, we have you covered. Join us as we delve into the spicier side of some heart throbbing and pulse pounding otome games. Warning: nosebleeds may occur. This is a mature panel so 18+ only!"
+                "description": "Is a simple endgame CG or a single kiss scene with your best boy not enough for you? Do you need a little… more? Well don't worry, we have you covered. Join us as we delve into the spicier side of some heart throbbing and pulse pounding otome games. Warning: nosebleeds may occur. This is a mature panel so 18+ only!"
             }
         ],
         "Saturday": [
             {
-                "title": "How to Get Clout",
+                "title": "K-pop and J-pop Random Dance Game",
+                "room": "Panel Room 2",
+                "time": "9:00-11:00 AM",
+                "description": "Ready to bust a move? Join us for a fun mix of your favorite j-pop and k-pop choruses! Jump in when you know the dance, or just groove to the music and enjoy the vibes! Everyone is welcome to enjoy this exciting game of famous dance choruses from both k-pop and j-pop!"
+            },
+            {
+                "title": "How to get clout",
                 "room": "Panel Room 3",
                 "time": "9:00-10:30 AM",
                 "description": "A funny little panel with the DSMP Bois, learn how to get clout! (from Dream) We will include in character Q/A, Truth or Dare, And Trivia!"
@@ -73,13 +133,19 @@
                 "title": "Millions of ClaProduce Me!: A Guide Through the iDOLM@STER Circle of Idol Hell",
                 "room": "Panel Room 4",
                 "time": "9:00-10:00 AM",
-                "description": "\"Giant Robots, Death Metal, Singing and Dancing, Intense Martial Arts Action, Cute Dresses, Tomboys, Hot Guys, Kabedon, Aliens, Frog Costumes, Mushroom Obsessions, Yandere, Fried Chicken, memes, GL, Megaman, Chuunibyou, and Vampires? Are you sure this is all from the same series?\"<br />Yes. iDOLM@STER is insane. But there's something in it for everyone. You're part of everyone, so come on down and I'll attempt to explain why it's such an amazing franchise."
+                "description": "\"Giant Robots, Death Metal, Singing and Dancing, Intense Martial Arts Action, Cute Dresses, Tomboys, Hot Guys, Kabedon, Aliens, Frog Costumes, Mushroom Obsessions, Yandere, Fried Chicken, memes, GL, Megaman, Chuunibyou, and Vampires? Are you sure this is all from the same series?\"<br />Yes. iDOLM@STER is insane. But there's something in it for everyone. You're part of everyone, so come on down and I'll attempt to explain why it's such an amazing franchise"
             },
             {
-                "title": "How to Become the Avatar",
+                "title": "How to become the Avatar",
                 "room": "Panel Room 4",
                 "time": "10:30-11:30 AM",
-                "description": "Love the Avatar: The Last Airbender/Legend of Korra series? Have a desire to help others? Wish you were the Avatar? Well YOU ARE! Come learn how you can become the Avatar in today's world!"
+                "description": "Love the Avatar: The Last Airbender / Legend of Korra series? Have a desire to help others? Wish you were the Avatar? Well YOU ARE! Come learn how you can become the Avatar in today's world!"
+            },
+            {
+                "title": "Swords Myth vs. Reality",
+                "room": "Panel Room 1",
+                "time": "11:00 AM-12:00 PM",
+                "description": "Join Swordsmanship Museum and Academy educators and swordsmen as they discuss their favorite varieties of sword fighting through videogames, books, and film and compare them to historical Swordsmanship"
             },
             {
                 "title": "A Certain Anime Franchise",
@@ -88,10 +154,28 @@
                 "description": "Are you looking for another franchise to get into? Let me point out none other than the 'Toaru' or 'Certain' series! Spanning a lot of light novels, manga, anime, etc, it's a lore that can get quite complicated if you're new to it. Allow me to start you out with a franchise that's still going strong and includes one of the most popular anime characters, Mikoto Misaka!"
             },
             {
+                "title": "Samurai Dan: Real Sword of Piece of Crap?",
+                "room": "Main Events",
+                "time": "12:00-1:00 PM",
+                "description": "Want to pick up a sword and KNOW that it will get you through the upcoming Zombie Apocalypse (oh yeah, it's coming) in one piece? Need to know at a glance if a blade is simply shiny, artsy, or full-on battle worthy? Come to Real Sword or Piece of Crap and follow Samurai Dan through an easy step-by-step examination of blades and prepare yourself for...well, you know!"
+            },
+            {
                 "title": "Crit Happens: The DnD Improv Experiment",
                 "room": "Panel Room 4",
                 "time": "12:00-1:00 PM",
-                "description": "Crit Happens is A DnD inspired Improv Comedy Show. Come watch as a Dungeon Master who has failed to prep a session of A Table Top RPG resorts to using you the audience to design an adventure and also come up with a few surprises to hinder their adventurers. Not a fan of just watching people play DnD? Fear not! The entire adventure will come alive through the help of improvisors acting out all of the shenanigans you throw at them. Who knows if they will succeed, but laughter will be had."
+                "description": "Crit Happens is A DnD inspired Improv Comedy Show. Come watch as a Dungeon Master who has failed to prep a session of A Table Top RPG resorts to using you the audience to design an adventure and also come up with a few surprises to hinder their adventurers. Not a fan of just watching people play DnD? Fear not! The entire adventure will come alive through the help of improvisors acting out all of the shenanigans you throw at them. Who knows if they will succeed, but laughter will be had"
+            },
+            {
+                "title": "Yokai Nation",
+                "room": "Panel Room 1",
+                "time": "12:30-1:30 PM",
+                "description": "Japan has one of the most developed monster cultures of any country. Yokai Nation attempts to trace how the Japanese fascination with ghosts, goblins and other creepy denizens of the world have been born out of Japanese cultural ideas, and how they in turn have influenced Japanese culture and history, all the while serving as ambassadors to the world. Drawing examples from literary works, Japanese cinema, anime, manga and video games, this panel will take a closer look at some of the popular monsters, trace their histories and contexts, and look how how yokai have been used as cinematic devices, cautionary tales, cultural ambassadors to the West, and representations of Japanese fears and hopes"
+            },
+            {
+                "title": "A Medieval Military History of Japan",
+                "room": "Panel Room 2",
+                "time": "12:30-1:30 PM",
+                "description": "Land conflict, and the impact it had on developing the unique culture and Society"
             },
             {
                 "title": "Nuclear Demons and Sore-Throat Healing Goddesses: A Half-Baked Discussion about Touhou Project",
@@ -100,16 +184,52 @@
                 "description": "Are you vaguely aware of Touhou Project? Are you a huge fan of Touhou Project? Do you not even know what Touhou Project is? If you answered yes to any of these questions, this panel is for you! In this guided but open discussion, I'll respond to any questions or musings you may have, while also talking about the basics of Touhou Project, its importance and history, how I got into it and why I love it, and how you can get into it and why you'll love it. We'll also play Touhou 10 at the panels end"
             },
             {
+                "title": "Women in Anime",
+                "room": "Main Event",
+                "time": "1:30-2:30 PM",
+                "description": "Catgirl. Glasses girl. Magical girl. Total Bada$$. How are females portrayed and sterotyped in anime, and how has that changed over time? Are those portrayals positive or negative, or a vague combo of both? What are the current trends for anime females? Come discuss the women of anime with the English VAs of some of your favorite Characters, Caitlin Glass and Tia Ballard! Misogynists not welcome!"
+            },
+            {
+                "title": "Finding Your Sword",
+                "room": "Panel Room 1",
+                "time": "2:00-3:00 PM",
+                "description": "This is a true discussion as Swordsmanship Museum and Academy students discuss their own personal paths towards finding their favorite sword, and inspiring viewers to continue on their own path to find their niche"
+            },
+            {
+                "title": "Dragon Ball Food!",
+                "room": "Panel Room 2",
+                "time": "2:00-3:00 PM",
+                "description": "Discover the fun and exciting food-based names of Dragon Ball, the world's most-recognized Japanese cartoon and comic. Dragon Ball Scholar and local Grand Rapids author Derek Padula will entertain all age groups with the silly and easy-to-understand names of Dragon Ball's main characters, places, and things. Learn about Eastern and Western culture, food, and language. - Free food samples provided, while supplies last"
+            },
+            {
                 "title": "Danganronpa: Trigger Happy Havoc Panel",
                 "room": "Panel Room 4",
                 "time": "2:00-4:00 PM",
-                "description": "\"It's Punishment Time!\"<br />Come and join the 78th class from Hopes Peak Academy in fun activities. The Super High School Level students will test your knowledge about them with some trivia questions and later Q&A/dare!"
+                "description": "\"It's Punishment Time!\" Come and join the 78th class from Hopes Peak Academy in fun activities. The Super High School Level students will test your knowledge about them with some trivia questions and later Q&A/dare!"
+            },
+            {
+                "title": "Live Script Reading",
+                "room": "Main Events",
+                "time": "3:00-4:00 PM",
+                "description": "A JAFAX favorite returns once more! Come on down to center stage to watch seasoned voice actors, Caitlin Glass, Jerry Jewell, and Tyson Rinehart flex their acting chops for you by reading scripts from some of your favorite TV shows, movies, or games COMPLETELY BLIND. I hope you brought your popcorn because it's sure to be one heck-of-a-show!"
             },
             {
                 "title": "Best & Worst Side Characters in Anime: Podcast Recording at JAFAX",
                 "room": "Panel Room 3",
                 "time": "3:00-4:30 PM",
-                "description": "It's time for Side Characters to shine!<br />Be a part of our team as we record an episode of Anime ShoShin from JAFAX! Help us answer the age-old question: \"Who are the Best, and Worst, Side Characters in Anime?\".<br />Share your thoughts and be included in the podcast! Or just come hang out for the discussion. Either way we are excited to have you join us for this very special Anime ShoShin episode from JAFAX 2022. The episodes will be released starting 7/1/22. Find us at AnimeShoShin.com."
+                "description": "It's time for Side Characters to shine!<br />Be a part of our team as we record an episode of Anime ShoShin from JAFAX!<br />Help us answer the age-old question: \"Who are the Best, and Worst, Side Characters in Anime?\"<br />Share your thoughts and be included in the podcast! Or just come hang out for the discussion. Either way we are excited to have you join us for this very special Anime ShoShin episode from JAFAX 2022.<br />The episodes will be released starting 7/1/22.<br />Find us at <a href=\"AnimeShoShin.com\">AnimeShoShin.com</a>"
+            },
+            {
+                "title": "Samurai Dan's Close Quarters Sword Class",
+                "room": "Panel Room 1",
+                "time": "3:30-4:30 PM",
+                "description": "Not a boffer class! Real Samurai Sword moves and concepts taught by a professional swordsman to con-goers.  Bokken provided, but you are also welcome to bring your own(wooden only)"
+            },
+            {
+                "title": "Changing Demographics in Media: A White Man's Perspective",
+                "room": "Panel Room 2",
+                "time": "4:00-5:00 PM",
+                "description": "A middle aged white man talks about the shifting demographics in media and related potential societal impacts"
             },
             {
                 "title": "Introduction to Modular Origami",
@@ -118,22 +238,46 @@
                 "description": "Have you ever wanted to learn how to make kusudama or geometric origami models? Come learn how to make Sonobe modules and build a dodecahedron model! The versatile Sonobe module can be used to create numerous origami models, and allows for anyone to create elaborate structures even with minimal experience folding models. Materials are provided!"
             },
             {
+                "title": "Jerry Jewell Q&A",
+                "room": "Panel Room 1",
+                "time": "5:00-6:00 PM",
+                "description": "Voice actor and director Jerry Jewell (Fullmetal Alchemist: Brotherhood, Yuri!! On Ice, Fruits Basket, etc.) comes to sit down and answer your biggest questions! From acting, to directing, and anything else under the sun, if you ask it, he'll answer it!"
+            },
+            {
+                "title": "Not Today Satan",
+                "room": "Panel Room 2",
+                "time": "5:30-6:30 PM",
+                "description": "Because if fandom gets blamed for being devil worship, might as well show them some actual devils for a change. Or at least, what people have misconstrued as devils since forever. But seriously, the image of the devil undergoes some interesting transformations when crossing boundaries between cultures. This panel looks at the idea of the Devil in Japanese folklore, images of the Western devil in Japanese media, and how sometimes it can go horribly wrong"
+            },
+            {
                 "title": "My Bingo Academia!",
                 "room": "Panel Room 3",
                 "time": "5:30-7:00 PM",
                 "description": "Are you a My Hero Academia fan? An anime fan in general? Or do you just enjoy playing bingo? Come join us in a fun panel of bingo!"
             },
             {
+                "title": "A Medieval Military History of Japan",
+                "room": "Panel Room 2",
+                "time": "7:00-8:00 PM",
+                "description": "Land conflict, and the impact it had on developing the unique culture and Society"
+            },
+            {
                 "title": "Who's that Gundam?",
                 "room": "Panel Room 4",
                 "time": "7:00-8:00 PM",
-                "description": "Can you guess that gandam?! Let's see how versatile your gundam knowledge is. Are you gundam. Prizes will be given for 1<sup>st</sup> and 2<sup>nd</sup> place winners."
+                "description": "Can you guess that gandam?! Let's see how versatile your gundam knowledge is. Are you gundam. Prizes will be given for 1st and 2nd place winners"
             },
             {
-                "title": "Best & Worst Side Characters in Anime: Podcast Recording at JAFAX (Round 2)",
+                "title": "No Means No!: A Self-Defense Panel",
+                "room": "Panel Room 1",
+                "time": "8:00-9:00 PM",
+                "description": "NO means NO! Saying it is good. Enforcing it is better.  Women (and men) have a right to their own personal space and safety, and when unpleasantness occurs, it's nice to able to protect oneself.  Come learn easy, simple but very effective techniques from Samurai Dan's overenthusiastic partner Jillian that will make your con experiences safer and more enjoyable (for you, at least!)"
+            },
+            {
+                "title": "Best &amp; Worst Side Characters in Anime: Podcast Recording at JAFAX (Round 2)",
                 "room": "Panel Room 3",
                 "time": "8:00-9:30 PM",
-                "description": "It's time for Side Characters to shine!<br />Be a part of our team as we record an episode of Anime ShoShin from JAFAX! Help us answer the age-old question: \"Who are the Best, and Worst, Side Characters in Anime?\".<br />Share your thoughts and be included in the podcast! Or just come hang out for the discussion. Either way we are excited to have you join us for this very special Anime ShoShin episode from JAFAX 2022. The episodes will be released starting 7/1/22. Find us at AnimeShoShin.com."
+                "description": "It's time for Side Characters to shine!<br />Be a part of our team as we record an episode of Anime ShoShin from JAFAX!<br />Help us answer the age-old question: \"Who are the Best, and Worst, Side Characters in Anime?\"<br />Share your thoughts and be included in the podcast! Or just come hang out for the discussion. Either way we are excited to have you join us for this very special Anime ShoShin episode from JAFAX 2022.<br />The episodes will be released starting 7/1/22.<br />Find us at <a href=\"AnimeShoShin.com\">AnimeShoShin.com</a>"
             },
             {
                 "title": "Party Table Presents: Are You A Great Senpai?!",
@@ -142,10 +286,28 @@
                 "description": "Party Table is here to party with you! How will we party? By hosting a game show of course! Contestants will be chosen from the audience to answer a series of questions. Get those questions right and win some cool prizes! Are you the GREATEST Senpai? Are you too kawaii to live? Are you too sugoi to die? Prove it on the field of love and battle!"
             },
             {
+                "title": "The CONfessional (18+)",
+                "room": "Panel Room 2",
+                "time": "9:00-10:00 PM",
+                "description": "It's time to confess! We've all had bizarre con moments where you walk away just cringing at yourself. At this very special panel, attendees are invited to secretly confess to their most embarrassing convention moments or tell their craziest con stories. All are anonymously submitted, but all will be publicly read!"
+            },
+            {
                 "title": "Yaoi After Dark (18+)",
                 "room": "Panel Room 4",
                 "time": "9:00-11:00 PM",
                 "description": "Need a little Yaoi in your life, but can't decide where or what to start with? Here is the panel for you! From cute/soft to hard to oh my god, wait that yaoi/hidden yaoi. Will be going over anime, manga, graphic novels games, while playing yaoi games"
+            },
+            {
+                "title": "Nanigans (18+)",
+                "room": "Main Events",
+                "time": "10:00 PM-11:00 PM",
+                "description": "It's Saturday night at the con, you don't want to go to the dance, what do you do?<ul><li>Go Back to Your Room and Sleep: turn to PAGE 69</li><li>Check Out the Game Room Again: turn to PAGE 420</li><li>Bask In Aimless, Irreverent, Inappropriate Mischief of Nanigans: go to PANEL ROOM 2</li></ul>"
+            },
+            {
+                "title": "OC Dating Game (18+)",
+                "room": "Panel Room 2",
+                "time": "10:30 PM-12:00 AM",
+                "description": "Is your original character (OC) single? Is your Naruto fan character lonely? Ever wanted to set your fursona up on a date with someone? Now's your chance! At the OC Dating Game, a panel of randomly selected attendees will represent their original character and try to woo another. In the format of a classic blind dating show, maybe your OC will finally have a chance at love! Fan characters, original characters, even fursonas are welcome!"
             }
         ],
         "Sunday": [
@@ -156,46 +318,106 @@
                 "description": "Are you a fan of JRPGS? JPOP? Then let me introduce you to a franchise where you can start living your ideal life or restart to ensure a wonderful future. For fans of isekai, you're sure to get your fill with the games and anime that are out so far. The series is called 'The Caligula Effect' and having had lots of fun with what it's all offered, I hope I can pay the fun forward!"
             },
             {
-                "title": "Presentation \"Japanese daily life with some Anime/Manga scenes.\"",
+                "title": "Oldies K-pop/J-pop Random Dance Game",
+                "room": "Panel Room 1",
+                "time": "10:00-11:00 AM",
+                "description": "Are you a seasoned k-pop and j-pop enjoyer? Do you still listen to SUPER JUNIOR on repeat? Then this panel is for you! Enjoy a blast from the past with your favorite k-pop and j-pop choruses! Jump in when you know the dance, or just groove to the music! Maybe even just struggle to remember the moves you KNOW you knew at 13! This mix will focus only on dances up to 2016! Everyone is welcome to enjoy this exciting game of recognizable choreographies from both k-pop and j-pop past!"
+            },
+            {
+                "title": "Presentation \"Japanese daily life with some Anime/Manga scenes\"",
                 "room": "Panel Room 3",
                 "time": "10:30-11:30 AM",
                 "description": "Michiko will introduce real Japan using some Anime/Manga scenes. Anime shows a lot of Japanese culture/daily life, but can you tell which ones are true and which ones are not true!? Let's find out together!"
             },
             {
+                "title": "Q&A with Super Guitar Bros",
+                "room": "Panel Room 2",
+                "time": "11:00 AM-12:00 PM",
+                "description": "Come chill with the Super Guitar Bros Sam and Steve and ask them any questions that come to mind"
+            },
+            {
+                "title": "Tyson Rinehart Q&A",
+                "room": "Panel Room 1",
+                "time": "11:30 AM-12:30 PM",
+                "description": "Voice actor, director, and musician Tyson Rinehart (Steins;Gate, High School DxD, etc.) stops by to answer all the questions you have to ask from acting, to directing, to music, and more! So come on by and bring all of the questions you've been dying to ask!"
+            },
+            {
                 "title": "Influential Women in Japanese History",
                 "room": "Panel Room 4",
                 "time": "11:30 AM-1:00 PM",
-                "description": "History is full of stories of the men who shaped the world, but what about the women? Come hear about the women who helped shape Japanese history; included are fierce samurai warriors, the first Japanese woman in recorded history, and the first Japanese woman to receive a Western education."
+                "description": "History is full of stories of the men who shaped the world, but what about the women? Come hear about the women who helped shape Japanese history; included are fierce samurai warriors, the first Japanese woman in recorded history, and the first Japanese woman to receive a Western education"
             },
             {
-                "title": "Yukata workshop",
+                "title": "Nerd Chapel at JAFAX",
                 "room": "Panel Room 3",
                 "time": "12:00-1:00 PM",
-                "description": "Yukata is a type of Japanese summer Kimono. Do you want to learn how to wear it? You can observe the demonstration or you can try it on."
+                "description": "Join Nerd Chapel for a friendly Christian worship service with music and a message using the anime Bleach to look at our mission as followers of Jesus"
+            },
+            {
+                "title": "JAFAX Presents: Anime Pictionary",
+                "room": "Main Events",
+                "time": "12:00-1:30 PM",
+                "description": "Come join us as we play Pictionary anime edition with the assistance of our friends at Party Table! Prizes will be rewarded to attendees that emerge victorious in this friendly competition!"
+            },
+            {
+                "title": "A Weeb Abroad",
+                "room": "Panel Room 2",
+                "time": "12:30-1:30 PM",
+                "description": "Reflections on Visiting Japan Japan isn't open for tourism...yet. But it will. As surely as new seasons of anime come out, or cosplay continues to evolve, one day the nation will open again. But until then, one can always live vicariously through memories and experiences in the past. If you're gearing up for that trip the day the border is fully open, then hopefully this panel will help motivate and answer questions"
+            },
+            {
+                "title": "Let's Talk Cartoons with Tia Ballard",
+                "room": "Panel Room 1",
+                "time": "1:00-2:00 PM",
+                "description": "Do you love cartoons? Do you have an appreciation for your favorite animation? Well come join voice actor, director, and writer, Tia Ballard to talk about all of the wonderful reasons why we love animation as a whole!"
             },
             {
                 "title": "Japanese 101 (Japanese language lesson for beginners)",
                 "room": "Panel Room 3",
                 "time": "1:30-2:30 PM",
-                "description": "Would you like to learn easy Japanese? This session is for people who have had little or no previous knowledge of the language."
+                "description": "Would you like to learn easy Japanese? This session is for people who have had little or no previous knowledge of the language"
             },
             {
-                "title": "A1 Student's Truth or Dare/Q&A",
+                "title": "Dragon Ball Fashion",
+                "room": "Panel Room 2",
+                "time": "2:00-3:00 PM",
+                "description": "Pop culture and fashion are linked. Dragon Ball Scholar Derek Padula will show you how Dragon Ball was inspired by real-world fashion and then inspired its own fashion trends. With examples from ancient China, 1980s chic, and modern Western tracksuits, you'll see how Dragon Ball is a product of its environment that then shapes our environment"
+            },
+            {
+                "title": "CLAMP 101",
                 "room": "Panel Room 4",
                 "time": "2:00-3:30 PM",
-                "description": "This is a hero academia panel with 1-A students! We will be doing a Q&A and playing truth or dare!"
+                "description": "What do time-traveling vampires and Cardcaptor Sakura have in common? Join us for an introduction to the world-famous mangaka group CLAMP! We'll be exploring their intricate stories and diverse cast of characters, from RG Veda to Clear Card, as well as their contribution to LGBTQIA+ media"
+            },
+            {
+                "title": "Caitlin Glass Q&A",
+                "room": "Main Events",
+                "time": "2:30-3:30 PM",
+                "description": "Voice actress and ADR director Caitlin Glass (Winry in FMA, Haruhi in Ouran) answers all your burning questions about voice acting, directing, singing, fandom, nerdiness and just generally whatever you want! Come bring your Q's and she'll provide the A's… and often, free schwag, too!"
+            },
+            {
+                "title": "Samurai VS Ninja With Samurai Dan",
+                "room": "Panel Room 1",
+                "time": "3:00-4:00 PM",
+                "description": "Two rival warrior cultures, each rich in history and shrouded in mystery and myth. Samurai Dan highlights each, and offers a tell-all quiz to attendees. Come see which warrior resides inside you!"
             },
             {
                 "title": "Japanese Conversation Table",
                 "room": "Panel Room 3",
-                "time": "3:30-4:30 PM",
+                "time": "3:00-4:00 PM",
                 "description": "Have you studied Japanese? Would you like to try your Japanese skills with real Japanese people!? The session will be led by Michiko for intermediate and advanced levels of Japanese. Let's talk about Anime, J-pop or anything you like in Japanese!"
             },
             {
-                "title": "Nerd Chapel at JAFAX",
-                "room": "Panel Room 4",
+                "title": "JAFAX Feedback Panel",
+                "room": "Panel Room 2",
+                "time": "3:30-4:30 PM",
+                "description": "Calling all attendees!! Did you love the event? Is there something we can do to improve your experience? Do you have any ideas that you think we should consider? Or do you simply want to say hi? Lend us a hand and also your voice, and help JAFAX continue to be the convention that we all love so dearly!"
+            },
+            {
+                "title": "Yukata workshop",
+                "room": "Panel Room 3",
                 "time": "4:00-5:00 PM",
-                "description": "Join Nerd Chapel for a friendly Christian worship service with music and a message using the anime Bleach to look at our mission as followers of Jesus."
+                "description": "Yukata is a type of Japanese summer Kimono. Do you want to learn how to wear it? You can observe the demonstration or you can try it on"
             }
         ]
     }
