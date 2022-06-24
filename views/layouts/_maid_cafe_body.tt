@@ -15,6 +15,8 @@
         [% IF maidCafeSchedAndMenu == "enabled" %]
         <h2>Hours</h2>
         <p>Saturday, June 25<sup>th</sup> from Noon until 3:00PM</p>
+        <h2>Location</h2>
+        <p>First floor, Grand Gallery D-E-F</p>
         <h2>Menu</h2>
         <p>
             Lunch and a dessert<br />
