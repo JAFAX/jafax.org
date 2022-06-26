@@ -32,32 +32,22 @@ package Buyo::Utils {
     use Carp;
     use Data::Dumper;
     use Return::Type;
+    use Types::Standard -all;
     use Type::Library -base;
     use Type::Utils;
 
     use Buyo::Constants;
     use Sys::Error;
+    use Value::TypeCheck;
 
     my $VERSION = $Buyo::Constants::VERSION;
 
-    BEGIN {
-        use Exporter;
-        our (@EXPORT, @EXPORT_OK);
-
-        # set the version for version checking
-        @EXPORT      = qw(
-            err_log
-        );
-        @EXPORT_OK   = qw();
-    }
-
     my $debug = false;
 
-    our sub err_log :ReturnType(Void) (@msg) {
-        return print {*STDERR} "@msg\n";
-    }
-
     our sub new :ReturnType(Object) ($class, $debug = false) {
+        type_check($class, Str);
+        type_check($debug, Bool);
+
         my $self = {};
 
         bless($self, $class);
@@ -65,6 +55,8 @@ package Buyo::Utils {
     }
 
     our sub get_application_prefix :ReturnType(Str) ($self) {
+        type_check($self, Object);
+
         say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
         my $prefix = "$FindBin::Bin/..";
         return $prefix;

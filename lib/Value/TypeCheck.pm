@@ -30,9 +30,10 @@ package Value::TypeCheck {
     use base qw(Exporter);
     use Carp;
     use Data::Dumper;
+    use Return::Type;
     use Type::Library -base;
     use Type::Utils;
-    use Return::Type;
+    use Types::Standard -all;
 
     our $VERSION = '0.0.1';
 

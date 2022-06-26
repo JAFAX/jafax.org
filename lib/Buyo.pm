@@ -46,7 +46,8 @@ package Buyo {
     use lib "$FindBin::Bin/../lib";
 
     use Buyo::Constants;
-    use Buyo::Utils qw(err_log);
+    use Buyo::Logger;
+    use Buyo::Utils;
 
     use Value::TypeCheck qw(type_check);
     use File::IO;
@@ -59,29 +60,13 @@ package Buyo {
     # this global is to avoid copying it everywhere
     our $config;
 
-    my $err = undef;
-    my $fio = undef;
+    my $err    = undef;
+    my $fio    = undef;
+    my $logger = undef;
 
-    my sub error_msg :ReturnType(Void) ($error_struct, $class) {
-        type_check($error_struct, HashRef);
-        type_check($class, Str);
-
-        say STDERR "Error struct dump: ". Dumper($error_struct);
-
-        my $error   = $error_struct->{'error'};
-        my $info    = $error_struct->{'info'};
-        my $log_msg = $error_struct->{'log_message'};
-        my $type    = $error_struct->{'type'};
-        my $err_str = $error_struct->{'error_string'};
-
-        my $msg = "== ERROR ==: $error: $class\n" .
-                  "== ERROR ==: $info\n" .
-                  "== ERROR ==: $log_msg\n" .
-                  "== ERROR ==: error type: $type, $err_str\n";
-        croak($msg);
-    }
-
-    my sub load_config :ReturnType(Hash) ($appdir) {
+    # Return type is Value, as hash doesn't have a value that is
+    # codefied
+    my sub load_config :ReturnType(Value) ($appdir) {
         type_check($appdir, Str);
 
         my $sub = (caller(0))[3];
@@ -100,13 +85,13 @@ package Buyo {
         } catch {
             classify $ARG, {
                 2       => sub {
-                    error_msg($ARG, "File not found");
+                    $logger->error_msg($ARG, "File not found");
                 },
                 13      => sub {
-                    error_msg($ARG, "Access denied");
+                    $logger->error_msg($ARG, "Access denied");
                 },
                 default => sub {
-                    error_msg($ARG, "Default error");
+                    $logger->error_msg($ARG, "Default error");
                 }
             };
         };
@@ -122,10 +107,10 @@ package Buyo {
         } catch {
             classify $ARG, {
                 1001 => sub {
-                    error_msg($ARG, "Cannot parse");
+                    $logger->error_msg($ARG, "Cannot parse");
                 },
                 default => sub {
-                    error_msg($ARG, "Default error");
+                    $logger->error_msg($ARG, "Default error");
                 }
             };
         };
@@ -148,10 +133,10 @@ package Buyo {
         type_check($json_file, Str);
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
-        err_log("== DEBUGGING ==: APPDIR: $config->{'appdir'}") if $config->{'debug'};
-        err_log("== DEBUGGING ==: JSON FILE: $json_file") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: APPDIR: $config->{'appdir'}") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: JSON FILE: $json_file") if $config->{'debug'};
 
         my $fh = undef;
         my $status = undef;
@@ -190,19 +175,19 @@ package Buyo {
         }
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         my $f_mtime = undef;
-        err_log("== DEBUGGING ==: file: " . $file_name) if $config->{'debug'};
-        err_log("== TRACE ==: DUMP of \$config object: ". Dumper($config)) if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: file: " . $file_name) if $config->{'debug'};
+        $logger->err_log("== TRACE ==: DUMP of \$config object: ". Dumper($config)) if $config->{'debug'};
         my $fq_path = "" . $config->{'appdir'} . $site_parent_path . ${file_name};
         # strip excess '/' characters
         $fq_path =~ s/\/\//\//g;
-        err_log("== DEBUGGING ==: Fully-qualified path: ". $fq_path) if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Fully-qualified path: ". $fq_path) if $config->{'debug'};
 
         # get the file's mtime
         $f_mtime = (stat($fq_path))[MTIME_ATTR];
-        err_log("== DEBUGGING ==: mtime: ". $f_mtime) if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: mtime: ". $f_mtime) if $config->{'debug'};
 
         return $f_mtime;
     }
@@ -212,7 +197,7 @@ package Buyo {
         type_check($type, Str);
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         my $json_txt;
         if ($type eq 'news') {
@@ -233,13 +218,13 @@ package Buyo {
         } catch {
             classify $ARG, {
                 default => sub {
-                    error_msg($ARG, "Default error");
+                    $logger->error_msg($ARG, "Default error");
                 }
             };
         };
 
         if ($type eq 'news') {
-            err_log("== DEBUGGING ==: Is News Article") if $config->{'debug'};
+            $logger->err_log("== DEBUGGING ==: Is News Article") if $config->{'debug'};
             my $author   = $article_struct->{'info'}->{'author'};
             my $category = $article_struct->{'info'}->{'category'};
             my $date     = $article_struct->{'info'}->{'date'};
@@ -249,7 +234,7 @@ package Buyo {
 
             return $author, ucfirst($category), $date, $title, $content, $id;
         } elsif ($type eq 'bio') {
-            err_log("== DEBUGGING ==: Is Guest Bio") if $config->{'debug'};
+            $logger->err_log("== DEBUGGING ==: Is Guest Bio") if $config->{'debug'};
             my $name     = $article_struct->{'name'};
             my $photo_fn = $article_struct->{'photoFileName'};
             my $position = $article_struct->{'photoPosition'};
@@ -259,7 +244,7 @@ package Buyo {
             my $f_mtime  = get_mtime($photo_fn);
             # to work around caching issues with Chrome, append a query string to the
             # file URL with the mtime
-            err_log("== DEBUGGING ==: photo MTIME: ". $f_mtime) if $config->{'debug'};
+            $logger->err_log("== DEBUGGING ==: photo MTIME: ". $f_mtime) if $config->{'debug'};
 
             $photo_fn = "${photo_fn}?${f_mtime}";
 
@@ -272,14 +257,14 @@ package Buyo {
         type_check($extension, Str);
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         my @files;
         opendir(my $dh, "$directory");
         while (my $file = readdir $dh) {
             next if $file =~ /^\.\.?$/;
             next if $file !~ /^\d+\.json$/;
-            err_log("== DEBUGGING ==: File '$file' found. Will add to array.") if $config->{'debug'};
+            $logger->err_log("== DEBUGGING ==: File '$file' found. Will add to array.") if $config->{'debug'};
             push(@files, "$directory/$file");
         }
         closedir $dh;
@@ -291,15 +276,15 @@ package Buyo {
         type_check($json_path, Str);
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         my $struct = undef;
         my $appdir = $config->{'appdir'};
-        err_log("== DEBUGGING ==: Menu definition directory: ${appdir}${json_path}");
+        $logger->err_log("== DEBUGGING ==: Menu definition directory: ${appdir}${json_path}");
         my @files  = sort(get_file_list("${appdir}${json_path}", "json"));
 
         foreach my $file (@files) {
-            err_log("== DEBUGGING ==: file: $file") if $config->{'debug'};
+            $logger->err_log("== DEBUGGING ==: file: $file") if $config->{'debug'};
             my $fh = undef;
             my $status = undef;
             try {
@@ -317,15 +302,15 @@ package Buyo {
         return $struct;
     }
 
-    my sub build_article_struct_list :ReturnType(ArrayRef) () {
+    my sub build_article_struct_list :ReturnType(ArrayRef[HashRef]) () {
         my $appdir = $config->{'appdir'};
         my @files = sort { $b cmp $a } get_file_list("${appdir}content", 'json');
 
         my @articles;
         foreach my $file (@files) {
-            err_log("== DEBUGGING ==: Processing file '$file'") if $config->{'debug'};
+            $logger->err_log("== DEBUGGING ==: Processing file '$file'") if $config->{'debug'};
             my (undef, $filename) = split(/.*\/content\//, $file);
-            err_log("== DEBUGGING ==: filename '$filename'") if $config->{'debug'};
+            $logger->err_log("== DEBUGGING ==: filename '$filename'") if $config->{'debug'};
             my ($article, $ext) = split(/\./, $filename);
             my ($author, $category, $date, $title, $content, $id) = get_article_from_json($article, 'news');
             push(@articles,
@@ -343,11 +328,11 @@ package Buyo {
         return \@articles;
     }
 
-    my sub get_department_contacts :ReturnType(Hash) ($appdir) {
+    my sub get_department_contacts :ReturnType(HashRef) ($appdir) {
         type_check($appdir, Str);
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         my $json_txt = get_json("conf.d/departments.json");
         my $json     = JSON->new();
@@ -363,20 +348,20 @@ package Buyo {
         } catch {
             classify $ARG, {
                 default => sub {
-                    error_msg($ARG, "Default error");
+                    $logger->error_msg($ARG, "Default error");
                 }
             };
         };
 
-        err_log("== DEBUGGING ==: DUMP: ". Dumper($people)) if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: DUMP: ". Dumper($people)) if $config->{'debug'};
         return $people;
     }
 
-    my sub get_guestlist :ReturnType(Hash) ($appdir) {
+    my sub get_guestlist :ReturnType(HashRef) ($appdir) {
         type_check($appdir, Str);
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         my $json_txt = get_json("conf.d/features.json");
         my $json     = JSON->new();
@@ -392,7 +377,7 @@ package Buyo {
         } catch {
             classify $ARG, {
                 default => sub {
-                    error_msg($ARG, "Default error");
+                    $logger->error_msg($ARG, "Default error");
                 }
             };
         };
@@ -400,11 +385,11 @@ package Buyo {
         return $guests;
     }
 
-    my sub get_artist_list :ReturnType(Hash) ($appdir) {
+    my sub get_artist_list :ReturnType(HashRef) ($appdir) {
         type_check($appdir, Str);
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         my $json_txt = get_json("content/artists/artists.json");
         my $json     = JSON->new();
@@ -420,7 +405,7 @@ package Buyo {
         } catch {
             classify $ARG, {
                 default => sub {
-                    error_msg($ARG, "Default error");
+                    $logger->error_msg($ARG, "Default error");
                 }
             }
         };
@@ -428,11 +413,11 @@ package Buyo {
         return $artists;
     }
 
-    my sub get_vendor_list :ReturnType(Hash) ($appdir) {
+    my sub get_vendor_list :ReturnType(HashRef) ($appdir) {
         type_check($appdir, Str);
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         my $json_txt = get_json("content/vendors/vendors.json");
         my $json     = JSON->new();
@@ -448,7 +433,7 @@ package Buyo {
         } catch {
             classify $ARG, {
                 default => sub {
-                    error_msg($ARG, "Default error");
+                    $logger->error_msg($ARG, "Default error");
                 }
             }
         };
@@ -456,11 +441,11 @@ package Buyo {
         return $vendors;
     }
 
-    my sub get_panel_details :ReturnType(Hash) ($appdir) {
+    my sub get_panel_details :ReturnType(HashRef) ($appdir) {
         type_check($appdir, Str);
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         my $json_txt = get_json("content/panels/panels.json");
         my $json     = JSON->new();
@@ -476,7 +461,7 @@ package Buyo {
         } catch {
             classify $ARG, {
                 default => sub {
-                    error_msg($ARG, "Default error");
+                    $logger->error_msg($ARG, "Default error");
                 }
             }
         };
@@ -489,20 +474,20 @@ package Buyo {
         type_check($value, Str);
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
-        err_log("== DEBUGGING ==: Input \$value: $value") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Input \$value: $value") if $config->{'debug'};
 
         my $person;
         my @people = @{get_department_contacts($appdir)};
 
         foreach $person (@people) {
-            err_log("== DEBUGGING ==: Id: $person->{'id'}") if $config->{'debug'};
+            $logger->err_log("== DEBUGGING ==: Id: $person->{'id'}") if $config->{'debug'};
             if ($person->{'id'} == $value) {
-                err_log("== DEBUGGING ==: Id \$person->{'id'} equals '$value'. Retrieving email address") if $config->{'debug'};
-                err_log("== DEBUGGING ==: Id: $value, Email: $person->{'emailAddress'}") if $config->{'debug'};
+                $logger->err_log("== DEBUGGING ==: Id \$person->{'id'} equals '$value'. Retrieving email address") if $config->{'debug'};
+                $logger->err_log("== DEBUGGING ==: Id: $value, Email: $person->{'emailAddress'}") if $config->{'debug'};
                 return $person->{'emailAddress'};
             } else {
-                err_log("== DEBUGGING ==: Id does not match value. Continuing...") if $config->{'debug'};
+                $logger->err_log("== DEBUGGING ==: Id does not match value. Continuing...") if $config->{'debug'};
             }
         }
 
@@ -513,7 +498,7 @@ package Buyo {
         type_check($response_data, Str);
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         # build an LWP::UserAgent object
         my $ua = LWP::UserAgent->new();
@@ -523,22 +508,22 @@ package Buyo {
         # create our post request to Google
         my $url     = 'https://www.google.com/recaptcha/api/siteverify';
         my $uri_enc = URI::Encode->new(encode_reserved => 0);
-        err_log("== DEBUGGING ==: config dump: ". Dumper($config)) if $config->{'debug'};
-        err_log("== DEBUGGING ==: secret key: $secret_key") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: config dump: ". Dumper($config)) if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: secret key: $secret_key") if $config->{'debug'};
         my $encoded_service_key = $uri_enc->encode($secret_key);
-        err_log("== DEBUGGING ==: encoded service key: $encoded_service_key") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: encoded service key: $encoded_service_key") if $config->{'debug'};
         my $encoded_response    = $uri_enc->encode($response_data);
-        err_log("== DEBUGGING ==: response: $response_data") if $config->{'debug'};
-        err_log("== DEBUGGING ==: encoded response: $encoded_response") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: response: $response_data") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: encoded response: $encoded_response") if $config->{'debug'};
         my $query   = '?secret=' . $secret_key . '&response=' . $response_data;
-        err_log("== DEBUGGING ==: query string: $query") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: query string: $query") if $config->{'debug'};
         my $req     = HTTP::Request->new(POST => "${url}${query}");
         $req->content_type('application/x-www-form-urlencoded');
         $req->header('Content-Length' => 0);
         my $result  = $ua->request($req);
-        err_log("== DEBUGGING ==: response: ". Dumper($result)) if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: response: ". Dumper($result)) if $config->{'debug'};
         my $js_res  = decode_json($result->content);
-        err_log("== DEBUGGING ==: decoded response: ". Dumper($js_res)) if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: decoded response: ". Dumper($js_res)) if $config->{'debug'};
 
         if ($js_res->{'success'} eq 'true') {
             return true;
@@ -551,9 +536,9 @@ package Buyo {
         type_check($post_values, HashRef);
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
-        err_log("== DEBUGGING ==: DUMP POST VALUES: ". Dumper($post_values)) if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: DUMP POST VALUES: ". Dumper($post_values)) if $config->{'debug'};
         my $email_address = get_department_email_from_id($config->{'appdir'}, $post_values->{'to_list'});
         my $email_subject = $post_values->{'email_subject'};
         my $email_body    = "Message sent from: $post_values->{'email_address'}\n\nMessage:\n$post_values->{'email_body'}\n";
@@ -562,7 +547,7 @@ package Buyo {
         my $response      = validate_recaptcha($post_values->{'g-recaptcha-response'});
 
         if ($response eq true) {
-            err_log("== DEBUGGING ==: The response was valid! Let's send an email") if $config->{'debug'};
+            $logger->err_log("== DEBUGGING ==: The response was valid! Let's send an email") if $config->{'debug'};
             # construct email
             my $msg = MIME::Lite->new(
                 From     => 'noreply@jafax.org',
@@ -574,34 +559,34 @@ package Buyo {
             );
             $msg->send('sendmail', '/usr/sbin/sendmail -t -oi -oem');
         } else {
-            err_log("== WARNING ==: Got a bot posting stuff: email address ". $post_values->{'email_address'});
+            $logger->err_log("== WARNING ==: Got a bot posting stuff: email address ". $post_values->{'email_address'});
         }
     }
 
-    my sub get_last_three_article_structs :ReturnType(ArrayRef[Hash]) ($articles) {
-        type_check($articles, ArrayRef);
+    my sub get_last_three_article_structs :ReturnType(ArrayRef[HashRef]) ($articles) {
+        type_check($articles, ArrayRef[HashRef]);
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         # first, cast $articles into an array
         my @articles = @{$articles};
 
         my $top_articles = undef;
         my $article_count = scalar(@articles);
-        err_log("== DEBUGGING ==: Number of articles: $article_count") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Number of articles: $article_count") if $config->{'debug'};
         if ($article_count > 3) {
-            err_log("== DEBUGGING ==: More than 3 articles") if $config->{'debug'};
+            $logger->err_log("== DEBUGGING ==: More than 3 articles") if $config->{'debug'};
             $top_articles = [
                 $articles[0],
                 $articles[1],
                 $articles[2]
             ];
         } elsif (scalar(@articles) == 2) {
-            err_log("== DEBUGGING ==: Only 2 articles") if $config->{'debug'};
+            $logger->err_log("== DEBUGGING ==: Only 2 articles") if $config->{'debug'};
             $top_articles = [ $articles[0], $articles[1] ];
         } else {
-            err_log("== DEBUGGING ==: Only 1 article") if $config->{'debug'};
+            $logger->err_log("== DEBUGGING ==: Only 1 article") if $config->{'debug'};
             $top_articles = [ $articles[0] ];
         }
 
@@ -643,7 +628,7 @@ package Buyo {
         my %bindings = %{$bindings};
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         my $class        = lc($bindings{$path}->{$verb}->{'class'});
         my $template     = lc($bindings{$path}->{$verb}->{'template'});
@@ -652,9 +637,9 @@ package Buyo {
         my $cguest_list  = $config->{'culturalGuestList'};
         my $sguest_list  = $config->{'guestJudgeList'};
 
-        err_log("== DEBUGGING ==: Registering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
-        err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
-        err_log("== DEBUGGING ==: Path '$path' has class '$class' attribute") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Registering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Path '$path' has class '$class' attribute") if $config->{'debug'};
         given ($verb) {
             when ('get') {
                 given ($class) {
@@ -671,12 +656,12 @@ package Buyo {
                             my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
 
                             my $article  = route_parameters->get('article');
-                            err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
-                            err_log("== DEBUGGING ==: Generating page for article '$article'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Generating page for article '$article'") if $config->{'debug'};
                             # gather up article information
                             # get article title
                             my $article_mech = uc($config->{'configuration'}->{'article_mech'});
-                            err_log("== DEBUGGING ==: Using Article Content Mechanism '$article_mech'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Using Article Content Mechanism '$article_mech'") if $config->{'debug'};
                             given ($article_mech) {
                                 when ('JSON') {
                                     ($article_author, $article_category, $article_date,
@@ -684,7 +669,7 @@ package Buyo {
                                     break;
                                 }
                                 default {
-                                    err_log("== WARNING ==: Unknown Article Content Mechanism, '$article_mech'");
+                                    $logger->err_log("== WARNING ==: Unknown Article Content Mechanism, '$article_mech'");
                                 }
                             }
                             return template $template, {
@@ -719,11 +704,11 @@ package Buyo {
                             my $people = get_department_contacts($config->{'appdir'});
                             if (defined($department)) {
                                 $selected_dept = $department;
-                                err_log("== DEBUGGING ==: Form passed query parameter value '$department'") if $config->{'debug'};
+                                $logger->err_log("== DEBUGGING ==: Form passed query parameter value '$department'") if $config->{'debug'};
                             }
-                            err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
-                            err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
-                            err_log("== DEBUGGING ==: reCAPTCHA site key: ". $config->{'site_key'});
+                            $logger->err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: reCAPTCHA site key: ". $config->{'site_key'});
                             return template $template, {
                                 'webroot'            => $config->{'webroot'},
                                 'site_name'          => $config->{'site_title'},
@@ -749,8 +734,8 @@ package Buyo {
                             my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
 
                             my $articles = build_article_struct_list();
-                            err_log("== DEBUGGING ==: Triggerng '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
-                            err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Triggerng '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
                             return template $template, {
                                 'webroot'            => $config->{'webroot'},
                                 'site_name'          => $config->{'site_title'},
@@ -775,9 +760,9 @@ package Buyo {
 
                             my $articles = build_article_struct_list();
                             my $top_three = get_last_three_article_structs($articles);
-                            err_log("== DEBUGGING ==: Top Three structure: " . Dumper $top_three) if $config->{'debug'};
-                            err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
-                            err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Top Three structure: " . Dumper $top_three) if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
                             return template $template, {
                                 'webroot'            => $config->{'webroot'},
                                 'site_name'          => $config->{'site_title'},
@@ -806,17 +791,17 @@ package Buyo {
                             my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
 
                             my $person = route_parameters->get('person');
-                            err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
-                            err_log("== DEBUGGING ==: Generating page for article '$person'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Generating page for article '$person'") if $config->{'debug'};
                             my $page_content_mech = uc($config->{'configuration'}->{'article_mech'});
-                            err_log("== DEBUGGING ==: Using Article Content Mechanism '$page_content_mech'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Using Article Content Mechanism '$page_content_mech'") if $config->{'debug'};
                             given ($page_content_mech) {
                                 when ('JSON') {
                                     ($bio_name, $bio_photo, $bio_photo_position, $bio_content) = get_article_from_json($person, 'bio');
                                     break;
                                 }
                                 default {
-                                    err_log("== WARNING ==: Unknown Article Content Mechanism, '$page_content_mech'");
+                                    $logger->err_log("== WARNING ==: Unknown Article Content Mechanism, '$page_content_mech'");
                                 }
                             }
                             return template $template, {
@@ -841,8 +826,8 @@ package Buyo {
                     }
                     when ("widget::carousel") {
                         get "$path" => sub {
-                            err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for '$path'") if $config->{'debug'};
-                            err_log("== DEBUGGING ==: Generating page for IFRAME") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for '$path'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Generating page for IFRAME") if $config->{'debug'};
                             return template $template, {}, { layout => "carousel" };
                         };
                     }
@@ -862,7 +847,7 @@ package Buyo {
         my %bindings = %$bindings;
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         my $class = lc($bindings{$path}->{$verb}->{'class'});
         my $template = $bindings{$path}->{$verb}->{'template'};
@@ -874,8 +859,8 @@ package Buyo {
         my $vendors      = $config->{'vendorList'};
         my $panels       = $config->{'panelDescriptions'};
 
-        err_log("== DEBUGGING ==: Registering " . uc($verb) . " action for path '$path'") if $config->{'debug'};
-        err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Registering " . uc($verb) . " action for path '$path'") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
 
         given ($verb) {
             when ('get') {
@@ -885,9 +870,9 @@ package Buyo {
                             my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
                             my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
 
-                            err_log("== DEBUGGING ==: Triggering ". uc($verb) . " action for path '$path'") if $config->{'debug'};
-                            err_log("== DEBUGGING ==: do_launch: $do_launch") if $config->{'debug'};
-                            err_log("== DEBUGGING ==: expire_page: $expire_page") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Triggering ". uc($verb) . " action for path '$path'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: do_launch: $do_launch") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: expire_page: $expire_page") if $config->{'debug'};
 
                             return template $template, {
                                 'webroot'            => $config->{'webroot'},
@@ -910,11 +895,11 @@ package Buyo {
                             my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
                             my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
 
-                            err_log("== DEBUGGING ==: Triggering ". uc($verb) . " action for path '$path'") if $config->{'debug'};
-                            err_log("== DEBUGGING ==: do_launch: $do_launch") if $config->{'debug'};
-                            err_log("== DEBUGGING ==: expire_page: $expire_page") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Triggering ". uc($verb) . " action for path '$path'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: do_launch: $do_launch") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: expire_page: $expire_page") if $config->{'debug'};
 
-                            err_log("== DEBUGGING ==: PANELS DUMP: ". Dumper($panels)) if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: PANELS DUMP: ". Dumper($panels)) if $config->{'debug'};
 
                             return template $template, {
                                 'webroot'            => $config->{'webroot'},
@@ -951,7 +936,7 @@ package Buyo {
         my %bindings = %$bindings;
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         my $template;
         my $class     = lc($bindings{$path}->{$verb}->{'class'});
@@ -965,9 +950,9 @@ package Buyo {
         my $cguest_list  = $config->{'culturalGuestList'};
         my $sguest_list  = $config->{'guestJudgeList'};
 
-        err_log("== DEBUGGING ==: Registering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
-        err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
-        err_log("== DEBUGGING ==: Path '$path' has class '$class' attribute") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Registering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Using template '$template' for path '$path'") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Path '$path' has class '$class' attribute") if $config->{'debug'};
 
         given ($verb) {
             when ('post') {
@@ -979,7 +964,7 @@ package Buyo {
                             my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
                             my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
 
-                            err_log("== DEBUGGING ==: Triggering '$verb' action for path '$path'") if $config->{'debug'};
+                            $logger->err_log("== DEBUGGING ==: Triggering '$verb' action for path '$path'") if $config->{'debug'};
                             send_email($post_values);
                             if ($template ne 'NULL') {
                                 return template $template, {
@@ -1016,14 +1001,14 @@ package Buyo {
         my %bindings = %$bindings;
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         foreach my $path (@paths) {
             my $type = $bindings{$path}->{'get'}->{'type'};
             if (defined($type)) {
-                err_log("== DEBUGGING ==: Path '$path' has type: '$type'") if $config->{'debug'};
+                $logger->err_log("== DEBUGGING ==: Path '$path' has type: '$type'") if $config->{'debug'};
             } else {
-                err_log("== DEBUGGING ==: Path '$path' has no defined type!") if $config->{'debug'};
+                $logger->err_log("== DEBUGGING ==: Path '$path' has no defined type!") if $config->{'debug'};
             }
             given ($type) {
                 when ('dynamic') {
@@ -1046,16 +1031,16 @@ package Buyo {
         type_check(\@paths, ArrayRef[Str]);
 
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
         my %bindings = %$bindings;
 
         foreach my $path (@paths) {
             my $type = $bindings{$path}->{'post'}->{'type'};
             if (defined($type)) {
-                err_log("== DEBUGGING ==: Path '$path' has type: '$type'") if $config->{'debug'};
+                $logger->err_log("== DEBUGGING ==: Path '$path' has type: '$type'") if $config->{'debug'};
             } else {
-                err_log("== DEBUGGING ==: Path '$path' has no defined type!") if $config->{'debug'};
+                $logger->err_log("== DEBUGGING ==: Path '$path' has no defined type!") if $config->{'debug'};
             }
             given ($type) {
                 when ('dynamic') {
@@ -1095,10 +1080,11 @@ package Buyo {
             'configuration' => \%configuration
         };
 
-        err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
-        err_log("== DEBUGGING ==: Loading Sys::Error") if $config->{'debug'};
+        $logger = Buyo::Logger->new({'debug' => $config->{'debug'}});
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Loading Sys::Error") if $config->{'debug'};
         $err = Sys::Error->new();
-        err_log("== DEBUGGING ==: Loading File::IO") if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: Loading File::IO") if $config->{'debug'};
         $fio = File::IO->new();
 
         my $json_txt     = get_json("conf.d/bindings.json");
@@ -1119,7 +1105,7 @@ package Buyo {
         } catch {
             classify $ARG, {
                 default => sub {
-                    error_msg($ARG, "Default error");
+                    $logger->error_msg($ARG, "Default error");
                 }
             };
         };
@@ -1135,7 +1121,7 @@ package Buyo {
         } catch {
             classify $ARG, {
                 default => sub {
-                    err_msg($ARG, "Default error");
+                    $logger->err_msg($ARG, "Default error");
                 }
             };
         };
@@ -1151,13 +1137,13 @@ package Buyo {
         $config->{'vendorList'}         = get_vendor_list($config->{'appdir'});
         $config->{'panelDescriptions'}  = get_panel_details($config->{'appdir'});
 
-        err_log("== DEBUGGING ==: DUMP: ". Dumper($config)) if $config->{'debug'};
+        $logger->err_log("== DEBUGGING ==: DUMP: ". Dumper($config)) if $config->{'debug'};
 
         my %paths = %{$data->{'paths'}};
 
-        err_log('== DEBUGGING ==: Loading site endpoints from JSON:') if $config->{'debug'};
+        $logger->err_log('== DEBUGGING ==: Loading site endpoints from JSON:') if $config->{'debug'};
         foreach my $path (keys %paths) {
-            err_log("== DEBUGGING ==: FOUND KEY: $path") if $config->{'debug'};
+            $logger->err_log("== DEBUGGING ==: FOUND KEY: $path") if $config->{'debug'};
             if (exists $paths{$path}->{'get'}) {
                 if ($paths{$path}->{'get'}->{'active'} eq 'true') {
                     push @getters, $path;
