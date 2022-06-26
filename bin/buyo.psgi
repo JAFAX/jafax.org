@@ -51,24 +51,30 @@ package main v1.2.21 {
 
     use Buyo;
     use Plack::Builder;
-    use Buyo::Utils qw(err_log);
+    use Buyo::Utils;
     use Buyo::Constants;
+    use Buyo::Logger;
+    use Value::TypeCheck;
 
     my $DEBUG = true;
 
     my sub main :ReturnType(Void) (@args) {
+        type_check(\@args, ArrayRef[Any]);
+
+        my $logger = Buyo::Logger->new({'debug' => $DEBUG});
+
         my $sub = (caller(0))[3];
-        err_log("== DEBUGGING ==: Sub: " . $sub) if $DEBUG;
-        say {*STDERR} '>> Starting the Buyo application server version '. $Buyo::Constants::VERSION;
-        say {*STDERR} '>> '. $Buyo::Constants::license;
-        say {*STDERR} '-------------------------------------------------------------';
-        err_log('== DEBUGGING ==: PERL INCLUDE PATH:') if $DEBUG;
+        $logger->err_log("== DEBUGGING ==: Sub: " . $sub) if $DEBUG;
+        $logger->err_log('>> Starting the Buyo application server version '. $Buyo::Constants::VERSION);
+        $logger->err_log('>> '. $Buyo::Constants::license);
+        $logger->err_log('-------------------------------------------------------------');
+        $logger->err_log('== DEBUGGING ==: PERL INCLUDE PATH:') if $DEBUG;
         if ($DEBUG) {
             foreach my $p (@INC) {
-                say {*STDERR} "== DEBUGGING ==:    $p";
+                $logger->err_log("== DEBUGGING ==:    $p");
             }
         }
-        err_log('== DEBUGGING ==: MOUNTING PLACK::BUILDER ENDPOINTS') if $DEBUG;
+        $logger->err_log('== DEBUGGING ==: MOUNTING PLACK::BUILDER ENDPOINTS') if $DEBUG;
 
         return builder {
             mount '/'         => Buyo->to_app;

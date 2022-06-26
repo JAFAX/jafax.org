@@ -31,15 +31,20 @@ package Buyo::MkRole {
 
     use boolean;
     use Data::Dumper;
+    use Types::Standard -all;
+    use Return::Type;
     use Term::ANSIColor;
     use Throw qw(throw classify);
     use Try::Tiny qw(try catch);
+    use Type::Library -base;
+    use Type::Utils;
 
     use FindBin;
     use lib "$FindBin::Bin/../lib";
 
-    use File::IO 0.0.1;
-    use Sys::Error 0.0.1;
+    use File::IO;
+    use Sys::Error;
+    use Value::TypeCheck;
 
     use Buyo::Constants;
     use Buyo::Utils;
@@ -53,7 +58,10 @@ package Buyo::MkRole {
 
     my $VERSION = $Buyo::Constants::VERSION;
 
-    our sub new ($class, $flags) {
+    sub new :ReturnType(Object) ($class, $flags) {
+        type_check($class, Str);
+        type_check($flags, HashRef);
+
         my $self = {};
 
         $debug  = $flags->{'debug'};
@@ -77,6 +85,9 @@ package Buyo::MkRole {
     }
 
     our sub get_rolelist ($self, $file) {
+        type_check($self, Object);
+        type_check($file, Str);
+
         say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
         say STDERR "== DEBUGGING ==: File: $file" if $debug eq true;
 

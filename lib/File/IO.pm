@@ -24,11 +24,11 @@ package File::IO {
 
     my $error = undef;
 
-    my $VERSION = "0.0.2";
+    our $VERSION = "0.0.2";
 
     $Throw::level = 1;
 
-    our sub new :ReturnType(Object) ($class, $flags = undef) {
+    sub new :ReturnType(Object) ($class, $flags = undef) {
         my $self = {};
 
         $error = Sys::Error->new();
@@ -62,7 +62,7 @@ package File::IO {
         return $mode;
     }
 
-    our sub open :ReturnType(filehandle, Hash) ($self, $mode_string, $path) {
+    our sub open :ReturnType(FileHandle, HashRef) ($self, $mode_string, $path) {
         my $fh = undef;
         my $mode = mode_translate($self, $mode_string);
         try {
@@ -101,7 +101,7 @@ package File::IO {
         );
     }
 
-    our sub read :ReturnType(Str, Hash) ($self, $fh, $length) {
+    our sub read :ReturnType(Str, HashRef) ($self, $fh, $length) {
         my $content = undef;
         try {
             read($fh, $content, $length);
@@ -139,7 +139,7 @@ package File::IO {
         );
     }
 
-    our sub close :ReturnType(Hash) ($self, $fh) {
+    our sub close :ReturnType(HashRef) ($self, $fh) {
         try {
             close $fh or throw(
                 "Cannot close filehandle", {
