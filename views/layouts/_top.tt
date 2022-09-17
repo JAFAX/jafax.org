@@ -1,3 +1,4 @@
+[% movieEvent = 'disabled' %]
     <body>
         <nav class="navbar navbar-light navbar-expand-md navigation-clean">
             <div class="container">
@@ -75,7 +76,9 @@
                                         <li><a class="dropdown-item" href="[% webroot %]/events/media/manga">Manga Library</a></li>
                                     </ul>
                                 </li>
+                                [% IF movieEvent == 'enabled' %]
                                 <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/movie">Movie Screening</a></li>
+                                [% END %]
                                 <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/music">Musical Events</a></li>
                                 <li class="dropdown-submenu">
                                     <a class="dropdown-item dropdown-toggle" href="[% webroot %]/events/panels">Panels</a>

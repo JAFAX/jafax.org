@@ -1,31 +1,34 @@
 <div class="container">
     <div class="page_text">
-        [% attendeeRegistration = 'enabled' %]
+        [% attendeeRegistration = 'disabled' %]
+        [% preRegPricing = 'disabled' %]
         <br />
         <center><h1>Attendee Registration</h1></center>
         [% IF attendeeRegistration != 'enabled' %]
         <p>
-            Tickets for JAFAX 2022 will be available soon!
+            Tickets for JAFAX 2023 will be available soon!
         </p>
         [% ELSE %]
         <p>
             Tickets for JAFAX can be purchased below. We are happy to partner with the <a href="https://www.eventbee.com/">EventBee</a> service to make them available. See their privacy policy <a href="https://www.eventbee.com/privacystatement">here</a>.
         </p>
         [% END %]
+        [% IF preRegPricing != 'enabled' %]
         <h3>Pre-Registration Pricing</h3>
         <p>
             The prices for pre-registration tickets will be posted soon!
         </p>
+        [% ELSE %]
         <p>
             The prices for pre-registration tickets are as follows:<br />
             <ul>
-                <li><strong>Now through May 23, 2022:</strong> $45 for a 3-Day Badge</li>
-                <li><strong>May 24, 2022 through June 23, 2022:</strong> $50 for a 3-Day Badge (Same price as at the door prices).</li>
+                <li><strong>Now through May 23, 2023:</strong> $45 for a 3-Day Badge</li>
+                <li><strong>May 24, 2023 through June 23, 2023:</strong> $50 for a 3-Day Badge (Same price as at the door prices).</li>
             </ul>
         </p>
         <h3>VIP Badges</h3>
         <p>
-            VIP Badges can be purchased at any time from now until we sell out. They cost $90 and are limited to 120 total badges. If badges are left by June 24, 2022, they will be sold at the door.
+            VIP Badges can be purchased at any time from now until we sell out. They cost $90 and are limited to 120 total badges. If badges are left by June 9, 2023, they will be sold at the door.
         </p>
         <p>
             Register now to take advantage of pre-registration prices. Also, stop by our booth at Youmacon to recieve an additional discount code good until November 4!        
@@ -50,6 +53,7 @@
         <p>
             If you have any Support questions, please contact <a href="[% webroot %]/contact?department=7">our registration coordinator</a>.
         </p>
+        [% END %]
     </div>
 </div>
 [% IF attendeeRegistration == 'enabled' %]

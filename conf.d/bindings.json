@@ -2,7 +2,7 @@
     "binding_version": "4.0",
     "info": {
         "title": "JAFAX",
-        "version": "2022.03.28",
+        "version": "2022.09.16",
         "copyright": "JAFAX Inc. &copy;2019-2022",
         "license": "Apache Public License, v2.0"
     },
@@ -10,7 +10,7 @@
         "/": {
             "get": {
                 "active": "true",
-                "summary": "2022",
+                "summary": "2023",
                 "template": "index",
                 "launchDate": 1438401600,
                 "expireDate": -1,
@@ -345,7 +345,7 @@
         },
         "/events/movie": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Movie Event at JAFAX",
                 "template": "movie",
                 "launchDate": 1655497458,

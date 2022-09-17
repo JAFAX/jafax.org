@@ -12,12 +12,12 @@
         </p>
         [% ELSE %]
         <p>
-            As we ramp up for JAFAX 2022, we'll open registration for the Maid Caf&eacute;.
+            As we ramp up for JAFAX 2023, we'll open registration for the Maid Caf&eacute;.
             Please be patient while we plan and prepare for an amazing event that will
             excite and wow our guests, while giving you the opportunity to volunteer as a
             Maid or Butler.
         <p>
-            Thank you for your interest, and we hope to see you at JAFAX 2022!
+            Thank you for your interest, and we hope to see you at JAFAX 2023!
         </p>
         [% END %]
         [% IF maidRegistration == 'enabled' %]

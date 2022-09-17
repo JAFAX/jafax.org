@@ -1,7 +1,9 @@
 <div class="container">
     <dic class="page_text">
+        [% enableMusicEvents = 'disabled' %]
         <br />
-        <center><h1>Music Events at JAFAX 2022</h1></center>
+        <center><h1>Music Events at JAFAX 2023</h1></center>
+        [% IF enableMusicEvents == 'enabled' %]
         <p>
             This year at enjoy music acts at JAFAX with two very different live
             music events! Also, dance the night away with our electronic dance
@@ -136,5 +138,11 @@
                 </div>
             </div>
         </div>
+        [% ELSE %]
+        <p>
+            As we get closer to JAFAX 2023, we'll announce the performers that will
+            bring you awesome musical events to listen to and enjoy!
+        </p>
+        [% END %]
     </div>
 </div>

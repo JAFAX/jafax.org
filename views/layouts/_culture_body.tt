@@ -1,5 +1,6 @@
 <div class="container">
     <div class="page_text">
+        [% culturalEvents = 'disabled' %]
         <br />
         <center><h1>Japanese Culture: Traditional and Modern</h1></center>
         <p>
@@ -14,6 +15,7 @@
             Committee and the well-known Cultural Anthropologist, Charles
             Dunbar.
         </p>
+        [% IF culturalEvents == 'enabled' %]
         <p>
             This year, we'd like to welcome the Swordmanship Museum &amp; Academy and 
             Western Michigan University's Soga Japan Center!
@@ -35,7 +37,7 @@
                     </p>
                     <p>
                         They will be bringing a special traveling museum to
-                        JAFAX 2022 featuring artifacts and replicas of the
+                        JAFAX 2023 featuring artifacts and replicas of the
                         warriors of Japan and other regional cultures, as well
                         as a special panel discussion. Get up close and
                         personal with some of the Museum's most fascinating
@@ -76,5 +78,11 @@
                 </div>
             </div>
         </div>
+        [% ELSE %]
+        <p>
+            As we get closer to JAFAX 2023, we'll let you know about the great cultural events we
+            get lined up!
+        </p>
+        [% END %]
     </div>
 </div>
