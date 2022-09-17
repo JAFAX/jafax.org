@@ -1,18 +1,18 @@
 <div class="container">
     <div class="page_text">
-        [% maidCafeSchedAndMenu = 'enabled' %]
+        [% maidCafeSchedAndMenu = 'disabled' %]
         <br />
         <center><h1>The Maid Caf&eacute; at JAFAX</h1></center>
         <p>
-            Welcome to a slice of Akihabara at JAFAX 2022, with our own Maid
+            Welcome to a slice of Akihabara at JAFAX 2023, with our own Maid
             Caf&eacute;!
         </p>
+        [% IF maidCafeSchedAndMenu == "enabled" %]
         <p>
             The Maid Caf&eacute; has been a popular addition to JAFAX for many
             years. Stop in, have something to sip on or a bite to eat and be
             served by our maids and butlers!
         </p>
-        [% IF maidCafeSchedAndMenu == "enabled" %]
         <h2>Hours</h2>
         <p>Saturday, June 25<sup>th</sup> from Noon until 3:00PM</p>
         <h2>Location</h2>
@@ -44,7 +44,7 @@
         </p>
         [% ELSE %]
         <p>
-            The schedule and menu will be posted as we get closer to JAFAX 2022!
+            The schedule and menu will be posted as we get closer to JAFAX 2023!
         </p>
         [% END %]
     </div>

@@ -1,9 +1,16 @@
 <div class="container">
     <div class="page_text">
-        [% enableArktosEvent = "enabled" %]
+        [% gamingEvents = 'disabled' %]
+        [% enableArktosEvent = "disabled" %]
         [% arktosDiscount = "disabled" %]
+        [% paintingEvent = 'disabled' %]
+        [% deadStateDesignsEvent = 'disabled' %]
+        [% kdogsEvent = 'disabled' %]
+        [% ttGameLibraryEvent = 'disabled' %]
+        [% griffinsRestEvent = 'disabled' %]
         <br />
-        <center><h1>Gaming at JAFAX 2022</h1></center>
+        <center><h1>Gaming at JAFAX 2023</h1></center>
+        [% IF gamingEvents == 'enabled' %]
         <p>
             Is the hustle and bustle of the convention getting to you? Maybe
             you have some free time in between panels? Or maybe you just want
@@ -53,6 +60,7 @@
         </div>
         <hr />
         [% END %]
+        [% IF paintingEvent == 'enabled' %]
         <div class="container-sm">
             <div class="row">
                 <div class="col">
@@ -79,6 +87,8 @@
             </div>
         </div>
         <hr />
+        [% END %]
+        [% IF deadStateDesignsEvent == 'enabled' %]
         <div class="container-sm">
             <div class="row">
                 <div class="col">
@@ -113,6 +123,8 @@
             </div>
         </div>
         <hr />
+        [% END %]
+        [% IF kdogsEvent == 'ensbled' %]
         <div class="container-sm">
             <div class="row">
                 <div class="col">
@@ -145,6 +157,8 @@
             </div>
         </div>
         <hr />
+        [% END %]
+        [% IF ttGameLibraryEvent == 'enabled' %]
         <div class="container-sm">
             <div class="row">
                 <div class="col">
@@ -183,6 +197,8 @@
             </div>
         </div>
         <hr />
+        [% END %]
+        [% IF griffinsRestEvent == 'enabled' %]
         <div class="container-sm">
             <div class="row">
                 <div class="col">
@@ -216,9 +232,16 @@
             </div>
         </div>
         <hr />
+        [% END %]
         <p>
             With so much to do and see this year at JAFAX be sure to check out
             what our gaming rooms have to offer!
         </p>
+        [% ELSE %]
+        <p>
+            As we get closer to JAFAX 2023, we'll announce the great gaming events
+            we'll have lined up for you!
+        </p>
+        [% END %]
     </div>
 </div>

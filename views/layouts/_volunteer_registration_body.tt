@@ -1,18 +1,20 @@
 <div class="container">
     <div class="page_text">
+        [% volunteerReg = 'disabled' %]
         <br />
         <center><h1>Volunteer Registration</h1></center>
         <p>
             Welcome, all Volunteers! Without people like you that help run various
             tasks at JAFAX, we would be unable to run the event.
         </p>
+        [% IF volunteerReg == 'enabled' %]
         <p>
             Beside the wonderful perk of helping keep our attendees happy and giving
             back to the larger Anim&eacute; community, all volunteers benefit from these
             extra perks:<br />
             <ul>
                 <li>Badge refunds, where 8 hours of work awards a full refund</li>
-                <li>Free JAFAX 2022 T-Shirt for working 8 hours</li>
+                <li>Free JAFAX 2023 T-Shirt for working 8 hours</li>
                 <li>Entry into prize raffles and the "Keith Lehmann Volunteer Award"</li>
             </ul>
         </p>
@@ -29,8 +31,15 @@
         <iframe src="https://docs.google.com/forms/d/19SYMjyFJqeIn-6RnNPkO176yAMS1NLPvvuxcEQyY-aY/viewform?embedded=true"
           width="100%" height="4810px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 
+        [% ELSE %]
         <p>
-            Thank you for your interest in volunteering at JAFAX 2022! We hope to see you
+            In early 2023, we'll start opening volunteer registration. Please check back at 
+            that time, if you'd like to help with putting on one of the longest running
+            anim&eacute; events in West Michigan!
+        </p>
+        [% END %]
+        <p>
+            Thank you for your interest in volunteering at JAFAX 2023! We hope to see you
             at the event. If you have any questions, please send them to our 
             <a href="[% webroot %]/contact?department=9">Volunteer Coordinator</a>.
         </p>

@@ -1,8 +1,8 @@
 <div class="container">
     <div class="page_text">
-        [% cosplayContest = 'enabled' %]
+        [% cosplayContest = 'disabled' %]
         <br />
-        <center><h1>Cosplay Events at JAFAX 2022</h1></center>
+        <center><h1>Cosplay Events at JAFAX 2023</h1></center>
         <p>
             For several years now, JAFAX has welcomed a diverse array of
             cosplayers to the event, and hosted a Cosplay Contest to award
@@ -12,7 +12,7 @@
         </p>
         [% IF cosplayContest == 'disabled' %]
         <p>
-            Details regarding Cosplay events at JAFAX 2022 will be posted as
+            Details regarding Cosplay events at JAFAX 2023 will be posted as
             soon as we have details! Stop back soon!
         </p>
         [% ELSE %]
@@ -40,7 +40,7 @@
         </p>
         <h4>JAFAX Cosplay Crafting Competition Rules and Information</h4>
         <p>
-            <b>Day of Show:</b> Saturday, June 25, 2022<br />
+            <b>Day of Show:</b> Saturday, June 10, 2023<br />
             <b>Time of Show:</b> 5:30PM<br />
             <b>Location:</b> Main Events
         </p>

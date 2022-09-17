@@ -1,0 +1,11 @@
+{
+  "id": "00000001-1000-1000-1000-100000000011",
+  "name": "CONTENT_EDITOR",
+  "displayName": "Editors",
+  "privileges": [
+      500,
+      501,
+      502,
+      503
+  ]
+}
