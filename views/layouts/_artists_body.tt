@@ -1,6 +1,6 @@
 <div class="container">
     <div class="page_text">
-        [% artistListEnable = "enabled" %]
+        [% artistListEnable = "disabled" %]
         <br />
         <center><h1>Artist Alley</h1></center>
         <p>
@@ -13,12 +13,12 @@
         </p>
         [% IF artistListEnable != "enabled" %]
         <p>
-            As we get closer to JAFAX 2022, we'll post the listings of artists
+            As we get closer to JAFAX 2023, we'll post the listings of artists
             that are coming here on our site.
         </p>
         [% ELSE %]
         <p>
-            Below is the list of artists that are going to be at JAFAX 2022!
+            Below is the list of artists that are going to be at JAFAX 2023!
             Their tables will be in the Artists Alley section of the Vendor
             Hall.
         </p>

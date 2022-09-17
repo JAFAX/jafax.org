@@ -1,8 +1,8 @@
 <div class="container">
     <div class="page_text">
-        [% panelRegistration = "enabled" %]
+        [% panelRegistration = "disabled" %]
         <br />
-        <center><h1>Panels at JAFAX 2022</h1></center>
+        <center><h1>Panels at JAFAX 2023</h1></center>
         <p>
             Do you want to learn more about how the history of Japan influences
             the anim&eacute; and manga you enjoy? How about how women have shaped many

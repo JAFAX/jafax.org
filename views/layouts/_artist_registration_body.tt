@@ -7,7 +7,7 @@
         [% IF preRegistration == 'disabled' %]
         [% IF artistRegistration == 'enabled' %]
         <p>
-            Hello Artists! JAFAX 2022 Artist Alley registration is now
+            Hello Artists! JAFAX 2023 Artist Alley registration is now
             accepting applications!
         </p>
         <p>
@@ -22,7 +22,7 @@
         <p>
             Once you have completed the application, we will send out an email
             confirming your acceptance no later than one week after registration
-            has closed. Artist Alley Registration will close January 22, 2022.
+            has closed. Artist Alley Registration will close January 22, 2023.
             If there are still open booths available after the deadline, the
             form will be re-opened until all booths are filled.
         </p>
@@ -30,7 +30,7 @@
           width="100%" height="2110px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         [% ELSE %]
         <p>
-            JAFAX 2022 Artist Alley Registration has closed. We are looking forward to
+            JAFAX 2023 Artist Alley Registration has closed. We are looking forward to
             announcing the artists whom are coming, and will post more info as we get
             closer to the event!
         </p>
