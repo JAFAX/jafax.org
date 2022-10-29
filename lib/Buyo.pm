@@ -26,7 +26,7 @@ Buyo - Main class for the Buyo Application Framework
 
 =head1 VERSION
 
-Version 1.2.89
+Version 1.2.90
 
 =head1 DESCRIPTION
 
