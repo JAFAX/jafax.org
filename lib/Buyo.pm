@@ -16,6 +16,45 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+Buyo - Main class for the Buyo Application Framework
+
+=head1 VERSION
+
+Version 1.2.89
+
+=head1 DESCRIPTION
+
+This is the primary class used by the Buyo Application Framework run as a
+Dancer2 web application.
+
+=head1 AUTHOR
+
+Gary L. Greene, Jr. <webmaster@jafax.org>
+
+=head1 COPYRIGHT
+
+Copyright (c) 2019-2022 JAFAX, Inc. All Rights Reserved
+
+=head1 LICENSE
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+
+=cut
 package Buyo {
     use strictures;
     use English qw(-no_match_vars);
@@ -66,7 +105,7 @@ package Buyo {
 
     # Return type is Value, as hash doesn't have a value that is
     # codefied
-    my sub load_config :ReturnType(Value) ($appdir) {
+    my sub load_config :ReturnType(list => HashRef) ($appdir) {
         type_check($appdir, Str);
 
         my $sub = (caller(0))[3];
@@ -619,6 +658,33 @@ package Buyo {
         return $expire;
     }
 
+    my sub get_carousel_settings :ReturnType(ArrayRef[HashRef]) () {
+        my $sub = (caller(0))[3];
+        $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
+
+        my $appdir   = $config->{'appdir'};
+        my $json_txt = get_json("content/carousel/settings.json");
+        my $json     = JSON->new();
+        my $pages    = undef;
+        try {
+            $pages  = $json->decode($json_txt)->{'carouselPages'} or
+                throw "JSON parsing error", {
+                    'type'         => 1002,
+                    'error_string' => "Cannot decode JSON file",
+                    'log_msg'      => "Could not decode JSON file, 'features.json'",
+                    'info'         => "Attempted to decode JSON content from 'features.json'"
+            };
+        } catch {
+            classify $ARG, {
+                default => sub {
+                    $logger->error_msg($ARG, "Default error");
+                }
+            };
+        };
+
+        return $pages;
+    }
+
     my sub register_dynamic_route :ReturnType(Str) ($verb, $bindings, $path) {
         type_check($verb, Str);
         type_check($bindings, HashRef);
@@ -828,7 +894,10 @@ package Buyo {
                         get "$path" => sub {
                             $logger->err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for '$path'") if $config->{'debug'};
                             $logger->err_log("== DEBUGGING ==: Generating page for IFRAME") if $config->{'debug'};
-                            return template $template, {}, { layout => "carousel" };
+                            my $carousel_settings = get_carousel_settings();
+                            return template $template, {
+                                'carouselPages'     => $carousel_settings
+                            }, { layout => "carousel" };
                         };
                     }
                 }   

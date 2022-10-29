@@ -11,76 +11,33 @@
     <div id="image-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#image-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#image-carousel" data-slide-to="1"></li>
-            <li data-target="#image-carousel" data-slide-to="2"></li>
-            <li data-target="#image-carousel" data-slide-to="3"></li>
-            <li data-target="#image-carousel" data-slide-to="4"></li>
-            <li data-target="#image-carousel" data-slide-to="5"></li>
+            [% FOREACH carouselPage IN carouselPages %]
+                [% IF carouselPage.active == 1 %]
+                <li data-target="#image-carousel" data-slide-to="[% carouselPage.index %]" class="active"></li>
+                [% ELSE %]
+                <li data-target="#image-carousel" data-slide-to="[% carouselPage.index %]"></li>
+                [% END %]
+            [% END %]
         </ol>
   
         <!-- Sliding images starting here --> 
         <div class="carousel-inner">
+            [% FOREACH carouselPage IN carouselPages %]
+            [% IF carouselPage.active ==1 %]
             <div class="item active">
-                <div class="row">
-                    <img src="[% webroot %]/images/carousel/1.jpg" alt="JAFAX Through the Years" class="carousel">
-                    [% IF enableCaptions == 'true' %]
-                    <div class="carousel-caption">
-                        <p>JAFAX 2014</p>
-                    </div>
-                    [% END %]
-                </div>
-            </div>
+            [% ELSE %]
             <div class="item">
+            [% END %]
                 <div class="row">
-                    <img src="[% webroot %]/images/carousel/2.jpg" alt="JAFAX 2014" class="carousel">
+                    <img src="[% webroot %]/images/carousel/[% carouselPage.imageNumber %].jpg" alt="[% carouselPage.altText %]" class="carousel">
                     [% IF enableCaptions == 'true' %]
                     <div class="carousel-caption">
-                        <p>JAFAX 2016</p>
+                        <p>[% carouselPage.caption %]]</p>
                     </div>
                     [% END %]
                 </div>
             </div>
-            <div class="item">
-                <div class="row">
-                    <img src="[% webroot %]/images/carousel/3.jpg" alt="JAFAX 2016" class="carousel">
-                    [% IF enableCaptions == 'true' %]
-                    <div class="carousel-caption">
-                        <p>JAFAX 2017</p>
-                    </div>
-                    [% END %]
-                </div>
-            </div>
-            <div class="item">
-                <div class="row">
-                    <img src="[% webroot %]/images/carousel/4.jpg" alt="JAFAX 2017" class="carousel">
-                    [% IF enableCaptions == 'true' %]
-                    <div class="carousel-caption">
-                        <p>JAFAX 2018</p>
-                    </div>
-                    [% END %]
-                </div>
-            </div>
-            <div class="item">
-                <div class="row">
-                    <img src="[% webroot %]/images/carousel/5.jpg" alt="JAFAX 2018" class="carousel">
-                    [% IF enableCaptions == 'true' %]
-                    <div class="carousel-caption">
-                        <p>JAFAX 2019</p>
-                    </div>
-                    [% END %]
-                </div>
-            </div>
-            <div class="item">
-                <div class="row">
-                    <img src="[% webroot %]/images/carousel/6.jpg" alt="JAFAX 2019" class="carousel">
-                    [% IF enableCaptions == 'true' %]
-                    <div class="carousel-caption">
-                        <p>JAFAX 2019</p>
-                    </div>
-                    [% END %]
-                </div>
-            </div>
+            [% END %]
         </div>
 
         <!-- Next / Previous controls here -->
