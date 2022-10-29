@@ -1,0 +1,39 @@
+{
+  "carouselPages": [
+    {
+      "index": 0,
+      "active": 1,
+      "imageNumber": 2,
+      "altText": "JAFAX 2014",
+      "caption": "2014"
+    },
+    {
+      "index": 1,
+      "active": 0,
+      "imageNumber": 3,
+      "altText": "JAFAX 2016",
+      "caption": "2016"
+    },
+    {
+      "index": 2,
+      "active": 0,
+      "imageNumber": 4,
+      "altText": "JAFAX 2017",
+      "caption": "2017"
+    },
+    {
+      "index": 3,
+      "active": 0,
+      "imageNumber": 5,
+      "altText": "JAFAX 2018",
+      "caption": "2018"
+    },
+    {
+      "index": 4,
+      "active": 0,
+      "imageNumber": 6,
+      "altText": "JAFAX 2019",
+      "caption": "2019"
+    }
+  ]
+}

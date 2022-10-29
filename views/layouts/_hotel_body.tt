@@ -64,7 +64,6 @@
             along with complimentary access to the pool and fitness area.
         </p>
     </div>
-    [% END %]
     <div class="row">
         <div class="col item">
             <img class="left" src="[% webroot %]/images/amway1_new.jpg" />
@@ -77,4 +76,5 @@
             <img class="right" src="[% webroot %]/images/amway4_new.jpg" />
         </div>
     </div>
+    [% END %]
 </div>
