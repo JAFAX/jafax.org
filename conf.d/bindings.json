@@ -141,7 +141,7 @@
                 "summary": "Vendor Registration",
                 "template": "vendor_registration",
                 "launchDate": 1438401600,
-                "expireDate": 1646370000,
+                "expireDate": -1,
                 "type": "static",
                 "class": "registration::container",
                 "responses": {
