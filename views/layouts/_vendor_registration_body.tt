@@ -1,6 +1,6 @@
 <div class="container">
     <div class="page_text">
-        [% vendorRegistration = 'disabled' %]
+        [% vendorRegistration = 'enabled' %]
         [% preRegistration = 'false' %]
         <br />
         <center><h1>Vendor Registration</h1></center>
@@ -9,7 +9,7 @@
             Welcome! JAFAX 2023 Vendor Registration is now accepting applications!
         </p>
         <p>
-            Please fully read our <a href="[% webroot %]/documents/2022_Vendor_Hall_Contract.pdf">terms for application</a>
+            Please fully read our <a href="[% webroot %]/documents/2023_Vendor_Hall_Contract.pdf">terms for application</a>
             before submitting the form.
         </p>
         <p>
@@ -19,8 +19,8 @@
             are still open vendor booths available after the deadline, the form
             will be re-opened until the Vendor Hall is full.
         </p>
-        <iframe src="https://docs.google.com/forms/d/1AKqx9cmQSsNrw1lOxMjzkfmhmFOArnxR037azUqGQro/viewform?embedded=true" 
-          width="100%" height="2640px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScWWSfilkWDgOxUd93voLF5TmguBcvmyGRAZM7eCveVLYOOvw/viewform?embedded=true"
+          width="100%" height="2895px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         [% ELSE %]
         [% IF preRegistration == 'true' %]
         <p>
