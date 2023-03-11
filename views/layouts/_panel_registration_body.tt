@@ -1,6 +1,6 @@
 <div class="container">
     <div class="page_text">
-        [% panelRegistration = "disabled" %]
+        [% panelRegistration = "enabled" %]
         <br />
         <center><h1>Panels at JAFAX 2023</h1></center>
         <p>
@@ -23,8 +23,8 @@
         [% ELSE %]
         <p>
             To register to host a panel, fill out the form below. Panel submissions end
-            on May 17th at 11:59pm. You will find out about the status of your panel by
-            May 25th.
+            on June 1 at 5pm. You will contacted via email about the status of your panel
+            request.
         </p>
         <p>
             Current approved panel descriptions are detailed <a href="/events/panels/details">
@@ -79,7 +79,7 @@
                 </ul>
             </li>
         </ul>
-        <iframe src="https://docs.google.com/forms/d/1EWkbqsFckO57za6aF0bK2qgpx4KaScUx6kFkgv2Xblk/viewform?embedded=true"
+        <iframe src="https://docs.google.com/forms/d/1aKod1KMOqPVtF1O0OfabbzoW0QT_9SsPtdQufJSSZR0/viewform?embedded=true"
           width="100%" height="3500px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         [% END %]
     </div>
