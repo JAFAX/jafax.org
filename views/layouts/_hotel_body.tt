@@ -1,6 +1,6 @@
 <div class="container">
     <div class="page_text">
-        [% ratesNegotiated = 'false' %]
+        [% ratesNegotiated = 'true' %]
         <br />
         [% IF ratesNegotiated == 'false' %]
         <center><h1>The Hotel Accommodations for JAFAX 2023</h1></center>
@@ -10,71 +10,93 @@
             2023.
         </p>
         [% ELSE %]
-        <center><h1>The Amway Grand Plaza Hotel</h1></center>
-        <center><h3>The official hotel of JAFAX 2023</h3></center>
+        <center><h1>The Hotels for JAFAX 2023!</h1></center>
         <p>
-            We are excited to have the historic Amway Grand Plaza Hotel as our
-            official hotel for JAFAX 2023! Located right downtown on the Grand
-            River, the Amway Hotel is connected directly to Devos Place
-            Convention Center.
+            This year for JAFAX 2023, we have two great hotels in the heart
+            of Grand Rapids for our attendees to choose from! The two hotel
+            choices available are the Downtown Courtyard, and the Hyatt Place
+            in downtown Grand Rapids!
         </p>
         <p>
-            Room rates within the JAFAX Room Block are $169 per night (plus
-            tax.) The price breakdown for a room can change depending on how many
-            people split the room costs. Here is a quick synopsis of room costs
-            per night divided between 2 to 4 people (tax not included):
+            Room rates within the JAFAX Room Block at either hotel are $174 per
+            night (plus applicable taxes.) The price breakdown for a room can
+            change depending on how many people split the room costs. Here is
+            a quick synopsis of room costs per night divided between 2 to 4
+            people (tax not included):
             <ul>
-                <li>2 People - $84.50 per person</li>
-                <li>3 People - $56.33 per person</li>
-                <li>4 People - $42.25 per person</li>
+                <li>2 People - $87 per person</li>
+                <li>3 People - $58 per person</li>
+                <li>4 People - $43.50 per person</li>
             </ul>
         </p>
-        <h3>Online Reservations</h3>
-        <p>
-            A dedicated website has been set up for registering online for a
-            room in the JAFAX Room Block. Reservations can be made by visiting
-            this <a href="https://book.passkey.com/e/50284920">site</a>!
-        </p>
-        <h3>Phone Call Reservations</h3>
-        <p>
-            If you'd prefer to make reservations over the phone for the JAFAX
-            Room Block instead of following the website reservation link on
-            this page; you may do so by calling the following toll free Hilton
-            number: 1-800-253-3590
-        </p>
-        <h3>Parking Discounts</h3>
-        <p>
-            We're also excited to announce that parking in the Amway Grand
-            Plaza Parking Garage is one of the most convenient and cost
-            effective ways to enjoy JAFAX. If you have booked a hotel room
-            inside the JAFAX room block, all vehicle parking fees billed to
-            your hotel room come with a significant parking discount! If you're
-            staying inside the hotel room block, you may self-park for only $15
-            a night or valet park for only $20 a night.
-        </p>
-        <p>
-            This fee is per vehicle billed to the hotel room. This also
-            includes unlimited in and out access for your vehicle! (Standard
-            parking rates at the Amway Grand Plaza are currently $32 for
-            self-parking and $35 for valet parking). So take advantage of this
-            parking deal by staying inside the JAFAX room block!
-        </p>
+        <h2>The Courtyard, Downtown Grand Rapids</h3>
+        <div clas="container-sm">
+            <div class="row">
+                <div class="col-sm">
+                    <img src="/images/CY_GRRDT_Exterior.jpg" width=100% />
+                </div>
+                <div class="col">
+                    <p>
+                        We are excited to have the Courtyard by Marriott as one
+                        of the two official hotels for JAFAX 2023! Located
+                        in the heart of the Grand Rapids downtown on the corner
+                        of Campau and Monroe avenues, the Courtyard is connected
+                        via the downtown skywalk to Devos Place Convention Center.
+                    </p>
+                    <h3>Online Reservations</h3>
+                    <p>
+                        A dedicated website has been set up for registering online
+                        for a room in the JAFAX Room Block at the Courtyard. Reservations
+                        can be made by visiting this <a href="https://book.passkey.com/event/50439203/owner/3365238/home?utm_campaign=290441701">site</a>!
+                    </p>
+                    <h3>Phone Call Reservations</h3>
+                    <p>
+                        If you'd prefer to make reservations over the phone for the JAFAX
+                        Room Block at the Courtyard instead of following the website
+                        reservation link on this page; you may do so by calling the phone
+                        number for the Courtyard, +1 (616) 242-6000.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <h2>Hyatt Place, Downtown Grand Rapids</h3>
+        <div clas="container-sm">
+            <div class="row">
+                <div class="col">
+                    <p>
+                        The second official hotel of JAFAX 2023 is Hyatt Place, a part
+                        of the World of Hyatt collection of hotels!
+                    </p>
+                    <p>
+                        Located on the corner of Ottawa Avenue and Pearl Street, the
+                        Hyatt Place is a short walk from the Devos Place Convention
+                        Center.
+                    </p>
+                    <h3>Online Reservations</h3>
+                    <p>
+                        A dedicated website has been set up for registering online for a
+                        room in the JAFAX Room Block at the Hyatt Place Hotel. Reservations
+                        can be made by visiting this <a href="https://www.hyatt.com/en-US/group-booking/GRRZD/G-JAF2?src=envision_email_grpreserv_ENG_20221207_GroupBooking_TC000000170A000025640ENG_G-_288498&fbclid=IwAR13KO_le4Ggc2h9bv7XnWWSilbpy1kWqvAH9IFQIpcMgF_I4TDyMKd4fTk">site</a>!
+                    </p>
+                    <h3>Phone Call Reservations</h3>
+                    <p>
+                        If you'd prefer to make reservations over the phone for the JAFAX
+                        Room Block at the Hyatt Place instead of following the website
+                        reservation link on this page, you may do so by calling the Hyatt
+                        Place phone number, +1 (616) 984-1200
+                    </p>
+                </div>
+                <div class="col-sm">
+                    <img src="/images/Hyatt-Place-GR-exterior-night_Ham2019.jpg" width=100% />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
         <p>
             All rooms in the JAFAX room block have complimentary Internet access
             along with complimentary access to the pool and fitness area.
         </p>
-    </div>
-    <div class="row">
-        <div class="col item">
-            <img class="left" src="[% webroot %]/images/amway1_new.jpg" />
-            <img class="right" src="[% webroot %]/images/amway2_new.jpg" />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col item">
-            <img class="left" src="[% webroot %]/images/amway3_new.jpg" />
-            <img class="right" src="[% webroot %]/images/amway4_new.jpg" />
-        </div>
     </div>
     [% END %]
 </div>
