@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 #
 # Author: Gary Greene <greeneg@tolharadys.net>
-# Copyright: 2019-2022 JAFAX, Inc. All Rights Reserved
+# Copyright: 2019-2023 JAFAX, Inc. All Rights Reserved
 #
 ##########################################################################
 #
@@ -56,7 +56,7 @@ package Buyo::MkRole {
     my $err    = undef;
     my $utils  = undef;
 
-    my $VERSION = $Buyo::Constants::VERSION;
+    our $VERSION = $Buyo::Constants::VERSION;
 
     sub new :ReturnType(Object) ($class, $flags) {
         type_check($class, Str);
