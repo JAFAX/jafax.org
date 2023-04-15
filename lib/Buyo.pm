@@ -26,7 +26,7 @@ Buyo - Main class for the Buyo Application Framework
 
 =head1 VERSION
 
-Version 1.2.90
+Version 1.2.96
 
 =head1 DESCRIPTION
 
@@ -39,7 +39,7 @@ Gary L. Greene, Jr. <webmaster@jafax.org>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2019-2022 JAFAX, Inc. All Rights Reserved
+Copyright (c) 2019-2023 JAFAX, Inc. All Rights Reserved
 
 =head1 LICENSE
 
@@ -94,7 +94,7 @@ package Buyo {
     # constants
     use constant MTIME_ATTR => 9;
 
-    my $VERSION = $Buyo::Constants::VERSION;
+    our $VERSION = $Buyo::Constants::VERSION;
 
     # this global is to avoid copying it everywhere
     our $config;
