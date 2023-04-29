@@ -25,7 +25,7 @@ package Buyo::Constants {
     use boolean qw(:all);
     use base qw(Exporter);
 
-    our $VERSION = "1.2.96";
+    our $VERSION = "1.2.97";
 
     BEGIN {
         use Exporter   ();
