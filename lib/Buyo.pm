@@ -1190,7 +1190,7 @@ package Buyo {
         } catch {
             classify $ARG, {
                 default => sub {
-                    $logger->err_msg($ARG, "Default error");
+                    $logger->error_msg($ARG, "Default error");
                 }
             };
         };

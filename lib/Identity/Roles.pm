@@ -45,7 +45,7 @@ package Identity::Role {
 
     my $privileges = undef;
 
-    our sub new ($class) {
+    our sub new :ReturnType(Object) ($class) {
         my $self = {};
 
         $privileges = Identity::Privileges->new();
