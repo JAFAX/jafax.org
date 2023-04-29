@@ -21,18 +21,20 @@ package Identity::Role {
     use English qw(-no_match_vars);
     use utf8;
 
-    use boolean qw(:all);
-    use JSON qw();
-    use Data::Dumper;
-    use Try::Tiny qw(try catch);
-    use Throw qw(throw classify);
-
     use feature ":5.26";
     use feature 'lexical_subs';
     use feature 'signatures';
     use feature 'switch';
     no warnings "experimental::signatures";
     no warnings "experimental::smartmatch";
+
+    use boolean qw(:all);
+    use Return::Type;
+    use Types::Standard -all;
+    use JSON qw();
+    use Data::Dumper;
+    use Throw qw(throw classify);
+    use Try::Tiny qw(try catch);
 
     use FindBin;
     use lib "$FindBin::Bin/../lib";
@@ -52,7 +54,7 @@ package Identity::Role {
     my $fio        = undef;
     my $privileges = undef;
 
-    our sub new ($class) {
+    our sub new :ReturnType(Object) ($class) {
         my $self = {};
 
         $err        = Sys::Error->new();
@@ -63,7 +65,7 @@ package Identity::Role {
         return $self;
     }
 
-    our sub create_role ($self, $name, $display_name, $id, $privs) {
+    our sub create_role :ReturnType(Bool) ($self, $name, $display_name, $id, $privs) {
         # roles have the following layout:
         #
         # - name         (SCALAR: string)
@@ -106,7 +108,7 @@ package Identity::Role {
             };
             # close the role file
             try {
-                ($fc, $status) = $fio->close($fh);
+                $status = $fio->close($fh);
             } catch {
                 $err->err_msg($status, __PACKAGE__);
             };
@@ -118,7 +120,10 @@ package Identity::Role {
     }
 
     our sub get_role_id ($self, $name) {
+        my $role_id = undef;
         if (role_exists($name)) {
+            
+        } else {
 
         }
     }
@@ -135,7 +140,50 @@ package Identity::Role {
 
     our sub delete_role ($self, $role) {}
 
-    our sub role_exists ($self, $name) {
+    our sub is_builtin ($self, $name) {}
+
+    our sub site_id :ReturnType(Str) ($self) {
+        my $site_id = undef;
+
+        my $struct = undef;
+        if (-f $identity_root/settings.json) {
+            my $fc     = undef;
+            my $fh     = undef;
+            my $status = undef;
+            try {
+                ($fh, $status) = $fio->open('r', $identity_root/Roles/${name}.json);
+            } catch {
+                $err->err_msg($status, __PACKAGE__);
+            };
+            try {
+                ($content, $status) = $fio->read($fh, -1); # read in the entire file
+            } catch {
+                $err->err_msg($status, __PACKAGE__);
+            };
+            try {
+                $status = $fio->close($fh);
+            } catch {
+                $err->err_msg($status, __PACKAGE__);
+            };
+            try {
+                $struct = decode_json($content);
+            } catch {
+                $err->err_msg($ARG, __PACKAGE__);
+            };
+            return $struct->{'siteId'};
+        } else {
+            # can't use symbolic names yet, as Sys::Error doesn't export a way to convert from symbol to number
+            throw("Cannot open file", {
+                'trace' => 3,
+                'type'  => $error->error_string(2)->{'symbol'},
+                'info'  => "Attempted to open file '$identity_root/settings.json' for read",
+                'code'  => 2,
+                'msg'   => $error->error_string(2)->{'string'}
+            };
+        }
+    }
+
+    our sub role_exists :ReturnType(Bool) ($self, $name) {
         if (-f "$identity_root/Roles/${name}.json" or
             -f "$identity_root/Roles/BUILTIN/${name}.json") {
             return true;
