@@ -30,14 +30,14 @@
                                         <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/[% guest.pathName %]">[% guest.displayName %]</a>
                                     [% END %]
                                 [% END %]
-<!--                                <div class="dropdown-divider"></div>
-                                <h6 class="dropdown-header">Cultural Guests</h6>
+                                <div class="dropdown-divider"></div>
+                                <h6 class="dropdown-header">Musical Guest</h6>
                                 [% FOREACH cultureGuest IN culturalGuestList %]
                                     [% IF cultureGuest.enabled == 1 %]
                                         <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/[% cultureGuest.pathName %]">[% cultureGuest.displayName %]</a>
                                     [% END %]
                                 [% END %]
-                                <div class="dropdown-divider"></div>
+<!--                                <div class="dropdown-divider"></div>
                                 <h6 class="dropdown-header">Cosplay Guest Judge</h6>
                                 [% FOREACH guestJudge IN guestJudgeList %]
                                     [% IF guestJudge.enabled == 1 %]
