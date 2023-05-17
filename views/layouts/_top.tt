@@ -31,10 +31,17 @@
                                     [% END %]
                                 [% END %]
                                 <div class="dropdown-divider"></div>
+                                <h6 class="dropdown-header">Cultural Guest</h6>
+                                [% FOREACH culturalGuest IN culturalGuestList %]
+                                    [% IF culturalGuest.enabled == 1 %]
+                                        <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/[% culturalGuest.pathName %]">[% culturalGuest.displayName %]</a>
+                                    [% END %]
+                                [% END %]
+                                <div class="dropdown-divider"></div>
                                 <h6 class="dropdown-header">Musical Guest</h6>
-                                [% FOREACH cultureGuest IN culturalGuestList %]
-                                    [% IF cultureGuest.enabled == 1 %]
-                                        <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/[% cultureGuest.pathName %]">[% cultureGuest.displayName %]</a>
+                                [% FOREACH musicalGuest IN musicalGuestList %]
+                                    [% IF musicalGuest.enabled == 1 %]
+                                        <a class="dropdown-item" role="presentation" href="[% webroot %]/guests/[% musicalGuest.pathName %]">[% musicalGuest.displayName %]</a>
                                     [% END %]
                                 [% END %]
 <!--                                <div class="dropdown-divider"></div>

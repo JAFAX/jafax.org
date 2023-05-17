@@ -701,6 +701,7 @@ package Buyo {
 
         my $guest_list   = get_guestlist($config->{'appdir'});
         my $cguest_list  = $config->{'culturalGuestList'};
+        my $mguest_list  = $config->{'musicalGuestList'};
         my $sguest_list  = $config->{'guestJudgeList'};
 
         $logger->err_log("== DEBUGGING ==: Registering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
@@ -755,7 +756,8 @@ package Buyo {
                                 'guests'             => $config->{'guests'},
                                 'guestList'          => $guest_list,
                                 'guestJudgeList'     => $sguest_list,
-                                'culturalGuestList'  => $cguest_list
+                                'culturalGuestList'  => $cguest_list,
+                                'musicalGuestList'   => $mguest_list
                             };
                         };
                     }
@@ -790,7 +792,8 @@ package Buyo {
                                 'guests'             => $config->{'guests'},
                                 'guestList'          => $guest_list,
                                 'guestJudgeList'     => $sguest_list,
-                                'culturalGuestList'  => $cguest_list
+                                'culturalGuestList'  => $cguest_list,
+                                'musicalGuestList'   => $mguest_list
                             };
                         };
                     }
@@ -815,7 +818,8 @@ package Buyo {
                                 'guests'             => $config->{'guests'},
                                 'guestList'          => $guest_list,
                                 'guestJudgeList'     => $sguest_list,
-                                'culturalGuestList'  => $cguest_list
+                                'culturalGuestList'  => $cguest_list,
+                                'musicalGuestList'   => $mguest_list
                             }
                         };
                     }
@@ -842,7 +846,8 @@ package Buyo {
                                 'guests'             => $config->{'guests'},
                                 'guestList'          => $guest_list,
                                 'guestJudgeList'     => $sguest_list,
-                                'culturalGuestList'  => $cguest_list
+                                'culturalGuestList'  => $cguest_list,
+                                'musicalGuestList'   => $mguest_list
                             }
                         };
                     }
@@ -886,7 +891,8 @@ package Buyo {
                                 'guests'             => $config->{'guests'},
                                 'guestList'          => $guest_list,
                                 'guestJudgeList'     => $sguest_list,
-                                'culturalGuestList'  => $cguest_list
+                                'culturalGuestList'  => $cguest_list,
+                                'musicalGuestList'   => $mguest_list
                             };
                         };
                     }
@@ -923,6 +929,7 @@ package Buyo {
 
         my $guest_list   = get_guestlist($config->{'appdir'});
         my $cguest_list  = $config->{'culturalGuestList'};
+        my $mguest_list  = $config->{'musicalGuestList'};
         my $sguest_list  = $config->{'guestJudgeList'};
         my $artists      = $config->{'artistsList'};
         my $vendors      = $config->{'vendorList'};
@@ -955,7 +962,8 @@ package Buyo {
                                 'guests'             => $config->{'guests'},
                                 'guestList'          => $guest_list,
                                 'guestJudgeList'     => $sguest_list,
-                                'culturalGuestList'  => $cguest_list
+                                'culturalGuestList'  => $cguest_list,
+                                'musicalGuestList'   => $mguest_list
                             }, { layout => 'login' };
                         };
                     }
@@ -983,6 +991,7 @@ package Buyo {
                                 'guestList'          => $guest_list,
                                 'guestJudgeList'     => $sguest_list,
                                 'culturalGuestList'  => $cguest_list,
+                                'musicalGuestList'   => $mguest_list,
                                 'artists'            => $artists,
                                 'vendors'            => $vendors,
                                 'panels'             => $panels
@@ -1017,6 +1026,7 @@ package Buyo {
 
         my $guest_list   = get_guestlist($config->{'appdir'});
         my $cguest_list  = $config->{'culturalGuestList'};
+        my $mguest_list  = $config->{'musicalGuestList'};
         my $sguest_list  = $config->{'guestJudgeList'};
 
         $logger->err_log("== DEBUGGING ==: Registering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
@@ -1048,7 +1058,8 @@ package Buyo {
                                     'guests'             => $config->{'guests'},
                                     'guestList'          => $guest_list,
                                     'guestJudgeList'     => $sguest_list,
-                                    'culturalGuestList'  => $cguest_list
+                                    'culturalGuestList'  => $cguest_list,
+                                    'musicalGuestList'   => $mguest_list
                                 };
                             }
                         };
@@ -1200,6 +1211,7 @@ package Buyo {
         $config->{'license'}            = $data->{'info'}->{'license'};
         $config->{'guests'}             = $features->{'guests'};
         $config->{'guestList'}          = $features->{'guestList'};
+        $config->{'musicalGuestList'}   = $features->{'musicalGuestList'};
         $config->{'culturalGuestList'}  = $features->{'culturalGuestList'};
         $config->{'guestJudgeList'}     = $features->{'specialGuestJudgeList'};
         $config->{'artistsList'}        = get_artist_list($config->{'appdir'});
