@@ -24,12 +24,22 @@
             }
         </script>
         [% END %]
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3S19Z7TDMV"></script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11182144617"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-3S19Z7TDMV');
+            gtag('config', 'AW-11182144617');
         </script>
+        [% IF path == '/registration/attendee' %]
+            <!-- Event snippet for Website sale conversion page -->
+            <script>
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-11182144617/StrBCK3t86AYEOn4h9Qp',
+                    'transaction_id': ''
+                });
+            </script>
+        [% END %]
     </head>
