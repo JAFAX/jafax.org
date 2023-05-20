@@ -135,6 +135,20 @@ body {
   padding: 20px;
 }
 
+.ileft {
+  float: center;
+  width: 98%;
+  margin-top: 10px;
+  padding: 10px;
+}
+.iright {
+  float: center;
+  width: 98%;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+
 .right {
   float: right;
   width: 45%;
