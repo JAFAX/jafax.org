@@ -157,6 +157,7 @@ package Buyo {
         my %configuration = ();
 
         $configuration{'debug'}           = $cfg->val('General', 'debugging');
+        $configuration{'trace'}           = $cfg->val('General', 'trace');
         $configuration{'webroot'}         = $cfg->val('Web', 'webpath');
         $configuration{'session_support'} = $cfg->val('Web', 'session_support', 0);
         $configuration{'article_mech'}    = $cfg->val('Web', 'article_mech', "JSON");
@@ -218,7 +219,6 @@ package Buyo {
 
         my $f_mtime = undef;
         $logger->err_log("== DEBUGGING ==: file: " . $file_name) if $config->{'debug'};
-        $logger->err_log("== TRACE ==: DUMP of \$config object: ". Dumper($config)) if $config->{'debug'};
         my $fq_path = "" . $config->{'appdir'} . $site_parent_path . ${file_name};
         # strip excess '/' characters
         $fq_path =~ s/\/\//\//g;
@@ -275,19 +275,25 @@ package Buyo {
         } elsif ($type eq 'bio') {
             $logger->err_log("== DEBUGGING ==: Is Guest Bio") if $config->{'debug'};
             my $name     = $article_struct->{'name'};
-            my $photo_fn = $article_struct->{'photoFileName'};
-            my $position = $article_struct->{'photoPosition'};
-            my $content  = $article_struct->{'content'};
+            my %bio_info;
+            my @bios     = ();
+            foreach my $bio (@{$article_struct->{'bios'}}) {
+                $logger->err_log("== TRACE ==: bio dump:" . Dumper($bio)) if $config->{'trace'};
+                $bio_info{'photoFileName'} = $bio->{'photoFileName'};
+                $bio_info{'position'}      = $bio->{'photoPosition'};
+                $bio_info{'content'}       = $bio->{'content'};
+                # get the mtime of the photo in UNIX time
+                my $f_mtime  = get_mtime($bio_info{'photoFileName'});
+                # to work around caching issues with Chrome, append a query string to the
+                # file URL with the mtime
+                $logger->err_log("== DEBUGGING ==: photo MTIME: ". $f_mtime) if $config->{'debug'};
+                $bio_info{'photoFileName'} = $bio_info{'photoFileName'} . "?${f_mtime}";
+                push(@bios, {%bio_info});
+            }
 
-            # get the mtime of the photo in UNIX time
-            my $f_mtime  = get_mtime($photo_fn);
-            # to work around caching issues with Chrome, append a query string to the
-            # file URL with the mtime
-            $logger->err_log("== DEBUGGING ==: photo MTIME: ". $f_mtime) if $config->{'debug'};
+            $logger->err_log("== TRACE ==: bios data dump: ". Dumper(@bios)) if $config->{'trace'} ;
 
-            $photo_fn = "${photo_fn}?${f_mtime}";
-
-            return $name, $photo_fn, $position, $content;
+            return ($name, @bios);
         }
     }
 
@@ -392,7 +398,7 @@ package Buyo {
             };
         };
 
-        $logger->err_log("== DEBUGGING ==: DUMP: ". Dumper($people)) if $config->{'debug'};
+        $logger->err_log("== TRACE ==: DUMP: ". Dumper($people)) if $config->{'trace'};
         return $people;
     }
 
@@ -577,7 +583,7 @@ package Buyo {
         my $sub = (caller(0))[3];
         $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
 
-        $logger->err_log("== DEBUGGING ==: DUMP POST VALUES: ". Dumper($post_values)) if $config->{'debug'};
+        $logger->err_log("== TRACE ==: DUMP POST VALUES: ". Dumper($post_values)) if $config->{'trace'};
         my $email_address = get_department_email_from_id($config->{'appdir'}, $post_values->{'to_list'});
         my $email_subject = $post_values->{'email_subject'};
         my $email_body    = "Message sent from: $post_values->{'email_address'}\n\nMessage:\n$post_values->{'email_body'}\n";
@@ -851,12 +857,10 @@ package Buyo {
                             }
                         };
                     }
-                    when ("guest::bio") {
+                    when ('guest::bio') {
                         get "$path" => sub {
                             my $bio_name;
-                            my $bio_photo;
-                            my $bio_photo_position,
-                            my $bio_content;
+                            my @bios;
 
                             my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
                             my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
@@ -868,7 +872,8 @@ package Buyo {
                             $logger->err_log("== DEBUGGING ==: Using Article Content Mechanism '$page_content_mech'") if $config->{'debug'};
                             given ($page_content_mech) {
                                 when ('JSON') {
-                                    ($bio_name, $bio_photo, $bio_photo_position, $bio_content) = get_article_from_json($person, 'bio');
+                                    ($bio_name, @bios) = get_article_from_json($person, 'bio');
+                                    $logger->err_log("== TRACE ==: bios array dump: ". Dumper(@bios)) if $config->{'trace'};
                                     break;
                                 }
                                 default {
@@ -882,9 +887,7 @@ package Buyo {
                                 'copyright'          => $config->{'copyright'},
                                 'license'            => $config->{'license'},
                                 'name'               => $bio_name,
-                                'photo_uri'          => $bio_photo,
-                                'position'           => $bio_photo_position,
-                                'page_content'       => $bio_content,
+                                'bios'               => \@bios,
                                 'launch'             => $do_launch,
                                 'expirePage'         => $expire_page,
                                 'path'               => $path,
@@ -896,7 +899,7 @@ package Buyo {
                             };
                         };
                     }
-                    when ("widget::carousel") {
+                    when ('widget::carousel') {
                         get "$path" => sub {
                             $logger->err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for '$path'") if $config->{'debug'};
                             $logger->err_log("== DEBUGGING ==: Generating page for IFRAME") if $config->{'debug'};
@@ -1155,12 +1158,14 @@ package Buyo {
             'appdir'        => config->{appdir},
             'article_mech'  => $configuration{'article_mech'},
             'debug'         => $configuration{'debug'},
+            'trace'         => $configuration{'trace'},
             'site_key'      => $configuration{'site_key'},
             'service_key'   => $configuration{'service_key'},
             'configuration' => \%configuration
         };
 
-        $logger = Buyo::Logger->new({'debug' => $config->{'debug'}});
+        $logger = Buyo::Logger->new({'debug' => $config->{'debug'},
+                                     'trace' => $config->{'trace'}});
         $logger->err_log("== DEBUGGING ==: Sub: $sub") if $config->{'debug'};
         $logger->err_log("== DEBUGGING ==: Loading Sys::Error") if $config->{'debug'};
         $err = Sys::Error->new();
@@ -1218,7 +1223,7 @@ package Buyo {
         $config->{'vendorList'}         = get_vendor_list($config->{'appdir'});
         $config->{'panelDescriptions'}  = get_panel_details($config->{'appdir'});
 
-        $logger->err_log("== DEBUGGING ==: DUMP: ". Dumper($config)) if $config->{'debug'};
+        $logger->err_log("== TRACE ==: DUMP: ". Dumper($config)) if $config->{'trace'};
 
         my %paths = %{$data->{'paths'}};
 

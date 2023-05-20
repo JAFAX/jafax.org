@@ -1,6 +1,10 @@
 {
     "name": "Samurai Dan",
-    "photoFileName": "/images/guests/SamuraiDan.jpg",
-    "photoPosition": "left",
-    "content": "Samurai Dan has been training and teaching the martial science of the Samurai warriors for over 25 years. Founder of the Samurai Combative Concepts organization, Dan travels the US and Canada, dedicated to keeping the arts of Japan's greatest warriors alive. Aided by his amazing wife Jillian, and their adorable Akitas, the dynamic duo teach a variety of classes and lectures at cons everywhere.</p><p>Be sure to like them at <a href=\"www.facebook.com/SamuraiDanAndJillian\">their Facebook page</a>!"
+    "bios": [
+        {
+            "photoFileName": "/images/guests/SamuraiDan.jpg",
+            "photoPosition": "left",
+            "content": "Samurai Dan has been training and teaching the martial science of the Samurai warriors for over 25 years. Founder of the Samurai Combative Concepts organization, Dan travels the US and Canada, dedicated to keeping the arts of Japan's greatest warriors alive. Aided by his amazing wife Jillian, and their adorable Akitas, the dynamic duo teach a variety of classes and lectures at cons everywhere.</p><p>Be sure to like them at <a href=\"www.facebook.com/SamuraiDanAndJillian\">their Facebook page</a>!"
+        }
+    ]
 }
