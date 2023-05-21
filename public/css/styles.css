@@ -88,6 +88,11 @@ body {
 .news_blurb:hover {
   color: ghostwhite;
 }
+@media (max-width: 320px) {
+  .news_blurb {
+    min-width: 250px;
+  }
+}
 .news_long_title {
   background-image: linear-gradient(45deg, cadetblue, ghostwhite);
   border-top-right-radius: 30px;
@@ -156,7 +161,7 @@ body {
 }
 
 .rounded-image {
-  border-radius: 7px;
+  border-radius: 6px;
 }
 
 #schedule {
@@ -176,17 +181,19 @@ body {
   min-height: 300px;
 }
 @media (max-width: 600px) {
-  .img_carousel {
+  .img-carousel {
     align-content: center;
-    height: 160px;
+    border-radius: 6px;
+    height: 170px;
     width: 90%;
     border-style: hidden;
     overflow: hidden;
   }
 }
 @media (min-width: 600px) {
-  .img_carousel {
+  .img-carousel {
     align-content: center;
+    border-radius: 6px;
     height: 140px;
     width: 80%;
     border-style: hidden;
@@ -194,8 +201,9 @@ body {
   }
 }
 @media (min-width: 760px) {
-  .img_carousel {
+  .img-carousel {
     align-content: center;
+    border-radius: 6px;
     height: 220px;
     width: 80%;
     border-style: hidden;
@@ -203,18 +211,20 @@ body {
   }
 }
 @media (min-width: 1020px) {
-  .img_carousel {
+  .img-carousel {
     align-content: center;
-    height: 310px;
+    border-radius: 6px;
+    height: 300px;
     width: 80%;
     border-style: hidden;
     overflow: hidden;
   }
 }
 @media (min-width: 1028px) {
-  .img_carousel {
+  .img-carousel {
     align-content: center;
-    height: 310px;
+    border-radius: 6px;
+    height: 300px;
     width: 72%;
     border-style: hidden;
     overflow: hidden;
