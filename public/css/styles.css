@@ -51,7 +51,6 @@ body {
 .news_title {
   background-image: linear-gradient(45deg, cadetblue, ghostwhite);
   border-top-right-radius: 30px;
-/*  font-family: 'Arial Black', Arial, Helvetica, sans-serif; */
   text-decoration: none;
   font-size: 26pt;
   font-weight: bold;
@@ -92,7 +91,6 @@ body {
 .news_long_title {
   background-image: linear-gradient(45deg, cadetblue, ghostwhite);
   border-top-right-radius: 30px;
-/*  font-family: 'Arial Black', Arial, Helvetica, sans-serif; */
   text-decoration: none;
   font-size: 26pt;
   font-weight: bold;
@@ -139,52 +137,11 @@ body {
   border-radius: 6px;
   width: 98%;
   margin-top: 10px;
-  /*                              position: absolute;
-                                z-index: 2;
-                                top:0;
-                                left:0;
-                                width: 80%;
-                                resize: true; */
 }
 .iright {
   border-radius: 6px;
   width: 98%;
   margin-top: 10px;
-/*                                position:absolute;
-                                top:0;
-                                left:0;
-                                width: 80%;
-                                resize: true; */
-
-}
-.ileft-blur {
-  width: 98%;
-  margin-top: 10px;
-  -webkit-filter: blur(20px);
-  -moz-filter: blur(20px);
-  -o-filter: blur(20px);
-  -ms-filter: blur(20px);
-  filter: blur(20px);
-                                position: absolute;
-                                z-index: 1;
-                                top:0;
-                                left:0;
-                                width: 80%;
-                                resize: true;
-}
-.iright-blur {
-  width: 98%;
-  margin-top: 10px;
-  -webkit-filter: blur(20px);
-  -moz-filter: blur(20px);
-  -o-filter: blur(20px);
-  -ms-filter: blur(20px);
-  filter: blur(20px);
-                                position:absolute;
-                                top:0;
-                                left:0;
-                                width: 80%;
-                                resize: true;
 }
 
 .right {

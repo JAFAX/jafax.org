@@ -8,7 +8,6 @@
                 <div class="row">
                     [% IF bio.position == 'left' -%]
                     <div class="col">
-                        <!-- <img class="ileft-blur" src="[% bio.photoFileName %]" /> -->
                         <img class="ileft" src="[% bio.photoFileName %]" />
                     </div>
                     <div class="col">
@@ -19,7 +18,6 @@
                         [% bio.content %]
                     </div>
                     <div class="col">
-                        <!-- <img class="iright-blur" src="[% bio.photoFileName %]" /> -->
                         <img class="iright" src="[% bio.photoFileName %]" />
                     </div>
                     [% END -%]
