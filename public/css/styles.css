@@ -136,18 +136,56 @@ body {
 }
 
 .ileft {
-  float: center;
+  border-radius: 6px;
   width: 98%;
   margin-top: 10px;
-  padding: 10px;
+  /*                              position: absolute;
+                                z-index: 2;
+                                top:0;
+                                left:0;
+                                width: 80%;
+                                resize: true; */
 }
 .iright {
-  float: center;
+  border-radius: 6px;
   width: 98%;
   margin-top: 10px;
-  padding: 10px;
-}
+/*                                position:absolute;
+                                top:0;
+                                left:0;
+                                width: 80%;
+                                resize: true; */
 
+}
+.ileft-blur {
+  width: 98%;
+  margin-top: 10px;
+  -webkit-filter: blur(20px);
+  -moz-filter: blur(20px);
+  -o-filter: blur(20px);
+  -ms-filter: blur(20px);
+  filter: blur(20px);
+                                position: absolute;
+                                z-index: 1;
+                                top:0;
+                                left:0;
+                                width: 80%;
+                                resize: true;
+}
+.iright-blur {
+  width: 98%;
+  margin-top: 10px;
+  -webkit-filter: blur(20px);
+  -moz-filter: blur(20px);
+  -o-filter: blur(20px);
+  -ms-filter: blur(20px);
+  filter: blur(20px);
+                                position:absolute;
+                                top:0;
+                                left:0;
+                                width: 80%;
+                                resize: true;
+}
 
 .right {
   float: right;
@@ -158,6 +196,10 @@ body {
 
 .bttm-pad {
   padding-bottom: 12px;
+}
+
+.rounded-image {
+  border-radius: 7px;
 }
 
 #schedule {

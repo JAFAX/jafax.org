@@ -33,7 +33,7 @@
         <div clas="container-sm">
             <div class="row">
                 <div class="col-sm">
-                    <img src="/images/CY_GRRDT_Exterior.jpg" width=100% />
+                    <img src="/images/CY_GRRDT_Exterior.jpg" width=100% class="rounded-image" />
                 </div>
                 <div class="col">
                     <p>
@@ -87,7 +87,7 @@
                     </p>
                 </div>
                 <div class="col-sm">
-                    <img src="/images/Hyatt-Place-GR-exterior-night_Ham2019.jpg" width=100% />
+                    <img src="/images/Hyatt-Place-GR-exterior-night_Ham2019.jpg" width=100% class="rounded-image" />
                 </div>
             </div>
         </div>
