@@ -1,6 +1,10 @@
 {
     "name": "",
-    "photoFileName": "",
-    "photoPosition": "",
-    "content": ""
+    "bios": [
+        {
+            "photoFileName": "",
+            "photoPosition": "",
+            "content": ""
+        }
+    ]
 }

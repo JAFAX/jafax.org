@@ -3,14 +3,27 @@
         <div class="page_text">
             <br />
             <center><h1>[% name %]</h1></center>
-            <p>
-            [% IF position == 'left' -%]
-                <img class="left" src="[% photo_uri %]" />
-                [% page_content %]
-            [% ELSIF position == 'right' -%]
-                [% page_content %]
-                <img class="right" src="[% photo_uri %]" />
-            [% END -%]
+            <div class="container-lg">
+                [% FOREACH bio IN bios -%]
+                <div class="row">
+                    [% IF bio.position == 'left' -%]
+                    <div class="col">
+                        <img class="ileft" src="[% bio.photoFileName %]" />
+                    </div>
+                    <div class="col">
+                        [% bio.content %]
+                    </div>
+                    [% ELSIF bio.position == 'right' -%]
+                    <div class="col">
+                        [% bio.content %]
+                    </div>
+                    <div class="col">
+                        <img class="iright" src="[% bio.photoFileName %]" />
+                    </div>
+                    [% END -%]
+                </div>
+                [% END -%]
+            </div>
         </div>
     </div>
 </div>

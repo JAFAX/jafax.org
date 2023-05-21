@@ -51,7 +51,6 @@ body {
 .news_title {
   background-image: linear-gradient(45deg, cadetblue, ghostwhite);
   border-top-right-radius: 30px;
-/*  font-family: 'Arial Black', Arial, Helvetica, sans-serif; */
   text-decoration: none;
   font-size: 26pt;
   font-weight: bold;
@@ -92,7 +91,6 @@ body {
 .news_long_title {
   background-image: linear-gradient(45deg, cadetblue, ghostwhite);
   border-top-right-radius: 30px;
-/*  font-family: 'Arial Black', Arial, Helvetica, sans-serif; */
   text-decoration: none;
   font-size: 26pt;
   font-weight: bold;
@@ -135,6 +133,17 @@ body {
   padding: 20px;
 }
 
+.ileft {
+  border-radius: 6px;
+  width: 98%;
+  margin-top: 10px;
+}
+.iright {
+  border-radius: 6px;
+  width: 98%;
+  margin-top: 10px;
+}
+
 .right {
   float: right;
   width: 45%;
@@ -144,6 +153,10 @@ body {
 
 .bttm-pad {
   padding-bottom: 12px;
+}
+
+.rounded-image {
+  border-radius: 7px;
 }
 
 #schedule {
