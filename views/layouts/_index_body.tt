@@ -16,7 +16,7 @@
     </div>
     <br />
     <center>
-        <iframe class="img_carousel" src="[% webroot %]/carousel" frameborder=0></iframe>
+        <iframe class="img-carousel" src="[% webroot %]/carousel" frameborder=0></iframe>
     </center>
     <div class="news_carousel">
         <div class="news_carousel_title">
