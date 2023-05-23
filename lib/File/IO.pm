@@ -37,7 +37,7 @@ package File::IO {
         return $self;
     }
 
-    my sub mode_translate :ReturnType(Str) ($self, $mode_string) {
+    our sub mode_translate :ReturnType(Str) ($self, $mode_string) {
         my $mode = undef;
         given ($mode_string) {
             when ('r') {

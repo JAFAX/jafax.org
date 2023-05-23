@@ -57,7 +57,11 @@
                     Subject:
                 </div>
                 <div class="col">
+                    [% IF subject.defined -%]
+                    <input type="text" name="email_subject" value="[% subject FILTER remove('"') %]" form="form:email" class="form-control" />
+                    [% ELSE -%]
                     <input type="text" name="email_subject" value="Subject..." onfocus="doClear(this)" onblur="restoreText('Subject...',this)" form="form:email" class="form-control" />
+                    [% END -%]
                 </div>
             </div>
             <div class="padded-row">
