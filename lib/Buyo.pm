@@ -770,15 +770,21 @@ package Buyo {
                     when ('form::mailer') {
                         get "$path" => sub {
                             my $selected_dept;
+                            my $injected_subject;
 
                             my $do_launch = validate_page_launch_date($bindings{$path}->{$verb}->{'launchDate'}, time);
                             my $expire_page = expire_page($bindings{$path}->{$verb}->{'expireDate'}, time);
 
                             my $department = query_parameters->get('department');
-                            my $people = get_department_contacts($config->{'appdir'});
+                            my $subject    = query_parameters->get('sub');
+                            my $people     = get_department_contacts($config->{'appdir'});
                             if (defined($department)) {
                                 $selected_dept = $department;
                                 $logger->err_log("== DEBUGGING ==: Form passed query parameter value '$department'") if $config->{'debug'};
+                            }
+                            if (defined($subject)) {
+                                $injected_subject = $subject;
+                                $logger->err_log("== DEBUGGING ==: Form passed query parameter value '$subject'") if $config->{'debug'};
                             }
                             $logger->err_log("== DEBUGGING ==: Triggering '" . uc($verb) . "' action for path '$path'") if $config->{'debug'};
                             $logger->err_log("== DEBUGGING ==: Generating page for '$class'") if $config->{'debug'};
@@ -790,6 +796,7 @@ package Buyo {
                                 'copyright'          => $config->{'copyright'},
                                 'license'            => $config->{'license'},
                                 'selected'           => $selected_dept,
+                                'subject'            => $injected_subject,
                                 'people'             => $people,
                                 'launch'             => $do_launch,
                                 'expirePage'         => $expire_page,
