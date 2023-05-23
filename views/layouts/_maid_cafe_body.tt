@@ -46,6 +46,10 @@
         <p>
             The schedule and menu will be posted as we get closer to JAFAX 2023!
         </p>
+        <p>
+            Also, if you're interested in volunteering for helping with the Maid Caf&eacute;,
+            please contact our Maid Caf&eacute; Coordinator <a href='/contact?department=5;sub="Interested in volunteering!"'>here</a> , and they will get back to you!
+        </p>
         [% END %]
     </div>
 </div>
