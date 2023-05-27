@@ -10,7 +10,7 @@
         </p>
         [% ELSE %]
         <p>
-            Tickets for JAFAX can be purchased below. We are happy to partner with the <a href="https://www.eventbrite.com/">EventBright</a> service to make them available. See their privacy policy <a href="https://www.eventbrite.com/support/articles/en_US/Troubleshooting/eventbrite-privacy-policy?lg=en_US">here</a> and their <a href="https://www.eventbrite.com/l/legalterms/">terms of service</a>.
+            Tickets for JAFAX can be purchased below. We are happy to partner with the <a href="https://www.eventbrite.com/">Eventbright</a> service to make them available. See their privacy policy <a href="https://www.eventbrite.com/support/articles/en_US/Troubleshooting/eventbrite-privacy-policy?lg=en_US">here</a> and their <a href="https://www.eventbrite.com/l/legalterms/">terms of service</a>.
         </p>
         [% END %]
         [% IF preRegPricing != 'enabled' %]
@@ -23,8 +23,8 @@
             The prices for pre-registration tickets are as follows:<br />
             <ul>
                 <li><strong>January 1<super>st</super>, 2023 through February 14<super>th</super>:</strong> $45 for a 3-Day Badge</li>
-                <li><strong>February 15<super>th</super>, 2023 through June 8<super>th</super>:</strong> $55 for a 3-Day Badge</li>
-                <li><strong>At the door:</strong> $60 for a 3-Day Badge</li>
+                <li><strong>February 15<super>th</super>, 2023 through April 7<super>th</super>:</strong> $55 for a 3-Day Badge</li>
+                <li><strong>April 7<super>th</super> onwards, including at the door:</strong> $60 for a 3-Day Badge</li>
             </ul>
         </p>
         <h3>VIP Badges</h3>
@@ -48,7 +48,7 @@
             </ul>
         </p>
         <p>
-            For more details about the badges, please click the plus signs below on the EventBee badge purchase section for additional badge information.
+            For more details about the badges, please click the plus signs below on the Eventbright badge purchase section for additional badge information.
         </p>
         <p>
             If you have any Support questions, please contact <a href="[% webroot %]/contact?department=7">our registration coordinator</a>.
@@ -67,6 +67,18 @@
                 console.log('Order complete!');
             };
 
+            if (screen.width < 320) {
+                var ebFrameHeight = 1980;
+            } else if (screen.width >= 320) {
+                var ebFrameHeight = 1800;
+            } else if (screen.width >= 412) {
+                var ebFrameHeight = 1725;
+            } else if (screen.width >= 820) {
+                var ebFrameHeight = 1650;
+            } else if (screen.width >= 1024) {
+                var ebFrameHeight = 1600;
+            }
+
             window.EBWidgets.createWidget({
                 // Required
                 widgetType: 'checkout',
@@ -74,7 +86,7 @@
                 iframeContainerId: 'eventbrite-widget-container-96354064601',
 
                 // Optional
-                iframeContainerHeight: 425,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
+                iframeContainerHeight: ebFrameHeight, // Widget height in pixels. Defaults to a minimum of 425px if not provided
                 onOrderComplete: exampleCallback  // Method called when an order has successfully completed
             });
         </script>
