@@ -1225,7 +1225,7 @@ package Buyo {
         $config->{'guestList'}          = $features->{'guestList'};
         $config->{'musicalGuestList'}   = $features->{'musicalGuestList'};
         $config->{'culturalGuestList'}  = $features->{'culturalGuestList'};
-        $config->{'guestJudgeList'}     = $features->{'specialGuestJudgeList'};
+        $config->{'guestJudgeList'}     = $features->{'guestJudgeList'};
         $config->{'artistsList'}        = get_artist_list($config->{'appdir'});
         $config->{'vendorList'}         = get_vendor_list($config->{'appdir'});
         $config->{'panelDescriptions'}  = get_panel_details($config->{'appdir'});

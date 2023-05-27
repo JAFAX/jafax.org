@@ -25,7 +25,7 @@ package Buyo::Constants {
     use boolean qw(:all);
     use base qw(Exporter);
 
-    our $VERSION = "1.2.105";
+    our $VERSION = "1.2.106";
 
     BEGIN {
         use Exporter   ();
@@ -55,9 +55,11 @@ package Buyo::Constants {
     our @EXPORT_OK;
 
     # exported package globals go here
+    our $copyright;
     our $license;
 
     # initialize package globals, first exported ones
+    $copyright   = 'Copyright &copy; 2016-2023';
     $license     = 'Licensed under the Apache Public License version 2.0';
 
     END { }       # module clean-up code here (global destructor)
