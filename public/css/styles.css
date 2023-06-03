@@ -107,6 +107,22 @@ body {
   text-decoration: none;
   font-size: 16pt;
   font-weight: bold;
+  color: ghostwhite;
+  vertical-align: center;
+  text-align: center;
+}
+.table_cell {
+  vertical-align: top;
+  border: 1px solid silver;
+  padding: 5px;
+}
+.inner_header {
+  border: 1px solid silver;
+  background-color: silver;
+  padding: 5px;
+  text-decoration: none;
+  font-size: 16pt;
+  font-weight: bold;
 }
 .table_header_end {
   text-decoration: none;
