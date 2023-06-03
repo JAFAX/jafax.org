@@ -1,98 +1,135 @@
 <div class="container">
     <div class="page_text">
-        [% gamingEvents = 'disabled' %]
-        [% enableArktosEvent = "disabled" %]
-        [% arktosDiscount = "disabled" %]
-        [% paintingEvent = 'disabled' %]
-        [% deadStateDesignsEvent = 'disabled' %]
-        [% kdogsEvent = 'disabled' %]
-        [% ttGameLibraryEvent = 'disabled' %]
-        [% griffinsRestEvent = 'disabled' %]
+        [% gamingEvents = 'enabled' %]
+        [% cellarOfTalesEvent = "enabled" %]
+        [% cellarOfTalesLocation = 'DeVos Exhibition Hall B' %]
+        [% paintingEvent = 'enabled' %]
+        [% paintingEventLocation = 'DeVos Exhibition Hall B' %]
+        [% deadStateDesignsEvent = 'enabled' %]
+        [% deadStateLocation = 'DeVos Exhibition Hall B' %]
+        [% kdogsEvent = 'enabled' %]
+        [% kdogsLocation = 'DeVos Exhibition Hall B' %]
+        [% ttGameLibraryEvent = 'enabled' %]
+        [% ttGameLibraryLocation = 'DeVos Exhibition Hall B' %]
+        [% rpgGamingEvents = 'enabled' %]
+        [% rpgGamingEventsLocation = 'DeVos Exhibition Hall B' %]
+        [% griffinsRestEvent = 'enabled' %]
+        [% griffinsRestLocation = 'DeVos Exhibition Hall B' %]
+        [% pokemonLeagueAdventure = 'enabled' %]
+        [% pokemonLeagueAdventureLocation = 'DeVos Exhibition Hall B' %]
+        [% pokemonGoSafari = 'enabled' %]
+        [% pokemonGoSafariLocation = 'DeVos Exhibition Hall B' %]
+        [% retroHighScoreChallenge = 'enabled' %]
+        [% retroHighScoreChallengeLocation = 'DeVos Exhibition Hall B' %]
+        [% ccgTournaments = 'enabled' %]
+        [% cosplayBattleArena = 'enabled' %]
+        [% cosplayBattleArenaLocation = 'DeVos Center (Grand Gallery G-H)' %]
+        [% ccgTournamentsLocation = 'DeVos Exhibition Hall B' %]
+        [% videoGameTournaments = 'enabled' %]
+        [% videoGameTournamentsLocation = 'DeVos Exhibition Hall B' %]
         <br />
         <center><h1>Gaming at JAFAX 2023</h1></center>
         [% IF gamingEvents == 'enabled' %]
         <p>
-            Is the hustle and bustle of the convention getting to you? Maybe
-            you have some free time in between panels? Or maybe you just want
-            to kick back and play some games. Whatever your motivation might
-            be our gaming rooms have what you are searching for.
+            Welcome to the <strong>JAFAX 2023 Game Room</strong>! Last year we provided guests with a wide selection of games for all ages. This year we look to expand on our offerings by taking over an entire exhibit hall! Stop by and check out our <strong>arcade games, open video and board gaming, mini figure painting and TCG events</strong>. All of this completely free (unless otherwise stated) with your convention badge, you can’t ask for a better deal!
         </p>
-        [% IF enableArktosEvent == "enabled" %]
+        <p>
+            The <strong>Pokemon League</strong> is also back and better than ever. Only able to attend for one day? We got you covered. The league will run throughout the course of Saturday with the final tournament Saturday night. Bring your best teams and challenge our gym leader circuit. Become the <strong>JAFAX 2023</strong> Pokemon master!
+        </p>
+        <p>
+            New this year we have a main tournament stage for you to compete against fellow attendees. How about some tabletop role playing games? We have excellent dungeon masters running <strong>Dungeons and Dragons</strong> events throughout the entire weekend.
+        </p>
+        <p>
+            With all this fun to be had, what are you waiting for? Be sure to stop by and discover all that we have to offer!
+        </p>
+        <p>
+            As always make sure to <strong>remember to stay hydrated during the event</strong>.
+        </p>
+        <center><h2>Hours of Operation</h2></center>
+        <p>
+            All game rooms at JAFAX follow these hours. Games will start to be shut down at 11:00PM-11:30PM each night, wrap up what you are playing, and we hope to see you back the next day!
+        </p>
         <div class="container-sm">
             <div class="row">
-                <div class="col">
-                    <h2>Arktos Meadery &amp; The Cellar of Tales Special Event</h2>
+                <div class="col-2">
+                    <strong>Friday</strong>
+                </div>
+                <div class="col-10">
+                    1:00 PM – 12:00 AM
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm">
-                    <img width=100% src="/images/arktos.png" />
+                <div class="col-2">
+                    <strong>Saturday</strong>
                 </div>
-                <div class="col">
-                    <p>
-                        During JAFAX this year Arktos Meadery and the Cellar of
-                        Tales will be holding a special event for JAFAX
-                        weekend. Presenting - Demon Slayer: Blood Moon - A
-                        tabletop role playing experience in the world of Demon
-                        Slayer! Join in as one of the Hashira as you
-                        investigate the brutal deaths occurring in a mountain
-                        village. As a blood moon fills the sky casting its
-                        eerie light onto all can you root out the demon before
-                        it reaches the height of its power? This game will be
-                        run using the 5th Edition D&D Ruleset and has 8 open
-                        seats.
-                    </p>
-                    <p>
-                        Additionally, Arktos is offering a 10% discount on
-                        beverages to JAFAX attendees that stop in Friday and
-                        Saturday. Convention badges will be required to receive
-                        the discount, and proof of legal age to purchase and
-                        drink alcoholic beverages.
-                    </p>
-                    <p>
-                        Cost: $20 per player<br />
-                        Location: <a href="https://www.google.com/maps/place/Arktos+Meadery/@42.971433,-85.6874992,16.48z/data=!4m5!3m4!1s0x8819adf8d38beadd:0x613a160375b3f90e!8m2!3d42.9705134!4d-85.680692" target="_blank">Arktos Meadery, 442 Bridge St NW, Grand Rapids</a><br />
-                        Estimated start time: 8:00 PM-12:00 AM (4 hours) Friday &amp; Saturday<br />
-                        Registration: at Arktos Meadery and at JAFAX
-                    </p>
+                <div class="col-10">
+                    9:00 AM – 12:00 AM
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <strong>Sunday</strong>
+                </div>
+                <div class="col-10">
+                    9:00 AM – 4:00 PM
                 </div>
             </div>
         </div>
-        <hr />
-        [% END %]
-        [% IF paintingEvent == 'enabled' %]
-        <div class="container-sm">
-            <div class="row">
-                <div class="col">
-                    <p>
-                        We have another great opportunity for all you gamers
-                        coming to JAFAX! Have you wondered how to make the
-                        wings on your Character, Demon, or Dragon more
-                        interesting? Tabletop Gaming Library is going to offer
-                        a class at the con to discuss ideas and paint a wing.
-                        The class will be this Saturday, 6/25 from 4pm to 6pm
-                        in the tabletop/board game room. Class is limited to 20
-                        people and the cost is $25.00 per person. You will
-                        receive a figure to paint during the class!
-                    </p>
-                    <p>
-                        <strong>Note:</strong> that if the class fills up, we
-                        may add additional class times on 6/25 from 9 to 11pm
-                        and/or Sunday, 6/26 from 1pm to 3pm.
-                    </p>
-                </div>
-                <div class="col">
-                    <img width=100% src="/images/paintingClass.png" />
-                </div>
-            </div>
+        <center><h2>Important Links</h2></center>
+        <ul>
+            <li><a href="http://www.discord.gg/EVpdW346YY">The official JAFAX Gaming Discord Server</a></li>
+            <li><a href="https://www.start.gg/tournament/aegis-x-jafax-2023/details">Tournament Listings</a></li>
+        </ul>
+        <p>
+            Take a look at our <a href="https://www.google.com/url?q=https://docs.google.com/document/d/e/2PACX-1vTkdzDIP5arzPvj7eTRCXVDitEDN4SdtcDXa5c7a2klxo-RGeZMbSIhlpX42Rp88w/pub&sa=D&source=editors&ust=1685744328992462&usg=AOvVaw2p7N_EDcOV62dBqW1BE4xT">Gaming Guidebook</a> to learn about all the events going on this year for tabletop, card, and video gaming at JAFAX!
+        </p>
+        <center><h2>Gaming Rooms</h2></center>
+        <ul>
+            <li><a href="#videoGames">Video Games</a></li>
+            <li><a href="#arcadeGames">Arcade/Rhythm Games</a></li>
+            <li><a href="#boardGames">Board Games</a></li>
+            <li><a href="#tcgs">Trading Card Games (TCGs)</a></li>
+            <li><a href="#rpgGames">Tabletop Role-Playing Games (TTRPG)</a></li>
+        </ul>
+        <center><h2>Gaming Tournaments</h2></center>
+        <ul>
+            [% IF videoGameTournaments == 'enabled' %]
+            <li><a href="#videoGameTournaments">Video Game Tournaments</a></li>
+            [% END %]
+            [% IF pokemonLeagueAdventure == 'enabled' %]
+            <li><a href="#pokemonLeagueAdventure">Pok&eacute;mon League Adventure</a></li>
+            [% END %]
+            [% IF pokemonGoSafari == 'enabled' %]
+            <li><a href="#pokemonGoSafari">Pok&eacute;mon Go Safari</a></li>
+            [% END %]
+            [% IF retroHighScoreChallenge == 'enabled' %]
+            <li><a href="#retroHighScoreChallenge">Retro High Score Challenge</a></li>
+            [% END %]
+            [% IF cosplayBattleArena == 'enabled' %]
+            <li><a href="#cosplayBattleArena">Cosplay Battle Arena</a></li>
+            [% END %]
+            [% IF ccgTournaments == 'enabled' %]
+            <li><a href="#ccgTournaments">Trading Card Game Tournaments</a></li>
+            [% END %]
+        </ul>
         </div>
-        <hr />
-        [% END %]
         [% IF deadStateDesignsEvent == 'enabled' %]
         <div class="container-sm">
             <div class="row">
+                <div class="col table_header">
+                    <h2 id="videoGames">Video Games</h2>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col">
-                    <h2>DeadState</h2>
+                    <p>
+                        Open play video games free to all attendees. All we ask is that you follow the <a href="https://www.google.com/url?q=https://docs.google.com/document/d/e/2PACX-1vQDM019y_mZ0WlWuul3mI5Udoj5rMZvZg7vndaUkJCl4egI1VwAorgTbug0nzqcLA/pub&sa=D&source=editors&ust=1685744328997972&usg=AOvVaw1rlEHREJxnKtCz999VRT0Q">rules</a> and have fun!
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h2>Dead State</h2>
                 </div>
             </div>
             <div class="row">
@@ -119,13 +156,28 @@
                         than half of the games used for open play and video
                         game tournaments.
                     </p>
+                    <p>
+                        <strong>Location: [% deadStateLocation %]</strong>
+                    </p>
                 </div>
             </div>
         </div>
         <hr />
         [% END %]
-        [% IF kdogsEvent == 'ensbled' %]
+        [% IF kdogsEvent == 'enabled' %]
         <div class="container-sm">
+            <div class="row">
+                <div class="col table_header">
+                    <h2 id="arcadeGames">Arcade/Rhythm Games</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>
+                        Come experience a real Japanese arcade. We have open play rhythm and racing games brought to you courtesy of KDogs Arcade. Best of all, these are completely free of charge to attendees!
+                    </p>
+                </div>
+            </div>
             <div class="row">
                 <div class="col">
                     <h2>KDogs Arcade</h2>
@@ -150,6 +202,9 @@
                         have a question about a game? Find a KDOGS ARCADE staff
                         member and ask!
                     </p>
+                    <p>
+                        <strong>Location: [% kdogsLocation %]</strong>
+                    </p>
                 </div>
                 <div class="col">
                     <img width=100% src="/images/kdogs.jpg?1" />
@@ -160,6 +215,24 @@
         [% END %]
         [% IF ttGameLibraryEvent == 'enabled' %]
         <div class="container-sm">
+            <div class="row">
+                <div class="col table_header">
+                    <h2 id="boardGames">Board Games</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>
+                        Do you like board games? If you do, the board game room this year is where you want to be. This year we have an entire library of board games ready for you to play with family and friends. Games of all sizes and genres are available to check out! Be sure to check out our Return to Dark Tower events running throughout the weekend.
+                    </p>
+                    <p>
+                        Checking out a game is simple. Present your JAFAX badge to a member of staff and they will walk you through the process of checking out a game. If you don’t know how to play a game, a member of staff will walk you through setup and game play so you can jump into a new game faster.
+                    </p>
+                    <p>
+                        We would like to thank our friends over at the Tabletop Gaming Library for supplying their games, expertise and positive energy to this wonderful hobby.
+                    </p>
+                </div>
+            </div>
             <div class="row">
                 <div class="col">
                     <h2>Tabletop Gaming Library</h2>
@@ -193,6 +266,350 @@
                     <p>
                         Be sure to visit them at <a href="http://www.tabletopgaminglibrary.com">www.tabletopgaminglibrary.com</a>
                     </p>
+                    <p>
+                        <strong>Location: [% ttGameLibraryLocation %]</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th colspan="4" rowspan="1" class="table_header">Friday</th>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Description</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Location</td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="table_cell">5 PM - 8 PM</td>
+                                <td colspan="1" rowspan="1" class="table_cell">Return to Dark Tower Board Game</td>
+                                <td colspan="1" rowspan="1" class="table_cell">
+                                    A new adversary has taken up residence behind the ebon walls of Azkol’s Tower. Spreading corruption. Calling forth wicked creatures. We must unite to defeat the Tower once and for all.<br /><br />Return to Dark Tower is the sequel to Dark Tower. It is an epic game for 1-4 players cooperatively or competitively.
+                                </td>
+                                <td colspan="1" rowspan="1" class="table_cell">Library Table 20</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th colspan="4" rowspan="1" class="table_header">Saturday</th>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Description</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Location</td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="table_cell">5 PM - 8 PM</td>
+                                <td colspan="1" rowspan="1" class="table_cell">Return to Dark Tower Board Game</td>
+                                <td colspan="1" rowspan="1" class="table_cell">
+                                    A new adversary has taken up residence behind the ebon walls of Azkol’s Tower. Spreading corruption. Calling forth wicked creatures. We must unite to defeat the Tower once and for all.<br /><br />Return to Dark Tower is the sequel to Dark Tower. It is an epic game for 1-4 players cooperatively or competitively.
+                                </td>
+                                <td colspan="1" rowspan="1" class="table_cell">Library Table 20</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br />
+        [% END %]
+        [% IF paintingEvent == 'enabled' %]
+        <div class="container-sm">
+            <div class="row">
+                <div class="col">
+                    <h2 id="miniatures">Miniature Painting (Paint and Take)</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>
+                        Have you always wanted to learn how to paint figures but have never been able to start? Come check out our miniature figure or minifig painting booth. Minifig painting is a fun hobby to enhance your Warhammer, board game or other tabletop experience. Brought to you by <strong>Tabletop Gaming Library</strong> this booth will allow you to paint your very own minifig! Visit the booth for more information.
+                    </p>
+                    <p>
+                        <strong>Location: [% paintingEventLocation %]</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <center>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th colspan="4" rowspan="1" class="table_header">Friday</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Description</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Cost</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">2 PM - 11 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Paint and Take Miniature Figure Painting
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Come and paint miniatures (they are available for purchase), paint and supplies are available.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Variable</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th colspan="4" rowspan="1" class="table_header">Saturday</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Description</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Cost</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">11 AM - 10 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Paint and Take Miniature Figure Painting
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Come and paint miniatures (they are available for purchase), paint and supplies are available.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Variable</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">4 PM - 6 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Paint and Take Painting Class - Painting Wings
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Learn how to paint wings for miniatures.<br /><br />Cost includes the price of the miniature.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">$20</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th colspan="4" rowspan="1" class="table_header">Sunday</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Description</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Cost</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">10 AM - 3 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Paint and Take Miniature Figure Painting
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Come and paint miniatures (they are available for purchase), paint and supplies are available.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Variable</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <br />
+        [% END %]
+        [% IF rpgGamingEvents == 'enabled' %]
+        <div class="container-sm">
+            <div class="row">
+                <div class="col table_header">
+                    <h2 id="rpgGames">Tabletop Role Playing Games (TTRPG)</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>
+                        Tabletop Role Playing Games are a tradition as old as time. With just a few pieces of paper, some dice and an imagination, whole new worlds open up to you. The <strong>Tabletop Gaming Library</strong> will bring to you amazing dungeon masters who will spin wondrous tales. Don’t miss out on the opportunity to experience these one of a kind tales of heroism and deception. Are you brave enough to stand up to the challenge?
+                    </p>
+                    <p>
+                        <strong>Location: [% rpgGamingEventsLocation %]</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <center>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th colspan="4" rowspan="1" class="table_header">Friday</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Description</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Location</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">3 PM - 7 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        D&amp;D 5e (RPG) - The Soulstone Vault
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Solve the riddle of the Vault to retrieve a legendary artifact.<br /><br />GM is open to being accessible to attendees to answer questions about character building in case you want to bring your own.<br /><br />Session is for 2nd Level Characters.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">RPG 2</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">4 PM - 8 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        D&amp;D 5e (RPG) - The Sea Adventure
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        See table for more information.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">RPG 4</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">7 PM - 11 PM</span></p></td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        D&amp;D 5e (RPG) - The Tarnished Dragon
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        A town that is suddenly under siege by Lizardfolk calls upon your party for help protecting their homes. To make matters worse a Black dragon appeared in the nearby forest just before the attacks began. Can you solve the mystery between these two events, protect the town, and even strike up a deal with the dragon, or are you completely outmatched?<br /><br />Prebuilt characters appropriate for each session will be available, and I will have the necessary books and blank character sheets for players who want to build their own characters.<br /><br />Session is for 3rd Level Characters.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">RPG 3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th colspan="4" rowspan="1" class="table_header">Saturday</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Description</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Location</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">10 AM - 2 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        D&amp;D 5e (RPG) - The Summer Games
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        A tournament and festival is being held in celebration of the Sun God Pelor. Great food, games and tests of strength, will, and magic are all available for you to partake in. However it looks like some unexpected guests have arrived and will threaten your good time If they aren’t dealt with.<br /><br />Prebuilt characters appropriate for each session will be available, and I will have the necessary books and blank character sheets for players who want to build their own characters.<br /><br />Session is for 5th Level Characters.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">RPG 3</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">1 PM - 5 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        MLP Tails of Equestria (RPG) - Judge Not By The Cover
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        In the Crystal Empire’s old and expansive archives, an unsolved mystery from long ago has once again come to light. Starswirl the Bearded was tracking something: a magical library that only appears once every hundred years. Following the wizard’s clue, your quest will lead you right to the heart of the library, but all is not silent.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">RPG 1</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">2 PM - 6 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Numenera (RPG) - The Wandering Mountain
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        A mysterious mountain has suddenly appeared in the Shear, blocking your path through the Beyond.<br /><br />GM is open to being accessible to attendees to answer questions about character building in case you want to bring your own.<br /><br />Session is for Tier 1 Heroes.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">RPG 2</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">4 PM - 8 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        D&amp;D 5e - Horror Adventure (at RPG 4)
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        See table for more information.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">RPG 4</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">7 PM - 11 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        D&amp;D 5e (RPG) - Parks and Wreck
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        On the eve of the Guildpact Festival, an issue arises that requires the guilds of Ravnica to band together.<br /><br />GM is open to being accessible to attendees to answer questions about character building in case you want to bring your own.<br /><br />Session is for 5th Level Characters.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">RPG 2</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">7 PM - 11 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        D&amp;D 5e (RPG) - Beaches and Booty: Trouble in the Tides
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Your party finally has a chance to take a well earned vacation to the Coral Coast. The beachside city of Las Miamisburg always has beautiful sunny days and parties all night. Upon arriving you find the beach is closed and the Coast Guard having trouble with Chester, the Great Coral Koi who protects the area. Will you be able to help The guards and get your vacation back on track?<br /><br />Prebuilt characters appropriate for each session will be available, and I will have the necessary books and blank character sheets for players who want to build their own characters.<br /><br />Session is for 5th Level characters.<br /><br /><strong>Note:</strong> The name can be a little misleading. "Beaches and Booty" stories are meant to be fun, light hearted, and somewhat comedic sessions, they are not meant to be 18+.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">RPG 3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th colspan="4" rowspan="1" class="table_header">Sunday</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Description</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Location</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">11 AM - 2 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        MLP Tails of Equestria (RPG) - A Dragons Bounty
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        A 3 person choose your own adventure style RPG.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">RPG 1</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">11 AM - 3 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        D&amp;D 5e (RPG) - Trial of the Gods
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        As a forgotten hero from Theros's past, you and your fallen allies have been chosen by Erebos and Klothys for a special task. Rise to the challenge and take your place among the starfield of Nyx!<br /><br />Challenge is for mid Level characters.<br /><br /><strong>WARNING:</strong> Players will be required to use the provided characters for this challenge.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">RPG 2</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">11 AM - 3 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        D&amp;D 5e (RPG) - The Perfect Gift
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Looker, Private Eyes, is in need of a gift to send to his cousin in Waterdeep. He has one of his eyes on an ornate chalice in a nearby human village, but it's not so easy for a Beholder to float into town and buy something from the store, so He's hired you to sneak in and acquire that chalice by whatever means possible.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">RPG 3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </center>
                 </div>
             </div>
         </div>
@@ -200,6 +617,18 @@
         [% END %]
         [% IF griffinsRestEvent == 'enabled' %]
         <div class="container-sm">
+            <div class="row">
+                <div class="col table_header">
+                    <h2 id="tcgs">Trading Card Games (TCGs)</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>
+                        Trading card games more your style? We have an entire room dedicated to you! Brought to you by Griffins Rest the TCG room is your spot to compete in events during the convention. Make sure to bring your decks and your wits in order to take home fabulous prizes. We will be running on demand TCG events all weekend, so make sure to stop by!
+                    </p>
+                </div>
+            </div>
             <div class="row">
                 <div class="col">
                     <h2>The Griffin's Rest</h2>
@@ -218,16 +647,564 @@
                         The Griffin's Rest will be offering play space for
                         participants to enjoy a variety of TCG events and 
                         activities. Want to learn how to play Magic: The
-                        Gathering? Pokémon? Final Fantasy? They'll be happy
+                        Gathering? Pok&eacute;mon? Final Fantasy? They'll be happy
                         to teach you these games as well as offering a variety
                         of TCGs and accessories for sale.
                     </p>
                     <p>
                         Check them out at <a href="https://thegriffinsrest.com/">thegriffinsrest.com</a>
                     </p>
+                    <p>
+                        <strong>Location: [% ttGameLibraryLocation %]</strong>
+                    </p>
                 </div>
                 <div class="col">
                     <img width=100% src="/images/griffinsrest.jpg" />
+                </div>
+            </div>
+        </div>
+        <br />
+        [% END %]
+        [% IF cellarOfTalesEvent == "enabled" %]
+        <div class="container-sm">
+            <div class="row">
+                <div class="col">
+                    <h2>The Cellar of Tales</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <img width=100% src="/images/CellarOfTalesLogo.png" />
+                </div>
+                <div class="col">
+                    <p>
+                        Joining us again this year is the Cellar of Tales. A local tabletop role playing and trading card game store. They are located under Arktos Meadery, within walking distance of JAFAX.
+                    </p>
+                    <p>
+                        The Cellar of Tales provides a space for tabletop game enthusiasts to enjoy playing their favorite games in an immersive environment. Make sure to stop by their booth to learn how you can host your next tabletop roleplaying game session today!
+                    </p>
+                    <p>
+                        <strong>Location: [% cellarOfTalesLocation %]</strong>
+                    <p>
+                </div>
+            </div>
+        </div>
+        <br />
+        [% END %]
+        <div class="container-sm">
+            <div class="row">
+                <center>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th colspan="3" rowspan="1" class="table_header">All Weekend</th>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Info</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Location</td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="table_cell">
+                                    <strong>Pok&eacute;mon TCG - Learn To Play<strong>
+                                </td>
+                                <td colspan="1" rowspan="3" class="table_cell">
+                                    We will have teachers available for these games so come on if you want to learn or refresh your knowledge.
+                                </td>
+                                <td colspan="1" rowspan="3" class="table_cell">TCG</td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="table_cell">
+                                    <strong>Magic: the Gathering - Learn To Play</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="table_cell">
+                                    <strong>Flesh and Blood - Learn To Play</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </center>
+            </div>
+        </div>
+        <hr />
+        <div class="container-sm">
+            <div class="row">
+                <div class="col table_header">
+                    <h2>Tournaments</h2>
+                </div>
+            </div>
+        </div>
+        [% IF videoGameTournaments == 'enabled' %]
+        <div class="container-sm">
+            <div class="row">
+                <div class="col">
+                    <h2 id="videoGameTournaments">Video Game Tournaments</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <img width=100% src="/images/AegisLogo.png" />
+                </div>
+                <div class="col-md">
+                    <p>
+                        Video Game tournaments will be held during the convention in the JAFAX video game room. Come compete for fame and glory while winning fabulous prizes. Times listed below are subject to change before the event. Sign ups can be done online or at events.
+                    </p>
+                    <p>
+                        <strong>Aegis Gaming</strong> is our tournament organizer for JAFAX 2023. They will be running all of our main stage tournaments bringing a professional touch. We are excited to have them and hope you will sign up and enjoy our events throughout the weekend.
+                    </p>
+                    <p>
+                        <strong>Location: [% videoGameTournamentsLocation %]</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <center>
+                        <table width=100% >
+                            <tbody>
+                                <tr>
+                                    <th colspan="4" rowspan="1" class="table_header">Friday</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Console</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Cost</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">2 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">King of Fighters XV</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">TBD</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Free</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">7 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Tekken 7</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">TBD</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Free</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+                        <table width=100% >
+                            <tbody>
+                                <tr>
+                                    <th colspan="4" rowspan="1" class="table_header">Saturday</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Console</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Cost</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">2 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Super Smash Bros Ultimate</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Switch</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Free</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">4 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Guilty Gear Strive</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">TBD</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Free</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">6 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Street Fighter 6</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">TBD</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Free</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">8 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Dragon Ball Fighters Z</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">TBD</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Free</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+                        <table width=100%>
+                            <tbody>
+                                <tr>
+                                    <th colspan="4" rowspan="1" class="table_header">Sunday</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Console</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Cost</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">12 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Mario Kart 8</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Switch</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Free</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">2 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Melty Blood: Type Lumina</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Switch</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Free</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <hr />
+        [% END %]
+        [% IF pokemonLeagueAdventure == 'enabled' %]
+        <div class="container-sm">
+            <div class="row">
+                <div class="col">
+                    <h2 id="pokemonLeagueAdventure">Pok&eacute;mon League Adventure</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>
+                        Attention all trainers! Back by popular demand the Pok&eacute;mon League Adventure has once again opened its doors in the world of Pok&eacute;mon Scarlet and Violet. Do you have what it takes to challenge our uniquely themed gym leaders and earn their badges? Can you collect enough badges to gain entry into the championship tournament? Only one can become the champion of <strong>JAFAX 2023</strong>, will it be you?  Head over to the Pok&eacute;mon League Adventure registration area in the game room for more information and to get started on your adventure. Detailed rules can be found <a href="https://docs.google.com/document/u/1/d/e/2PACX-1vReDd1TgYMyPEFsE1HNqCg9I80y_k3dP1ux5Klw0aK3eBFhwJm_pAvXq1BrQFwKDg/pub">here</a> or via the QR code below.
+                    </p>
+                    <p>
+                        The 2023 JAFAX Pok&eacute;mon League will consist of two parts:
+                        <ol>
+                            <li>The Gym Leader Challenge</li>
+                            <li>The JAFAX 2023 Pokemon League Championship</li>
+                        </ol>
+                    </p>
+                    <p>
+                        In the <strong>Gym Leader Challenge</strong>, participants must defeat <strong>JAFAX Gym Leaders</strong> and obtain their Badges. All participants with <strong>6</strong> or more Badges from distinct gym leaders will then be able to enter the Championship Tournament. Gym Leaders have the authority to make decisions on all questions or issues with competitors as they come up. The battle format may differ between gym leaders to provide fun and varied battle experiences.
+                    </p>
+                    <p>
+                        <strong>Note:</strong> Trainers may change their team freely during the Gym Leader Challenge.
+                    </p>
+                    <p>
+                        In the <strong>JAFAX 2023 Pok&eacute;mon League Championship</strong> the format will be <strong>"Bring Six, Choose Three"</strong> Single Battles with Normal Rules (aka Battle Stadium Singles). This will be a Double Elimination Bracket, with each Match being best of three games, but it may be changed to Single Elimination if there is a need to accommodate an unexpectedly large number of finalists. The winner of this tournament will then be able to potentially challenge the winner of the <strong>JAFAX 2022 Pokemon League Championship</strong> if they are present to defend their title.
+                    </p>
+                    <p>
+                        <strong>Note:</strong> Finalists may not change their team composition during the JAFAX 2023 Pokemon League Championship.
+                    </p>
+                    <p>
+                        The <strong>JAFAX Pok&eacute;mon League's</strong> mission is to provide a fun, challenging experience for both veteran and new Pok&eacute;mon fans. The <strong>JAFAX Pok&eacute;mon League</strong> is not endorsed or sponsored by Nintendo, Game Freak, or Pok&eacute;mon Company.
+                    </p>
+                    <p>
+                        <strong>Location: [% pokemonLeagueAdventureLocation %]</strong>
+                    </p>
+                    <p>
+                        <a href="https://docs.google.com/document/u/1/d/e/2PACX-1vReDd1TgYMyPEFsE1HNqCg9I80y_k3dP1ux5Klw0aK3eBFhwJm_pAvXq1BrQFwKDg/pub">Pok&eacute;mon League Adventure Rules</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th colspan="4" rowspan="1" class="table_header">Friday</th>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Description</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Location</td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="table_cell">4 PM - 8 PM</td>
+                                <td colspan="1" rowspan="1" class="table_cell">Gym Leader Challenge</td>
+                                <td colspan="1" rowspan="1" class="table_cell">
+                                    Challenge our gym leaders and collect their badges. Get 6 or more to gain entry to the JAFAX 2023 Pok&eacute;mon League Championship.<br /><br /><strong>Note:</strong> Times subject to change.
+                                </td>
+                                <td colspan="1" rowspan="1" class="table_cell">Game Room</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th colspan="4" rowspan="1" class="table_header">Saturday</th>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Description</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Location</td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="table_cell">10 AM - 4 PM</td>
+                                <td colspan="1" rowspan="1" class="table_cell">Gym Leader Challenge</td>
+                                <td colspan="1" rowspan="1" class="table_cell">
+                                    Challenge our gym leaders and collect their badges. Get 6 or more to gain entry to the JAFAX 2023 Pokemon League Championship.<br /><br /><strong>Note:</strong> Times subject to change.
+                                </td>
+                                <td colspan="1" rowspan="2" class="table_cell">Game Room</td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="table_cell">7 PM</td>
+                                <td colspan="1" rowspan="1" class="table_cell">
+                                    JAFAX 2023 Pokemon League Championship
+                                </td>
+                                <td colspan="1" rowspan="1" class="table_cell">
+                                    Compete against other trainers who completed the Gym Leader Challenge. Become the best like no one ever was!
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th colspan="4" rowspan="1" class="table_header">Sunday</th>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Description</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Location</td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="table_cell">12 PM - 3 PM</td>
+                                <td colspan="1" rowspan="1" class="table_cell">Pok&eacute;mon Stadium Tournament</td>
+                                <td colspan="1" rowspan="1" class="table_cell">
+                                    Compete with other attendees in classic Pok&eacute;mon Stadium matches. Be the best like no one ever was!
+                                </td>
+                                <td colspan="1" rowspan="1" class="table_cell">Game Room</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <hr />
+        [% END %]
+        [% IF pokemonGoSafari == 'enabled' %]
+        <div class="container-sm">
+            <div class="row">
+                <div class="col">
+                    <h2 id="pokemonGoSafari">Pok&eacute;mon GO Safari</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>
+                        JAFAX's Pokémon GO Safari returns as an all-ages augmented reality event! Bring your sense of adventure, pok&eacute;ball's and your smart device and explore the world of Pok&eacute;mon Go! Prizes will be awarded to the heaviest and lightest pokemon caught during Saturday of JAFAX 2023. A Pok&eacute;mon weigh-in form will be available in the video game room. Winners will be selected at 8pm on Saturday in the video game room.
+                    </p>
+                    <p>
+                        <strong>Location: [% pokemonGoSafariLocation %]</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr />
+        [% END %]
+        [% IF retroHighScoreChallenge == 'enabled' %]
+        <div class="container-sm">
+            <div class="row">
+                <div class="col">
+                    <h2 id="retroHighScoreChallenge">Retro High Score Challenge</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>
+                        Show off your classic video game skills with this challenge. You will be given one shot to post your fastest score. The catch is you and other attendees won’t know what game(s) you will be competing in. Make sure to brush up on your speedrunning skills, collect enough rings and eat your mushrooms for this event.
+                    </p>
+                    <p>
+                        <strong>Location: [% retroHighScoreChallengeLocation %]</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th colspan="4" rowspan="1" class="table_header">Saturday</th>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Description</td>
+                                <td colspan="1" rowspan="1" class="inner_header">Location</td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" rowspan="1" class="table_cell">10 AM - 1 PM</td>
+                                <td colspan="1" rowspan="1" class="table_cell">Retro High Score Challenge</td>
+                                <td colspan="1" rowspan="1" class="table_cell">
+                                    Compete with other attendees in classic Pokemon Stadium matches. Be the best like no one ever was!</td>
+                                <td colspan="1" rowspan="1" class="table_cell">Game Room</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <hr />
+        [% END %]
+        [% IF cosplayBattleArena == 'enabled' %]
+        <div class="container-sm">
+            <div class="row">
+                <div class="col">
+                    <h2 id="cosplayBattleArena">Cosplay Battle Arena</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>
+                        A popular event here at JAFAX, the Cosplay Battle Arena is open for all challengers. The Cosplay Battle Arena is a simulated battle between <strong>2-8</strong> players on stage duking it out in team-oriented combat. You and your friends (in cosplay or not) can get up on stage and act out your favorite epic battles. Swinging weapons, casting firebolts, chugging potions, and reviving fallen allies, until only one team (or one person) survives. Typical combat lasts between 2 and 10 minutes. There is no cost for entry!
+                    </p>
+                    <p>
+                        <strong>Location: [% cosplayBattleArenaLocation %]</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr />
+        [% END %]
+        [% IF ccgTournaments == 'enabled' %]
+        <div class="container-sm">
+            <div class="row">
+                <div class="col">
+                    <h2 id="ccgTournaments">Trading Card Game Tournaments</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <center>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th colspan="4" rowspan="1" class="table_header">Friday</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Description</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Cost</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">2 PM - 4 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Magic: the Gathering Jumpstart Battle</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Each participant will receive 2 Jumpstart packs that they will then combine and then compete in a 3 round best of 1 tournament. Each round a player wins will get them one standard set booster pack of their choice.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">$20</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">2 PM - 5 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Pokemon Build and Battle</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Each participant will receive a Build and Battle Kit that contains a pre-constructed deck along with 4 packs that they can make a 40 card deck with. They will then compete in a 3 round best of 1 tournament. At the end of the tournament each participant will receive one additional Pokemon pack.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">$25</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">3 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Magic: the Gathering Commander Clash</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Bring your commander deck and participate in one of Magic The Gatherings most popular formats! Participants will be placed in pods where they will play until a winner is determined. There is no additional prizing for these events.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Free</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">6 PM - 10 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Magic: the Gathering Booster Draft</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Participants will first draft and then compete in a 3 round best of 3 tournament. Each round a player wins will get them one standard set booster pack of their choice.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">$15</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">8 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Magic: the Gathering Commander Clash</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">
+                                        Bring your commander deck and participate in one of Magic The Gatherings most popular formats! Participants will be placed in pods where they will play until a winner is determined. There is no additional prizing for these events.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Free</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th colspan="4" rowspan="1" class="table_header">Saturday</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Description</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Cost</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">11 AM - 1 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Magic: the Gathering Jumpstart Battle</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Each participant will receive 2 Jumpstart packs that they will then combine and then compete in a 3 round best of 1 tournament. Each round a player wins will get them one standard set booster pack of their choice. </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">$20</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">12 PM - 3 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Pokemon Build and Battle</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Each participant will receive a Build and Battle Kit that contains a pre-constructed deck along with 4 packs that they can make a 40 card deck with. They will then compete in a 3 round best of 1 tournament. At the end of the tournament each participant will receive one additional Pokemon pack. </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">$25</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">1 PM - 4 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Flesh and Blood - Outsiders Sealed Event</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Each participant will receive 6 Outsiders packs that they will then use to create a limited deck. They will then compete in a 3 round best of 1 tournament. Each round a player wins will get them one Outsiders booster pack.</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">$30</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">1 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Magic: the Gathering Commander Clash</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Bring your commander deck and participate in one of Magic The Gatherings most popular formats! Participants will be placed in pods where they will play until a winner is determined. There is no additional prizing for these events. </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Free</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">6 PM - 8 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Magic: the Gathering Jumpstart Battle</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Each participant will receive 2 Jumpstart packs that they will then combine and then compete in a 3 round best of 1 tournament. Each round a player wins will get them one standard set booster pack of their choice. </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">$20</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">6 PM - 10 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Magic: the Gathering Booster Draft</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Participants will first draft and then compete in a 3 round best of 3 tournament. Each round a player wins will get them one standard set booster pack of their choice. </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">$15</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">8 PM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Magic: the Gathering Commander Clash</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Bring your commander deck and participate in one of Magic The Gatherings most popular formats! Participants will be placed in pods where they will play until a winner is determined. There is no additional prizing for these events.
+                                    </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Free</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th colspan="4" rowspan="1" class="table_header">Sunday</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="inner_header">Time</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Event</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Description</td>
+                                    <td colspan="1" rowspan="1" class="inner_header">Cost</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1" rowspan="1" class="table_cell">11 AM</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Magic: the Gathering Commander Clash</td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Bring your commander deck and participate in one of Magic The Gatherings most popular formats! Participants will be placed in pods where they will play until a winner is determined. There is no additional prizing for these events. </td>
+                                    <td colspan="1" rowspan="1" class="table_cell">Free</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </center>
                 </div>
             </div>
         </div>
