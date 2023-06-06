@@ -1,143 +1,58 @@
 <div class="container">
     <dic class="page_text">
-        [% enableMusicEvents = 'disabled' %]
+        [% enableMusicEvents = 'enabled' %]
+        [% dj1enabled = 'enabled' %]
+        [% dj2enabled = 'enabled' %]
         <br />
         <center><h1>Music Events at JAFAX 2023</h1></center>
         [% IF enableMusicEvents == 'enabled' %]
         <p>
-            This year at enjoy music acts at JAFAX with two very different live
-            music events! Also, dance the night away with our electronic dance
-            party!!
+            For the electronic dance, we have you covered! Konundrum and Noc.V will put
+            on a pumping pair of sets during the the dance at JAFAX 2023!
         </p>
-        <p>
-            Our musical guests this year are <em>Playing With Power</em>, <em>Super Guitar Bros</em>, and
-            <em>ALL YOUR BASS</em>!
-        </p>
-        <p>
-            For the electronic dance, we have you covered! Ace and MESMERIST will put
-            on a pumping pair of sets during the the dance at JAFAX 2022!
-        </p>
+        [% IF dj1enabled == 'enabled' %]
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2>Ace Marasigan</h2>
+                    <h2>Konundrum</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <img width=100% src="/images/Ace.jpg" />
+                    <img width=100% src="/images/konundrum.png" />
                 </div>
                 <div class="col">
                     <p>
-                        Ace started his DJ work in the summer of 1999 at a
-                        party ship on Lake Michigan. He honed his skills by
-                        performing at almost 1,000 events, parties, and special
-                        occasions all throughout his career.
-                    </p>
-                    <p>
-                        Favorite genres: House, Electro, Trance Top 40, and
-                        Progressive Jazz
+                        Konundrum is a multi-genre DJ/producer from Detroit, MI. He began his career at Ferris State University by playing events, fraternity parties, & playing shows and festivals all across West MI. He began making waves by releasing DJ edits and being on Benzi's "Dad Trapz 2" & "Mom Trapz". Recently, he made his SiriusXM debut with a guest mix on the FAED University radio show on Diplo's Revolution. His music and edits are supported by Wuki, Benzi, SayMyName, and Adventure Club.
                     </p>
                 </div>
             </div>
         </div>
         <hr />
+        [% END %]
+        [% IF dj2enabled == 'enabled' %]
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h2>MESMERIST - Anime/Video Game Music, House, Bass Music, Hardcore</h2>
+                    <h2>Noc.V</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <img width=100% src="/images/mesmerist.png" />
+                    <img width=100% src="/images/nocvlogo.png" />
                 </div>
                 <div class="col">
                     <p>
-                        EDC Meets Anime Expo when Mesmerist is at the decks.
-                        While DJ/Producers with a focus on Japanese culture and
-                        Nerd culture tend to favor all House music or all UK
-                        Hardcore, Mesmerist breaks the mold by bringing varied
-                        multigenre DJ sets meant to evokethe fast-paced,
-                        theatrical excitement of a Festival DJ set together
-                        with the music of anime, video games, and more! With
-                        this unique style, Mesmerist has rocked the Midwest,
-                        the Internet, and Beyond with iconic, memorable
-                        performances that get audiences moving.
+                        Noc.V (Thomas Stiegler) is an Australian-American UK Hardcore and J-Core producer/DJ based in Grand Rapids, Michigan. Noc.V is all about crafting powerful hardcore tracks and straight up anime bangers. Noc.V has had music releases with Mob Squad Tokyo/Mob Squad Black Label on the Bastard Pop Terrorists and J-Core Masterz compilations as well as recently releasing music with 24/7 Hardcore in the UK.
+                    </p>
+                    <p>
+                        After touring around Australia with the Neko Nation crew and headlining various anime conventions and shows in Melbourne, Sydney, and Adelaide. He has now brought is brand of energetic hardcore infused with video games, anime, and Japanese culture to America.
                     </p>
                 </div>
             </div>
         </div>
         <hr />
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h2>Playing With Power</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <img height=100% width=100% src="/images/pwp.png?1" />
-                </div>
-                <div class="col">
-                    <p>
-                        Bringing non-stop, nostalgia-powered video game rock,
-                        <em>Playing with Power!</em> will play a set that makes
-                        you yearn for a couch full of friends, a delivery
-                        pizza, and hours of console gaming.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <hr />
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h2>Super Guitar Bros</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <img width=100% src="/images/sgbros.jpg" />
-                </div>
-                <div class="col">
-                    <p>
-                        The Super Guitar Bros aren't actually brothers -
-                        They're bros!
-                    </p>
-                    <p>
-                        Sam and Steve combine their love of video game music
-                        with their passion for acoustic/classical guitar to
-                        bring you a one of a kind musical experience.
-                    </p>
-                    <p>
-                        Sometimes chill. Sometimes intense. Always super!
-                    </p>
-                </div>
-            </div>
-        </div>
-        <hr />
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h2>ALL YOUR BASS</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <img height=100% width=100% src="/images/allyourbass.jpg?1" />
-                </div>
-                <div class="col">
-                    <p>
-                        The most literal sense of the term "heavy metal", this
-                        low brass group brings a set full of your favorite
-                        anime and video game tunes. If you've ever wondered
-                        what a bunch of tubas and trombones playing Mario would
-                        sound like, (who hasn't?!), then look no further!
-                    </p>
-                </div>
-            </div>
-        </div>
+        [% END %]
         [% ELSE %]
         <p>
             As we get closer to JAFAX 2023, we'll announce the performers that will
