@@ -8,8 +8,10 @@
             The schedule of events is now live! We've a lot of great events
             lined up this year. Take a look at the link below!
         </p>
-        <iframe src="https://docs.google.com/spreadsheets/d/1pfgBXZO1QSq0zQDc434Lc-2qC-JT7IkUAZG4Pkx47H4/edit?usp=sharing&amp;gid=0&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="1710px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-<!--        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTV_O749Mde9VwiDgbYQpQLHblRaW2JANo5Q-F_Ygv-q8mp_hn8Csvod6AE5_hV-8_Y26LNTBXkYSy/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="1710px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe> -->
+        <p>
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vT6jDyaZnsX7jQoS2RooOKHf91zY9iCbxLY6Bc0fdXWokDhQVbKG-qKM1ICfWpVP0rraUX_5RlXyyyT/pubhtml?gid=0&single=true">Link to the event schedule in Google Docs.</a>
+        </p>
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT6jDyaZnsX7jQoS2RooOKHf91zY9iCbxLY6Bc0fdXWokDhQVbKG-qKM1ICfWpVP0rraUX_5RlXyyyT/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="1770px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
         [% ELSE %]
         <p>
             Amazing events take time to prepare! Once we have all the fun events
