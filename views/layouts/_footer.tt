@@ -17,6 +17,7 @@
                             <h3>JAFAX</h3>
                             <ul>
                                 <li><a href="[% webroot %]/about">About Us</a></li>
+                                <li><a href="[% webroot %]/feedback">Feedback</a></li>
                             </ul>
                         </div>
                     </div>

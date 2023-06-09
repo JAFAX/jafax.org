@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="page_text">
+        [% feedback = 'enabled' %]
+        <br />
+        <center><h1>JAFAX 2023 Feedback</h1></center>
+        [% IF feedback != 'enabled' %]
+        <p>
+            Thank you for stopping by!
+        </p>
+        [% ELSE %]
+        <p>
+            Thank you for attending JAFAX 2023!
+        </p>
+        [% END %]
+    </div>
+</div>
+[% IF feedback == 'enabled' %]
+<div class="container">
+    <div class="page_text">
+        <center>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflyv25jB-uVLwTMxo17A6y2PgjcSuhueQbpr6sAaI36toQTg/viewform?embedded=true" width="640" height="3200" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+        </center>
+    </div>
+</div>
+[% END %]
