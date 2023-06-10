@@ -1,16 +1,22 @@
 <div class="container">
     <div class="page_text">
-        [% panelDetails = "disabled" %]
+        [% panelDetails = "enabled" %]
+        [% fulldetails = "disabled" %]
         <br />
         <center><h1>Panel Descriptions</h1></center>
         <br />
-        [% IF panelDetails != "enabled" %]
+        [% IF panelDetails == "disabled" %]
         <p>
             We're sifting through the submissions for panels for JAFAX! Once we
             have gotten through them all, we'll post the approved panel list
             and descriptions here!
         </p>
-        [% ELSE %]
+        [% ELSIF fulldetails == "disabled" && panelDetails == "enabled" %]
+        <p>
+            Please follow the link below for panel details:<br />
+            <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1TQl5HFsdhROhsEOjjp4nUd93BX9nsnEK5T0ZbZmqbl0%2Fedit%3Fusp%3Ddrivesdk%26fbclid%3DIwAR1atL1djtPTP74ZktouWgJ5qkXtJfB1zTC2rcLhUdR2cBhF-LQxinj72qk&h=AT39IzhqZcUl-wO3HiHD05u9yn6p-R9E2FwZRG_w3SBv2yunZ9LhJGHdQ1ZqXD7sUKqMm1uAdVw7IYmnqE6kDBffYBWpS4g6KktdEBWZ50_g5AbPkygwYK2bjlM">Panel Descriptions</a>
+        </p>
+        [% ELSIF fulldetails == "enabled" %]
         <p>
             Here are the details about all the panels that will be at JAFAX
             2022!
@@ -71,9 +77,7 @@
         <p>
             <b>[% day %]</b>
         </p>
-        [% FOREACH panel IN panels.$day %]
-        <p>
-            <strong>[% panel.title %]</strong><br />
+        [% FOREACH panel IN panels.$day %]      
             Panel Room: [% panel.room %]<br />
             Time: [% panel.time %]<br />
             <p>
