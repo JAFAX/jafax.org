@@ -455,6 +455,22 @@
                 }
             }
         },
+        "feedback": {
+            "get": {
+                "active": "true",
+                "summary": "JAFAX 2023 Event Feedback",
+                "template": "feedback",
+                "launchDate": 1438401600,
+                "expireDate": -1,
+                "type": "static",
+                "class": "article",
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    }
+                }
+            }
+        },
         "/guests": {
             "get": {
                 "active": "true",

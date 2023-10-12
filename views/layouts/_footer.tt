@@ -17,6 +17,7 @@
                             <ul>
                                 <li><a href="[% webroot %]/about">About Us</a></li>
                                 <li><a href="[% webroot %]/contact">Contact Us</a></li>
+                                <!-- <li><a href="[% webroot %]/feedback">Feedback</a></li> -->
                             </ul>
                         </div>
                     </div>
