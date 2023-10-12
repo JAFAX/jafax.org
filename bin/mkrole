@@ -50,20 +50,32 @@ package main v0.0.1 {
     $Throw::pretty = 1;
     $Throw::trace  = 1;
 
-    my sub main ($flags, @args) {
+    our sub main ($flags, @args) {
         my $mkrole = Buyo::MkRole->new($flags);
         my $utils  = Buyo::Utils->new($flags->{'debug'});
 
         my $prefix = $utils->get_application_prefix();
-        $mkrole->verify_options($flags->{'role_name'}, $flags->{'description'});
+        if (exists $flags->{'role_name'} and exists $flags->{'description'}) {
+            $mkrole->verify_options($flags->{'role_name'}, $flags->{'description'});
+        } else {
+            if (not exists $flags->{'role_name'}) {
+                say STDERR "Role name must be passed in! Exiting";
+            }
+            if (not exists $flags->{'description'}) {
+                say STDERR "Role description must be passed in! Exiting";
+            }
+            Buyo::MkRole::show_help;
+            exit 1;
+        }
 
-        if (not defined $flags->{'id'}) {
-            say STDERR "== DEBUGGING ==: Using ID ". $flags->{'id'} if $flags->{'debug'} eq true;
+        if (not exists $flags->{'id'}) {
+            say STDERR "== DEBUGGING ==: No ID passed in. Getting next available ID" if $flags->{'debug'} eq true;
             $flags->{'id'} = $mkrole->next_available_id();
+            say STDERR "== DEBUGGING ==: Using ID ". $flags->{'id'} if $flags->{'debug'} eq true;
         }
 
         # now add role to the list of roles
-        $mkrole->create_role($flags);
+        # $mkrole->create_role($flags);
     }
 
     my %flags = (

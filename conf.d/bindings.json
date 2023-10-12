@@ -73,7 +73,7 @@
         },
         "/registration": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Registration",
                 "template": "registration",
                 "launchDate": 1438401600,
@@ -89,7 +89,7 @@
         },
         "/registration/attendee": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Attendee Registration",
                 "template": "attendee_registration",
                 "launchDate": 1438401600,
@@ -105,7 +105,7 @@
         },
         "/registration/artists": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Artist Alley Registration",
                 "template": "artist_registration",
                 "launchDate": 1438401600,
@@ -121,7 +121,7 @@
         },
         "/registration/maid_cafe": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Maid Caf&eacute; Volunteer Registration",
                 "template": "maid_cafe_volunteer_registration",
                 "launchDate": 1438401600,
@@ -137,7 +137,7 @@
         },
         "/registration/vendors": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Vendor Registration",
                 "template": "vendor_registration",
                 "launchDate": 1438401600,
@@ -153,7 +153,7 @@
         },
         "/registration/volunteers": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Volunteer Registration",
                 "template": "volunteer_registration",
                 "launchDate": 1438401600,
@@ -169,7 +169,7 @@
         },
         "/events": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Events at JAFAX",
                 "template": "events",
                 "launchDate": 1438401600,
@@ -185,7 +185,7 @@
         },
         "/events/artists": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Artists at JAFAX",
                 "template": "artists",
                 "launchDate": 1438401600,
@@ -201,7 +201,7 @@
         },
         "/events/cosplay": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Cosplay Events at JAFAX",
                 "template": "cosplay",
                 "launchDate": 1438401600,
@@ -217,7 +217,7 @@
         },
         "/events/culture": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Japanese Cultural Events at JAFAX",
                 "template": "culture",
                 "launchDate": 1438401600,
@@ -233,7 +233,7 @@
         },
         "/events/gaming": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Board, Tabletop, and Video Gaming at JAFAX",
                 "template": "gaming",
                 "launchDate": 1438401600,
@@ -249,7 +249,7 @@
         },
         "/events/gaming/schedule": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Gaming schedule at JAFAX",
                 "template": "gaming_schedule",
                 "launchDate": 1438401600,
@@ -265,7 +265,7 @@
         },
         "/events/maid_cafe": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Maid Caf&eacute; at JAFAX",
                 "template": "maid_cafe",
                 "launchDate": 1438401600,
@@ -281,7 +281,7 @@
         },
         "/events/media": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Anim&eacute; and Monga at JAFAX",
                 "template": "media",
                 "launchDate": 1438401600,
@@ -297,7 +297,7 @@
         },
         "/events/media/amv_contest": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "AMV Contest at JAFAX",
                 "template": "amv_contest",
                 "launchDate": 1438401600,
@@ -313,7 +313,7 @@
         },
         "/events/media/anime": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Anim&eacute; Screenings at JAFAX",
                 "template": "screenings",
                 "launchDate": 1438401600,
@@ -329,7 +329,7 @@
         },
         "/events/media/manga": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Manga Library at JAFAX",
                 "template": "manga_library",
                 "launchDate": 1438401600,
@@ -361,7 +361,7 @@
         },
         "/events/music": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Music Events at JAFAX",
                 "template": "music",
                 "launchDate": 1438401600,
@@ -377,7 +377,7 @@
         },
         "/events/panels": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Panels at JAFAX",
                 "template": "panels",
                 "launchDate": 1438401600,
@@ -393,7 +393,7 @@
         },
         "/events/panels/registration": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Panel Registration at JAFAX",
                 "template": "panel_registration",
                 "launchDate": 1438401600,
@@ -409,7 +409,7 @@
         },
         "/events/panels/details": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Panel Details at JAFAX",
                 "template": "panel_details",
                 "launchDate": 1438401600,
@@ -425,7 +425,7 @@
         },
         "/events/schedule": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Event Schedule at JAFAX",
                 "template": "schedule",
                 "launchDate": 1438401600,
@@ -441,7 +441,7 @@
         },
         "/events/vendors": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Vendors at JAFAX",
                 "template": "vendors",
                 "launchDate": 1438401600,
@@ -473,7 +473,7 @@
         },
         "/guests/:person": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Guest Bio",
                 "template": "guest_bio",
                 "launchDate": 1438401600,
@@ -489,7 +489,7 @@
         },
         "/location": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "The Location of JAFAX",
                 "template": "location",
                 "launchDate": 1438401600,
@@ -505,7 +505,7 @@
         },
         "/location/hotel": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "The Hotel of JAFAX",
                 "template": "hotel",
                 "launchDate": 1438401600,
@@ -521,7 +521,7 @@
         },
         "/location/venue": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "The Venue of JAFAX",
                 "template": "venue",
                 "launchDate": 1438401600,
@@ -537,7 +537,7 @@
         },
         "/news": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "News &amp; Announcements",
                 "template": "news",
                 "launchDate": 1438401600,
@@ -553,7 +553,7 @@
         },
         "/news/:article": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "News Articles",
                 "template": "article",
                 "launchDate": 1438401600,
@@ -665,7 +665,7 @@
         },
         "/policies/volunteer_guidelines": {
             "get": {
-                "active": "true",
+                "active": "false",
                 "summary": "Volunteer Guidelines",
                 "template": "volunteer_guidelines",
                 "launchDate": 1438401600,

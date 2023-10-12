@@ -35,7 +35,7 @@ package Value::TypeCheck {
     use Type::Utils;
     use Types::Standard -all;
 
-    our $VERSION = '0.0.1';
+    our $VERSION = '0.0.2';
 
     BEGIN {
         use Exporter;
@@ -51,24 +51,56 @@ package Value::TypeCheck {
     our sub type_check :ReturnType(Bool) ($value, $type) {
         my $e = Sys::Error->new();
 
-        my $result = undef;
-        eval {
-            $result = $type->check($value);
-        };
+        my $err_struct = undef;
+        my $result     = undef;
+        my $check_msg  = undef;
 
-        if (! $result) {
-            my $err_struct = {
+        # first, check if the value is an array ref, which means that it has
+        #  potentially TWO or more types.
+        if (Scalar::Util::reftype $type eq 'ARRAY') {
+            # it's an array, so we need to loop through both to set result and
+            #  see if it is what we asked to check for it. IF it is, escape
+            #  and return true, otherwise, throw an exception
+            foreach my $t (@{$type}) {
+                eval {
+                    $result     = $type->check($value);
+                    $check_msg  = $type->get_message($value);
+                };
+                if (! $result) {
+                    next;
+                } else {
+                    return true;
+                }
+            }
+            $err_struct = {
                 'error' => 'Invalid type',
                 'code'  => 22,
                 'type'  => $e->error_string(22)->{'string'},
-                'info'  => "\$value did not match type constraint $type",
+                'info'  => "\$value did not match any requested type constraint @{$type}: $check_msg",
                 'trace' => $e->get_trace(),
-                'msg'   => "Unable to match required data type!"
+                'msg'   => "Unable to match required data types!"
             };
             $e->err_msg($err_struct, __PACKAGE__);
             return false;
         } else {
-            return true;
+            eval {
+                $result = $type->check($value);
+                $check_msg  = $type->get_message($value);
+            };
+            if (! $result) {
+                $err_struct = {
+                    'error' => 'Invalid type',
+                    'code'  => 22,
+                    'type'  => $e->error_string(22)->{'string'},
+                    'info'  => "\$value did not match type constraint $type: $check_msg",
+                    'trace' => $e->get_trace(),
+                    'msg'   => "Unable to match required data type!"
+                };
+                $e->err_msg($err_struct, __PACKAGE__);
+                return false;
+            } else {
+                return true;
+            }
         }
     }
 

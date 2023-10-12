@@ -30,12 +30,12 @@ package Buyo::MkRole {
     use feature "switch";
 
     use boolean;
+    use Feature::Compat::Try;
     use Data::Dumper;
     use Types::Standard -all;
     use Return::Type;
     use Term::ANSIColor;
     use Throw qw(throw classify);
-    use Try::Tiny qw(try catch);
     use Type::Library -base;
     use Type::Utils;
 
@@ -84,51 +84,86 @@ package Buyo::MkRole {
         return $self;
     }
 
-    our sub get_rolelist ($self, $file) {
+    our sub get_site_id :ReturnType(Str) ($self, $directory) {
         type_check($self, Object);
-        type_check($file, Str);
+        type_check($directory, Str);
 
-        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
-        say STDERR "== DEBUGGING ==: File: $file" if $debug eq true;
+        my $site_id = undef;
+        my $settings_text = undef;
+        my $settings_json = "$directory/settings.json";
+        my ($fh, $status) = $fio->open('r', $settings_json);
+        ($settings_text, $status) = $fio->read($fh, -s $fh);
+        $status = $fio->close($fh);
 
-        my @content;
-        if (-f $file) {
-            say STDERR "== DEBUGGING ==: File '$file' exists" if $debug eq true;
-            # first, open role list
-            my $fh = undef;
-            my $fc = undef;
-            my $status = undef;
-            try {
-                # File::IO already throws on error, just need to catch it
-                say STDERR "== DEBUGGING ==: Attempting to open $file" if $debug eq true;
-                ($fh, $status) = $fio->open('r', $file);
-            } catch {
-                $err->err_msg($status, __PACKAGE__);
-            };
-            try {
-                say STDERR "== DEBUGGING ==: Attempting to read file handle" if $debug eq true;
-                ($fc, $status) = $fio->read($fh, -s $fh); 
-            } catch {
-                $err->err_msg($status, __PACKAGE__);
-            };
-            try {
-                say STDERR "== DEBUGGING ==: Attempting to close file handle" if $debug eq true;
-                $status = $fio->close($fh);
-            } catch {
-                $err->err_msg($status, __PACKAGE__);
-            };
-
-            @content = split(/\n/, $fc);
-        }
-
-        return @content;
+        return $site_id;
     }
 
-    our sub check_id_exists ($self, $id) {
+    our sub get_rolelist :ReturnType(ArrayRef) ($self, $directory) {
+        type_check($self, Object);
+        type_check($directory, Str);
+
+        say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
+        say STDERR "== DEBUGGING ==: Roles Directory: $directory" if $debug eq true;
+
+        my @content;
+        my $dh = undef;
+        my $status = undef;
+        # first, get the list of all BUILTIN roles
+        ($dh, $status) = $fio->opendir("$directory/BUILTIN");
+        my $d_entries = undef;
+        ($d_entries, $status) = $fio->readdir($dh, "$directory/BUILTIN",
+                                                {
+                                                    'skip' => ['.', '..'],
+                                                    'fileext_filter' => ['json']
+                                                }
+        );
+        @content = @{$d_entries};
+        say STDERR "== DEBUGGING ==: d-entries: @content";
+        $status = $fio->closedir($dh);
+
+        # now get our site ID
+        my $site_id = $self->get_site_id("$directory/..");
+
+#        if (-f $file) {
+#            say STDERR "== DEBUGGING ==: File '$file' exists" if $debug eq true;
+#            # first, open role list
+#            my $fh = undef;
+#            my $fc = undef;
+#            my $status = undef;
+#            try {
+#                # File::IO already throws on error, just need to catch it
+#                say STDERR "== DEBUGGING ==: Attempting to open $file" if $debug eq true;
+#                ($fh, $status) = $fio->open('r', $file);
+#            } catch {
+#                $err->err_msg($status, __PACKAGE__);
+#            }
+#            try {
+#                say STDERR "== DEBUGGING ==: Attempting to read file handle" if $debug eq true;
+#                ($fc, $status) = $fio->read($fh, -s $fh);
+#            } catch {
+#                $err->err_msg($status, __PACKAGE__);
+#            }
+#            try {
+#                say STDERR "== DEBUGGING ==: Attempting to close file handle" if $debug eq true;
+#                $status = $fio->close($fh);
+#            } catch {
+#                $err->err_msg($status, __PACKAGE__);
+#            }
+#
+#            @content = split(/\n/, $fc);
+#        }
+
+        return \@content;
+    }
+
+    our sub check_id_exist :ReturnType(ArrayRef) ($self, $id) {
+        type_check($self, Object);
+        type_check($id, Int);
+
         say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
 
         my $prefix = $utils->get_application_prefix();
-        my @content = $self->get_rolelist("$prefix/conf.d/roles.lst");
+        my @content = @{$self->get_rolelist("$prefix/conf.d/roles.lst")};
         if (@content) {
             # now that we have the file contents, check for duplicate ids
             # format for account.lst:
@@ -163,12 +198,15 @@ package Buyo::MkRole {
         };
     }
 
-    our sub check_role_exists ($self, $role_name) {
+    our sub check_role_exists :ReturnType(Any, HashRef) ($self, $role_name) {
+        type_check($self, Object);
+        type_check($role_name, Str);
+
         say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
 
         my $prefix = $utils->get_application_prefix();
-        my @content = $self->get_rolelist("$prefix/conf.d/roles.lst");
-        
+        my @content = $self->get_rolelist("$prefix/conf.d/Identity/Roles");
+
         if (@content) {
             # now that we have the file contents, get the last entry's role id number
             # format for account.lst:
@@ -180,28 +218,33 @@ package Buyo::MkRole {
             # 1: UID (numeric user id)
             # 2: description
             foreach my $record (@content) {
+                say STDERR "== DEBUGGING ==: Record: $record" if $debug eq true;
                 my ($role, undef, undef) = split(':', $record);
                 if ($role eq $role_name) {
                     my $trace = $err->get_trace(caller(0));
-                    return false, {
+                    return (false, {
                         'error'         => "Role name not unique",
                         'type'          => 142,
                         'error_string'  => "Role name is not unique",
                         'info'          => "Cannot create requested role '$role_name'",
                         'trace'         => $trace
-                    };
+                    });
                 }
             }
         }
 
-        return true, {
+        return (true, {
             'type' => 'OK',
             'code' => 0,
             'msg'  => 'Successful operation'
-        };
+        });
     }
 
-    our sub verify_options ($self, $role_name, $description) {
+    our sub verify_options :ReturnType(Void) ($self, $role_name, $description) {
+        type_check($self, Object);
+        type_check($role_name, Str);
+        type_check($description, Str);
+
         say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
         if (! defined $role_name) {
             say STDERR "ERROR: Missing role name!";
@@ -219,12 +262,14 @@ package Buyo::MkRole {
         }
     }
 
-    our sub next_available_id ($self) {
+    our sub next_available_id :ReturnType(Int) ($self) {
+        type_check($self, Object);
+
         say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
         my $role_id = undef;
 
         my $prefix = $utils->get_application_prefix();
-        my @content = get_rolelist("$prefix/conf.d/roles.lst");
+        my @content = $self->get_rolelist("$prefix/conf.d/Identity/Roles");
         if (@content) {
             # now that we have the file contents, get the last entry's role id number
             my $last_record = $content[-1];
@@ -238,11 +283,14 @@ package Buyo::MkRole {
         return $role_id;
     }
 
-    our sub get_role_id ($self, $role_name) {
+    our sub get_role_id :ReturnType(Int, Void) ($self, $role_name) {
+        type_check($self, Object);
+        type_check($role_name, Str);
+
         say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
 
         my $prefix = $utils->get_application_prefix();
-        my @content = get_rolelist("$prefix/conf.d/roles.lst");
+        my @content = $self->get_rolelist("$prefix/conf.d/Identity/Roles");
         if (@content) {
             # walk the list and if $role_name matches $record_role_name, return
             # $record_role_id
@@ -257,11 +305,14 @@ package Buyo::MkRole {
         }
     }
 
-    our sub get_role_name ($self, $role_id) {
+    our sub get_role_name :ReturnType(Str, Void) ($self, $role_id) {
+        type_check($self, Object);
+        type_check($role_id, Int);
+
         say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
 
         my $prefix = $utils->get_application_prefix();
-        my @content = get_rolelist("$prefix/conf.d/roles.lst");
+        my @content = $self->get_rolelist("$prefix/conf.d/Identity/Roles");
         if (@content) {
             # walk the list and if $role_name matches $record_role_name, return
             # $record_role_id
@@ -276,7 +327,10 @@ package Buyo::MkRole {
         }
     }
 
-    our sub create_role ($self, $flags) {
+    our sub create_role :ReturnType(Void) ($self, $flags) {
+        type_check($self, Object);
+        type_check($flags, HashRef);
+
         say STDERR "== DEBUGGING ==: Sub ". (caller(0))[3] if $debug eq true;
         my $prefix = $utils->get_application_prefix();
 
@@ -288,27 +342,27 @@ package Buyo::MkRole {
         my $response = undef;
         my $status = undef;
         try {
-            ($fh, $status) = $fio->open('a', "$prefix/conf.d/roles.lst");
-        } catch {
+            ($fh, $status) = $fio->open('a', "$prefix/conf.d/Roles/");
+        } catch ($e) {
             $err->err_msg($status, __PACKAGE__);
-        };
+        }
         try {
             ($response, $status) = $self->check_id_exists($id);
             if ($response ne true) {
                 throw $status->{'error'}, $status;
             }
-        } catch {
+        } catch ($e) {
             $err->err_msg($status, __PACKAGE__);
-        };
+        }
         say $fh "$name:$id:\"$description\"";
         try {
             $status = $fio->close($fh);
-        } catch {
+        } catch ($e) {
             $err->err_msg($status, __PACKAGE__);
-        };
+        }
     }
 
-    our sub show_help {
+    our sub show_help :ReturnType(Void) () {
         say "mkrole: A tool to create roles for the Buyo web application";
         say "=" x 59;
         say "\nOptions:";
@@ -320,7 +374,7 @@ package Buyo::MkRole {
         say "  -h|--help              Display this help text";
     }
 
-    our sub show_version {
+    our sub show_version :ReturnType(Void) () {
         say "mkrole: A tool to create roles for the Buyo web application";
         say "=" x 59;
         say "\nVersion: 0.0.1";

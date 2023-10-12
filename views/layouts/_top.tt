@@ -14,13 +14,13 @@
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" href="[% webroot %]/">Home</a>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <!-- <li class="nav-item" role="presentation">
                             <a class="nav-link" href="[% webroot %]/news">News</a>
-                        </li>
-                        <li class="nav-item" role="presentation">
+                        </li> -->
+                        <!-- <li class="nav-item" role="presentation">
                             <a class="nav-link" href="[% webroot %]/covid">COVID-19</a>
-                        </li>
-                        [% IF guests == "enabled" %]
+                        </li> -->
+                        <!-- [% IF guests == "enabled" %]
                         <li class="dropdown nav-item">
                             <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/guests">Guests</a>
                             <div class="dropdown-menu" role="menu" aria-labelledby="navbarDropdownMenuLink">
@@ -57,15 +57,15 @@
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" href="[% webroot %]/guests">Guests</a>
                         </li>
-                        [% END %]
-                        <li class="dropdown nav-item">
+                        [% END %] -->
+                        <!-- <li class="dropdown nav-item">
                             <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/location">Location</a>
                             <div class="dropdown-menu" role="menu">
                                 <a class="dropdown-item" role="presentation" href="[% webroot %]/location/hotel">Hotel</a>
                                 <a class="dropdown-item" role="presentation" href="[% webroot %]/location/venue">Venue</a>
                             </div>
-                        </li>
-                        <li class="nav-item dropdown">
+                        </li> -->
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/events">Events</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="[% webroot %]/events/artists">Artist Alley</a></li>
@@ -97,8 +97,8 @@
                                 <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/schedule">Events Schedule</a></li>
                                 <li><a class="dropdown-item" role="presentation" href="[% webroot %]/events/vendors">Vendor Hall</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-item dropdown">
+                        </li> -->
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="[% webroot %]/registration">Registration</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="[% webroot %]/registration/attendee">Attendee Registration</a></li>
@@ -107,10 +107,10 @@
                                 <li><a class="dropdown-item" href="[% webroot %]/registration/vendors">Vendor Registration</a></li>
                                 <li><a class="dropdown-item" href="[% webroot %]/registration/volunteers">Volunteer Registration</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-item" role="presentation">
+                        </li> -->
+                        <!-- <li class="nav-item" role="presentation">
                             <a class="nav-link" href="[% webroot %]/about">About</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" href="[% webroot %]/contact">Contact Us</a>
                         </li>

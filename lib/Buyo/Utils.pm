@@ -46,7 +46,7 @@ package Buyo::Utils {
 
     our sub new :ReturnType(Object) ($class, $debug = false) {
         type_check($class, Str);
-        type_check($debug, Bool);
+        # type_check($debug, Bool); # can't check this for now, as Bool isn't compatible with pragma boolean
 
         my $self = {};
 
