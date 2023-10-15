@@ -35,6 +35,8 @@ package main v1.2.21 {
     use FindBin;
     use lib "$FindBin::Bin/../lib";
 
+    use Devel::Leak::Object qw|GLOBAL_bless|;
+
     BEGIN {
         # @INC path manipulation
         use Cwd qw(abs_path);

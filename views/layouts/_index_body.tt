@@ -3,19 +3,26 @@
         <br />
         <center><h1>Welcome!</h1></center>
         <p>
+            Pardon the dust! Our site is in the middle of a redesign!
+        </p>
+        <p>
             Welcome to the home page of West Michigan's longest running
             Japanese animation and culture celebration, JAFAX!
         </p>
         <p>
-            We're looking forward to seeing you join in the fun from Friday,
-            June 9<super>th</super> to Sunday, June 11<super>th</super> of
-            2023 with our amazing guests, artists, and vendors who are all
-            excited to bring anim&eacute;, cosplay, and traditional Japanese
-            culture to the Grand Rapids area!
+            Join us for all the fun from Friday, June 21<super>th</super> to 
+            Sunday, June 23<super>th</super> of 2024 with our amazing guests,
+            artists, and vendors whom are all excited to bring anim&eacute;,
+            cosplay, and traditional Japanese culture to the Grand Rapids area!
         </p>
     </div>
     <br />
-    <center>
+    <div class="container">
+        <div class="col item">
+            <center><img src="[% webroot %]/images/under-construction.png" width=40%></img></center>
+        </div>
+    </div>
+<!--    <center>
         <iframe class="img-carousel" src="[% webroot %]/carousel" frameborder=0></iframe>
     </center>
     <div class="news_carousel">
@@ -63,5 +70,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>

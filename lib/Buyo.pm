@@ -64,6 +64,7 @@ package Buyo {
     use CGI::Carp qw(carp croak fatalsToBrowser);
     use Config::IniFiles;
     use Dancer2;
+    use Devel::Leak::Object qw|GLOBAL_bless|;
     use JSON qw();
     use Data::Dumper;
     use LWP::UserAgent;

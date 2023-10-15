@@ -16,6 +16,7 @@ package Sys::Error {
     use Return::Type;
     use Term::ANSIColor;
     use Types::Standard -all;
+    use Value::TypeCheck;
 
     our $VERSION = "0.0.2";
 
@@ -38,11 +39,13 @@ package Sys::Error {
     }
 
     our sub get_trace :ReturnType(Str) ($self) {
+        type_check($self, Object);
+
         my %struct = (
             'package'    => (caller(2))[0],
             'filename'   => (caller(2))[1],
             'line'       => (caller(2))[2],
-            'subroutine' => (caller(2))[3],
+            'subroutine' => (caller(3))[3],
             'hasargs'    => (caller(2))[4],
             'wantarray'  => (caller(2))[5]
         );
