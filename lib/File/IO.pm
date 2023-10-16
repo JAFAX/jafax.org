@@ -24,7 +24,7 @@ package File::IO {
 
     my $error = undef;
 
-    our $VERSION = "0.0.2";
+    our $VERSION = "0.0.3";
 
     $Throw::level = 1;
 
@@ -101,6 +101,45 @@ package File::IO {
         );
     }
 
+    our sub opendir :ReturnType(FileHandle, HashRef) ($self, $path) {
+        my $dh = undef;
+
+        try {
+            opendir($dh, $path) or throw(
+                "Cannot open directory", {
+                    'trace' => 3,
+                    'type'  => $error->error_string(int $OS_ERROR)->{'symbol'},
+                    'info'  => "Attempted to open $path",
+                    'code'  => int $OS_ERROR,
+                    'msg'   => $error->error_string(int $OS_ERROR)->{'string'}
+                }
+            );
+        } catch {
+            classify(
+                $ARG, {
+                    default => sub {
+                        # rethrow as a fatal
+                        $error->err_msg($ARG, $error->error_string($ARG->{'string'}));
+                        throw $ARG->{'error'}, {
+                            'trace' => 3,
+                            'type'  => $ARG->{'type'},
+                            'code'  => $ARG->{'code'},
+                            'msg'   => $ARG->{'msg'}
+                        };
+                    }
+                }
+            );
+        };
+
+        return ($dh,
+            {
+                'type' => 'OK',
+                'code' => 0,
+                'msg'  => 'Successful operation'
+            }
+        );
+    }
+
     our sub read :ReturnType(Str, HashRef) ($self, $fh, $length) {
         my $content = undef;
         try {
@@ -139,10 +178,92 @@ package File::IO {
         );
     }
 
+    our sub readdir :ReturnType(ArrayRef, HashRef) ($self, $dh, $path, $options) {
+        my @d_entries = ();
+
+        my @tmp_d_entries = ();
+        try {
+            @tmp_d_entries = readdir $dh or throw("Cannot read from dirhandle",
+                {
+                    'trace' => 3,
+                    'type'  => $error->error_string($OS_ERROR)->{'symbol'},
+                    'code'  => $OS_ERROR,
+                    'msg'   => $error->error_string($OS_ERROR)->{'string'}
+                }
+            );
+        } catch {
+            classify(
+                $ARG, {
+                    default => sub {
+                        # rethrow as fatal
+                        $error->err_msg($ARG, $error->error_string($ARG->{'string'}));
+                        throw $ARG->{'error'}, {
+                            'trace' => 3,
+                            'type'  => $ARG->{'type'},
+                            'code'  => $ARG->{'code'},
+                            'msg'   => $ARG->{'msg'}
+                        };
+                    }
+                }
+            );
+        };
+        foreach my $entry (@tmp_d_entries) {
+            if (exists $options->{'skip'}) {
+                next if ($entry ~~ @{$options->{'skip'}});
+            }
+            if (exists $options->{'fileext_filter'}) {
+                next if (! $entry ~~ /^[a-zA-Z0-9-]\.@{$options->{'fileext_filter'}}$/);
+            }
+            push(@d_entries, $entry);
+        }
+
+        return (\@d_entries,
+            {
+                'type' => 'OK',
+                'code' => 0,
+                'msg'  => 'Successful operation'
+            }
+        );
+    }
+
     our sub close :ReturnType(HashRef) ($self, $fh) {
         try {
             close $fh or throw(
                 "Cannot close filehandle", {
+                    'trace' => 3,
+                    'type'  => $error->error_string($OS_ERROR)->{'symbol'},
+                    'code'  => $OS_ERROR,
+                    'msg'   => $error->error_string($OS_ERROR)->{'string'}
+                }
+            );
+        } catch {
+            classify(
+                $ARG, {
+                    default => sub {
+                        # rethrow as fatal
+                        $error->err_msg($ARG, $error->error_string($ARG->{'string'}));
+                        throw $ARG->{'error'}, {
+                            'trace' => 3,
+                            'type'  => $ARG->{'type'},
+                            'code'  => $ARG->{'code'},
+                            'msg'   => $ARG->{'msg'}
+                        };
+                    }
+                }
+            );
+        };
+
+        return {
+            'type' => 'OK',
+            'code' => 0,
+            'msg'  => 'Successful operation'
+        };
+    }
+
+    our sub closedir :ReturnType(HashRef) ($self, $dh) {
+        try {
+            closedir $dh or throw(
+                "Cannot close dirhandle", {
                     'trace' => 3,
                     'type'  => $error->error_string($OS_ERROR)->{'symbol'},
                     'code'  => $OS_ERROR,
